@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-09-13 16:48:14
+/* Smarty version 3.1.30, created on 2017-09-13 17:18:52
   from "D:\phpStudy\WWW\GitHub\cy\theme\en_us\consultation.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_59b8f0ceeb8208_50174216',
+  'unifunc' => 'content_59b8f7fc070e13_08940314',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '8e1d2d9dd52f5ec500f3fa4fec85693e75e30ae9' => 
     array (
       0 => 'D:\\phpStudy\\WWW\\GitHub\\cy\\theme\\en_us\\consultation.html',
-      1 => 1505292492,
+      1 => 1505294328,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:inc/footer.tpl' => 1,
   ),
 ),false)) {
-function content_59b8f0ceeb8208_50174216 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59b8f7fc070e13_08940314 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:inc/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -52,12 +52,12 @@ $_smarty_tpl->_subTemplateRender("file:inc/header.tpl", $_smarty_tpl->cache_id, 
 					<div class="rc-row">
 						<p class="h-cont">Name<span class="error"></span></p>
 						<div class="s-w">
-							<label>First Name*</label><input type="text" name="firstname" class="firstname" id="firstname">
-							<label>Last Name*</label><input type="text" name="lastname" class="lastname" id="lastname">	
+							<label>First Name<sub class="red">*</sub></label><input type="text" name="firstname" class="firstname" id="firstname">
+							<label>Last Name<sub class="red">*</sub></label><input type="text" name="lastname" class="lastname" id="lastname">	
 						</div>					
 					</div>
 					<div class="rc-row">
-						<p class="h-cont">Appellation*<span class="error"></span></p>
+						<p class="h-cont">Appellation<sub class="red">*</sub><span class="error"></span></p>
 						<div class="s-w slabel">
 							<input type="radio" checked name="sex" value="0" id="female"><label for="female">Mr.</label>
 							<input type="radio" name="sex" value="1" id="male"><label for="male">Mrs./Ms.</label>	
@@ -100,7 +100,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
 						<input type="text" name="telephone" id="telephone">
 					</div>
 					<div class="rc-row">
-						<p class="h-cont">E-mail*<span class="error"></span></p>
+						<p class="h-cont">E-mail<sub class="red">*</sub><span class="error"></span></p>
 						<input type="text" name="email" id="email">
 					</div>
 					<div class="rc-row">
@@ -113,7 +113,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
 					</div>
 					<div>
 						<div class="btominfor-cont">
-							<p>* Mandatory fields.</p> 
+							<p><sub class="red">*</sub> Mandatory fields.</p> 
 							<p class="error"></p>
 						</div>
 						<!-- <p>Convert within 24 hours </p> -->

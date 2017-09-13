@@ -22,7 +22,7 @@
                                         <p>{$site.tel}</p>
                                         <p>{$site.email}</p>
                                     </div>  
-                                    <p class="dianji"><a href="{$url.guestbook}">Guestbook</a></p>
+                                    <p class="dianji"><a href="{$url.guestbook}">Message</a></p>
                                 </div>
                         </div>
                     </div>

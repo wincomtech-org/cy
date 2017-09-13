@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-09-13 15:59:47
+/* Smarty version 3.1.30, created on 2017-09-13 17:23:51
   from "D:\phpStudy\WWW\GitHub\cy\theme\en_us\inc\footer.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_59b8e573604537_80165711',
+  'unifunc' => 'content_59b8f927dbfd06_61867177',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '97ebeaa8015cdf8e45e1805e86a896db4851ac67' => 
     array (
       0 => 'D:\\phpStudy\\WWW\\GitHub\\cy\\theme\\en_us\\inc\\footer.tpl',
-      1 => 1505287722,
+      1 => 1505294627,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_59b8e573604537_80165711 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59b8f927dbfd06_61867177 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!-- 底部 -->
     <footer class="footer">
@@ -71,8 +71,7 @@ echo $_smarty_tpl->tpl_vars['srcval']->value;
                     </div>
                 </div>
                 <div class="footer_share">
-                    <span>Share
-                    </span>
+                    <span>Share</span>
                     <div class="footer_share_btn">
                         <div class="bshare-custom">
                             <a title="ShareToFacebook" class="bshare-facebook"></a>
@@ -80,8 +79,9 @@ echo $_smarty_tpl->tpl_vars['srcval']->value;
                             <a title="ShareToTwitter" class="bshare-twitter"></a>
                             <a title="ShareToNetvibes" class="bshare-netvibes"></a>
                             <?php echo '<script'; ?>
- type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=2&amp;lang=zh"><?php echo '</script'; ?>
+ type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/button.js#style=-1&amp;uuid=&amp;pophcol=2&amp;lang=zh"><?php echo '</script'; ?>
 >
+                            <a class="bshareDiv" onclick="javascript:return false;"></a>
                             <?php echo '<script'; ?>
  type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"><?php echo '</script'; ?>
 >

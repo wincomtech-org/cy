@@ -510,3 +510,5 @@ html body .notes_con img{width:auto;vertical-align:middle;width:auto !important;
     html body .notes_con img{width:19px;}
 }
 
+/*红色星号**/
+sub.red{color: red;vertical-align: middle;margin-left: 3px;}

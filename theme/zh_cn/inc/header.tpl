@@ -20,13 +20,13 @@
             <div class="header-connect-button">
                 <a href="tel:15375299292"></a>
                 <div class="index_contact_us_con" style="display:none;">
-                    <h6><span class="img"><img src="img/iphone1.png"></span>Contact Us</h6>
+                    <h6><span class="img"><img src="img/iphone1.png"></span>联系我们</h6>
                     <div class="content"></div>
                     <div class="lianxi">
                         <p>{$site.tel}</p>
                         <p>{$site.email}</p>
                     </div>  
-                    <p class="dianji"><a href="{$url.guestbook}">Guestbook</a></p>
+                    <p class="dianji"><a href="{$url.guestbook}">留言</a></p>
                 </div>
             </div>
             <div class="header-message-button" ><a href="{$url.guestbook}"></a></div>

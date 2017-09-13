@@ -611,3 +611,5 @@ html body .notes_con{z-index:1;}
 }
 
 
+/***红色星号*/
+sub.red{color: red;vertical-align: middle;margin-left: 3px;}

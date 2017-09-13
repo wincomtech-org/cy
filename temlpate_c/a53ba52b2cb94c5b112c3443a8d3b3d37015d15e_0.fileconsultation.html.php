@@ -1,5 +1,32 @@
-{include file='inc/header.tpl'}
-<link rel="stylesheet" href="css/yhstyle.css">
+<?php
+/* Smarty version 3.1.30, created on 2017-09-13 17:20:10
+  from "D:\phpStudy\WWW\GitHub\cy\theme\zh_cn\consultation.html" */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.30',
+  'unifunc' => 'content_59b8f84ad86816_34625408',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    'a53ba52b2cb94c5b112c3443a8d3b3d37015d15e' => 
+    array (
+      0 => 'D:\\phpStudy\\WWW\\GitHub\\cy\\theme\\zh_cn\\consultation.html',
+      1 => 1505294404,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+    'file:inc/header.tpl' => 1,
+    'file:inc/footer.tpl' => 1,
+  ),
+),false)) {
+function content_59b8f84ad86816_34625408 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->_subTemplateRender("file:inc/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+
+<link rel="stylesheet" href="http://tx.ext2/theme/zh_cn/css/yhstyle.css">
 
 <div class="main-body">
 	<div class="landingPage">
@@ -12,7 +39,8 @@
 				<p class="infor-cont">感谢您关注成运医疗，如果您有任何问题或建议请直接电话或邮件我们或在下表留言！</p>
 			</div>
 			<div class="rc-container">
-				<form action="{$url.guestbook}" method="post" class="rc-form" id="cons-form">
+				<form action="<?php echo $_smarty_tpl->tpl_vars['url']->value['guestbook'];?>
+" method="post" class="rc-form" id="cons-form">
 					<div class="rc-row">
 						<p class="h-cont">收件人<span class="error">err</span></p>
 						<select name="toname">
@@ -42,9 +70,20 @@
 						<p class="h-cont">国家<span class="error"></span></p>
 						<select name="country">
 							<option value="">请选择</option>
-							<!-- {foreach $countrys $v} -->
-							<option value="{$v.cat_id}">{$v.cat_name}</option>
-							<!-- {/foreach} -->
+							<?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['countrys']->value, 'v');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['v']->value) {
+?>
+							<option value="<?php echo $_smarty_tpl->tpl_vars['v']->value['cat_id'];?>
+"><?php echo $_smarty_tpl->tpl_vars['v']->value['cat_name'];?>
+</option>
+							<?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
+?>
+
 						</select>
 					</div>
 					<!-- <div class="rc-row">
@@ -77,7 +116,8 @@
 							<p class="error"></p>
 						</div>
 						<input type="hidden" name="rec" value="insert">
-						<input type="hidden" name="token" value="{$token}">
+						<input type="hidden" name="token" value="<?php echo $_smarty_tpl->tpl_vars['token']->value;?>
+">
 						<input type="submit" value="发送表格" id="consultate">
 					</div>
 				</form>
@@ -87,5 +127,9 @@
 </div>
 
 <!-- 底部 -->
-<script src="js/yhvalidate.js"></script>
-<!-- {include file='inc/footer.tpl'} -->
+<?php echo '<script'; ?>
+ src="http://tx.ext2/theme/zh_cn/js/yhvalidate.js"><?php echo '</script'; ?>
+>
+<?php $_smarty_tpl->_subTemplateRender("file:inc/footer.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+}
+}

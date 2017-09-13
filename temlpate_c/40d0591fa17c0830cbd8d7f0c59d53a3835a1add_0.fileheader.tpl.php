@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-09-13 15:54:58
+/* Smarty version 3.1.30, created on 2017-09-13 17:14:11
   from "D:\phpStudy\WWW\GitHub\cy\theme\zh_cn\inc\header.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_59b8e4527e7540_79755693',
+  'unifunc' => 'content_59b8f6e339ad04_59143298',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '40d0591fa17c0830cbd8d7f0c59d53a3835a1add' => 
     array (
       0 => 'D:\\phpStudy\\WWW\\GitHub\\cy\\theme\\zh_cn\\inc\\header.tpl',
-      1 => 1505287723,
+      1 => 1505293910,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:inc/head.tpl' => 1,
   ),
 ),false)) {
-function content_59b8e4527e7540_79755693 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59b8f6e339ad04_59143298 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
 <?php $_smarty_tpl->_subTemplateRender("file:inc/head.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
@@ -56,7 +56,7 @@ function content_59b8e4527e7540_79755693 (Smarty_Internal_Template $_smarty_tpl)
             <div class="header-connect-button">
                 <a href="tel:15375299292"></a>
                 <div class="index_contact_us_con" style="display:none;">
-                    <h6><span class="img"><img src="http://tx.ext2/theme/zh_cn/img/iphone1.png"></span>Contact Us</h6>
+                    <h6><span class="img"><img src="http://tx.ext2/theme/zh_cn/img/iphone1.png"></span>联系我们</h6>
                     <div class="content"></div>
                     <div class="lianxi">
                         <p><?php echo $_smarty_tpl->tpl_vars['site']->value['tel'];?>
@@ -65,7 +65,7 @@ function content_59b8e4527e7540_79755693 (Smarty_Internal_Template $_smarty_tpl)
 </p>
                     </div>  
                     <p class="dianji"><a href="<?php echo $_smarty_tpl->tpl_vars['url']->value['guestbook'];?>
-">Guestbook</a></p>
+">留言</a></p>
                 </div>
             </div>
             <div class="header-message-button" ><a href="<?php echo $_smarty_tpl->tpl_vars['url']->value['guestbook'];?>

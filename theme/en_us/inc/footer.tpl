@@ -29,15 +29,15 @@
                     </div>
                 </div>
                 <div class="footer_share">
-                    <span>Share
-                    </span>
+                    <span>Share</span>
                     <div class="footer_share_btn">
                         <div class="bshare-custom">
                             <a title="ShareToFacebook" class="bshare-facebook"></a>
                             <a title="ShareToLinkedIn" class="bshare-linkedin"></a>
                             <a title="ShareToTwitter" class="bshare-twitter"></a>
                             <a title="ShareToNetvibes" class="bshare-netvibes"></a>
-                            <script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=2&amp;lang=zh"></script>
+                            <script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/button.js#style=-1&amp;uuid=&amp;pophcol=2&amp;lang=zh"></script>
+                            <a class="bshareDiv" onclick="javascript:return false;"></a>
                             <script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script>
                         </div>
                     </div>

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-09-13 15:59:47
+/* Smarty version 3.1.30, created on 2017-09-13 17:03:41
   from "D:\phpStudy\WWW\GitHub\cy\theme\en_us\inc\header.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_59b8e5735a6923_83109779',
+  'unifunc' => 'content_59b8f46d7c1358_31868948',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0f6618e37fd391de65e06bc611fcc78b0963b892' => 
     array (
       0 => 'D:\\phpStudy\\WWW\\GitHub\\cy\\theme\\en_us\\inc\\header.tpl',
-      1 => 1505287722,
+      1 => 1505293398,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:inc/head.tpl' => 1,
   ),
 ),false)) {
-function content_59b8e5735a6923_83109779 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59b8f46d7c1358_31868948 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
 <?php $_smarty_tpl->_subTemplateRender("file:inc/head.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
@@ -62,7 +62,7 @@ function content_59b8e5735a6923_83109779 (Smarty_Internal_Template $_smarty_tpl)
 </p>
                                     </div>  
                                     <p class="dianji"><a href="<?php echo $_smarty_tpl->tpl_vars['url']->value['guestbook'];?>
-">Guestbook</a></p>
+">Message</a></p>
                                 </div>
                         </div>
                     </div>
