@@ -1,0 +1,75 @@
+{include file="inc/header.tpl"}	
+<!--主题内容-->
+<div class="main-body">
+	<div class="banner_img"><img src="img/bannerbig.jpg" alt=""></div>
+	<!-- 产品详情页 -->
+	<div class="about">
+		<div  class="about_content pad-t-30">
+			<!--标题-->
+			<div class="about_content_tit">
+				<div class="about_conTit_div">
+					<h3><span>{$product.name}</span></h3>
+				</div>		
+			</div>
+			<!--内容-->
+			<div class="prodcts_detail_content notes_img">
+				<div class="prodcts_detail_tit">
+					<div class="img ">
+						<a href="javascript:void(0);"><img src="{$product.thumb}" alt=""></a>
+					</div>
+					<div class="txt">
+						<h6>概述：</h6>
+						<p>{$product.description|default:'暂无……'}</p>
+					</div>
+					<div class="clear"></div>
+				</div>
+
+				<div class="products_standard mg-t-30 pad-t-30 pad-b-30">
+					<div class="about_content_tit unline">
+						<div class="about_conTit_div">
+							<h3><span>规格</span></h3>
+						</div>		
+					</div>
+					<!-- {if $defined || $product.model} -->
+					<table style="table-layout:fixed;">
+						<thead>
+							<tr>
+								<th width="40%">属性名</th>
+								<th width="60%">属性值</th>
+							</tr>
+						</thead>
+						<tbody>
+							<!-- {if $product.model} --><tr><td>型号</td><td>{$product.model}</td></tr><!-- {/if} -->
+							<!-- {foreach $defined $d} -->
+							<tr>
+								<td>{$d.dkey}</td>
+								<td colspan="2">{$d.dval}</td>
+							</tr>
+							<!-- {/foreach} -->
+						</tbody>
+					</table>
+					<!-- {else} -->
+						<div class="no_source">暂无……</div>
+					<!-- {/if} -->
+					<form action="order.php?rec=insert" method="post" accept-charset="{$site.dou_charset}">
+						<input type="hidden" name="product_id" value="{$product.id}">
+						<input type="hidden" name="number" value="1">
+						<p><input class="btn-view-red" type="submit" value="加入购物车"></p>
+					</form>
+				</div>
+
+				<div class="no_source">{$product.content}</div>
+				<div class="notes">
+					<div class="notes_con">
+						<a href="guestbook.php">
+							<span class="txt">Contact Us</span>
+							<span class="img"><img src="img/iphone.png" alt=""></span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- {include file="inc/footer.tpl"} -->

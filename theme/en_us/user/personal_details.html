@@ -1,0 +1,53 @@
+{include file='inc/header.tpl'}
+<link rel="stylesheet" href="css/personal.css">
+<script src="js/personal.js"></script>
+
+<div class="main-body">
+	<div class="w9">
+		<div class="head-wrapper">
+			<div class="borderbg"></div>
+			<span class="head-cont">Modify password</span>
+		</div>
+		<div class="clear"></div>
+		<div class="per-main1">
+			<form action="" method="get" onsubmit="return send()">
+				<div class="per-m1">
+					<div class="per-m1-l lf">
+						<p class="per-m1-lc"><span class="per-m1-lt">Nickname：</span><input type="text" name="nickname" value="{$user_info.nickname}" placeholder="Please fill in the nick name" id="nkname" onblur="ff1()" /></p>
+						<div id="o1"></div>
+
+						<p class="per-m1-lc"><span class="per-m1-lt">Real name：</span><input type="text" name="truename" value="{$user_info.truename}" placeholder="Please fill in the real name" id="rlname" onblur="ff2()" /></p>
+						<div id="o2"></div>
+
+						<p class="per-m1-lc"><span class="per-m1-lt">Telephone：</span><input type="text" name="phone" value="{$user_info.telephone}" placeholder="Please fill in the mobile phone number" id="pe" onblur="ff3()" /></p>
+						<div id="o3"></div>
+
+						<p class="per-m1-lc">
+							<span class="per-m1-lt">Contact：</span>
+							<input type="text" name="contact" value="{$user_info.contact}" placeholder="请填写联系人" id="contact" onblur="ff5()" />
+						</p>
+						<div id="o4"></div>
+
+						<p class="per-m1-lc"><span class="per-m1-lt">Address：</span><input type="text" name="addr" placeholder="Please fill in the address" id="address" /></p>
+						<div id="o5"></div>
+					</div>
+					<div class="per-m1-r rt">
+						<div id="preview" class="per-m1-rc">{if $user_info.thumb}<img src="{$user_info.thumb}">{/if}</div>
+						<span class="btn upload"> 
+							Click on the new avatar 
+							<input type="file" class="upload_pic" onchange="preview(this)" name="avatar">
+						</span>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="per-sub">
+					<input type="hidden" name="op" value="1">
+					<input type="hidden" name="token" value="{$token}">
+					<input type="submit" value="Submit">
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<!-- 底部 -->
+<!-- {include file='inc/footer.tpl'}  -->

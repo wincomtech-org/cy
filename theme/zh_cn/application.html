@@ -1,0 +1,50 @@
+{include file='inc/header.tpl'}
+<link rel="stylesheet" href="css/yhstyle.css">
+	<div class="main-body">
+		 <div class="landingPage">
+			<div class="main-wrapper">
+				<div class="page-top"><img src="img/pagetop.jpg" alt="" title=""></div>
+				<div class="wide-container">
+					<div class="head-wrapper">
+						<div class="borderbg"></div>
+						<span class="head-cont">应用</span>
+					</div>
+					<div class="slogan-img notes_img">
+						<img src="img/appli.jpg" alt="Make Health Visible" title="Make Health Visible">
+						<div class="notes">
+							<div class="notes_con">
+								<a href="http://cy.wincomtech.cn/guestbook.php">
+									<span class="txt">Contact Us</span>
+									<span class="img"><img src="img/iphone.png" alt=""></span>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="rowlist-cont">
+						<span><img src="img/appli1-1.jpg" alt=""></span>
+						<span>优势：安全可靠</span>
+						<span><img src="img/appli1-1.jpg" alt=""></span>
+						<span>优势：简单快捷</span>
+						<span><img src="img/appli1-1.jpg" alt=""></span>
+						<span>优势：售后服务</span>
+					</div>
+					<div>
+						<ul class="columnlist-cont">
+							<!-- {foreach $apply_list $v} -->
+							<li>
+								<span><img src="{$v.image}" alt=""></span>
+								<span>
+									<p class="cont-title">{$v.title}</p>
+									<div class="cont-charac">{$v.description}</div>
+									<a href="{$v.url}">【详情】</a>
+								</span>
+							</li>
+							<!-- {/foreach} -->
+						</ul>
+					</div>
+				</div>
+			</div>
+		 </div>
+	</div>
+
+<!-- {include file='inc/footer.tpl'} -->

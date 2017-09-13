@@ -1,0 +1,22 @@
+{include file='inc/header.tpl'}
+<link rel="stylesheet" type="text/css" href="css/main.css">
+
+<div class="main-body">
+    <div class="about">
+        <div  class="about_content">
+            <!--标题-->
+            <div class="about_content_tit">
+                <div class="about_conTit_div">
+                    <h3><span>Article Category</span></h3>
+                </div>
+            </div>
+            <!--内容-->
+            <div class="aboutCon_content">
+                No Resource …… （<a href="{$site.root_url}">try change url</a>）
+            </div>
+        </div>
+    </div>  
+</div>
+
+<script src="js/easySlider.min.js"></script>
+<!-- {include file='inc/footer.tpl'} -->

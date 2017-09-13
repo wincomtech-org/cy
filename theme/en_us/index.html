@@ -1,0 +1,123 @@
+{include file='inc/header.tpl'}
+<link rel="stylesheet" href="css/main.css">
+<script src="js/ZoomPic.js"></script>
+<!--主题内容-->
+<div class="main-body main-body1">
+	<!--主题内容-->
+	<div class="landingPage">
+		<!--轮播-->
+		<!-- {include file='inc/slide_show.tpl'} -->
+		<!--内容-->
+		<!--{if $recommend_article}-->
+		<section class="gridPromo-module">
+			<ul class="gridPromo-items">
+				<!-- {foreach $recommend_article as $k=>$v} -->
+				<!-- {if $k eq 0} -->
+				<li class="gridPromo-items-item">
+					<div class="gridSpanTwoPromo">
+						<div class="gridSpanTwoPromo-media">
+							<div class="figure-image"><span class="Image"><img src="{$v.thumb}" alt=""></span></div>
+						</div>
+						<div class="gridSpanTwoPromo-text">
+							<div class="gridSpanTwoPromo-tit">
+								<span class="MediaPromo-category"><a href="{$v.url}">{$v.title|truncate:26:"..."}</a></span>
+								<span class="MediaPromo-date">{$v.add_time}</span>
+							</div>
+							<p>{$v.description}</p>
+							<a href="{$v.url}" class="more">View more</a>
+						</div>
+					</div>
+				</li>
+				<!-- {else} -->
+				<li class="gridPromo-items-item">
+					<div class="MediaPromo">
+						<div class="MediaPromo-media">
+							<a href="{$v.image}"><span class="Image"><img style="width:100%" src="{$v.thumb}" alt=""></span></a> 
+						</div>
+						<div class="MediaPromo-category-wrapper">
+							<span class="MediaPromo-category"><a href="{$v.url}">{$v.title|truncate:26:"..."}</a></span>
+							<span class="MediaPromo-date">{$v.add_time}</span>
+						</div>
+						<div class="MediaPromo-title">
+							<a href="{$v.url}">{$v.description}</a>
+						</div>
+					</div>
+				</li>
+				<!-- {/if} -->
+				<!-- {/foreach} -->
+			</ul>
+		</section>
+		<!-- {/if} -->
+
+		<!--轮播-->
+		<section class="lunbo">
+			<div>
+				<div id="focus_Box">
+					<span class="prev">&nbsp;</span>
+					<span class="next">&nbsp;</span>
+					<ul>
+						<!-- {foreach $show_list2 $v} -->
+						<li>
+							<a href="{$v.show_link}"><img width="445" height="308" alt="{$v.show_name}" src="{$v.show_img}" /></a>
+						</li>
+						<!-- {/foreach} -->
+					</ul>
+				</div>
+			</div>
+		</section>
+		<section class="lunbo2">
+			<div id="slider">
+				<ul class="slides clearfix">
+					<!-- {foreach $show_list2 $v} -->
+					<li><img class="responsive" src="{$v.show_img}"></li>
+					<!-- {/foreach} -->
+				</ul>
+				<!-- <ul class="controls">
+					<li><img src="img/prev.png" alt="previous"></li>
+					<li><img src="img/next.png" alt="next"></li>
+				</ul> -->
+				<ul class="pagination">
+					<!-- {foreach $show_list2 as $k=>$v} -->
+					<li class="{if $k eq 0}active{/if}"></li>
+					<!-- {/foreach} -->
+				</ul>
+			</div>
+		</section>
+
+		<!--公司活动/关于我们-->
+		<section class="activeAbout">
+			<div class="activeAbout-content">
+				<div class="active-content">
+					<div class="active-content-tit">Company Event</div>
+					<div class="active-con">
+						<ul>
+							<!-- {foreach $article_activity $v} -->
+							<li>
+								<div class="active-img">
+									<a href="{$v.url}"><img src="{$v.image}" alt=""></a>
+								</div>
+								<div class="activeContent">
+									<a href="{$v.url}">{$v.description}</a>
+								</div>
+								<div class="active-date">{$v.add_time}</div>
+							</li>
+							<!-- {/foreach} -->
+						</ul>
+					</div>
+				</div>
+				<div class="about-content">
+					<div class="about-content-tit">About Us</div>
+					<div class="about-con">
+						<!-- {if $index.image} --><div class="about-img"><img src="{$index['image']}" alt=""></div><!-- {/if} -->
+						<div class="about-zi">
+							<a href="{$index['about_link']}">{$index['about_content']}</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+
+<!-- footer -->
+<script src="js/easySlider.min.js"></script>
+<!-- {include file="inc/footer.tpl"} -->

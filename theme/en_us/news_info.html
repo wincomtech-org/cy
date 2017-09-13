@@ -1,0 +1,37 @@
+{include file='inc/header.tpl'}
+<link rel="stylesheet" type="text/css" href="css/main.css">
+
+<!--主题内容-->
+<div class="main-body">
+	<!--关于我们-->
+	<div class="about">
+		<div  class="about_content">
+			<!--标题-->
+			<div class="about_content_tit">
+				<div class="about_conTit_div">
+					<h3><span>{$article.title}</span></h3>
+				</div>
+			</div>
+			<!--内容-->
+			<div class="aboutCon_content mg-30">
+				<div class="aboutCon_content_con">
+					{$article.content}
+				</div>
+				<div class="aboutCon_content_img mg-t-30 notes_img">
+					<img src="img/lb1.jpg" alt="">
+					<div class="notes">
+							<div class="notes_con">
+								<a href="{$url.guestbook}">
+									<span class="txt">Contact Us</span>
+									<span class="img"><img src="img/iphone.png" alt=""></span>
+								</a>
+							</div>
+					</div>	
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="js/easySlider.min.js"></script>
+<!-- {include file='inc/footer.tpl'} -->

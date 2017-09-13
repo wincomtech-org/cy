@@ -1,0 +1,66 @@
+{include file='inc/header.tpl'}
+<!-- 通用搜索页 -->
+
+<div class="main-body">
+    <!-- <div class="banner_img"></div> -->
+    <div class="about">
+        <div  class="about_content">
+            <div class="about_content_tit">
+                <div class="about_conTit_div">
+                    <h3><span>搜索结果</span></h3>
+                </div>
+            </div>
+            <table width="100%"  align="center" style="font-size: 16px;line-height: 30px;padding-bottom:40px;">
+            <!--{if $module eq 'article'}-->
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>标题</th>
+                        <th>分类</th>
+                        <th>点击量</th>
+                        <th>发布时间</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody align="center">
+                    <!-- {foreach $search_list $v} -->
+                    <tr>
+                        <td>{$v.id}</td>
+                        <td><a href="{$v.url}">{$v.title}</a></td>
+                        <td>{$v.cat_name}</td>
+                        <td>{$v.click}</td>
+                        <td>{$v.add_time_short}</td>
+                        <td>查看</td>
+                    </tr>
+                    <!-- {/foreach} -->
+                </tbody>
+            <!-- {else} -->
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>名称</th>
+                        <th>分类</th>
+                        <th>发布时间</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody align="center">
+                    <!-- {foreach $search_list $v} -->
+                    <tr>
+                        <td>{$v.id}</td>
+                        <td><a href="{$v.url}">{$v.name}</a></td>
+                        <td>{$v.cat_name}</td>
+                        <td>{$v.add_time_short}</td>
+                        <td>查看</td>
+                    </tr>
+                    <!-- {/foreach} -->
+                </tbody>
+            <!-- {/if} -->
+            </table>
+
+            <!-- {include file='inc/pager.tpl'} -->
+        </div>
+    </div>
+</div>
+
+<!-- {include file='inc/footer.tpl'} -->

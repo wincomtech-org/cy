@@ -1,0 +1,99 @@
+{include file="inc/header.tpl"}
+<link rel="stylesheet" type="text/css" href="css/main.css">
+
+<!--主题内容-->
+<div class="main-body">
+	<div class="about">
+		<div  class="about_content">
+			<!--标题-->
+			<div class="about_content_tit">
+				<div class="about_conTit_div">
+					<h3><span>Research & Development</span></h3>
+				</div>
+			</div>
+			<!--内容-->
+			<div class="aboutCon_content">
+				<div class="aboutCon_content_img notes_img">
+					<img src="img/3.jpg" alt="">
+					<div class="notes">
+						<div class="notes_con">
+							<a href="{$url.guestbook}">
+								<span class="txt">Contact Us</span>
+								<span class="img"><img src="img/iphone.png" alt=""></span>
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="news_items_new reserDeve">
+					<ul>
+						<!-- {foreach $teams $v} -->
+						<li class="news_items_new_item">
+							<div class="img"><a href=""><img src="img/nt1.jpg" alt=""></a></div>
+							<div class="txt">
+								<dl>
+									<dt>{$v.role}：</dt>
+									<dd>{$v.title}</dd>
+								</dl>
+							</div>
+						</li>
+						<!-- {/foreach} -->
+						<div class="clear"></div>
+					</ul>
+				</div>
+				<!-- 最新研发成果 -->
+				<div class="the_latest_news mg-t-30 ">
+					<!-- 标题 -->
+					<div class="the_latest_news_tit mg-b-30">
+						<div >
+							<h3><span>Latest research and development results</span></h3>
+						</div>
+					</div>
+					<!-- 内容 -->
+					<div class="the_latest_news_con "> 
+						<ul>
+							<!-- {foreach $fresh_research $v} -->
+							<li>
+								<div class="img"><img src="img/2.png" alt=""></div>
+								<div class="txt">
+									<span class="date">{$v.add_time}</span>
+									<p>{$v.title}</p>
+									<a href="javascript:void(0);">{$v.description}</a>
+								</div>
+							</li>
+							<!-- {/foreach} -->
+							<div class="clear"></div>
+						</ul>
+					</div>
+				</div>
+
+				<!-- 成果列表 -->
+				<div class="the_latest_news mg-t-30 ">
+					<!-- 标题 -->
+					<div class="the_latest_news_tit mg-b-30">
+						<div >
+							<h3><span>Results List</span></h3>
+						</div>
+					</div>
+					<!-- 内容 -->
+					<div class="the_latest_news_con newsInfo"> 
+						<ul>
+							<!-- {foreach $research_list as $k=>$v} -->
+							<li>
+								<div class="txt">
+									<span class="order">{$k+1}</span>
+									<a href="javascript:void(0);">{$v.title}</a>
+								</div>
+							</li>
+							<!-- {/foreach} -->
+							<div class="clear"></div>
+						</ul>
+						{include file='inc/pager.tpl'}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	{include file="inc/footer.tpl"}
+</div>
+
+<script src="js/easySlider.min.js"></script>

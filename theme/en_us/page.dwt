@@ -1,0 +1,24 @@
+{include file='inc/header.tpl'}
+<link rel="stylesheet" type="text/css" href="css/main.css">
+
+<div class="main-body">
+    <div class="about">
+        <div  class="about_content">
+            <div class="about_content_tit">
+                <div class="about_conTit_div">
+                    <h3><span>{$page.page_name}</span></h3>
+                </div>
+            </div>
+            <!--内容-->
+            <div class="aboutCon_content">
+                <!-- {if $page.content} -->
+                {$page.content}
+                <!-- {else} -->
+                No Resource …… （<a href="{$site.root_url}">try change url</a>）
+                <!-- {/if} -->
+            </div>
+        </div>
+    </div>  
+</div>
+
+<!-- {include file='inc/footer.tpl'} -->

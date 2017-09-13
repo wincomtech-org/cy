@@ -1,0 +1,86 @@
+{include file="inc/header.tpl"}
+	<!--主题内容-->
+	<div class="main-body">
+		<!--主题内容-->
+		<div class="banner_img"><img src="img/bannerbig.jpg" alt=""></div>
+		 <div class="about">
+			<div  class="about_content">
+				<!--标题-->
+				<div class="about_content_tit">
+					<div class="about_conTit_div">
+						<h3><span>{$cate_info.cat_name}</span></h3>		
+					</div>		
+				</div>
+				<!--内容-->
+				<div class="aboutCon_content">
+					<!-- {if $cate_info.thumb} -->
+					<div class="aboutCon_content_img notes_img">
+						<img src="{$cate_info.thumb}" alt="">
+						<div class="notes">
+							<div class="notes_con">
+								<a href="guestbook.php">
+									<span class="txt">Contact Us</span>
+									<span class="img"><img src="img/iphone.png" alt=""></span>
+								</a>
+							</div>
+						</div>		
+					</div>
+					<!-- {/if} -->
+					<div class="news_items_new">
+						<ul>
+							<li class="news_items_new_item">
+								<div class="img"><a href="javascript:void(1);"><img src="img/nt1.jpg" alt=""></a></div>
+								<div class="txt"><a href="javascript:void(1);">优势：安全可靠</a></div>
+							</li>
+							<li class="news_items_new_item">
+								<div class="img"><a href="javascript:void(1);"><img src="img/nt1.jpg" alt=""></a></div>
+								<div class="txt"><a href="javascript:void(1);">优势：简单快捷</a></div>
+							</li>
+							<li class="news_items_new_item">
+								<div class="img"><a href="javascript:void(1);"><img src="img/nt1.jpg" alt=""></a></div>
+								<div class="txt"><a href="javascript:void(1);">优势：售后服务</a></div>
+							</li>
+							<div class="clear"></div>
+						</ul>
+					</div>
+					<!-- 产品列表 -->
+					<div class="product_item">
+						<ul>
+							<!-- {foreach $product_category $v} -->
+							<!-- {if $site.cypro && in_array($v.cat_id,array(4,22))} -->
+							<li class="product_item_items">
+								<div class="img">
+									<a href="{$v.url}"><img src="{if $v.thumb}{$v.thumb}{else}images/nopic_s_100x100.jpg{/if}" alt=""></a>
+								</div>
+								<div class="txt">
+									<h3><a href="{$v.url}">{$v.cat_name}</a></h3>
+									<div class="products_content">
+										<p>{$v.description}</p>
+									</div>
+									<p class="view"><a href="{$v.url}">查看分类</a></p>
+								</div>
+							</li>
+							<!-- {elseif !$site.cypro && !in_array($v.cat_id,array(4,22))} -->
+							<li class="product_item_items">
+								<div class="img">
+									<a href="{$v.url}"><img src="{if $v.thumb}{$v.thumb}{else}images/nopic_s_100x100.jpg{/if}" alt=""></a>
+								</div>
+								<div class="txt">
+									<h3><a href="{$v.url}">{$v.cat_name}</a></h3>
+									<div class="products_content">
+										<p>{$v.description}</p>
+									</div>
+									<p class="view"><a href="{$v.url}">查看分类</a></p>
+								</div>
+							</li>
+							<!-- {/if} -->
+							<!-- {/foreach} -->
+						</ul>
+						{include file='inc/pager.tpl'}
+					</div>			
+				</div>		
+			</div>		
+		</div>
+	</div>
+
+<!-- {include file="inc/footer.tpl"} -->

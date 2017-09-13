@@ -1,0 +1,39 @@
+{include file='inc/header.tpl'}
+<link rel="stylesheet" href="css/main.css">
+<!--主题内容-->
+<div class="main-body">
+	<!-- 产品上级分类信息 -->
+	<div class="about">
+		<div class="about_content">
+			<!--标题-->
+			<div class="about_content_tit">
+				<div class="about_conTit_div">
+					<h3><span>{$cate_info.cat_name}</span></h3>
+				</div>
+			</div>
+			<!--简介-->
+			<div class="prodcts_detail_content">
+				<div class="the_latest_news mg-t-30 ">
+					<!--分类对应产品-->
+					<div class="product_endoscope">
+						<ul class="product_endoscope_item">
+							<!-- {foreach $product_list $v} -->
+							<li class="product_endoscope_items">
+								<div class="img"><a href="{$v.url}"><img src="{$v.thumb}" alt="image"></a></div>
+								<div class="txt"><a href="{$v.url}">{$v.name}</a></div>
+							</li>
+							<!-- {foreachelse} -->
+							<li>No Resource……</li>
+							<!-- {/foreach} -->
+							<div class="clear"></div>
+						</ul>
+						{include file='inc/pager.tpl'}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="js/easySlider.min.js"></script>
+<!-- {include file="inc/footer.tpl"} -->

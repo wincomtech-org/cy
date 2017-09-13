@@ -1,0 +1,57 @@
+{include file='inc/header.tpl'}
+<link rel="stylesheet" href="css/personal.css">
+
+<div class="main-body">
+	<div class="w9">
+		<div class="head-wrapper">
+			<div class="borderbg"></div>
+			<span class="head-cont">Personal Center</span>
+		</div>
+		<div class="clear"></div>
+		<div class="per-main1">
+			<div class="per-m1">
+				<div class="per-m1-l lf">
+					<p class="per-m1-lc"><span class="per-m1-lt">nick name：</span><span class="per-m1-lr">{$user_info.nickname}</span></p>
+					<p class="per-m1-lc"><span class="per-m1-lt">real name：</span><span class="per-m1-lr">{$user_info.truename}</span></p>
+					<p class="per-m1-lc"><span class="per-m1-lt">phone：</span><span class="per-m1-lr">{$user_info.telephone}</span></p>
+					<p class="per-m1-lc"><span class="per-m1-lt">mailbox：</span><span class="per-m1-lr">{$user_info.email}</span></p>
+					<p class="per-m1-lc"><span class="per-m1-lt">address：</span><span class="per-m1-lr">{$user_info.address}</span></p>
+				</div>
+				<div id="ff" class="per-m1-r rt">
+					<div class="per-m1-rc"><img src="img/m-t.jpg"></div>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div class="per-m1f">
+				<a class="per-m1f-l  lf" href="{$url.edit}">Modify personal data</a>
+				<a class="per-m1f-r  rt" href="{$url.password}">Modify login password</a>
+				<div class="clear"></div>
+			</div>
+		</div>
+		<div class="per-m2">
+			<div class="head-wrapper">
+				<div class="borderbg1"></div>
+				<span class="head-cont">Shopping Cart</span>
+			</div>
+			<ul class="per-list">
+				<!-- {foreach $carts.list $v} -->
+				<li class="per-li"><a href="#"><img src="img/p-1.jpg" /></a>
+					<p>Name:<span>{$v.name}</span></p><p>Model:<span>{$v.model}</span></p><p>Price:<span>{$v.price}</span></p>
+				</li>
+				<!-- {foreachelse} -->
+				<li><p>暂无……</p></li>
+				<!-- {/foreach} -->
+				<div class="clear"></div>
+			</ul>
+			<div class="per-m">
+				<!-- {if $carts} -->
+				<a class="per-more" href="{$url.order}">View More >></a>
+				<!-- {else} -->
+				<a class="per-more" href="{$url.product}">Product Choice >></a>
+				<!-- {/if} -->
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 底部 -->
+<!-- {include file='inc/footer.tpl'}  -->

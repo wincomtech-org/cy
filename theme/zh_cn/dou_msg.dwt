@@ -1,0 +1,33 @@
+{include file="inc/header.tpl"}
+<!--{if $jumpurl}-->
+<meta http-equiv="refresh" content="{$time};URL={$jumpurl}" />
+<!--{else}-->
+<script type="text/javascript">
+    {literal}
+    function go() {
+        window.history.go(-1);
+    }
+    {/literal}
+    setTimeout("go()", {$time}*1000);
+</script>
+<!--{/if}-->
+
+<div class="main-body">
+    <div class="landingPage">
+        <div class="main-wrapper">
+            <div class="wide-pc">
+                <div id="wrapper">
+                    <div id="douMsg" class="wrap about_content">
+                        <dl style="padding:30px 0;">
+                            <dt style="font-size:16px;text-align:center;line-height: 30px;">{$text}</dt>
+                            <dd style="font-size:16px;text-align:center;line-height: 30px;">{$cue}<a href="{if $jumpurl}{$jumpurl}{else}javascript:history.go(-1);{/if}">{$lang.dou_msg_back}</a></dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 底部 -->
+<!--{include file='inc/footer.tpl'}-->

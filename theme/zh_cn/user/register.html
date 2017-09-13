@@ -1,0 +1,103 @@
+{include file='inc/header.tpl'}
+<link rel="stylesheet" href="css/yhstyle.css">
+<script src="js/global.js"></script>
+
+<!--注册-->
+<div class="main-body">
+	 <div class="landingPage">
+		<div class="main-wrapper">
+			<div class="wide-pc">
+				<div class="head-wrapper">
+					<div class="borderbg"></div>
+					<span class="head-cont">注册新用户账号</span>
+				</div>
+				<p class="infor-cont">注册后可在浏览HUGER网站时得到更多的访问权限信息我们将需要您提供一些个人信息请填写以下带*的部分。</p>
+			</div>
+		<div class="rc-container">
+			<form action="{$url.register}" method="POST" class="rc-form" id="reg-form">
+				<div class="rc-row">
+					<p class="h-cont">公司名称*<span class="error"></span></p>
+					<input type="text" name="company" id="company">
+				</div>
+				<div class="rc-row">
+					<p class="h-cont">所属领域*<span class="error"></span></p>
+					<select name="industry">
+						<option value="0">请选择</option>
+						<!-- {foreach $industrys $v} -->
+						<option value="{$v.id}">{$v.title}</option>
+						<!-- {/foreach} -->
+					</select>
+				</div>
+				<div class="rc-row">
+					<p class="h-cont">职位*<span class="error"></span></p>
+					<select name="post">
+						<option value="0">请选择</option>
+						<!-- {foreach $posts $v} -->
+						<option value="{$v.id}">{$v.title}</option>
+						<!-- {/foreach} -->
+					</select>
+				</div>
+
+				<div class="rc-row">
+					<p class="h-cont">国家*<span class="error"></span></p>
+					<select name="country">
+						<option value="0">请选择</option>
+						<!-- {foreach $countrys $v} -->
+						<option value="{$v.cat_id}">{$v.cat_name}</option>
+						<!-- {/foreach} -->
+					</select>
+				</div>
+				<div class="rc-row">
+					<p class="h-cont">姓名*<span class="error"></span></p>
+					<div class="s-w">
+						<label>姓氏</label><input type="text" name="lastname" class="lastname" id="lastname">
+						<label>名字</label><input type="text" name="firstname" class="firstname" id="firstname">
+					</div>					
+				</div>
+				<div class="rc-row">
+					<p class="h-cont">{$lang.user_sex}*<span class="error"></span></p>
+					<div class="s-w slabel">
+						<input type="radio" name="sex" value="0" checked id="female"><label for="female">{$lang.user_woman}</label>
+						<input type="radio" name="sex" value="1" id="male"><label for="male">{$lang.user_man}</label>	
+					</div>					
+				</div>
+				<div class="rc-row">
+					<p class="h-cont">电话*<span class="error"></span></p>
+					<input type="text" name="telephone" id="telephone">
+				</div>
+				<div class="rc-row">
+					<p class="h-cont">邮箱*<span class="error"></span></p>
+					<input type="text" name="email" id="email">
+				</div>
+				<div class="rc-row">
+					<p class="h-cont">设置密码*<span class="error"></span></p>
+					<input type="password" name="password" id="password">
+				</div>
+				<div class="rc-row">
+					<p class="h-cont">确认密码*<span class="error"></span></p>
+					<input type="password" name="password_confirm" id="repassword">
+				</div>
+
+				<div>
+					<div class="btominfor-cont">
+						<p>* 注意：请输入有效的邮箱地址</p>
+						<p class="btominfor2">通过电子邮件</p>
+						<p class="btominfor3">
+							<input type="checkbox" checked id="rule">我已阅读
+							<a href="javascript:void(0);">数据相关保护条款</a>并在此声明同意其对于使用我的数据信息的规定
+						</p> 
+					</div>
+					<p class="error">error</p>
+					<input type="hidden" name="op" value="1">
+					<input type="hidden" name="token" value="{$token}">
+					<input type="submit" value="提交表单" id="register">
+				</div>
+			</form>
+		</div>
+		</div>
+	 </div>
+</div>
+
+<!-- 底部 -->
+<script src="js/yhvalidate.js"></script>
+<!-- {include file='inc/footer.tpl'}  -->

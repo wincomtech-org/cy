@@ -1,0 +1,18 @@
+{include file='inc/header.tpl'}
+
+<div class="main-body">
+    <div class="about">
+        <div  class="about_content  pad-b-30">
+            <div class="about_content_tit">
+                <div class="about_conTit_div">
+                <h3><span>文章分类页</span></h3>
+                </div>
+            </div>
+            <div class="aboutCon_content">
+                暂无资源…… （<a href="{$site.root_url}">点击跳转</a>）
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- {include file='inc/footer.tpl'} -->

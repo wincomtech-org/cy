@@ -1,0 +1,49 @@
+{include file='inc/header.tpl'}
+<link rel="stylesheet" href="css/yhstyle.css">
+<!--主题内容-->
+<div class="main-body">
+	<!--application-->
+	<div class="main-wrapper">
+		<div class="wide-container">
+			<div class="head-wrapper">
+				<div class="borderbg"></div>
+				<span class="head-cont">Application</span>
+			</div>
+			<div class="slogan-img notes_img">
+				<img src="img/appli.jpg" alt="Make Health Visible" title="Make Health Visible">
+				<div class="notes">
+					<div class="notes_con">
+						<a href="{$url.guestbook}">
+							<span class="txt">Contact Us</span>
+							<span class="img"><img src="img/iphone.png" alt=""></span>
+						</a>
+					</div>
+				</div>	
+			</div>
+			<div class="rowlist-cont">
+				<span><img src="img/appli1-1.jpg" alt=""></span>
+				<span>Advantage: safe and reliable</span>
+				<span><img src="img/appli1-1.jpg" alt=""></span>
+				<span>Advantage: simple and quick</span>
+				<span><img src="img/appli1-1.jpg" alt=""></span>
+				<span>Advantage: after-sales service</span>
+			</div>
+			<div>
+				<ul class="columnlist-cont">
+					<!-- {foreach $apply_list $v} -->
+					<li>
+						<span><img src="{$v.image}" alt=""></span>
+						<span>
+							<p class="cont-title">{$v.title}</p>
+							<div class="cont-charac">{$v.description}</div>
+							<a href="{$v.url}">[MORE]</a>
+						</span>
+					</li>
+					<!-- {/foreach} -->
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<script src="js/yhvalidate.js"></script>
+<!-- {include file="inc/footer.tpl"} -->

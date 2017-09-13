@@ -1,0 +1,53 @@
+{include file='inc/header.tpl'}
+<link rel="stylesheet" href="css/yhstyle.css">
+<script src="js/global.js"></script>
+
+<!--登录-->
+<div class="main-body">
+	<div class="landingPage">
+		<div class="main-wrapper">
+			<div class="wide-pc">
+				<div class="head-wrapper">
+					<div class="borderbg"></div>
+					<span class="head-cont">登录</span>
+				</div>
+				<p class="infor-cont"></p>
+				<div class="lr-container">
+					<form action="{$url.login}" method="post" class="lr-form" id="loginform">
+						<label for="email">邮箱:</label>
+						<input type="text" id="email" class="email" name="email" value="915273691@qq.com" placeholder="请输入邮箱">
+						<p class="error"></p>
+
+						<label for="password">密码:</label>
+						<input type="password" id="password" class="password" name="password" value="111111" placeholder="请输入密码">
+						<p class="error"></p>
+						
+						<!-- {if $site.captcha} -->
+						<label for="captcha">验证码:</label>
+						<input type="text" id="captcha" class="captcha" name="captcha" placeholder="请输入验证码">
+						<a href="javascript:refreshimage();" class="captcha"><img id="vcode" src="captcha.php" alt=""></a>
+						<!-- <img onclick="refreshimage()" id="vcode" src="captcha.php" alt=""> -->
+						<p class="error"></p>
+						<!-- {else} -->
+						<input type="hidden" id="captcha" class="captcha" name="captcha" value="captcha">
+						<!-- {/if} -->
+
+						<div class="lr-link">
+							<a href="{$url.register}">注册</a>
+							<a href="{$url.password_reset}">忘记密码?</a>
+							<a href="{$url.guestbook}">咨询</a>
+						</div>
+						
+						<input type="hidden" name="op" value="1">
+						<input type="hidden" name="token" value="{$token}">
+						<input type="hidden" name="return_url" value="{$return_url}">
+						<input type="submit" value="登录" class="signup" id="login">
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 底部 -->
+<script src="js/yhvalidate.js"></script>
+<!-- {include file='inc/footer.tpl'}  -->

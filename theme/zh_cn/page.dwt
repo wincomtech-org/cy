@@ -1,0 +1,27 @@
+{include file='inc/header.tpl'}
+    
+    <!--主题内容-->
+    <div class="main-body">
+        <div class="banner_img"><img src="img/bannerbig.jpg" alt=""></div>
+        <!--关于我们-->
+        <div class="about">
+            <div  class="about_content  pad-b-30">
+                <!--标题-->
+                <div class="about_content_tit">
+                    <div class="about_conTit_div">
+                        <h3><span>{$page.page_name}</span></h3>
+                    </div>
+                </div>
+                <!--内容-->
+                <div class="aboutCon_content">
+                    <!-- {if $page.content} -->
+                    {$page.content}
+                    <!-- {else} -->
+                    暂无资源…… （<a href="{$site.root_url}">点击跳转</a>）
+                    <!-- {/if} -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!--{include file='inc/footer.tpl'}-->

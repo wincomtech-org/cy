@@ -1,0 +1,15 @@
+cache/
+template_c/
+images/apply/
+images/article/
+images/article_category/
+images/case/
+images/diy/
+images/job/
+images/page/
+images/product/
+images/product_category/
+images/research/
+include/memory.class.php
+include/init.php
+data/config.php

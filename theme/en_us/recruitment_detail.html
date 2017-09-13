@@ -1,0 +1,27 @@
+{include file='inc/header.tpl'}
+<link rel="stylesheet" href="css/yhstyle.css">
+
+<!--主题内容-->
+<div class="main-body">
+	<div class="main-wrapper">
+		<div class="wide-container">
+			<div class="head-wrapper">
+				<div class="borderbg"></div>
+				<span class="head-cont">Join Us</span>
+			</div>
+			<div class="slogan-img">
+				<img src="img/recruit.jpg" alt="Join us" title="Join us">
+			</div>
+			<div class="head-wrapper">
+				<div class="borderbg1"></div>
+				<span class="head-cont1">{$job.title}</span>
+			</div>
+			<div class="redetail-cont">
+				{$job.content|default:'暂无……'}
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="js/yhvalidate.js"></script>
+<!-- {include file='inc/footer.tpl'} -->

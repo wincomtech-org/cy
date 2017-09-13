@@ -1,0 +1,66 @@
+<!--{include file='inc/header.tpl'}-->
+<link rel="stylesheet" href="css/personal.css">
+<script src="js/personal.js"></script>
+
+<div class="main-body">
+	<div class="w9">
+		<div class="head-wrapper">
+			<div class="borderbg2"></div>
+			<span class="head-cont">修改个人资料</span>
+		</div>
+		<div class="clear"></div>
+		<div class="per-main1">
+			<form action="{$url.edit}" method="post" enctype="multipart/form-data" id="usereditform" onsubmit="return send()">
+				<div class="per-m1">
+					<div class="per-m1-l lf">
+						<p class="per-m1-lc">
+							<span class="per-m1-lt">昵称：</span>
+							<input type="text" name="nickname" value="{$user_info.nickname}" placeholder="请填写昵称" id="nkname" onblur="ff1()" />
+						</p>
+						<div id="o1"></div>
+
+						<p class="per-m1-lc">
+							<span class="per-m1-lt">真实姓名：</span>
+							<input type="text" name="truename" value="{$user_info.truename}" placeholder="请填写真实姓名" id="rlname" onblur="ff2()" />
+						</p>
+						<div id="o2"></div>
+
+						<p class="per-m1-lc">
+							<span class="per-m1-lt">手机号码：</span>
+							<input type="text" name="telephone" value="{$user_info.telephone}" placeholder="请填写手机号码" id="pe" onblur="ff3()" />
+						</p>
+						<div id="o3"></div>
+
+						<p class="per-m1-lc">
+							<span class="per-m1-lt">联系人：</span>
+							<input type="text" name="contact" value="{$user_info.contact}" placeholder="请填写联系人" id="contact" onblur="ff5()" />
+						</p>
+						<div id="o4"></div>
+						<p class="per-m1-lc">
+							<span class="per-m1-lt">收货地址：</span>
+							<input type="text" name="address" value="{$user_info.address}" placeholder="请填写收货地址" id="address" />
+						</p>
+						<div id="o5"></div>
+					</div>
+					<div class="per-m1-r rt">
+						<div id="preview" class="per-m1-rc">{if $user_info.thumb}<img src="{$user_info.thumb}">{/if}</div>
+						<span class="btn upload"> 
+							点击上传新头像
+							<input type="file" class="upload_pic" onchange="preview(this)" name="avatar">
+						</span>
+					</div>
+					<div class="clear"></div>
+				</div>
+
+				<div class="per-sub">
+					<input type="hidden" name="op" value="1">
+					<input type="hidden" name="token" value="{$token}">
+					<input type="submit" value="提交">
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<!-- 底部 -->
+<!-- {include file='inc/footer.tpl'} -->

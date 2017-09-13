@@ -1,0 +1,75 @@
+{include file='inc/header.tpl'}
+<!-- 通用搜索页 -->
+
+<div class="main-body">
+    <div class="about">
+        <div  class="about_content">
+            <div class="about_content_tit">
+                <div class="about_conTit_div">
+                    <h3><span>Search Result</span></h3>
+                </div>
+            </div>
+            <table width="100%"  align="center" style="font-size: 16px;line-height: 30px;padding-bottom:40px;">
+            <!--{if $module eq 'article'}-->
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Category</th>
+                        <th>Click</th>
+                        <th>Addtime</th>
+                        <th>Handle</th>
+                    </tr>
+                </thead>
+                <tbody align="center">
+                    <!-- {foreach $search_list $v} -->
+                    <tr>
+                        <td>{$v.id}</td>
+                        <td><a href="{$v.url}">{$v.title}</a></td>
+                        <td>{$v.cat_name}</td>
+                        <td>{$v.click}</td>
+                        <td>{$v.add_time_short}</td>
+                        <td>View</td>
+                    </tr>
+                    <!-- {/foreach} -->
+                </tbody>
+            <!-- {else} -->
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Category</th>
+                        <th>Addtime</th>
+                        <th>Handle</th>
+                    </tr>
+                </thead>
+                <tbody align="center">
+                    <!-- {foreach $search_list $v} -->
+                    <tr>
+                        <td>{$v.id}</td>
+                        <td><a href="{$v.url}">{$v.name}</a></td>
+                        <td>{$v.cat_name}</td>
+                        <td>{$v.add_time_short}</td>
+                        <td>View</td>
+                    </tr>
+                    <!-- {/foreach} -->
+                </tbody>
+            <!-- {/if} -->
+            </table>
+
+            <!-- {include file='inc/pager.tpl'} -->
+
+            <!-- <div class="aboutCon_content mg-t-30 mg-b-30">
+                <div class="aboutCon_content_con">
+                    <h3>{$article.description}</h3>
+                    <div>{$article.content}</div>
+                </div>
+                <div class="aboutCon_content_img mg-t-30">
+                    <img src="{$article.image}" alt="">
+                </div>
+            </div> -->
+        </div>
+    </div>
+</div>
+
+<!-- {include file='inc/footer.tpl'} -->

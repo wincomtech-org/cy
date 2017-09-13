@@ -1,0 +1,74 @@
+{include file="inc/header.tpl"}
+<link rel="stylesheet" href="css/main.css">
+<!--主题内容-->
+<div class="main-body">
+	<!-- 产品详情页 -->
+	<div class="about">
+		<div  class="about_content">
+			<!--标题-->
+			<div class="about_content_tit">
+				<div class="about_conTit_div">
+					<h3><span>{$product.name}</span></h3>		
+				</div>		
+			</div>
+			<!--内容-->
+			<div class="prodcts_detail_content ">
+				<div class="prodcts_detail_tit notes_img">
+					<div class="img">
+						<a href="javascript:void(0);"><img src="{$product.thumb}" alt=""></a>
+					</div>
+					<div class="txt">
+						<h6>Summary:</h6>
+						<p>{$product.description}</p>
+					</div>
+					<div class="notes">
+							<div class="notes_con">
+								<a href="{$url.guestbook}">
+									<span class="txt">Contact Us</span>
+									<span class="img"><img src="img/iphone.png" alt=""></span>
+								</a>
+							</div>
+						</div>
+					<div class="clear"></div>
+				</div>
+
+				<div class="products_standard mg-t-30n pad-b-30 pad-t-30">
+					<div class="about_content_tit unline">
+						<div class="about_conTit_div">
+							<h3><span>Standard</span></h3>		
+						</div>		
+					</div>
+					<!-- {if $defined} -->
+					<table style="table-layout:fixed;">
+						<thead>
+							<tr>
+								<th style='width:40%'>Attr.Name</th>
+								<th style='width:60%'>Attr.Value</th>
+							</tr>
+						</thead>
+						<tbody>
+							<!-- {foreach $defined $d} -->
+							<tr>
+								<td>{$d.dkey}</td>
+								<td colspan="2">{$d.dval}</td>
+							</tr>
+							<!-- {/foreach} -->
+						</tbody>
+					</table>
+					<!-- {else} -->
+						<div class="no_source">No Resource ……</div>
+					<!-- {/if} -->
+					<form action="order.php?rec=insert" method="post" accept-charset="{$site.dou_charset}">
+						<input type="hidden" name="product_id" value="{$product.id}">
+						<input type="hidden" name="number" value="1">
+						<p><input class="btn-view-red" type="submit" value="Add Cart"></p>
+					</form>
+				</div>
+
+				<div class="no_source">{$product.content}</div>
+			</div>
+		</div>		
+	</div>	
+
+<script src="js/easySlider.min.js"></script>
+<!-- {include file="inc/footer.tpl"} -->

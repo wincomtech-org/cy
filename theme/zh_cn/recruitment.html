@@ -1,0 +1,49 @@
+{include file='inc/header.tpl'}
+<link rel="stylesheet" href="css/yhstyle.css">
+
+<!--主题内容-->
+<div class="main-body">
+	<!--主题内容-->
+	 <div class="landingPage">
+		<div class="main-wrapper">
+			<div class="page-top"><img src="img/pagetop.jpg" alt="" title=""></div>				
+			<div class="main-wrapper">
+				<div class="wide-container">
+					<div class="head-wrapper">
+						<div class="borderbg"></div>
+						<span class="head-cont">加入我们</span>
+					</div>
+					<!-- <div class="slogan-img">
+						<img src="img/recruit.jpg" alt="加入我们" title="加入我们">
+					</div> -->
+					<div class="head-wrapper">
+						<div class="borderbg1"></div>
+						<span class="head-cont1">职位招聘</span>
+					</div>
+					<div class="table-container">
+						<table class="recruit-table">
+							<tr>
+								<th>职位名称</th>
+								<th>职位类别</th>
+								<th>招聘人数</th>
+								<th>工作地点</th>
+								<th>发布时间</th>
+							</tr>
+							<!-- {foreach $job_list $job} -->
+							<tr>
+								<td><a href="{$job.url}">{$job.title}</a></td>
+								<td>{$job.type}</td>
+								<td>{$job.num}</td>
+								<td>{$job.addr}</td>
+								<td>{$job.add_time}</td>
+							</tr>
+							<!-- {/foreach} -->
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	 </div>
+</div>
+
+<!-- {include file='inc/footer.tpl'} -->

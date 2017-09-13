@@ -1,0 +1,45 @@
+{include file='inc/header.tpl'}
+<link rel="stylesheet" href="css/personal.css">
+
+<div class="main-body">
+	<div class="w12">
+		<div class="head-wrapper">
+			<div class="borderbg"></div>
+			<span class="head-cont">购物车</span>
+		</div>
+		<div class="clear"></div>
+		<form action="" method="post" name="usercartform">
+			<ul class="per-list">
+				<!-- {foreach $carts.list $v} -->
+				<li class="per-li" >
+					<span><img src="{$v.image}" /></span>
+					<p>名称：<span>{$v.name}</span></p>
+					<p>型号：<span>{$v.model}</span></p>
+					<p>价格：<span>{$v.price}</span>。&nbsp;&nbsp;数量：<span>{$v.number}</span></p>
+					<label for="cart_check{$v.id}"></label>
+					<input type="checkbox" name="ids[]" value="{$v.id}" id="cart_check{$v.id}" />
+					<input type="hidden" name="nids[]" value="{$v.number}">
+				</li>
+				<!-- {foreachelse} -->
+				<p>暂无……</p>
+				<!-- {/foreach} -->
+				<div class="clear"></div>
+			</ul>
+			<!-- {if $carts} -->
+			<div class="sp_button">
+				<div class="sp_b_left lf">
+					<input type="button" value="导出Excel" onclick="usercartform.action='{$url.order}&op=excel';usercartform.submit();"/>
+					<input type="button" value="删除" onclick="usercartform.action='{$url.order}&op=cancel';usercartform.submit();" />
+					<input type="button" value="永久保存数据" onclick="usercartform.action='{$url.order}&op=save';usercartform.submit();" />
+				</div>
+				<div class="rt">{include file="inc/pager.tpl"}</div>
+				<div class="clear"></div>
+			</div>
+			<!-- {/if} -->
+		</form>
+	</div>
+</div>
+
+<!-- 底部 -->
+<script src="js/personal.js"></script>
+<!-- {include file='inc/footer.tpl'} -->

@@ -1,0 +1,59 @@
+{include file='inc/header.tpl'}
+<link rel="stylesheet" href="css/personal.css">
+
+<div class="main-body">
+	<div class="w12">
+		<div class="head-wrapper">
+			<div class="borderbg"></div>
+			<span class="head-cont">个人中心</span>
+		</div>
+		<div class="clear"></div>
+		<div class="per-main1">
+			<div class="per-m1">
+				<div class="per-m1-l lf">
+					<p class="per-m1-lc"><span class="per-m1-lt">昵称：</span><span class="per-m1-lr">{$user_info.nickname}</span></p>
+					<p class="per-m1-lc"><span class="per-m1-lt">真实姓名：</span><span class="per-m1-lr">{$user_info.truename}</span></p>
+					<p class="per-m1-lc"><span class="per-m1-lt">手机号码：</span><span class="per-m1-lr">{$user_info.telephone}</span></p>
+					<p class="per-m1-lc"><span class="per-m1-lt">联系邮箱：</span><span class="per-m1-lr">{$user_info.email}</span></p>
+					<p class="per-m1-lc"><span class="per-m1-lt">收货地址：</span><span class="per-m1-lr">{$user_info.address}</span></p>
+				</div>
+				<div id="ff" class="per-m1-r rt">
+					<div class="per-m1-rc"><img src="img/m-t.jpg"></div>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div class="per-m1f">
+				<a class="per-m1f-l lf" href="{$url.edit}">修改个人资料</a>
+				<a class="per-m1f-r rt" href="{$url.password}">修改登录密码</a>
+				<div class="clear"></div>
+			</div>
+		</div>
+		<div class="per-m2">
+			<div class="head-wrapper">
+				<div class="borderbg1"></div>
+				<span class="head-cont">购物车</span>
+			</div>
+			<ul class="per-list">
+				<!-- {foreach $carts.list $v} -->
+				<li class="per-li">
+					<a href="{$v.url}"><img src="{$v.image}" /></a>
+					<p>名称：<span>{$v.name}</span></p><p>型号：<span>xxxx</span></p><p>价格：<span>{$v.price}</span></p>
+				</li>
+				<!-- {foreachelse} -->
+				<li><p>暂无……</p></li>
+				<!-- {/foreach} -->
+				<div class="clear"></div>
+			</ul>
+			<div class="per-m">
+			<!-- {if $carts} -->
+				<a class="per-more" href="{$url.order}">>> 查看更多</a>
+			<!-- {else} -->
+				<a class="per-more" href="{$url.product}">>> 挑选产品</a>
+			<!-- {/if} -->
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- 底部 -->
+<!-- {include file='inc/footer.tpl'}  -->

@@ -1,0 +1,53 @@
+{include file='inc/header.tpl'}
+<link rel="stylesheet" href="css/yhstyle.css">
+<script src="js/global.js"></script>
+
+<!--主题内容-->
+<div class="main-body">
+	<!--login-->
+	<div class="main-wrapper">
+		<div class="wide-container">
+			<div class="head-wrapper">
+				<div class="borderbg"></div>
+				<span class="head-cont">Login</span>
+			</div>
+			<p class="infor-cont"></p>
+			<div class="lr-container">
+				<form action="{$url.login}" method="post" class="lr-form" id="loginform">
+					<label for="email">Email:</label>
+					<input type="text" id="email" class="email" name="email" value="915273691@qq.com" placeholder="please input your email">
+					<p class="error"></p>
+
+					<label for="password">Password:</label>
+					<input type="password" id="password" class="password" name="password" value="111111" placeholder="please input a password"> 
+					<p class="error"></p>
+
+					<!-- {if $site.captcha} -->
+					<label for="captcha">Captcha:</label>
+					<input type="text" id="captcha" class="captcha" name="captcha" placeholder="please input captcha">
+					<a href="javascript:refreshimage();" class="captcha"><img id="vcode" src="captcha.php" alt=""></a>
+					<p class="error"></p>
+					<!-- {else} -->
+					<input type="hidden" id="captcha" class="captcha" name="captcha" value="captcha">
+					<!-- {/if} -->
+
+					<div class="lr-link">
+						<a href="{$url.register}">Register</a>
+						<a href="{$url.password_reset}">Forget?</a>
+						<a href="{$url.guestbook}">Consultation</a>
+					</div>
+
+					<input type="hidden" name="op" value="1">
+					<input type="hidden" name="token" value="{$token}">
+					<input type="hidden" name="return_url" value="{$return_url}">
+					<input type="submit" value="Login" class="signup" id="login">
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- 底部 -->
+<script src="js/yhvalidate.js"></script>
+<script src="js/easySlider.min.js"></script>
+<!-- {include file='inc/footer.tpl'}  -->
