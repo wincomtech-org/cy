@@ -1,5 +1,32 @@
-{include file='inc/header.tpl'}
-<link rel="stylesheet" href="css/yhstyle.css">
+<?php
+/* Smarty version 3.1.30, created on 2017-09-13 16:48:14
+  from "D:\phpStudy\WWW\GitHub\cy\theme\en_us\consultation.html" */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.30',
+  'unifunc' => 'content_59b8f0ceeb8208_50174216',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '8e1d2d9dd52f5ec500f3fa4fec85693e75e30ae9' => 
+    array (
+      0 => 'D:\\phpStudy\\WWW\\GitHub\\cy\\theme\\en_us\\consultation.html',
+      1 => 1505292492,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+    'file:inc/header.tpl' => 1,
+    'file:inc/footer.tpl' => 1,
+  ),
+),false)) {
+function content_59b8f0ceeb8208_50174216 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->_subTemplateRender("file:inc/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+
+<link rel="stylesheet" href="http://tx.ext2/theme/en_us/css/yhstyle.css">
 
 	<!--主题内容-->
 	<div class="main-body">		
@@ -13,7 +40,8 @@
 				<p class="infor-cont">Thank you for your interest in Huger. If you have any comments or questions, please fill in the contact form below.</p>
 			</div>
 			<div class="rc-container">
-				<form action="{$url.guestbook}" method="post" class="rc-form" id="cons-form">
+				<form action="<?php echo $_smarty_tpl->tpl_vars['url']->value['guestbook'];?>
+" method="post" class="rc-form" id="cons-form">
 					<div class="rc-row">
 						<p class="h-cont">Subject<span class="error">err</span></p>
 						<select name="toname">
@@ -43,9 +71,20 @@
 						<p class="h-cont">Country<span class="error"></span></p>
 						<select name="country">
 							<option value="0">please select</option>
-							<!-- {foreach $countrys $v} -->
-							<option value="{$v.cat_id}">{$v.unique_id}</option>
-							<!-- {/foreach} -->
+							<?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['countrys']->value, 'v');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['v']->value) {
+?>
+							<option value="<?php echo $_smarty_tpl->tpl_vars['v']->value['cat_id'];?>
+"><?php echo $_smarty_tpl->tpl_vars['v']->value['unique_id'];?>
+</option>
+							<?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
+?>
+
 						</select>
 					</div>
 					<!-- <div class="rc-row">
@@ -79,14 +118,23 @@
 						</div>
 						<!-- <p>Convert within 24 hours </p> -->
 						<input type="hidden" name="rec" value="insert">
-						<input type="hidden" name="token" value="{$token}">
+						<input type="hidden" name="token" value="<?php echo $_smarty_tpl->tpl_vars['token']->value;?>
+">
 						<input type="submit" value="Submit" id="consultate">
 					</div>
 				</form>
 			</div>
 		</div>
-		{include file='inc/footer.tpl'}
+		<?php $_smarty_tpl->_subTemplateRender("file:inc/footer.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+
 	</div>
 <!-- 底部 -->
-<script src="js/yhvalidate.js"></script>
-<script src="js/easySlider.min.js"></script>
+<?php echo '<script'; ?>
+ src="http://tx.ext2/theme/en_us/js/yhvalidate.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ src="http://tx.ext2/theme/en_us/js/easySlider.min.js"><?php echo '</script'; ?>
+>
+<?php }
+}

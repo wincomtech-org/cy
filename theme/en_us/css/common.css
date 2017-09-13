@@ -2,7 +2,7 @@
 
 body{font-size:12px;font-family:Calibri Light,AkzidenzGroteskStd,sans-serif;color:#404040;}
 
-body,h1,h2,h3,h4,h5,h6,p,ol,li,ul,a,dd,dt,dl,img,input,button,div{padding:0;margin:0;color:rgb(62,62,62);list-style:none;}
+body,h1,h2,h3,h4,h5,h6,p,ol,li,ul,a,dd,dt,dl,img,input,button,div,textarea,select,input,option{padding:0;margin:0;color:rgb(62,62,62);list-style:none;}
 
 textarea,input,button{border:none;outline:none;}
 
@@ -291,7 +291,7 @@ transition: width 400ms ease;padding-left: 0;padding-right: 0;overflow-x: hidden
 
     .login{position:absolute;bottom:170px;}
 
-    .login a{max-height:29px;overflow:hidden;}
+    .login a{max-height:29px;overflow:hidden;    word-break: keep-all; white-space: nowrap;overflow: hidden;padding-left:2px;padding-right:2px;box-sizing:border-box;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;-o-box-sizing:border-box;}
 
     .home_serach{width:385px;position:fixed;margin-left:56px;}
 

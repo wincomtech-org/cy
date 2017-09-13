@@ -70,6 +70,6 @@
             </div> -->
         </div>
     </div>
+    <!-- {include file='inc/footer.tpl'} -->
 </div>
 
-<!-- {include file='inc/footer.tpl'} -->
