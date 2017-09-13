@@ -62,7 +62,7 @@
 
 .active-content,.about-content{box-shadow:0 0 20px 0 rgba(0,0,0,.1);margin:10px 0;}
 
-.activeContent{text-indent:2em;}
+.activeContent{}
 
 .activeContent a{font-size:14px;height:74px;line-height:23px;display:block;color:#5b5b5b;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 3;overflow: hidden;}
 
@@ -74,7 +74,7 @@
 
 .about-zi{margin-top:15px;}
 
-.about-zi a{display:block;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 5;overflow: hidden;font-size:13px;line-height:23px;color:rgb(125,125,125);text-indent:2em;height:134px;}
+.about-zi a{display:block;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 5;overflow: hidden;font-size:13px;line-height:23px;color:rgb(125,125,125);height:134px;}
 
 .about-zi a:hover{color:#767676;}
 
