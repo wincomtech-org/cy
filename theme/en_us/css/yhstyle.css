@@ -292,6 +292,7 @@ a.captcha img{
 	border:1px solid #acacac;
 	padding:50px 0;
 }
+.rc-container select ,.rc-container option,.rc-container input{font:13px Calibri Light,AkzidenzGroteskStd,sans-serif;;}
 .rc-form{
 	width:934px;
 	margin:0 auto;
@@ -314,10 +315,10 @@ a.captcha img{
 	margin:15px 0 25px;
 	color:#464646;
 	font-size:18px;
-	font-family: AkzidenzGroteskStd,sans-serif;
+	/*font-family: AkzidenzGroteskStd,sans-serif;*/
 }
 .rc-form textarea{
-	font-family: AkzidenzGroteskStd,sans-serif;
+	/*font-family: AkzidenzGroteskStd,sans-serif;*/
 	border:1px solid #acacac;
 	border-radius: 3px;
 	width:100%;

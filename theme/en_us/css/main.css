@@ -116,6 +116,8 @@
 
 .active-img{float:left;}
 
+.active-img a img{width:68px;height:68px;}
+
 .activeContent{float:left;}
 
 .active-date{float:left;}
@@ -336,7 +338,7 @@
 
     .active-con ul li{margin-bottom:34px;}
 
-    .active-img{width:70px;}
+    .active-img{width:70px;text-align:center;}
 
     .activeContent{width:199px;padding:0 35px 0 10px;max-height:84px;}
 
