@@ -27,7 +27,8 @@ $smarty->assign('module', $module);
 $smarty->assign('srcval', $srcval);
 
 // 筛选条件
-$where = ' WHERE a.'.$name_field." LIKE '%$srcval%' AND a.lang_id=$lang_type";
+// $where = ' WHERE (a.'.$name_field." LIKE '%$srcval%' OR a.keywords LIKE '%$srcval%') AND a.lang_id=$lang_type";
+$where = sprintf("WHERE (a.%s LIKE '%s' OR a.keywords LIKE '%s') AND a.lang_id='%d'",$name_field,$srcval,$srcval,$lang_type);
 $search_url = ROOT_URL . $search_url . $srcval;
 // $search_url = $dou->rewrite_url('search', $cat_id);
 

@@ -17,10 +17,13 @@ foreach ((array)$_MODULE['init'] as $init_file) {
 if (!session_id()) session_start();
 
 
-$http_referer = $_SERVER['HTTP_REFERER'];
-if (strpos($http_referer,'?')) {
-    $http_referer = 'index.php';
-    // $http_referer = strstr($http_referer, '?', true);
+// http://cy.ext1.cn/?lchange=1
+$referer = $_SERVER['HTTP_REFERER'];
+if (strpos($referer,'?')) {
+    $referer = 'index.php';
+    // $referer = strstr($referer, '?', true);
+} elseif (strpos($referer,'lchange')) {
+    $referer = 'index.php';
 }
 
 /*语言包统一配置*/
@@ -35,7 +38,7 @@ if (isset($_GET['lchange'])) {
     } else {
         $_SESSION['lang_identifier'] = $lang_mark[1];
     }
-    $dou->dou_header($http_referer);
+    $dou->dou_header($referer);
 }
 
 // 统一
@@ -46,9 +49,6 @@ if ($_SESSION['lang_identifier']==$lang_mark[2]) {
     $lang_type = 1;
     $syskey = 'value';
 }
-// echo $_SESSION['lang_identifier'];
-// echo $_CFG['lang_type'].'--'.$lang_type;
-// die;
 
 /*语言包控制管理*/
 // if (IS_ADMIN===true) {

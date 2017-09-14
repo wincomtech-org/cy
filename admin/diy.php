@@ -36,12 +36,12 @@ if ($rec == 'default') {
     $keyword = isset($_REQUEST['keyword']) ? trim($_REQUEST['keyword']) : '';
 
     // 筛选条件
+    $where = '';
     if ($cat_id) {
         $where = ' WHERE a.cat_id IN ('.$cat_id . $dou->dou_child_id('diy_category',$cat_id).')';
     }
-    $where = $where ? $where : 'WHERE 1=1';
     if ($keyword) {
-        $where .= " AND a.title LIKE '%$keyword%'";
+        $where .= ($where ? ' AND' : 'WHERE') ." a.title LIKE '%$keyword%'";
         $get = '&keyword=' . $keyword;
     }
 
@@ -51,17 +51,19 @@ if ($rec == 'default') {
     $where2 = str_replace('a.', '', $where);
     $limit = $dou->pager('diy', 15, $page, $page_url, $where2, $get);
     // 查询数据
-    $fields = $dou->create_fields_quote('id,title,title2,cat_id,image,add_time','a');
-    $sql = sprintf("SELECT %s,b.cat_name from %s a left join %s b on a.cat_id=b.cat_id %s %s %s", $fields,$dou->table('diy'),$dou->table('diy_category'),$where,' ORDER BY a.id DESC',$limit);
-    $query = $dou->query($sql);
-    while ($row = $dou->fetch_array($query)) {
-        $row['add_time'] = date("Y-m-d", $row['add_time']);
-        $diy_list[] = $row;
+    if ($GLOBALS['lang_type']==1) {
+        $fields = $dou->create_fields_quote('id,title,cat_id,image','a');
+        $fields .= ',b.cat_name';
+    } else {
+        $fields = $dou->create_fields_quote('id,title2,cat_id,image','a');
+        $fields .= ',b.cat_name2';
     }
-    
-    // 首页显示DIY数量限制框
-    for($i=1; $i<=$_CFG['home_display_diy']; $i++) {
-        $sort_bg .= "<li><em></em></li>";
+    $sql = sprintf("SELECT %s from %s a left join %s b on a.cat_id=b.cat_id %s %s %s", $fields,$dou->table('diy'),$dou->table('diy_category'),$where,' ORDER BY a.id DESC',$limit);
+    $query = $dou->query($sql);
+    while ($row = $dou->fetch_assoc($query)) {
+        $row['title'] = $row['title'] ? $row['title'] : $row['title2'];
+        $row['cat_name'] = $row['cat_name'] ? $row['cat_name'] : $row['cat_name2'];
+        $diy_list[] = $row;
     }
     
     // 赋值给模板

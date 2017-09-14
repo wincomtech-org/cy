@@ -24,8 +24,6 @@
      <tr>
         <th width="120" align="left">{$lang.diy_category_name}</th>
         <th align="left">英文名称</th>
-        <th align="left">{$lang.unique}</th>
-        <th align="left">{$lang.description}</th>
         <th width="60" align="center">{$lang.sort}</th>
         <th width="180" align="center">{$lang.handler}</th>
       </tr>
@@ -33,8 +31,6 @@
       <tr>
         <td align="left">{$cate.mark} <a href="diy.php?cat_id={$cate.cat_id}">{$cate.cat_name}</a></td>
         <td>{$cate.cat_name2}</td>
-        <td>{$cate.unique_id}</td>
-        <td>{$cate.description}</td>
         <td align="center">{$cate.sort}</td>
         <td align="center">
         <a href="diy_category.php?rec=edit&cat_id={$cate.cat_id}">{$lang.edit}</a>
@@ -64,12 +60,6 @@
        </td>
       </tr>
       <tr>
-       <td align="right">{$lang.unique}</td>
-       <td>
-        <input type="text" name="unique_id" value="{$cat_info.unique_id}" size="40" class="inpMain" />
-       </td>
-      </tr>
-      <tr>
        <td align="right">{$lang.parent}</td>
        <td>
         <select name="parent_id">
@@ -82,18 +72,6 @@
          <!--{/if}-->
          <!--{/foreach}-->
         </select>
-       </td>
-      </tr>
-      <tr>
-       <td align="right">{$lang.keywords}</td>
-       <td>
-        <input type="text" name="keywords" value="{$cat_info.keywords}" size="40" class="inpMain" />
-       </td>
-      </tr>
-      <tr>
-       <td align="right">{$lang.description}</td>
-       <td>
-        <textarea name="description" cols="60" rows="4" class="textArea">{$cat_info.description}</textarea>
        </td>
       </tr>
       <tr>

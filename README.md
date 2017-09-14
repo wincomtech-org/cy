@@ -6,5 +6,5 @@
 data/backup/***.sql
 
 准备两个域名测试
-官网：
-配件网：
+官网：cy.ext1.cn
+配件网：cypro.ext1.cn

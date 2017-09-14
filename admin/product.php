@@ -56,9 +56,9 @@ if ($rec == 'default') {
     $page_url = 'product.php' . ($cat_id ? '?cat_id=' . $cat_id : '');
     $where2 = str_replace('a.', '', $where);
     $limit = $dou->pager('product', 15, $page, $page_url, $where2, $get);
-    // 查询数据
+    // 查询数据 a.cat_id,
     $fields = $dou->create_fields_quote('id,name,cat_id,add_time,sort','a');
-    $sql = sprintf("SELECT %s,b.cat_name from %s a left join %s b on a.cat_id=b.cat_id %s %s %s", $fields,$dou->table('product'),$dou->table('product_category'),$where,' ORDER BY a.cat_id,a.sort,a.add_time DESC',$limit);
+    $sql = sprintf("SELECT %s,b.cat_name from %s a left join %s b on a.cat_id=b.cat_id %s %s %s", $fields,$dou->table('product'),$dou->table('product_category'),$where,' ORDER BY a.sort,a.add_time DESC',$limit);
     $query = $dou->query($sql);
     while ($row = $dou->fetch_array($query)) {
         $row['add_time'] = date("Y-m-d", $row['add_time']);
@@ -149,6 +149,7 @@ elseif ($rec == 'insert') {
             'link'  => $_POST['link'],
             'keywords'  => $_POST['keywords'],
             'description'  => $_POST['description'],
+            'sort'  => $_POST['sort'],
             'add_time'  => time()
         );
     $dou->insert('product',$data);
@@ -234,7 +235,8 @@ elseif ($rec == 'update') {
             'content'  => $_POST['content'],
             'link'  => $_POST['link'],
             'keywords'  => $_POST['keywords'],
-            'description'  => $_POST['description']
+            'description'  => $_POST['description'],
+            'sort'  => $_POST['sort'],
         );
     if ($image)
         $data['image'] = $image;

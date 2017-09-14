@@ -63,7 +63,7 @@
         <th width="22" align="center"><input name='chkall' type='checkbox' id='chkall' onclick='selectcheckbox(this.form)' value='check'></th>
         <th width="40" align="center">{$lang.record_id}</th>
         <th align="left">{$lang.name}</th>
-        <th width="150" align="center">{$lang.product_category}</th>
+        <th align="center">{$lang.product_category}</th>
         <th width="80" align="center">{$lang.add_time}</th>
         <th width="80" align="center">{$lang.sort}</th>
         <th width="80" align="center">{$lang.handler}</th>
@@ -201,6 +201,12 @@
        <td>
         <textarea name="description" cols="115" rows="3" class="textArea" />{$product.description}</textarea>
        </td>
+      </tr>
+      <tr>
+       <td align="right">{$lang.sort}</td>
+       <td>
+        <input type="text" name="sort" value="{if $product.sort}{$product.sort}{else}999{/if}" size="5" class="inpMain" />
+      </td>
       </tr>
       <tr>
        <td></td>

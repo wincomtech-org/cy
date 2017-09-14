@@ -21,5 +21,4 @@ $_LANG['district_name'] = '国家名称';
 $_LANG['district_add_succes'] = '添加国家成功';
 $_LANG['district_edit_succes'] = '编辑国家成功';
 
-
 ?>

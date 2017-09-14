@@ -62,8 +62,7 @@
       <th width="22" align="center"><input name='chkall' type='checkbox' id='chkall' onclick='selectcheckbox(this.form)' value='check'></th>
       <th width="40" align="center">{$lang.record_id}</th>
       <th align="left">{$lang.research_name}</th>
-      <th width="150" align="center">{$lang.research_category}</th>
-      <th width="80" align="center">{$lang.research_size}</th>
+      <th align="center">{$lang.research_category}</th>
       <th width="80" align="center">{$lang.add_time}</th>
       <th width="80" align="center">{$lang.handler}</th>
      </tr>
@@ -73,7 +72,6 @@
       <td align="center">{$research.id}</td>
       <td><a href="research.php?rec=edit&id={$research.id}">{$research.title}</a><!--{if $research.image}--> <a href="../{$research.image}" target="_blank"><img src="images/icon_picture.png" width="16" height="16" align="absMiddle"></a><!--{/if}--></td>
       <td align="center"><!--{if $research.cat_name}--><a href="research.php?cat_id={$research.cat_id}">{$research.cat_name}</a><!--{else}-->{$lang.uncategorized}<!--{/if}--></td>
-      <td align="center">{$research.size}</td>
       <td align="center">{$research.add_time}</td>
       <td align="center">
        <!--{if $if_sort}-->

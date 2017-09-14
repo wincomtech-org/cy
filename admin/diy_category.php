@@ -54,9 +54,7 @@ elseif ($rec == 'add') {
 elseif ($rec == 'insert') {
     if (empty($_POST['cat_name']))
         $dou->dou_msg($_LANG['diy_category_name'] . $_LANG['is_empty']);
-    if (!$check->is_unique_id($_POST['unique_id']))
-        $dou->dou_msg($_LANG['unique_id_wrong']);
-    if ($dou->get_one("SELECT unique_id from ".$dou->table('diy_category')." where cat_name='".$_POST['cat_name']."' OR unique_id='".$_POST['unique_id']."'")) {
+    if ($dou->get_one("SELECT cat_id from ".$dou->table('diy_category')." where cat_name='".$_POST['cat_name']."' OR cat_name2='".$_POST['cat_name2']."'")) {
         $dou->dou_msg('数据库中已存在同名！');
     }
         
@@ -64,12 +62,9 @@ elseif ($rec == 'insert') {
     $firewall->check_token($_POST['token']);
     
     $data = array(
-        'unique_id'  => $_POST['unique_id'],
         'parent_id'  => $_POST['parent_id'],
         'cat_name'  => $_POST['cat_name'],
         'cat_name2'  => $_POST['cat_name2'],
-        'keywords'  => $_POST['keywords'],
-        'description'  => $_POST['description'],
         'sort'  => $_POST['sort']
     );
     $dou->insert('diy_category',$data);
@@ -109,8 +104,8 @@ elseif ($rec == 'edit') {
 elseif ($rec == 'update') {
     if (empty($_POST['cat_name']))
         $dou->dou_msg($_LANG['diy_category_name'] . $_LANG['is_empty']);
-    if (!$check->is_unique_id($_POST['unique_id']))
-        $dou->dou_msg($_LANG['unique_id_wrong']);
+    if (empty($_POST['cat_id'])) 
+        $dou->dou_msg('ID非法');
         
     // CSRF防御令牌验证
     $firewall->check_token($_POST['token']);
@@ -118,10 +113,7 @@ elseif ($rec == 'update') {
     $data = array(
             'cat_name'  => $_POST['cat_name'],
             'cat_name2'  => $_POST['cat_name2'],
-            'unique_id'  => $_POST['unique_id'],
             'parent_id'  => $_POST['parent_id'],
-            'keywords'  => $_POST['keywords'],
-            'description'  => $_POST['description'],
             'sort'  => $_POST['sort']
         );
     $dou->update('diy_category',$data,'cat_id='.intval($_POST['cat_id']));
