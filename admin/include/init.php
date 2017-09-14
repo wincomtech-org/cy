@@ -79,6 +79,7 @@ require_once ROOT_PATH . 'include/lang.init.php';
 
 // 读取站点信息 
 $smarty->assign("site", $_CFG = $dou->get_config());
+$_CFG['lang_type'] = $lang_type;
 
 // 系统模块
 $_MODULE = $dou->dou_module();
@@ -104,7 +105,7 @@ foreach ($_MODULE['lang'] as $lang_file) {
 
 // 载入模块文件
 // foreach ((array)$_MODULE['init'] as $init_file) {
-//     require ($init_file);
+//     require_once ($init_file);
 // }
 
 // 如果存在自定义类则载入

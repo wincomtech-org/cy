@@ -29,6 +29,7 @@ $lang_mark = array(1=>'zh_cn',2=>'en_us');
 // var_dump(session_id());
 // 中英文切换 取反
 if (isset($_GET['lchange'])) {
+    echo $_GET['lchange'];
     if ($_GET['lchange']==1) {
         $_SESSION['lang_identifier'] = $lang_mark[2];
     } else {
@@ -39,12 +40,15 @@ if (isset($_GET['lchange'])) {
 
 // 统一
 if ($_SESSION['lang_identifier']==$lang_mark[2]) {
-    $_CFG['lang_type'] = $lang_type = 2;
+    $lang_type = 2;
     $syskey = 'value2';
 } else {
-    $_CFG['lang_type'] = $lang_type = 1;
+    $lang_type = 1;
     $syskey = 'value';
 }
+// echo $_SESSION['lang_identifier'];
+// echo $_CFG['lang_type'].'--'.$lang_type;
+// die;
 
 /*语言包控制管理*/
 // if (IS_ADMIN===true) {
