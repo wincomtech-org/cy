@@ -31,7 +31,7 @@
             </div>
             <div class="header-message-button" ><a href="{$url.guestbook}"></a></div>
             <button class="header-search-button"></button>
-            <a class="header-toggle-button" href="{$site.root_url}?lchange={if $site.lang_type}$site.lang_type{else}1{/if}">中/ENG</a>
+            <a class="header-toggle-button" href="{$site.root_url}?lchange={$site.lang_type}">中/ENG</a>
         </div>
     </div>
 </div>

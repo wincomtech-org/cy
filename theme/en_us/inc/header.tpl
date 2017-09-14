@@ -37,7 +37,7 @@
                         <!-- {/if} -->
                     </div>
                     <!--{/if}-->
-                    <a href="{$site.root_url}?lchange={if $site.lang_type}$site.lang_type{else}1{/if}" class="header-toggle-button"><img src="img/guoqi.gif"></a>
+                    <a href="{$site.root_url}?lchange={$site.lang_type}" class="header-toggle-button"><img src="img/guoqi.gif"></a>
                 </div>
                 <!--菜单导航-->
                 <div class="header-menu" style="">
