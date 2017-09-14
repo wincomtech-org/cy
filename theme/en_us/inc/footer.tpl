@@ -48,9 +48,9 @@
 
     <footer class="footer2">
         <div class="footer2-content">
-            <p><!--{if $site.icp}--><a href="http://www.miibeian.gov.cn/" target="_blank">{$site.icp}</a><!--{/if}--></p>
+           
             <p>{$lang.powered_by} <br> {$lang.copyright}</p>
-            <p>The Shanghai public network 3101170200224</p>
+            <!-- <p>The Shanghai public network 3101170200224</p> -->
         </div>
     </footer>
     <div class="doc_up"><a href="#"></a></div>

@@ -3,7 +3,10 @@
 <!--主题内容-->
 <div class="main-body">
 	<!-- 产品详情页 -->
+	<!--startprint-->
+
 	<div class="about">
+		<link rel="stylesheet" disabled="true"   href="css/main.css" media="print">
 		<div  class="about_content">
 			<!--标题-->
 			<div class="about_content_tit">
@@ -61,7 +64,7 @@
 					<form action="order.php?rec=insert" method="post" accept-charset="{$site.dou_charset}">
 						<input type="hidden" name="product_id" value="{$product.id}">
 						<input type="hidden" name="number" value="1">
-						<p><input class="btn-view-red" type="submit" value="Add To Cart"></p>
+						<p><input class="btn-view-red" type="submit" value="Add To Cart"><a href="javascript:void(0);" title="打印" onclick="doPrint()" target="_blank" class="print">print</a></p>
 					</form>
 				</div>
 
@@ -69,6 +72,21 @@
 			</div>
 		</div>		
 	</div>	
+	<!--endprint--> 
 	<!-- {include file="inc/footer.tpl"} -->
-</div>	
+</div>
+{literal}
+	<script>
+		function doPrint() {  
+			bdhtml = window.document.body.innerHTML;  
+			sprnstr = "<!--startprint-->";  
+			eprnstr = "<!--endprint-->";  
+			prnhtml = bdhtml.substr(bdhtml.indexOf(sprnstr) + 17);  
+			prnhtml = prnhtml.substring(0, prnhtml.indexOf(eprnstr));  
+			window.document.body.innerHTML = prnhtml;  
+			window.print();  
+			location.reload();  
+		};
+	</script>
+{/literal}	
 <script src="js/easySlider.min.js"></script>

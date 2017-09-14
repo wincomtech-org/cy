@@ -1,9 +1,13 @@
 {include file="inc/header.tpl"}	
 <!--主题内容-->
 <div class="main-body">
+
 	<div class="banner_img"><img src="img/bannerbig.jpg" alt=""></div>
 	<!-- 产品详情页 -->
+	<!--startprint-->
+	<link rel="stylesheet" disabled="true"   href="css/main.css" media="print">
 	<div class="about">
+		
 		<div  class="about_content pad-t-30">
 			<!--标题-->
 			<div class="about_content_tit">
@@ -54,7 +58,8 @@
 					<form action="order.php?rec=insert" method="post" accept-charset="{$site.dou_charset}">
 						<input type="hidden" name="product_id" value="{$product.id}">
 						<input type="hidden" name="number" value="1">
-						<p><input class="btn-view-red" type="submit" value="加入购物车"></p>
+						<p><input class="btn-view-red" type="submit" value="加入购物车"><a href="javascript:void(0);" title="打印" onclick="doPrint()" target="_blank" class="print">打印</a></p>
+						
 					</form>
 				</div>
 
@@ -69,7 +74,28 @@
 				</div>
 			</div>
 		</div>
+	
 	</div>
+	<!--endprint--> 
 </div>
+{literal}
 
+	<script>
+
+		function doPrint() {  
+
+			bdhtml = window.document.body.innerHTML;  
+			sprnstr = "<!--startprint-->";  
+			eprnstr = "<!--endprint-->";  
+			prnhtml = bdhtml.substr(bdhtml.indexOf(sprnstr) + 17);  
+			prnhtml = prnhtml.substring(0, prnhtml.indexOf(eprnstr));  
+			window.document.body.innerHTML = prnhtml;  
+			// document.write('<link rel="stylesheet" disabled="true"   href="css/main.css">'); 
+			window.print(); 
+
+			// document.write ('<link rel="stylesheet" disabled="true"   href="css/main.css">')
+			location.reload();  
+		};
+	</script>
+{/literal}
 <!-- {include file="inc/footer.tpl"} -->
