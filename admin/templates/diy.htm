@@ -18,8 +18,8 @@
     <!--{if $rec eq 'default'} DIY列表 -->
     <h3>
       <a href="{$action_link.href}" class="actionBtn add">{$action_link.text}</a>
-      <a class="action_ls" href="diy_category.php">DIY分类</a>
-      <a class="action_ls" href="diy.php">DIY列表</a>
+      <a {if $cur eq 'diy_category'} class="action_ls"{/if} href="diy_category.php">DIY分类</a>
+      <a {if $cur eq 'diy'} class="action_ls"{/if} href="diy.php">DIY列表</a>
     </h3>
     <div class="filter">
     <form action="diy.php" method="post">
@@ -66,7 +66,6 @@
       <th width="22" align="center"><input name='chkall' type='checkbox' id='chkall' onclick='selectcheckbox(this.form)' value='check'></th>
       <th width="40" align="center">{$lang.record_id}</th>
       <th align="left">{$lang.diy_name}</th>
-      <th align="left">英文名称</th>
       <th width="150" align="center">{$lang.diy_category}</th>
       <th width="80" align="center">{$lang.add_time}</th>
       <th width="80" align="center">{$lang.handler}</th>
@@ -76,7 +75,6 @@
       <td align="center"><input type="checkbox" name="checkbox[]" value="{$diy.id}" /></td>
       <td align="center">{$diy.id}</td>
       <td><a href="diy.php?rec=edit&id={$diy.id}">{$diy.title}</a><!--{if $diy.image}--> <a href="../{$diy.image}" target="_blank"><img src="images/icon_picture.png" width="16" height="16" align="absMiddle"></a><!--{/if}--></td>
-      <td align="center">{$diy.title2}</td>
       <td align="center"><!--{if $diy.cat_name}--><a href="diy.php?cat_id={$diy.cat_id}">{$diy.cat_name}</a><!--{else}-->{$lang.uncategorized}<!--{/if}--></td>
       <td align="center">{$diy.add_time}</td>
       <td align="center">
@@ -123,12 +121,6 @@
        <td width="90" align="right">{$lang.diy_name}</td>
        <td>
         <input type="text" name="title" value="{$diy.title}" size="80" class="inpMain" />
-       </td>
-      </tr>
-      <tr>
-       <td width="90" align="right">英文名称</td>
-       <td>
-        <input type="text" name="title2" value="{$diy.title2}" size="80" class="inpMain" />
        </td>
       </tr>
       <tr>

@@ -18,7 +18,7 @@ em, i {font-style: normal; }
 .fl{float: left;}
 .fr{float: right;}
 .clear {clear: both; display: block; height: 0; line-height: 0; font-size: 0; }
-.clearfix:after {content: '.'; display: block; height: 0; clear: both; visibility: hidden; }
+.clearfix:after {content: "."; display: block; height: 0; clear: both; visibility: hidden; }
 *html .clearfix {height: 1%; }
 *+html .clearfix {height: 1%; }
 .none {display: none; }
@@ -52,7 +52,7 @@ select {border: 1px solid #DBDBDB; padding: 5px 5px 5px 2px; }
 /*- tab -*/
 .tab {border-bottom: 1px solid #60BBFF; font-weight: bold; font-size: 14px; height: 35px; overflow: hidden; }
 .tab li {float: left; line-height: 35px; height: 35px; }
-.tab a {display: block; background-color: #F9F9F9; padding: 0 44px; text-decoration: none; color: #999; }
+.tab a {display: block; background-color: #F9F9F9; padding: 0 20px; text-decoration: none; color: #999; }
 .tab a.selected {background-color: #60BBFF; color: #FFF; }
 /*- tableBasic -*/
 .tableBasic {background-color: #F9F9F9; color: #666666; border-left: 1px dotted #CCCCCC; border-top: 1px dotted #CCCCCC; }
@@ -149,7 +149,7 @@ select {border: 1px solid #DBDBDB; padding: 5px 5px 5px 2px; }
 #urHere b {margin: 0 13px; }
 /* 公共主区域 ----------------------------------------------- */
 .mainBox {border-left: 1px solid #FFF; padding: 30px 22px 50px 22px; }
-.mainBox h3 {border-bottom: 1px solid #D7D7D7; color: #666666; font-size: 26px; padding-bottom: 15px; margin-bottom: 25px; }
+.mainBox h3 {border-bottom: 1px solid #D7D7D7; color: #666666; font-size: 28px; padding-bottom: 20px; margin-bottom: 30px; }
 .mainBox h3 .actionBtn {float: right; display: inline-block; background-color: #28B779; padding: 0 20px; height: 27px; line-height: 27px; color: #FFFFFF; font-size: 13px; font-weight: bold; }
 .mainBox h3 .add {background: #28B779 url(../images/action_btn.gif) no-repeat 20px 50%; padding-left: 40px; }
 .mainBox .filter {margin: 0 0 10px -2px; height: 35px; }
@@ -181,7 +181,7 @@ select {border: 1px solid #DBDBDB; padding: 5px 5px 5px 2px; }
 .page dt p {padding-top: 5px; color: #999; }
 .page dd {color: #CCC; }
 .page dd a {color: #999; }
-/* 首页产品筛选 ----------------------------------------------- */
+/* 首页商品筛选 ----------------------------------------------- */
 .homeSortLeft {margin-right: 70px; }
 .homeSortRight {float: right; width: 62px; position: relative; z-index: 10; }
 .homeSortRight .homeSortBg {position: absolute; left: 0; top: 0; z-index: 11; }
@@ -320,5 +320,4 @@ select {border: 1px solid #DBDBDB; padding: 5px 5px 5px 2px; }
 
 /* 补充样式 */
 .action_ls{background-color:#4C9ED9;color:#FFF;padding:5px;}
-
 
