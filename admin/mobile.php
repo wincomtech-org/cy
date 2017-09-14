@@ -49,7 +49,7 @@ if ($rec == 'system') {
         
         foreach ($_POST as $name => $value) {
             if (is_array($value)) $value = serialize($value);
-            $dou->query("UPDATE " . $dou->table('config') . " SET value = '$value' WHERE name = '$name'");
+            $dou->query("UPDATE " . $dou->table('config') . " SET ".$GLOBALS['syskey']." = '$value' WHERE name = '$name'");
         }
         
         $dou->create_admin_log($_LANG['mobile'] . ' - ' . $_LANG['mobile_system'] . ': ' . $_LANG['edit_succes']);
@@ -58,11 +58,11 @@ if ($rec == 'system') {
 
     // 删除手机版LOGO图片
     elseif ($act == 'clear_logo') {
-        $image = $dou->get_one("SELECT value FROM " . $dou->table('config') . " WHERE name = 'mobile_logo'");
+        $image = $dou->get_one("SELECT ".$GLOBALS['syskey']." FROM " . $dou->table('config') . " WHERE name = 'mobile_logo'");
         $dou->del_image(M_PATH . '/theme/' . $_CFG['mobile_theme'] . '/images/' . $image);
 
         $dou->create_admin_log($_LANG['del'] . ': ' . M_PATH . '/theme/' . $_CFG['mobile_theme'] . '/images/' . $image);
-        $dou->query("UPDATE " . $dou->table('config') . " SET value = '' WHERE name = 'mobile_logo'");
+        $dou->query("UPDATE " . $dou->table('config') . " SET ".$GLOBALS['syskey']." = '' WHERE name = 'mobile_logo'");
         $dou->dou_msg($_LANG['del_succes'], 'mobile.php');
     }
 } 
@@ -364,10 +364,10 @@ elseif ($rec == 'theme') {
             $theme_array = $dou->get_subdirs(ROOT_PATH . M_PATH . '/theme/');
             if (in_array($unique_id, $theme_array)) { // 判断删除操作的模板是否真实存在
                 // 替换系统设置中模板值
-                $dou->query("UPDATE " . $dou->table('config') . " SET value = '$unique_id' WHERE name = 'mobile_theme'");
+                $dou->query("UPDATE " . $dou->table('config') . " SET ".$GLOBALS['syskey']." = '$unique_id' WHERE name = 'mobile_theme'");
                 // 更新缓存
                 // $dou->dou_clear_cache(ROOT_PATH . 'cache/m');
-                $dou->dou_clear_cache(ROOT_PATH . 'temlpate_c/m');
+                $dou->dou_clear_cache(ROOT_PATH . 'template_c/m');
             }
         }
         
@@ -406,14 +406,14 @@ function get_cfg_list($tab = 'main') {
             $box = explode(",", $row['box']);
         }
         if ($row['name'] == 'mobile_logo') {
-            $row['value'] = $row['value'] ? M_PATH . '/theme/' . $GLOBALS['_CFG']['mobile_theme'] . '/images/' . $row['value'] : '';
+            $row[$GLOBALS['syskey']] = $row[$GLOBALS['syskey']] ? M_PATH . '/theme/' . $GLOBALS['_CFG']['mobile_theme'] . '/images/' . $row[$GLOBALS['syskey']] : '';
         }
         
         $cue = $GLOBALS['_LANG'][$row['name'] . '_cue'];
         
         // 数组类型的设置选项
         if ($row['type'] == 'array') {
-            $arr = unserialize($row['value']);
+            $arr = unserialize($row[$GLOBALS['syskey']]);
             foreach ((array)$arr as $key=>$v) {
                 $value_array[] = array(
                         "value" => $v,
@@ -425,7 +425,7 @@ function get_cfg_list($tab = 'main') {
         }
 
         $cfg_list[] = array(
-                "value" => $value_array ? $value_array : $row['value'],
+                "value" => $value_array ? $value_array : $row[$GLOBALS['syskey']],
                 "name" => $row['name'],
                 "type" => $row['type'],
                 "box" => $box,

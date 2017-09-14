@@ -5,7 +5,7 @@ error_reporting(E_ALL ^ E_NOTICE);
 // 调整时区
 if (PHP_VERSION >= '5.1') date_default_timezone_set('PRC');
 // 开启SESSION
-if (empty(session_id())) session_start();
+if (!session_id()) session_start();
 
 // 网站后台标记
 define('IS_ADMIN', true);
@@ -73,7 +73,11 @@ var_export($_USER);
 // )
 */
 
-// 读取站点信息
+// 语言包控制管理
+// 注意后台这里没有载入模块文件，需要加
+require_once ROOT_PATH . 'include/lang.init.php';
+
+// 读取站点信息 
 $smarty->assign("site", $_CFG = $dou->get_config());
 
 // 系统模块
@@ -93,13 +97,15 @@ $_MODULE = $dou->dou_module();
 // $_access = $rbac->access_check('user',2);
 // $dou->debug($_access,1,1);
 
-// 语言包控制管理
-// \include\lang.init.php
-require_once ROOT_PATH . 'include/lang.init.php';
 // 载入语言文件
 foreach ($_MODULE['lang'] as $lang_file) {
     require ($lang_file); // 载入系统语言文件
 }
+
+// 载入模块文件
+// foreach ((array)$_MODULE['init'] as $init_file) {
+//     require ($init_file);
+// }
 
 // 如果存在自定义类则载入
 if (file_exists($other_class_file = ROOT_PATH . 'include/other.class.php')) {
@@ -109,13 +115,12 @@ if (file_exists($other_class_file = ROOT_PATH . 'include/other.class.php')) {
 
 // 工作空间
 $smarty->assign("workspace", $dou->dou_workspace());
-
+// echo $_CFG['lang_type'];
 // 通用信息调用
 $smarty->assign("lang", $_LANG);
 $smarty->assign("site", $_CFG);
 $_DISPLAY = unserialize($_CFG['display']); // 显示设置
 $_DEFINED = unserialize($_CFG['defined']); // 自定义属性
-
 
 // $dou->debug($_SERVER);
 // $dou->debug($GLOBALS,1);

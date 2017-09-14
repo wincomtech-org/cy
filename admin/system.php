@@ -59,7 +59,7 @@ if ($rec == 'update') {
     
     foreach ($_POST as $name => $value) {
         if (is_array($value)) $value = serialize($value);
-        $sql = "UPDATE " . $dou->table('config') . " SET value = '$value' WHERE name = '$name'";
+        $sql = "UPDATE " . $dou->table('config') . " SET ". $GLOBALS['syskey'] ." = '$value' WHERE name = '$name'";
         $dou->query($sql);
     }
     
@@ -73,15 +73,15 @@ if ($rec == 'update') {
  * +----------------------------------------------------------
  */
 function get_cfg_list($tab = 'main',$allow=array('ALL')) {
-    $sql = sprintf("SELECT * FROM %s WHERE type!='hidden' AND tab='%s' AND display=1 ORDER BY sort ASC",$GLOBALS['dou']->table('config'),$tab);
+    $sql = sprintf("SELECT * FROM %s WHERE display=1 AND type!='hidden' AND tab='%s' ORDER BY sort ASC",$GLOBALS['dou']->table('config'),$tab);
     $query = $GLOBALS['dou']->query($sql);
-    while ($row = $GLOBALS['dou']->fetch_array($query)) {
+    while ($row = $GLOBALS['dou']->fetch_assoc($query)) {
         // 预设选项
         if ($row['box'])
             $box = explode(",", $row['box']);
         
         if ($row['name'] == 'site_logo')
-            $row['value'] = $row['value'] ? "theme/" . $GLOBALS['_CFG']['site_theme'] . "/images/" . $row['value'] : '';
+            $row[$GLOBALS['syskey']] = $row[$GLOBALS['syskey']] ? "theme/" . $GLOBALS['_CFG']['site_theme'] . "/images/" . $row[$GLOBALS['syskey']] : '';
         
         if ($row['name'] == 'language')
             $box = $GLOBALS['dou']->get_subdirs(ROOT_PATH . 'languages');
@@ -112,21 +112,21 @@ function get_cfg_list($tab = 'main',$allow=array('ALL')) {
         
         // 数组类型的设置选项
         if ($row['type'] == 'array') {
-            $arr = unserialize($row['value']);
+            $arr = unserialize($row[$GLOBALS['syskey']]);
             foreach ((array)$arr as $key=>$v) {
                 if (in_array($key,$allow) || $allow[0]=='ALL') {
                     $value_array[] = array(
-                            "value" => $v,
-                            "name" => $row['name'] . '[' . $key . ']',
-                            "lang" => $GLOBALS['_LANG'][$row['name'] . '_' . $key],
-                            "cue" => $GLOBALS['_LANG'][$row['name'] . '_' . $key . '_cue']
-                        );
+                        "value" => $v,
+                        "name" => $row['name'] . '[' . $key . ']',
+                        "lang" => $GLOBALS['_LANG'][$row['name'] . '_' . $key],
+                        "cue" => $GLOBALS['_LANG'][$row['name'] . '_' . $key . '_cue']
+                    );
                 }
             }
         }
         
         $cfg_list[] = array(
-                "value" => $value_array ? $value_array : $row['value'],
+                "value" => $value_array ? $value_array : $row[$GLOBALS['syskey']],
                 "name" => $row['name'],
                 "type" => $row['type'],
                 "box" => $box,

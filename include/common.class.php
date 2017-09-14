@@ -73,8 +73,8 @@ class Common extends DbMysql {
      */
     function get_config() {
         $query = $this->select_all($this->table('config'));
-        while ($row = $this->fetch_array($query)) {
-            $config[$row['name']] = $row['value'];
+        while ($row = $this->fetch_assoc($query)) {
+            $config[$row['name']] = $row[$GLOBALS['syskey']];
         }
         if ($config['qq'] && !defined('IS_ADMIN')) {
             $config['qq'] = $this->dou_qq($config['qq']);
@@ -127,7 +127,7 @@ class Common extends DbMysql {
         $module['all'] = array_merge($module['column'], $module['single']); 
         
         // 读取模块语言文件
-        $lang_path = ROOT_PATH . 'languages/' . (defined('IS_ADMIN') ? 'zh_cn/admin/' : (isset($_SESSION['lang_identifier']) ? ($_SESSION['lang_identifier']=='en_us'?'en_us':'zh_cn') : $GLOBALS['_CFG']['language']) . '/');
+        $lang_path = ROOT_PATH .'languages/'. (defined('IS_ADMIN') ? 'zh_cn/admin/' : (isset($_SESSION['lang_identifier'])?$_SESSION['lang_identifier']:$GLOBALS['_CFG']['language']) .'/');
         $lang_list = glob($lang_path . '*.lang.php');
         if (is_array($lang_list)) {
             foreach ($lang_list as $lang) {

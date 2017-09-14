@@ -71,8 +71,8 @@ if ($rec == 'default') {
  */
 elseif ($rec == 'clear_cache') {
     $dou->dou_clear_cache(ROOT_PATH . 'cache');
-    $dou->dou_clear_cache(ROOT_PATH . 'temlpate_c');
-    $dou->dou_clear_cache(ROOT_PATH . 'temlpate_c/admin');
+    $dou->dou_clear_cache(ROOT_PATH . 'template_c');
+    $dou->dou_clear_cache(ROOT_PATH . 'template_c/admin');
     // if ($memory->exists()) @$memory->clear();
     $dou->dou_msg($_LANG['clear_cache_success']);
 }

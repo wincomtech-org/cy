@@ -56,10 +56,10 @@ if ($rec == 'enable') {
         $theme_array = $dou->get_subdirs(ROOT_PATH . 'theme/');
         if (in_array($unique_id, $theme_array)) { // 判断删除操作的模板是否真实存在
             // 替换系统设置中模板值
-            $dou->query("UPDATE " . $dou->table('config') . " SET value = '$unique_id' WHERE name = 'site_theme'");
+            $dou->query("UPDATE " . $dou->table('config') . " SET ".$GLOBALS['syskey']." = '$unique_id' WHERE name = 'site_theme'");
             // 更新缓存
             $dou->dou_clear_cache(ROOT_PATH . 'cache');
-            $dou->dou_clear_cache(ROOT_PATH . 'temlpate_c');
+            $dou->dou_clear_cache(ROOT_PATH . 'template_c');
         }
     }
     

@@ -15,8 +15,8 @@
                 <li class="M noLeft">
                     切换操作语言
                     <select onchange="window.location=this.value;">
-                        <option {if $site.lang_type==1 || !$site.lang_type}selected{/if} value="index.php?lpost=zh_cn">中文模式</option>
-                        <option {if $site.lang_type==2}selected{/if} value="index.php?lpost=en_us">英文模式</option>
+                        <option {if $site.lang_type eq 1 || !$site.lang_type}selected{/if} value="index.php?lchange=2">中文模式</option>
+                        <option {if $site.lang_type eq 2}selected{/if} value="index.php?lchange=1">英文模式</option>
                     </select>
                 </li>
                 <li class="M noLeft"><a href="JavaScript:void(0);">{$lang.top_welcome}{$user.user_name}</a>

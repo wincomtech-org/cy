@@ -14,6 +14,7 @@ function dou_module() {
 foreach ((array)$_MODULE['init'] as $init_file) {
     require ($init_file);
 }*/
+if (!session_id()) session_start();
 
 
 $http_referer = $_SERVER['HTTP_REFERER'];
@@ -23,22 +24,12 @@ if (strpos($http_referer,'?')) {
 }
 
 /*语言包统一配置*/
-// 后台 中英文切换
 $lang_mark = array(1=>'zh_cn',2=>'en_us');
 // $lang_mark = get_subdirs(ROOT_PATH .'languages');
 // var_dump(session_id());
-if (isset($_GET['lpost'])) {
-    if (in_array($_GET['lpost'],$lang_mark)) {
-        if ($_SESSION['lang_identifier'] != $_GET['lpost']) {
-            $_SESSION['lang_identifier'] = $_GET['lpost'];
-            $dou->dou_header($http_referer);
-        }
-    }
-}
-
-// 前台 中英文切换 取反
-if (isset($_GET['langchange'])) {
-    if ($_GET['langchange']==1) {
+// 中英文切换 取反
+if (isset($_GET['lchange'])) {
+    if ($_GET['lchange']==1) {
         $_SESSION['lang_identifier'] = $lang_mark[2];
     } else {
         $_SESSION['lang_identifier'] = $lang_mark[1];
@@ -47,10 +38,12 @@ if (isset($_GET['langchange'])) {
 }
 
 // 统一
-if (!isset($_SESSION['lang_identifier']) || $_SESSION['lang_identifier']=='zh_cn') {
-    $_CFG['lang_type'] = $lang_type = 1;
-} elseif ($_SESSION['lang_identifier']=='en_us') {
+if ($_SESSION['lang_identifier']==$lang_mark[2]) {
     $_CFG['lang_type'] = $lang_type = 2;
+    $syskey = 'value2';
+} else {
+    $_CFG['lang_type'] = $lang_type = 1;
+    $syskey = 'value';
 }
 
 /*语言包控制管理*/
