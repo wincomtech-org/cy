@@ -72,6 +72,7 @@ if ($rec == 'default') {
     // $smarty->assign('option', $option);
     // $smarty->assign('guestbook', $guestbook);
     $smarty->assign('countrys', $countrys);
+    $smarty->assign('Inquiry_Type', $Inquiry_Type);
     // $smarty->assign('ur_here', $dou->ur_here('guestbook'));
     $smarty->assign('nav_middle_list', $dou->get_nav('middle'));
     $smarty->assign('nav_bottom_list', $dou->get_nav('bottom'));

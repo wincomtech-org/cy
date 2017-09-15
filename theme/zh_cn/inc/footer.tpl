@@ -2,14 +2,9 @@
     <footer class="footer">
     <div class="footer1">
         <ul class="nav">
-            <!-- {if $site.cypro} -->
-            <li><a href="{$site.cyurl}">{$lang.homepage}</a></li>
-            <!-- {else} -->
-            <li><a href="{$site.cyprourl}">{$lang.product_category}</a></li>
             <!-- {foreach $nav_bottom_list $v} -->
             <li><a href="{$v.url}">{$v.nav_name}</a></li>
             <!-- {/foreach} -->
-            <!-- {/if} -->
         </ul>
         <div class="footer_search">
             <div class="footerSearch">
@@ -52,8 +47,7 @@
     <footer class="footer2">
         <div class="footer2-content">
             <p><!--{if $site.icp}--><a href="http://www.miibeian.gov.cn/" target="_blank">{$site.icp}</a><!--{/if}--></p>
-            <p>{$lang.powered_by} <br> {$lang.copyright}</p>
-            <p>沪公网安备 3101170200224</p>
+            <p>{$site.copyright}</p>
         </div>
     </footer>
     <div class="doc_up"><a href="#"></a></div>

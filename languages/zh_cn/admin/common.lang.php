@@ -189,6 +189,7 @@ $_LANG['site_closed'] = '是否关闭网站';
 $_LANG['company'] = '公司名称';
 $_LANG['site_address'] = '公司地址';
 $_LANG['icp'] = 'ICP备案证书号';
+$_LANG['copyright'] = '版权';
 $_LANG['certi'] = '证书';
 $_LANG['tel'] = '客服电话';
 $_LANG['fax'] = '传真';

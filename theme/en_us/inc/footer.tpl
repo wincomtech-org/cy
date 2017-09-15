@@ -2,14 +2,7 @@
     <footer class="footer">
         <div class="footer1">
             <ul class="nav">
-                <!-- {if $site.cypro} -->
-                <li><a href="{$site.cyurl}">{$lang.homepage}</a></li>
-                <!-- {else} -->
-                <li><a href="{$site.cyprourl}">{$lang.product_category}</a></li>
-                <!-- {foreach $nav_bottom_list $v} -->
-                <li><a href="{$v.url}">{$v.nav_name}</a></li>
-                <!-- {/foreach} -->
-                <!-- {/if} -->
+                <li><a href="#"></a></li>
             </ul>
             <div class="footer_search">
                 <div class="footerSearch">
@@ -48,9 +41,7 @@
 
     <footer class="footer2">
         <div class="footer2-content">
-           
-            <p>{$lang.powered_by} <br> {$lang.copyright}</p>
-            <!-- <p>The Shanghai public network 3101170200224</p> -->
+            <p>{$site.copyright} <br> {$site.icp}</p>
         </div>
     </footer>
     <div class="doc_up"><a href="#"></a></div>

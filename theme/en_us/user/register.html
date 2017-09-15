@@ -43,7 +43,7 @@
 					<select name="country">
 						<option value="0">please select</option>
 						<!-- {foreach $countrys $v} -->
-						<option value="{$v.cat_id}">{$v.cat_name}</option>
+						<option value="{$v.cat_id}">{$v.unique_id}</option>
 						<!-- {/foreach} -->
 					</select>
 				</div>
@@ -63,7 +63,7 @@
 				</div>
 				<div class="rc-row">
 					<p class="h-cont">Telephone*<span class="error"></span></p>
-					<input type="text" name="telephone" id="telephone">
+					<input type="text" name="telephone">
 				</div>
 				<div class="rc-row">
 					<p class="h-cont">E-mail*<span class="error"></span></p>
