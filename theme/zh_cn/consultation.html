@@ -16,8 +16,9 @@
 					<div class="rc-row">
 						<p class="h-cont">收件人<span class="error">err</span></p>
 						<select name="toname">
-							<option value="HUGER研发部">HUGER研发部</option>
-							<option value="HUGER客服部">HUGER客服部</option>
+							<!-- {foreach $Inquiry_Type $v} -->
+							<option value="{$v.title}">{$v.title}</option>
+							<!-- {/foreach} -->
 						</select>
 					</div>
 					<div class="rc-row">

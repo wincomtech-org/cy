@@ -51,11 +51,10 @@ if ($rec == 'default') {
     $where2 = str_replace('a.', '', $where);
     $limit = $dou->pager('diy', 15, $page, $page_url, $where2, $get);
     // 查询数据
+    $fields = $dou->create_fields_quote('id,title,title2,cat_id,image','a');
     if ($GLOBALS['lang_type']==1) {
-        $fields = $dou->create_fields_quote('id,title,cat_id,image','a');
         $fields .= ',b.cat_name';
     } else {
-        $fields = $dou->create_fields_quote('id,title2,cat_id,image','a');
         $fields .= ',b.cat_name2';
     }
     $sql = sprintf("SELECT %s from %s a left join %s b on a.cat_id=b.cat_id %s %s %s", $fields,$dou->table('diy'),$dou->table('diy_category'),$where,' ORDER BY a.id DESC',$limit);
@@ -99,7 +98,7 @@ elseif ($rec == 'add') {
         $diy['defined'] = trim($defined_diy);
         $diy['defined_count'] = count(explode("\n", $diy['defined'])) * 2;
     }
-    
+
     // CSRF防御令牌生成
     $smarty->assign('token', $firewall->get_token());
     
@@ -114,7 +113,7 @@ elseif ($rec == 'add') {
 elseif ($rec == 'insert') {
     // 验证标题
     if (empty($_POST['title'])) $dou->dou_msg($_LANG['diy_name'] . $_LANG['is_empty']);
-    if ($dou->get_one("SELECT id from ".$dou->table('diy')." where title='".$_POST['title']."'")) {
+    if ($dou->get_one("SELECT id from ".$dou->table('diy')." where title='".$_POST['title']."' and cat_id='$_POST[cat_id]'")) {
         $dou->dou_msg('已存在！');
     }
     // 图片上传
@@ -131,12 +130,10 @@ elseif ($rec == 'insert') {
             'cat_id'  => $_POST['cat_id'],
             'title'  => $_POST['title'],
             'title2'  => $_POST['title2'],
-            'defined'  => $_POST['defined'],
             'content'  => $_POST['content'],
             'image'  => $image,
             'keywords'  => $_POST['keywords'],
             'description'  => $_POST['description'],
-            'add_time'  => time(),
             'sort'  => $_POST['sort']
         );
     $dou->insert('diy',$data);
@@ -212,7 +209,6 @@ elseif ($rec == 'update') {
             'cat_id'  => $_POST['cat_id'],
             'title'  => $_POST['title'],
             'title2'  => $_POST['title2'],
-            'defined'  => $_POST['defined'],
             'content'  => $_POST['content'],
             'keywords'  => $_POST['keywords'],
             'description'  => $_POST['description'],

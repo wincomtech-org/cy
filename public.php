@@ -48,6 +48,8 @@ if ($diys) {
 $industrys = $diys_c[1];
 // 职业
 $posts = $diys_c[2];
+// 部门
+$Inquiry_Type = $diys_c[3];
 
 
 

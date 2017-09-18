@@ -117,6 +117,7 @@ class DouUser {
         $user_row = $this->user_check($_SESSION[DOU_ID]['user_id'], $_SESSION[DOU_ID]['shell']);
         if (is_array($user_row)) {
             $user_name = $user_row['nickname'] ? $user_row['nickname'] : ($user_row['email']?$user_row['email']:$user_row['truename']);
+            $user_name = $GLOBALS['dou']->dou_substr($user_name,10);
             $user = array(
                     'user_id' => intval($user_row['user_id']),
                     'user_name' => $user_name

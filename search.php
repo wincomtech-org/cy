@@ -12,18 +12,28 @@ require ROOT_PATH .'public.php';
 if (!$check->is_search_keyword( $srcval=trim($_REQUEST['srcval']) )) {
     $dou->dou_msg($_LANG['search_keyword_wrong']);
 }
-$module = $check->is_letter($_REQUEST['module']) ? $_REQUEST['module'] : 'product';
+
+/*if (isset($divie)) {
+    // 分模块 分开搜
+} else {
+    // 不分模块 全搜
+}*/
+
+$module = $check->is_rec($_REQUEST['module']) ? $_REQUEST['module'] : 'product';
 switch ($module) {
     case 'article' : 
         $name_field = 'title';
+        $fields = 'click,'.$name_field;
         $search_url = 'search.php?module=article&srcval=';
         break;
     default :// 产品模块
         $name_field = 'name';
+        $fields = 'price,'.$name_field;
         $search_url = 'search.php?srcval=';
         break;
 }
 $smarty->assign('module', $module);
+
 $smarty->assign('srcval', $srcval);
 
 // 筛选条件
@@ -38,17 +48,17 @@ $where2 = str_replace('a.','',$where);
 $limit = $dou->pager($module, ($_DISPLAY[$module] ? $_DISPLAY[$module] : 25), $page, $search_url, $where2, '', '', true);
 
 /* 获取搜索结果列表 */
-// $fields = $dou->create_fields_quote('*','a');
-$sql = "SELECT a.*,b.cat_name FROM ". $dou->table($module) .' a LEFT JOIN '. $dou->table($module.'_category') .' b ON a.cat_id=b.cat_id '. $where .' ORDER BY id DESC' . $limit;
+$fields = $dou->create_fields_quote('id,image,add_time,description,'.$fields,'a');
+$sql = "SELECT ".$fields.",b.cat_name FROM ". $dou->table($module) .' a LEFT JOIN '. $dou->table($module.'_category') .' b ON a.cat_id=b.cat_id '. $where .' ORDER BY id DESC' . $limit;
 $query = $dou->query($sql);
 while ($row = $dou->fetch_array($query)) {
     $row['url'] = $dou->rewrite_url($module, $row['id']);
     $row['add_time_short'] = date("m-d", $row['add_time']);
     $row['add_time'] = date("Y-m-d H:i:s", $row['add_time']);
-    $row['description'] = $row['description'] ? $row['description'] : $dou->dou_substr($row['content'], 150);
+    $row['description'] = $row['description'] ? $row['description'] : '';
     // 生成缩略图的文件名
-    $image = explode('.', $row['image']);
-    $row['thumb'] = ROOT_URL . $image[0] . '_thumb.' . $image[1];
+    // $image = explode('.', $row['image']);
+    // $row['thumb'] = ROOT_URL . $image[0] . '_thumb.' . $image[1];
     $row['price'] = $row['price'] > 0 ? $dou->price_format($row['price']) : $_LANG['price_discuss'];
     $row['name'] = $row['title'] = $row[$name_field];
 
@@ -74,6 +84,12 @@ $smarty->assign('nav_bottom_list', $dou->get_nav('bottom'));
 $smarty->assign('search_list', $search_list);
 
 $smarty->display('search.dwt');
+
+
+/* 获取搜索结果列表 */
+function get_list() {
+
+}
 
 // 终止执行文件外的程序
 // exit();
