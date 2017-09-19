@@ -41,7 +41,7 @@
        <th align="center">{$lang.cart_product_amount}</th>
        <th align="center">{$lang.cart_status}</th>
        <th align="center">{$lang.cart_addtime}</th>
-       <th width="80" align="center">{$lang.handler}</th>
+       <th width="100" align="center">{$lang.handler}</th>
       </tr>
       <!--{foreach from=$cart_list item=cart}-->
       <tr>
@@ -53,7 +53,7 @@
        <td align="center">{$cart.product_amount}</td>
        <td align="center">{$cart.status_format}</td>
        <td align="center">{$cart.addtime}</td>
-       <td align="center"><a target="_blank" href="{$cart.url}">{$lang.view}</a> | <a href="cart.php?rec=del&cart_id={$cart.id}">{$lang.del}</a></td>
+       <td align="center"><a target="_blank" href="{$cart.url}">导出Excel</a> | <a href="cart.php?rec=del&cart_id={$cart.id}">{$lang.del}</a></td>
       </tr>
       <!--{/foreach}-->
      </table>

@@ -126,8 +126,8 @@ class Common extends DbMysql {
         $module['single'] = array_filter($setting['single_module']);
         $module['all'] = array_merge($module['column'], $module['single']); 
         
-        // 读取模块语言文件
-        $lang_path = ROOT_PATH .'languages/'. (defined('IS_ADMIN') ? 'zh_cn/admin/' : (isset($_SESSION['lang_identifier'])?$_SESSION['lang_identifier']:$GLOBALS['_CFG']['language']) .'/');
+        // 读取模块语言文件 $GLOBALS['_CFG']['language']
+        $lang_path = ROOT_PATH .'languages/'. (defined('IS_ADMIN') ? 'zh_cn/admin/' : ($GLOBALS['lang_type']==2?'en_us':'zh_cn') .'/');
         $lang_list = glob($lang_path . '*.lang.php');
         if (is_array($lang_list)) {
             foreach ($lang_list as $lang) {
@@ -502,7 +502,7 @@ class Common extends DbMysql {
 
     /**
      * +----------------------------------------------------------
-     * 单独 article 栏目调用
+     * 首页单独 article 栏目调用
      * 支持多个
      * +----------------------------------------------------------
      */
@@ -510,9 +510,9 @@ class Common extends DbMysql {
         $def_nav = explode('/', $GLOBALS['_CFG']['def_nav']);
         $def_nav_num = explode('/', $GLOBALS['_CFG']['def_nav_num']);
         foreach ($def_nav as $key => $value) {
-            $GLOBALS['smarty']->assign('recommend_'.$key, $dou->get_list('article', $value, $def_nav_num[$key], 'sort DESC,modtime DESC'));
-            $GLOBALS['smarty']->assign('url_'.$key, $dou->rewrite_url('article_category', $value));//对应栏目链接
-            $GLOBALS['smarty']->assign('column_name_'.$key, $dou->rewrite_url('article_category', $value));//对应栏目名
+            $GLOBALS['smarty']->assign('recommend_'.$key, $GLOBALS['dou']->get_list('article', $value, $def_nav_num[$key], 'sort DESC,modtime DESC'));
+            $GLOBALS['smarty']->assign('url_'.$key, $GLOBALS['dou']->rewrite_url('article_category', $value));//对应栏目链接
+            $GLOBALS['smarty']->assign('column_name_'.$key, $GLOBALS['dou']->rewrite_url('article_category', $value));//对应栏目名
 
         }
         // return $article_column;

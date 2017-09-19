@@ -49,7 +49,7 @@ if ($_SESSION['lang_identifier']==$lang_mark[2]) {
     $lang_type = 1;
     $syskey = 'value';
 }
-// echo $_SESSION['lang_identifier'];die;
+// echo $lang_type;die;
 
 /*语言包控制管理*/
 // if (IS_ADMIN===true) {
