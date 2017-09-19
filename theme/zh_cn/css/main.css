@@ -688,12 +688,16 @@
 
 .prodcts_detail_tit.endoscope{padding:30px 50px;}
 
-.prodcts_detail_tit.endoscope .img{width:29.17%;}
+.prodcts_detail_tit.endoscope .img{width:25%;}
 
 .prodcts_detail_tit.endoscope .img img{width:100%;padding:0;}
 
 .prodcts_detail_tit.endoscope .txt p{line-height:1.9;}
 
+
+@media screen and  (max-width:1024px) and (min-width:768px){
+    .prodcts_detail_tit.endoscope .img{width:28%;}
+}
 
 
 .product_endoscope{width:100%;}
