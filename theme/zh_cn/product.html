@@ -34,7 +34,7 @@
 							<h3><span>规格</span></h3>
 						</div>		
 					</div>
-					<!-- {if $defined || $product.model} -->
+					<!-- {if $daos || $product.model} -->
 					<table style="table-layout:fixed;">
 						<thead>
 							<tr>
@@ -44,10 +44,10 @@
 						</thead>
 						<tbody>
 							<!-- {if $product.model} --><tr><td>型号</td><td>{$product.model}</td></tr><!-- {/if} -->
-							<!-- {foreach $defined $d} -->
+							<!-- {foreach $daos as $k=>$d} -->
 							<tr>
-								<td>{$d.dkey}</td>
-								<td colspan="2">{$d.dval}</td>
+								<td>{$designate[$k]}</td>
+								<td colspan="2">{$d}</td>
 							</tr>
 							<!-- {/foreach} -->
 						</tbody>

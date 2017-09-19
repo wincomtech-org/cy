@@ -14,14 +14,7 @@
                 <div class="footerSearch">
                     <div class="footerser">
                         <form action="search.php" method="POST" accept-charset="{$site.dou_charset}">
-                            <!-- {if $site.cypro} -->
                             <input type="hidden" name="module" value="product">
-                            <!-- {else} -->
-                            <select name="module" style="height:30px;line-height:30px;border:none;">
-                                <option {if $module eq 'project' || $module eq null}selected{/if} value="product">Product</option>
-                                <option {if $module eq 'article'}selected{/if} value="article">Article</option>
-                            </select>
-                            <!-- {/if} -->
                             <input type="text" name="srcval" placeholder="{if $srcval}{$srcval}{else}Keyword{/if}">
                             <button type="submit"></button>
                         </form>

@@ -21,6 +21,11 @@ $_CFG['thumb_width'] = 374;$_CFG['thumb_height'] = 374;
 $smarty->assign('rec', $rec);
 $smarty->assign('cur', 'product_category');
 
+if (in_array($rec,array('add','edit'))) {
+    $dou->get_dao_fields();
+    // $dou->get_dao_series();
+}
+
 /**
  * +----------------------------------------------------------
  * 分类列表
@@ -35,7 +40,6 @@ if ($rec == 'default') {
     
     // 赋值给模板
     $smarty->assign('product_category', $dou->get_category_nolevel('product_category'));
-    // print_r($dou->get_category_nolevel('product_category'));
     $smarty->display('product_category.htm');
 } 
 
@@ -53,9 +57,12 @@ elseif ($rec == 'add') {
     
     // CSRF防御令牌生成
     $smarty->assign('token', $firewall->get_token());
+
+    $cat_info['fields'] = array();
     
     // 赋值给模板
     $smarty->assign('form_action', 'insert');
+    $smarty->assign('cat_info', $cat_info);
     $smarty->assign('product_category', $dou->get_category_nolevel('product_category'));
     
     $smarty->display('product_category.htm');
@@ -67,7 +74,6 @@ elseif ($rec == 'insert') {
     
     if (!$check->is_unique_id($_POST['unique_id']))
         $dou->dou_msg($_LANG['unique_id_wrong']);
-        
     if ($dou->value_exist('product_category', 'unique_id', $_POST['unique_id']))
         $dou->dou_msg($_LANG['unique_id_existed']);
 
@@ -89,8 +95,15 @@ elseif ($rec == 'insert') {
             'image'     => $image,
             'keywords'  => $_POST['keywords'],
             'description'  => $_POST['description'],
-            'sort'      => $_POST['sort']
-        );
+            'sort'      => $_POST['sort'],
+    );
+    if ($_POST['fields']) {
+        foreach ($_POST['fields'] as $val) {
+            $fields .= $val.',';
+        }
+        $fields = substr($fields,0,strlen($fields)-1);
+        $data['fields'] = $fields;
+    }
     $dou->insert('product_category',$data);
     
     $dou->create_admin_log($_LANG['product_category_add'] . ': ' . $_POST['cat_name']);
@@ -112,7 +125,8 @@ elseif ($rec == 'edit') {
     // 获取分类信息
     $cat_id = $check->is_number($_REQUEST['cat_id']) ? $_REQUEST['cat_id'] : '';
     $query = $dou->select($dou->table('product_category'), '*', '`cat_id`=\''. $cat_id .'\'');
-    $cat_info = $dou->fetch_array($query);
+    $cat_info = $dou->fetch_assoc($query);
+    $cat_info['fields'] = explode(',', $cat_info['fields']);
     
     // CSRF防御令牌生成
     $smarty->assign('token', $firewall->get_token());
@@ -131,7 +145,6 @@ elseif ($rec == 'update') {
 
     if (!$check->is_unique_id($_POST['unique_id']))
         $dou->dou_msg($_LANG['unique_id_wrong']);
-
     if ($dou->value_exist('product_category', 'unique_id', $_POST['unique_id'], "AND cat_id != '$_POST[cat_id]'"))
         $dou->dou_msg($_LANG['unique_id_existed']);
 
@@ -155,9 +168,16 @@ elseif ($rec == 'update') {
             'keywords'  => $_POST['keywords'],
             'description'  => $_POST['description'],
             'sort'  => $_POST['sort']
-        );
+    );
     if ($image)
         $data['image'] = $image;
+    if ($_POST['fields']) {
+        foreach ($_POST['fields'] as $val) {
+            $fields .= $val.',';
+        }
+        $fields = substr($fields,0,strlen($fields)-1);
+        $data['fields'] = $fields;
+    }
     $dou->update('product_category',$data,'cat_id='.$_POST['cat_id']);
     
     $dou->create_admin_log($_LANG['product_category_edit'] . ': ' . $_POST['cat_name']);

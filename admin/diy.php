@@ -116,6 +116,12 @@ elseif ($rec == 'insert') {
     if ($dou->get_one("SELECT id from ".$dou->table('diy')." where title='".$_POST['title']."' and cat_id='$_POST[cat_id]'")) {
         $dou->dou_msg('已存在！');
     }
+    if ($_POST['cat_id']==4) {
+        if (!$check->is_unique_id($_POST['unique_id']))
+            $dou->dou_msg($_LANG['unique_id_wrong']);
+        if ($dou->value_exist('diy', 'unique_id', $_POST['unique_id']))
+            $dou->dou_msg($_LANG['unique_id_existed']);
+    }
     // 图片上传
     if ($_FILES['image']['name'] != '')
         $image = $images_dir . $img->upload_image('image', $img->create_file_name('diy'));
@@ -127,6 +133,7 @@ elseif ($rec == 'insert') {
     $firewall->check_token($_POST['token']);
 
     $data = array(
+            'unique_id'  => $_POST['unique_id'],
             'cat_id'  => $_POST['cat_id'],
             'title'  => $_POST['title'],
             'title2'  => $_POST['title2'],
@@ -192,6 +199,13 @@ elseif ($rec == 'update') {
     // 验证标题
     if (empty($_POST['title'])) $dou->dou_msg($_LANG['diy_name'] . $_LANG['is_empty']);
 
+    if ($_POST['unique_id']==4) {
+        if (!$check->is_unique_id($_POST['unique_id']))
+            $dou->dou_msg($_LANG['unique_id_wrong']);
+        if ($dou->value_exist('diy', 'unique_id', $_POST['unique_id'], "AND cat_id != '$_POST[cat_id]'"))
+            $dou->dou_msg($_LANG['unique_id_existed']);
+    }
+
     // 图片上传
     if ($_FILES['image']['name'] != '') {
         $image_name = $img->upload_image('image', $img->create_file_name('diy', $id));
@@ -206,6 +220,7 @@ elseif ($rec == 'update') {
     $firewall->check_token($_POST['token']);
 
     $data = array(
+            'unique_id'  => $_POST['unique_id'],
             'cat_id'  => $_POST['cat_id'],
             'title'  => $_POST['title'],
             'title2'  => $_POST['title2'],

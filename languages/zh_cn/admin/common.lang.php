@@ -119,7 +119,7 @@ $_LANG['top_manager_edit'] = '编辑我的个人资料';
 $_LANG['top_logout'] = '退出';
 $_LANG['menu_home'] = '管理首页';
 $_LANG['menu_page'] = '单页面管理';
-$_LANG['footer_copyright'] = '版权所有 © 2013-2035 XXX网络科技有限公司，并保留所有权利。';
+$_LANG['footer_copyright'] = '';
 
 // 系统警示
 $_LANG['warning_install_exists'] = '您还没有删除 install 文件夹，出于安全的考虑，我们建议您删除 install 文件夹。';
@@ -185,6 +185,8 @@ $_LANG['site_keywords'] = '站点关键字';
 $_LANG['site_description'] = '站点描述';
 $_LANG['site_theme'] = '站点模板';
 $_LANG['site_logo'] = '站点标志';
+$_LANG['domain'] = '主网站域名';
+$_LANG['domain_pro'] = '配件站域名';
 $_LANG['site_closed'] = '是否关闭网站';
 $_LANG['company'] = '公司名称';
 $_LANG['site_address'] = '公司地址';

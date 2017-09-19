@@ -45,6 +45,7 @@ $_LANG['product_del'] = '删除产品';
 $_LANG['name'] = '产品名称';
 $_LANG['product_model'] = '产品型号';
 $_LANG['product_price'] = '产品价格';
+$_LANG['product_dao'] = '产品选定属性';
 $_LANG['product_defined'] = '自定义属性';
 $_LANG['product_defined_cue'] = '以英文逗号 , 隔开';
 $_LANG['product_content'] = '产品内容';

@@ -91,6 +91,15 @@
     <h3><a href="{$action_link.href}" class="actionBtn">{$action_link.text}</a>{$ur_here}</h3>
     <form action="diy.php?rec={$form_action}" method="post" enctype="multipart/form-data">
      <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
+      <!-- {if $diy.cat_id eq 4} -->
+      <tr>
+       <td width="90" align="right">唯一字段</td>
+       <td>
+        <input {if $diy.unique_id}readonly{/if} type="text" name="unique_id" value="{$diy.unique_id}" size="80" class="inpMain" />
+        <p style="color:#F00">不可二次修改</p>
+       </td>
+      </tr>
+      <!-- {/if} -->
       <tr>
        <td width="90" align="right">{$lang.diy_name}</td>
        <td>
