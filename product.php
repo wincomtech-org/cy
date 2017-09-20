@@ -13,6 +13,7 @@ $parent_id = $dou->get_one('SELECT parent_id FROM ' . $dou->table('product_categ
 /* 获取产品信息 */
 $query = $dou->select($dou->table('product'), '*', '`id`=\''. $id .'\'');
 $product = $dou->fetch_assoc($query);
+$product['description_format'] = str_replace(PHP_EOL,'<br>',$product['description']);
 
 // 格式化数据
 $product['price'] = $product['price'] > 0 ? $dou->price_format($product['price']) : $_LANG['price_discuss'];
