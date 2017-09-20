@@ -21,7 +21,7 @@ $_LANG['article_previous'] = 'Previous';
 $_LANG['article_next'] = 'Next';
 
 $_LANG['article_contact'] = 'Contact Information';
-$_LANG['article_contact_tel'] = 'telphone';
+$_LANG['article_contact_tel'] = 'Telephone';
 $_LANG['article_contact_email'] = 'Mailbox';
 $_LANG['article_contact_addr'] = 'Address';
 $_LANG['article_service_1'] = 'Service Content';

@@ -1,22 +1,24 @@
 # cy
-æˆè¿ä¸­è‹±æ–‡
+³ÉÔËÖĞÓ¢ÎÄ
 
 
-æ•°æ®åº“
+Êı¾İ¿â
 data/backup/***.sql
 
-å‡†å¤‡ä¸¤ä¸ªåŸŸåæµ‹è¯•
-å®˜ç½‘ï¼šcy.ext1.cn
-é…ä»¶ç½‘ï¼šcypro.ext1.cn
+×¼±¸Á½¸öÓòÃû²âÊÔ
+¹ÙÍø£ºcy.ext1.cn
+Åä¼şÍø£ºcypro.ext1.cn
 
 
-æ•°æ®åº“æ›´æ–°è®°å½•ï¼š
-INSERT INTO `dou_config` VALUES ('copyright', 'ç‰ˆæƒ','copyright', 'text', '', 'main', '8', '1');
+Êı¾İ¿â¸üĞÂ¼ÇÂ¼£º
+INSERT INTO `dou_config` VALUES ('copyright', '°æÈ¨','copyright', 'text', '', 'main', '8', '1');
 
 INSERT INTO `cy`.`dou_config` (`name`, `value`, `value2`, `type`, `box`, `tab`, `sort`, `display`) VALUES ('domain', 'http://cy.ext1.cn', 'http://cy.ext1.cn', 'text', '', 'main', '5', '1');
 INSERT INTO `cy`.`dou_config` (`name`, `value`, `value2`, `type`, `box`, `tab`, `sort`, `display`) VALUES ('domain_pro', 'http://cypro.ext1.cn/product_category.php', 'http://cypro.ext1.cn/product_category.php', 'text', '', 'main', '5', '1');
-ALTER TABLE dou_product_category add `fields` text not null COMMENT 'é€‰å®šå­—æ®µ';
+ALTER TABLE dou_product_category add `fields` text not null COMMENT 'Ñ¡¶¨×Ö¶Î';
 UPDATE dou_product set defined='';
-ALTER TABLE dou_product add `daos` text NOT NULL COMMENT 'é€‰å®šå­—æ®µçš„ serialize å­˜å€¼' after `defined`;
+ALTER TABLE dou_product add `daos` text NOT NULL COMMENT 'Ñ¡¶¨×Ö¶ÎµÄ serialize ´æÖµ' after `defined`;
 
-<!-- INSERT INTO `dou_config` VALUES ('defined', 'a:2:{s:7:\"article\";s:0:\"\";s:7:\"product\";s:500:\"å°ºå¯¸,ç”µå‹,é¢‘ç‡,åŠŸç‡,å¤§å°,é‡é‡,æ¨¡æ‹Ÿä¿¡å·è¾“å‡º,ç”µå­ä¿¡å·è¾“å‡º,ç™½å¹³è¡¡,é¢œè‰²è°ƒèŠ‚,é¥±å’Œåº¦è°ƒèŠ‚,æµ‹å…‰æµ‹è¯•,è¡€çº¢è›‹ç™½å¢å¼º,ç»“æ„å¢å¼º,è¾¹ç¼˜å¢å¼º,å†»ç»“,å›æ”¾,ç”µå­æ”¾å¤§,å¢ç›Š,ç”»ä¸­ç”»,å›¾åƒå­˜å‚¨,è§†é¢‘å­˜å‚¨,SDå¡,ç®¡ç†æ–‡ä»¶å¤¹,ä¸»ç¯,ç¯æ³¡å¹³å‡å¯¿å‘½,äº®åº¦è°ƒèŠ‚,å¤‡ç”¨ç¯,å¤‡ç”¨ç¯å¹³å‡å¯¿å‘½,æ°”æ³µå‹åŠ›,å‹åŠ›æ¡£ä½,æ–¹æ³•,è§†é‡è§’,è§†å‘,æ™¯æ·±(mm),å¤´ç«¯å¤–å¾„(mm),å¤´ç«¯æ”¾å¤§å›¾,æ’å…¥éƒ¨å¤–å¾„(mm),é’³é“å†…å¾„(mm),å¼¯è§’,å·¥ä½œé•¿åº¦,æ€»é•¿åº¦\";}', 'a:2:{s:7:\"article\";s:0:\"\";s:7:\"product\";s:547:\"measure,voltage,frequency,power,size,weight,AO,ElectronicSignalOutput,white balance,Rgb,SATURATION,Photometric test,Hemoglobin enhancement,structure enhance,edge enhancement,freeze,playback,Digital zoom,gain,PIP,image storage,video storage,SD Card,Manage Folders,king light,Bulb life,brilliance control,standby lamp,Spare lamp average life,Pump pressure,Pressure gear,Method,field angle,view direction,depth of field(mm),Head end diameter(mm),Head enlargement,Insert external diameter(mm),Pliers way inside(mm),Corner,working length,Overall length\";}', 'array', '', 'defined', '1', '1'); -->
+delete from dou_config where `name`='language';
+
+<!-- INSERT INTO `dou_config` VALUES ('defined', 'a:2:{s:7:\"article\";s:0:\"\";s:7:\"product\";s:500:\"³ß´ç,µçÑ¹,ÆµÂÊ,¹¦ÂÊ,´óĞ¡,ÖØÁ¿,Ä£ÄâĞÅºÅÊä³ö,µç×ÓĞÅºÅÊä³ö,°×Æ½ºâ,ÑÕÉ«µ÷½Ú,±¥ºÍ¶Èµ÷½Ú,²â¹â²âÊÔ,Ñªºìµ°°×ÔöÇ¿,½á¹¹ÔöÇ¿,±ßÔµÔöÇ¿,¶³½á,»Ø·Å,µç×Ó·Å´ó,ÔöÒæ,»­ÖĞ»­,Í¼Ïñ´æ´¢,ÊÓÆµ´æ´¢,SD¿¨,¹ÜÀíÎÄ¼ş¼Ğ,Ö÷µÆ,µÆÅİÆ½¾ùÊÙÃü,ÁÁ¶Èµ÷½Ú,±¸ÓÃµÆ,±¸ÓÃµÆÆ½¾ùÊÙÃü,Æø±ÃÑ¹Á¦,Ñ¹Á¦µµÎ»,·½·¨,ÊÓÒ°½Ç,ÊÓÏò,¾°Éî(mm),Í·¶ËÍâ¾¶(mm),Í·¶Ë·Å´óÍ¼,²åÈë²¿Íâ¾¶(mm),Ç¯µÀÄÚ¾¶(mm),Íä½Ç,¹¤×÷³¤¶È,×Ü³¤¶È\";}', 'a:2:{s:7:\"article\";s:0:\"\";s:7:\"product\";s:547:\"measure,voltage,frequency,power,size,weight,AO,ElectronicSignalOutput,white balance,Rgb,SATURATION,Photometric test,Hemoglobin enhancement,structure enhance,edge enhancement,freeze,playback,Digital zoom,gain,PIP,image storage,video storage,SD Card,Manage Folders,king light,Bulb life,brilliance control,standby lamp,Spare lamp average life,Pump pressure,Pressure gear,Method,field angle,view direction,depth of field(mm),Head end diameter(mm),Head enlargement,Insert external diameter(mm),Pliers way inside(mm),Corner,working length,Overall length\";}', 'array', '', 'defined', '1', '1'); -->

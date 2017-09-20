@@ -13,7 +13,7 @@
 <div id="dcWrap"> {include file="header.htm"}
  <div id="dcLeft">{include file="menu.htm"}</div>
  <div id="dcMain"> {include file="ur_here.htm"}
-  <div class="mainBox" style="{$workspace.height}"> 
+  <div class="mainBox" style="{$workspace.height}">
    <!--{if $rec eq 'default'} 订单列表 -->
    <h3>{$ur_here}</h3>
    <!--{if $key}-->
@@ -61,6 +61,10 @@
       <select name="action">
        <option value="0">{$lang.select}</option>
        <option value="del_all">{$lang.del}</option>
+      <!--{if $excel}-->
+      <option value="excel">{$lang.user_excel}</option>
+      <option value="excel_all">{$lang.user_excel_all}</option>
+      <!--{/if}-->
        <!-- <option value="cancel_all">{$lang.cart_cancel}</option> -->
       </select>
       <input name="submit" class="btn" type="submit" value="{$lang.btn_execute}" />
@@ -68,8 +72,8 @@
     </form>
    </div>
    <div class="clear"></div>
-   {include file="pager.htm"} 
-   <!--{/if}--> 
+   {include file="pager.htm"}
+   <!--{/if}-->
    <!--{if $rec eq 'view'} 订单详情 -->
    <div id="order">
     <h3><a href="{$action_link.href}" class="actionBtn">{$action_link.text}</a>{$ur_here}</h3>
@@ -123,7 +127,7 @@
      </tr>
     </table>
     <div class="tracking">
-     <div class="trackingNo"><!--{if $cart.tracking_no}-->{$cart.shipping_name}：{$cart.tracking_no} 
+     <div class="trackingNo"><!--{if $cart.tracking_no}-->{$cart.shipping_name}：{$cart.tracking_no}
      <button class="btnShow" type="button" onClick="douDisplay('actionBox', 'show')">{$lang.edit}</button><!--{/if}--></div>
      <div class="trackingSubmit">
      <div id="actionBox"{if $cart.tracking_no} class="edit"{/if}>
@@ -147,7 +151,7 @@
      </div>
     </div>
    </div>
-   <!--{/if}--> 
+   <!--{/if}-->
  </div>
  </div>
  {include file="footer.htm"}
@@ -156,7 +160,7 @@
  {literal}
  // 表单重置
  onload = function() {document.forms['action'].reset();}
- 
+
  // 显示和隐藏
  $(document).ready(function(){
    $(".btnHide").click(function(){

@@ -58,11 +58,12 @@ $check_last = $dou->get_one("SELECT count(*) FROM ". $dou->table('product_catego
 // 有无子分类区别
 if ($checkids) {
     if ($check_last) {
+        // product_category.html
         // $smarty->assign('product_category', $dou->get_category('product_category', 0, $cat_id));
         $smarty->assign('product_category', $dou->get_category('product_category', $cat_id));
         $thistpl = 'product_category.html';
-
     } else {
+        // product_category_child.html
         $cat_ids = $cat_id . $dou->dou_child_id('product_category', $cat_id);
         if (strpos($cat_ids,',')) {
             $where = ' WHERE a.cat_id IN ('. $cat_ids .") AND a.lang_id='{$GLOBALS[lang_type]}'";
@@ -78,7 +79,7 @@ if ($checkids) {
         $sql = sprintf('SELECT %s,b.cat_name from %s as a join %s b on a.cat_id=b.cat_id %s order by a.sort asc,a.id desc %s',$fields,$dou->table('product'),$dou->table('product_category'),$where,$limit);
         $query = $dou->query($sql);
         while ($row = $dou->fetch_array($query,MYSQL_ASSOC)) {
-            $row['url'] = $dou->rewrite_url('product', $row['id']); // 获取经过伪静态产品链接
+            $row['url'] = $dou->rewrite_url('product', $row['id']).'&cid='.$cat_id; // 获取经过伪静态产品链接
             $row['add_time'] = date("Y-m-d", $row['add_time']);
             // 如果描述不存在则自动从详细介绍中截取
             $row['description'] = $row['description'] ? $row['description'] : $dou->dou_substr($row['content'], 150, false);
@@ -103,6 +104,7 @@ if ($checkids) {
     }
 
 } else {
+    // product_list.html
     // 获取分页信息
     $page = $check->is_number($_REQUEST['page']) ? trim($_REQUEST['page']) : 1;
     $limit = $dou->pager('product', ($_DISPLAY['product'] ? $_DISPLAY['product'] : 10), $page, $dou->rewrite_url('product_category', $cat_id), $where);
@@ -111,7 +113,7 @@ if ($checkids) {
     $sql = sprintf('SELECT %s from %s %s order by sort,id desc %s',$fields,$dou->table('product'),$where,$limit);
     $query = $dou->query($sql);
     while ($row = $dou->fetch_array($query)) {
-        $row['url'] = $dou->rewrite_url('product', $row['id']); // 获取经过伪静态产品链接
+        $row['url'] = $dou->rewrite_url('product', $row['id']).'&cid='.$cat_id; // 获取经过伪静态产品链接
         $row['add_time'] = date("Y-m-d", $row['add_time']);
         // 如果描述不存在则自动从详细介绍中截取
         $row['description'] = $row['description'] ? $row['description'] : $dou->dou_substr($row['content'], 150, false);

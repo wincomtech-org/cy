@@ -34,4 +34,8 @@ $_LANG['guestbook_content_wrong'] = '留言内容为空或长度超过限制，d
 $_LANG['guestbook_include_chinese'] = '且必须包含中文，';
 $_LANG['guestbook_is_water'] = '您已经发表了 3 次留言，请您耐心等待管理员回复';
 $_LANG['guestbook_reply'] = '网站回复';
+
+$_LANG['guestbook_send_title'] = '留言成功告知';
+$_LANG['guestbook_body_0'] = '亲爱的 ';
+$_LANG['guestbook_body_1'] = '您的留言我们已经收到，会尽快回复的！-- ';
 ?>

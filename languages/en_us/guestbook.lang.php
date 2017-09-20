@@ -33,4 +33,8 @@ $_LANG['guestbook_qq_wrong'] = 'QQ can not be empty and only enter numbers, plea
 $_LANG['guestbook_content_wrong'] = 'The content is empty or length exceeds the limit, please input again';
 $_LANG['guestbook_is_water'] = 'You have posted three message, please be patient to wait for the administrator reply';
 $_LANG['guestbook_reply'] = 'Reply';
+
+$_LANG['guestbook_send_title'] = 'The message was successfully told';
+$_LANG['guestbook_body_0'] = 'Dear ';
+$_LANG['guestbook_body_1'] = 'We have received your message and will reply as soon as possible! -- ';
 ?>

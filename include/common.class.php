@@ -79,7 +79,7 @@ class Common extends DbMysql {
                     $value['url'] = $this->rewrite_url($value['module'], $value['guide']);
                     $value['cur'] = $this->dou_current($value['module'], $value['guide'], $current_module, $current_id, $current_parent_id);
                 }
-                
+
                 foreach ($data as $child) {
                     // 筛选下级导航
                     if ($child['parent_id'] == $value['id']) {
@@ -92,7 +92,7 @@ class Common extends DbMysql {
         }
         return $nav;
     }
-    
+
     /**
      * +----------------------------------------------------------
      * 高亮当前菜单
@@ -128,7 +128,7 @@ class Common extends DbMysql {
         $config['m_url'] = M_URL;
         return $config;
     }
-    
+
     /**
      * +----------------------------------------------------------
      * 重写 URL 地址
@@ -158,7 +158,7 @@ class Common extends DbMysql {
             return ((defined('IS_MOBILE') || $type=='mobile') ? M_URL : ROOT_URL) . $url; // 移动版和PC版的根网址不同
         }
     }
-    
+
     /**
      * +----------------------------------------------------------
      * 系统模块
@@ -169,8 +169,8 @@ class Common extends DbMysql {
         $setting = $this->read_system();
         $module['column'] = array_filter($setting['column_module']);
         $module['single'] = array_filter($setting['single_module']);
-        $module['all'] = array_merge($module['column'], $module['single']); 
-        
+        $module['all'] = array_merge($module['column'], $module['single']);
+
         // 读取模块语言文件 $GLOBALS['_CFG']['language']
         $lang_path = ROOT_PATH .'languages/'. (defined('IS_ADMIN') ? 'zh_cn/admin/' : ($GLOBALS['lang_type']==2?'en_us':'zh_cn') .'/');
         $lang_list = glob($lang_path . '*.lang.php');
@@ -194,7 +194,7 @@ class Common extends DbMysql {
 
         return $module;
     }
-     
+
     /**
      * +----------------------------------------------------------
      * 将系统文件转换为数组
@@ -209,10 +209,10 @@ class Common extends DbMysql {
                 $setting[$arr[0]] = explode(',', $arr[1]);
             }
         }
-        
+
         return $setting;
     }
-    
+
     /**
      * +----------------------------------------------------------
      * 所有模块URL和当前模块URL生成
@@ -243,7 +243,7 @@ class Common extends DbMysql {
         }
         return $url;
     }
-    
+
     /**
      * +----------------------------------------------------------
      * 获取别名
@@ -255,18 +255,18 @@ class Common extends DbMysql {
     function get_unique($module, $id) {
         $filed = $module == 'page' ? id : cat_id;
         $table_module = $module;
-        
+
         // 非单页面和分类模型下获取分类ID
         if (!strpos($module, 'category') && $module != 'page') {
             $id = $this->get_one("SELECT cat_id FROM " . $this->table($module) . " WHERE id = " . $id);
             $table_module = $module . '_category';
         }
-        
+
         $unique_id = $this->get_one("SELECT unique_id FROM " . $this->table($table_module) . " WHERE " . $filed . " = " . $id);
-        
+
         // 把分类页和列表的别名统一
         $module = preg_replace("/\_category/", '', $module);
-        
+
         // 伪静态时使用的完整别名
         if ($module == 'page') {
             $unique = $unique_id;
@@ -277,10 +277,10 @@ class Common extends DbMysql {
             $unique = $unique_id ? '/' . $unique_id : $unique_id;
             $unique = $module . $unique;
         }
-        
+
         return $unique;
     }
-    
+
     /**
      * +----------------------------------------------------------
      * 获取幻灯图片列表
@@ -290,7 +290,7 @@ class Common extends DbMysql {
         if ($type) {
             $where = " WHERE type = '$type'";
         }
-        
+
         $sql = "SELECT * FROM " . $this->table('show') . $where . " ORDER BY type,sort,id ASC";
         $query = $this->query($sql);
         while ($row = $this->fetch_array($query)) {
@@ -322,12 +322,12 @@ class Common extends DbMysql {
                     "id" => $row['id'],
                     "link_name" => $row['link_name'],
                     "link_url" => $row['link_url'],
-                    "sort" => $row['sort'] 
+                    "sort" => $row['sort']
             );
         }
         return $link_list;
     }
-    
+
     /**
      * +----------------------------------------------------------
      * 获取当前分类下有层级的子分类
@@ -348,7 +348,7 @@ class Common extends DbMysql {
         }
         return $child_id;
     }
-    
+
     /**
      * +----------------------------------------------------------
      * 获取无层次产品分类，将所有分类存至同一级数组，用$mark作为标记区分
@@ -375,10 +375,10 @@ class Common extends DbMysql {
                 $this->get_category_nolevel($table, $value['cat_id'], $level+1, $current_id, $category_nolevel);
             }
         }
-        
+
         return $category_nolevel;
     }
-    
+
     /**
      * +----------------------------------------------------------
      * 获取无层次单页面列表
@@ -402,7 +402,7 @@ class Common extends DbMysql {
         }
         return $page_nolevel;
     }
-    
+
     /**
      * +----------------------------------------------------------
      * 获取列表
@@ -417,7 +417,7 @@ class Common extends DbMysql {
         $where = ($cat_id=='ALL') ? " WHERE land_id='{$GLOBALS[lang_type]}'" : " WHERE cat_id IN (".$cat_id.$this->dou_child_id($module.'_category',$cat_id).")";
         $sort = $sort ? $sort . ',' : '';
         $limit = $num ? (strpos(strtolower($num),'limit')!==false?$num:' LIMIT '.$num) : '';
-        
+
         $sql = "SELECT * FROM " . $this->table($module) . $where . " ORDER BY " . $sort . "id DESC" . $limit;
         $query = $this->query($sql);
         while ($row = $this->fetch_array($query)) {
@@ -497,7 +497,7 @@ class Common extends DbMysql {
                 if ($val['1']) {
                     $defined[] = array(
                         "arr" => $val['0'],
-                        "value" => $val['1'] 
+                        "value" => $val['1']
                     );
                 }
             }
@@ -509,7 +509,7 @@ class Common extends DbMysql {
         }
         return $douphp_list;
     }
-    
+
     /**
      * +----------------------------------------------------------
      * 获取有层次的栏目分类，有几层分类就创建几维数组
@@ -527,10 +527,10 @@ class Common extends DbMysql {
             if ($value['parent_id'] == $parent_id) {
                 $value['url'] = $this->rewrite_url($table, $value['cat_id']);
                 $value['cur'] = $value['cat_id'] == $current_id ? true : false;
-                // if ($value['image']) {
-                //     $thumb = explode('.', $value['image']);
-                //     $value['thumb'] = ROOT_URL . $thumb[0] . "_thumb." . $thumb[1];
-                // }
+                if ($value['image']) {
+                    $thumb = explode('.', $value['image']);
+                    $value['thumb'] = ROOT_URL . $thumb[0] . "_thumb." . $thumb[1];
+                }
                 foreach ($data as $child) {
                     // 筛选下级导航
                     if ($child['parent_id'] == $value['cat_id']) {
@@ -562,7 +562,7 @@ class Common extends DbMysql {
         }
         // return $article_column;
     }
-    
+
     /**
      * +----------------------------------------------------------
      * 获取指定分类单页面列表
@@ -579,7 +579,7 @@ class Common extends DbMysql {
             if ($value['parent_id'] == $parent_id) {
                 $value['url'] = $this->rewrite_url('page', $value['id']);
                 $value['cur'] = $value['id'] == $current_id ? true : false;
-                
+
                 foreach ($data as $child) {
                     // 筛选下级单页面
                     if ($child['parent_id'] == $value['id']) {
@@ -607,7 +607,7 @@ class Common extends DbMysql {
         }
         return $page;
     }
-    
+
     /**
      * +----------------------------------------------------------
      * 分页
@@ -624,7 +624,7 @@ class Common extends DbMysql {
      * +----------------------------------------------------------
      */
     function pager($table, $page_size=10, $page, $page_url='', $where='', $get='', $join='', $close_rewrite=false, $sep='page') {
-        if (!is_array($table)) 
+        if (!is_array($table))
             $table = explode(',', $table);
         if (count($table)>1) {
             $sql = "SELECT count(*) FROM " . $this->table($table[0]) ." as a LEFT JOIN " . $this->table($table[1]) ." as b ON ". $join . $where;
@@ -632,7 +632,7 @@ class Common extends DbMysql {
             $sql = "SELECT count(*) FROM " . $this->table($table[0]) . $where;
         }
         $record_count = $this->get_one($sql);
-        
+
         // 调整分页链接样式
         if (!defined('IS_ADMIN') && $GLOBALS['_CFG']['rewrite'] && !$close_rewrite) {
             $get_page = '/o';
@@ -647,11 +647,11 @@ class Common extends DbMysql {
         $previous = $page_url . $get_page . ($page>1?$page-1:0) . $get;
         $next = $page_url . $get_page . ($page_count>$page?$page+1:0) . $get;
         $last = $page_url . $get_page . $page_count . $get;
-        
+
         $spt = $page_url . $get_page;
         $pagep = '';$pagen = '';
         // 上三页
-        for ($i=$page-4; $i < $page; $i++) { 
+        for ($i=$page-4; $i < $page; $i++) {
             if ($i > 0) {
                 $pagep .= '<a href="'.$spt.$i.$get.'">'.$i.'</a>';
             }
@@ -659,7 +659,7 @@ class Common extends DbMysql {
         // 当前页
         $current = '<a class="current">'. $page .'</a>';
         // 下三页
-        for ($i=$page+1; $i < $page+5; $i++) { 
+        for ($i=$page+1; $i < $page+5; $i++) {
             if ($i <= $page_count) {
                 $pagen .= '<a href="'.$spt.$i.$get.'">'.$i.'</a>';
             }
@@ -693,7 +693,7 @@ class Common extends DbMysql {
     {
         # code...
     }
-    
+
     /**
      * +----------------------------------------------------------
      * 获取上一项下一项
@@ -736,7 +736,7 @@ class Common extends DbMysql {
         $plugin = $this->fetch_array($this->select($this->table('plugin'), '*', '`unique_id`=\''. $unique_id .'\''));
         if ($plugin['config'])
             $plugin['config'] = unserialize($plugin['config']);
-        
+
         return $plugin;
     }
 
@@ -757,7 +757,7 @@ class Common extends DbMysql {
 
             $mail = new PHPMailer;                                // 实例化
             // $mail->SMTPDebug = 3;                               // 启用SMTP调试功能
-             
+
             $mail->CharSet ="UTF-8";                              // 设定邮件编码
             $mail->isSMTP();                                      // 设定使用SMTP服务
             $mail->Host = $GLOBALS['_CFG']['mail_host'];          // SMTP服务器
@@ -768,7 +768,7 @@ class Common extends DbMysql {
                 $mail->SMTPSecure = 'ssl';                        // 安全协议，可以注释掉
             $mail->Port = $GLOBALS['_CFG']['mail_port'];          // SMTP服务器的端口号
             $mail->isHTML(true);                                  // 是否HTML格式邮件
-            
+
             $mail->From = $GLOBALS['_CFG']['mail_username'];      // 发件人地址
             $mail->FromName = $GLOBALS['_CFG']['site_name'];      // 发件人姓名
             $mail->addAddress($mailto, '');                       // 收件地址，可选指定收件人姓名
@@ -776,7 +776,7 @@ class Common extends DbMysql {
             $mail->Subject = $subject;                            // 邮件标题
             $mail->Body    = $body;                               // 邮件内容
             // 邮件正文不支持HTML的备用显示
-            $mail->AltBody = $GLOBALS['_LANG']['mail_altbody']; 
+            $mail->AltBody = $GLOBALS['_LANG']['mail_altbody'];
 
             if($mail->send()) {
                 return true;
@@ -795,7 +795,7 @@ class Common extends DbMysql {
                 return ture;
         }
     }
-    
+
 
 
     /**
@@ -808,7 +808,7 @@ class Common extends DbMysql {
     function dou_header($url='/') {
         header("Location: ". $url);exit;
     }
-    
+
     /**
      * +----------------------------------------------------------
      * 格式化产品价格
@@ -819,10 +819,10 @@ class Common extends DbMysql {
     function price_format($price = '') {
         $price = number_format($price, $GLOBALS['_CFG']['price_decimal']);
         $price_format = preg_replace('/d%/Ums', $price, $GLOBALS['_LANG']['price_format']);
-        
+
         return $price_format;
     }
-    
+
     /**
      * +----------------------------------------------------------
      * 生成在线客服QQ数组
@@ -840,10 +840,10 @@ class Common extends DbMysql {
                 $im_list[] = $value;
             }
         }
-        
+
         return $im_list;
     }
-    
+
     /**
      * +----------------------------------------------------------
      * 获取真实IP地址
@@ -874,7 +874,7 @@ class Common extends DbMysql {
             return '127.0.0.1';
         }
     }
-    
+
     /**
      * +----------------------------------------------------------
      * 判断目录状态
@@ -894,10 +894,10 @@ class Common extends DbMysql {
         } else {
             $status = 'no_exist';
         }
-        
+
         return $status;
     }
-    
+
     /**
      * +----------------------------------------------------------
      * 获取当前目录子文件夹名
@@ -908,14 +908,14 @@ class Common extends DbMysql {
     function get_subdirs($dir) {
         $subdirs = array();
         if (!$handle  = @opendir($dir)) return $subdirs;
-        
+
         while ($file = @readdir($handle )) {
             if ($file == '.' || $file == '..') continue; // 排除掉当前目录和上一个目录
             $subdirs[] = $file;
         }
         return $subdirs;
     }
-    
+
     /**
      * +----------------------------------------------------------
      * 清除html,换行，空格类并且可以截取内容长度
@@ -938,7 +938,7 @@ class Common extends DbMysql {
             $str = preg_replace("/&nbsp;/", "", $str); // 匹配html中的空格
         }
         $str = trim($str); // 清除字符串两边的空格
-        
+
         if (function_exists("mb_substr")) {
             $substr = mb_substr($str, 0, $length, $charset);
         } else {
@@ -963,7 +963,7 @@ class Common extends DbMysql {
     }
     // 将1,2,3,4替换成a,b,c,d
     function replace_preg($str,$sourcearr,$destarr){
-        for ($i=0; isset($sourcearr[$i]); $i++) { 
+        for ($i=0; isset($sourcearr[$i]); $i++) {
         if($sourcearr[$i]==$str)
             return $destarr[$i];
         }
@@ -1000,10 +1000,10 @@ class Common extends DbMysql {
             default : // 'letter.number'
                 $chars = 'abcdefghijkmnpqrstuvwxyz23456789';
         }
-        
+
         // 如果有自定义的字符则包含进去
         $chars = $chars . $custom_chars;
-        
+
         $string = '';
         for($i = 0; $i < $length; $i++) {
             $string .= $chars[mt_rand(0, strlen($chars) - 1)];
@@ -1166,7 +1166,7 @@ class Common extends DbMysql {
      * 对不同系统的换行符进行处理
      * +----------------------------------------------------------
      */
-    function line_break_change($str) 
+    function line_break_change($str)
     {
         if (strtoupper(substr(PHP_OS,0,3))==='WIN') {
             if (stripos($str,"\r\n")===false) {
@@ -1181,7 +1181,7 @@ class Common extends DbMysql {
     }
 
     /*调试专用*/
-    function debug($var=null, $die=false, $dump=false, $html = '<hr>') 
+    function debug($var=null, $die=false, $dump=false, $html = '<hr>')
     {
         $dump = empty($var) ? true : $dump;
         if ($dump) {

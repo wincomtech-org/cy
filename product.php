@@ -9,8 +9,8 @@ if ($id == -1)
     $dou->dou_msg($GLOBALS['_LANG']['page_wrong'], ROOT_URL);
 $cat_id = $dou->get_one('SELECT cat_id FROM ' . $dou->table('product') . " WHERE id='$id'");
 $parent_id = $dou->get_one('SELECT parent_id FROM ' . $dou->table('product_category') . " WHERE cat_id = '" . $cat_id . "'");
-    
-    /* 获取产品信息 */
+
+/* 获取产品信息 */
 $query = $dou->select($dou->table('product'), '*', '`id`=\''. $id .'\'');
 $product = $dou->fetch_assoc($query);
 
@@ -29,7 +29,7 @@ foreach (explode(',', $product['defined']) as $row) {
     if ($row['1']) {
         $defined[] = array(
             "arr" => $row['0'],
-            "value" => $row['1'] 
+            "value" => $row['1']
         );
     }
 }

@@ -11,6 +11,10 @@ if ($id == -1)
     // 获取单页面信息
 $page = $dou->get_page_info($id);
 // $top_id = $page['parent_id'] == 0 ? $id : $page['parent_id'];
+// 生成缩略图的文件名
+$image = explode('.', $page['image']);
+$page['thumb'] = ROOT_URL . $image[0] . '_thumb.' . $image[1];
+$page['image'] = ROOT_URL . $page['image'];
 
 // 赋值给模板-meta和title信息
 $smarty->assign('page_title', $dou->page_title('page', '', $page['page_name']));

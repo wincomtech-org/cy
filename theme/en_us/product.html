@@ -11,8 +11,8 @@
 			<!--标题-->
 			<div class="about_content_tit">
 				<div class="about_conTit_div">
-					<h3><span>{$product.name}</span></h3>		
-				</div>		
+					<h3><span>{$product.name}</span></h3>
+				</div>
 			</div>
 			<!--内容-->
 			<div class="prodcts_detail_content ">
@@ -38,8 +38,8 @@
 				<div class="products_standard mg-t-30n pad-b-30 pad-t-30">
 					<div class="about_content_tit unline">
 						<div class="about_conTit_div">
-							<h3><span>Standard</span></h3>		
-						</div>		
+							<h3><span>Standard</span></h3>
+						</div>
 					</div>
 					<!--{if $daos || $product.model}-->
 					<table style="table-layout:fixed;">
@@ -71,23 +71,23 @@
 
 				<div class="no_source">{$product.content}</div>
 			</div>
-		</div>		
-	</div>	
-	<!--endprint--> 
+		</div>
+	</div>
+	<!--endprint-->
 	<!--{include file="inc/footer.tpl"}-->
 </div>
 {literal}
 	<script>
-		function doPrint() {  
-			bdhtml = window.document.body.innerHTML;  
-			sprnstr = "<!--startprint-->";  
-			eprnstr = "<!--endprint-->";  
-			prnhtml = bdhtml.substr(bdhtml.indexOf(sprnstr) + 17);  
-			prnhtml = prnhtml.substring(0, prnhtml.indexOf(eprnstr));  
-			window.document.body.innerHTML = prnhtml;  
-			window.print();  
-			location.reload();  
+		function doPrint() {
+			bdhtml = window.document.body.innerHTML;
+			sprnstr = "<!--startprint-->";
+			eprnstr = "<!--endprint-->";
+			prnhtml = bdhtml.substr(bdhtml.indexOf(sprnstr) + 17);
+			prnhtml = prnhtml.substring(0, prnhtml.indexOf(eprnstr));
+			window.document.body.innerHTML = prnhtml;
+			window.print();
+			location.reload();
 		};
 	</script>
-{/literal}	
+{/literal}
 <script src="js/easySlider.min.js"></script>

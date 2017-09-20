@@ -41,18 +41,24 @@ if ($rec == 'default') {
     $sys_info['patch'] = $update_date['system']['patch'];
     $sys_info['logo'] = ROOT_URL . 'theme/' . $_CFG['site_theme'] . '/images/' . $_CFG['site_logo'];
     $sys_info['max_filesize'] = ini_get('upload_max_filesize');
-    $sys_info['num_page'] = $dou->num_rows($dou->query("SELECT * FROM " . $dou->table('page')));
-    $sys_info['num_product'] = $dou->num_rows($dou->query("SELECT * FROM " . $dou->table('product')));
-    $sys_info['num_article'] = $dou->num_rows($dou->query("SELECT * FROM " . $dou->table('article')));
-    
+    $sys_info['single_max_filesize'] = '2M';
+    // 数据统计
+    $sys_info['num_page'] = $dou->get_one('SELECT count(*) FROM '. $dou->table('page'));
+    $sys_info['num_product'] = $dou->get_one('SELECT count(*) FROM '. $dou->table('product'));
+    $sys_info['num_article'] = $dou->get_one('SELECT count(*) FROM '. $dou->table('article'));
+    $sys_info['num_apply'] = $dou->get_one('SELECT count(*) FROM '. $dou->table('apply'));
+    $sys_info['num_research'] = $dou->get_one('SELECT count(*) FROM '. $dou->table('research'));
+    $sys_info['num_job'] = $dou->get_one('SELECT count(*) FROM '. $dou->table('job'));
+    $sys_info['num_user'] = $dou->get_one('SELECT count(*) FROM '. $dou->table('user'));
+
     // 提示应该被删除的目录未被删除
     if ($dou->dir_status(ROOT_PATH . 'install') != 'no_exist') $warning[] = $_LANG['warning_install_exists'];
     if ($dou->dir_status(ROOT_PATH . 'upgrade') != 'no_exist') $warning[] = $_LANG['warning_upgrade_exists'];
     if ($extend == 'on') $warning[] = $_LANG['warning_extend_exists'];
-    
+
     // 写入目录监测信息
     $sys_info['folder_exists'] = $warning;
-    
+
     // 赋值给模板
     $smarty->assign('dou_api', $dou->dou_api());
     $smarty->assign('cur', 'index');
@@ -60,9 +66,9 @@ if ($rec == 'default') {
     $smarty->assign('sys_info', $sys_info);
     $smarty->assign("log_list", $dou->get_admin_log($_SESSION[DOU_ID]['user_id'], 4));
     $smarty->assign('localsite', $dou->dou_localsite());
-    
+
     $smarty->display('index.htm');
-} 
+}
 
 /**
  * +----------------------------------------------------------

@@ -21,7 +21,7 @@
                                     <div class="lianxi">
                                         <p>{$site.tel}</p>
                                         <p>{$site.email}</p>
-                                    </div>  
+                                    </div>
                                     <p class="dianji"><a href="{$url.guestbook}">Message</a></p>
                                 </div>
                         </div>
@@ -103,18 +103,18 @@
 
                             <!--{if !$site.cypro}-->
                             <!--{foreach $nav_middle_list $v}-->
-                            <li data-navid="{$v.id}" class="listpromo-items-item listpromo-items-item-hasContent {if $v.cur}active{/if}">
+                            <li data-navid="{$v.guide}" class="listpromo-items-item listpromo-items-item-hasContent {if $v.cur}active{/if}">
                                 <div class="listpromo-items-item-tit"><a href="{$v.url}">{$v.nav_name}</a>{if $v.child}<span class="icon_x"></span>{/if}</div>
                                 <ol class="hasContent"  style="display:none;">
                                     <!--{foreach $v.child $s}-->
-                                    <li data-navid="{$s.id}">
+                                    <li data-navid="{$s.guide}">
                                         <div class="hasContent_three">
                                             <a href="{$s.url}">{$s.nav_name}</a>
                                             {if $s.child}<span class="icon_x"></span>{/if}
                                         </div>
                                         <ul class="hasContent_three_content" style="display:none">
                                             <!--{foreach $s.child $t}-->
-                                            <li data-navid="{$t.id}"><a {if $t.cur}class="active"{/if} href="{$t.url}">{$t.nav_name}</a></li>
+                                            <li data-navid="{$t.guide}"><a {if $t.cur}class="active"{/if} href="{$t.url}">{$t.nav_name}</a></li>
                                             <!--{/foreach}-->
                                         </ul>
                                     </li>

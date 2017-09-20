@@ -17,14 +17,14 @@
       <div id="index" class="mainBox" style="padding-top:18px;{$workspace.height}">
         <!--{foreach from=$sys_info.folder_exists item=warning}-->
         <!-- <div class="warning">{*$warning*}</div> -->
-        <!--{/foreach}--> 
+        <!--{/foreach}-->
         <div id="douApi"></div>
         <!--{if $rec eq 'default'} 管理首页 -->
         <div class="indexBox">
           <div class="boxTitle">{$lang.title_page}</div>
           <ul class="ipage">
-            <!--{foreach from=$page_list item=list}--> 
-            <a href="page.php?rec=edit&id={$list.id}"{if $list.level gt 0} class="child{$list.level}"{/if}>{$list.page_name}</a> 
+            <!--{foreach from=$page_list item=list}-->
+            <a href="page.php?rec=edit&id={$list.id}"{if $list.level gt 0} class="child{$list.level}"{/if}>{$list.page_name}</a>
             <!--{/foreach}-->
             <div class="clear"></div>
           </ul>
@@ -38,38 +38,43 @@
                   <table width="100%" border="0" cellspacing="0" cellpadding="7" class="tableBasic">
                     <tr>
                       <td width="120">{$lang.num_page}：</td>
-                      <td><strong>{$sys_info.num_page}</strong></td>
+                      <td width="30%"><strong>{$sys_info.num_page}</strong></td>
                       <td width="100">{$lang.num_article}：</td>
                       <td><strong>{$sys_info.num_article}</strong></td>
                     </tr>
                     <tr>
                       <td>{$lang.num_product}：</td>
                       <td><strong>{$sys_info.num_product}</strong></td>
-                      <td>{$lang.language}：</td>
-                      <td><strong>{$site.language}</strong></td>
+                      <td>应用总数：</td>
+                      <td><strong>{$sys_info.num_apply}</strong></td>
                     </tr>
+                    <tr>
+                      <td>研发总数：</td>
+                      <td>
+                        <strong>{$sys_info.num_research}</strong>
+                      </td>
+                      <td>招聘总数：</td>
+                      <td><strong>{$sys_info.num_job}</strong></td>
+                    </tr>
+                      <tr>
+                        <td>会员总数：</td>
+                        <td><strong>{$sys_info.num_user}</strong></td>
+                        <td></td>
+                        <td><strong></strong></td>
+                      </tr>
                     <tr>
                       <td>{$lang.rewrite}：</td>
                       <td>
-                        <strong><!--{if $site.rewrite}-->{$lang.open}<!--{else}-->{$lang.close}<a href="system.php" class="cueRed ml">{$lang.open_cue}</a> 
-                          <!--{/if}--></strong>
+                        <strong>
+                        <!--{if $site.rewrite}-->
+                        {$lang.open}
+                        <!--{else}-->
+                        {$lang.close}<a href="system.php" class="cueRed ml">{$lang.open_cue}</a>
+                        <!--{/if}-->
+                          </strong>
                         </td>
                         <td>{$lang.charset}：</td>
                         <td><strong>{$sys_info.charset}</strong></td>
-                      </tr>
-                      <tr>
-                        <td>{$lang.if_sitemap}：</td>
-                        <td>
-                          <strong><!--{if $site.sitemap}-->{$lang.open}<!--{else}-->{$lang.close}<!--{/if}--></strong>
-                        </td>
-                        <td>{$lang.site_theme}：</td>
-                        <td><strong>{$site.site_theme}</strong></td>
-                      </tr>
-                      <tr>
-                        <td>{$lang.dou_version}：</td>
-                        <td><strong>{$site.douphp_version}</strong></td>
-                        <td>{$lang.build_date}：</td>
-                        <td><strong>{$sys_info.build_date}</strong></td>
                       </tr>
                     </table>
                   </ul>
@@ -105,16 +110,24 @@
                   <td valign="top">{$sys_info.php_ver} </td>
                   <td width="100" valign="top">{$lang.mysql_version}：</td>
                   <td valign="top">{$sys_info.mysql_ver}</td>
-                  <td width="100" valign="top">{$lang.os}：</td>
-                  <td valign="top">{$sys_info.os}({$sys_info.ip})</td>
+                  <td width="100" valign="top">{$lang.web_server}：</td>
+                  <td valign="top">{$sys_info.web_server}</td>
                 </tr>
                 <tr>
                   <td valign="top">{$lang.max_filesize}：</td>
                   <td valign="top">{$sys_info.max_filesize}</td>
                   <td valign="top">{$lang.gd}：</td>
                   <td valign="top">{$sys_info.gd}</td>
-                  <td valign="top">{$lang.web_server}：</td>
-                  <td valign="top">{$sys_info.web_server}</td>
+                  <td valign="top">单图大小限制：</td>
+                  <td valign="top">{$sys_info.single_max_filesize}</td>
+                </tr>
+                <tr>
+                  <td valign="top" width="8%">{$lang.os}：</td>
+                  <td valign="top" width="25%">{$sys_info.os}({$sys_info.ip})</td>
+                  <td valign="top"></td>
+                  <td valign="top"></td>
+                  <td valign="top"></td>
+                  <td valign="top"></td>
                 </tr>
               </table>
             </ul>
@@ -134,7 +147,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <td> {$lang.about_contributor}： </td>
+                  <td> {$lang.about_contributor}：</td>
                   <td>Wooyun.org, Pany, Tea</td>
                 </tr>
                 <tr>
@@ -146,7 +159,7 @@
               </table>
             </ul>
           </div>
-          <!--{/if}--> 
+          <!--{/if}-->
         </div>
       </div>
       {include file="footer.htm"}
