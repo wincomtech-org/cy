@@ -23,7 +23,7 @@ $limit = $dou->pager('apply', ($_DISPLAY['apply'] ? $_DISPLAY['apply'] : 10), $p
 $sql = "SELECT id,title,content,image,cat_id,add_time,click,description FROM " . $dou->table('apply') . $where . " ORDER BY id DESC" . $limit;
 $query = $dou->query($sql);
 while ($row = $dou->fetch_array($query)) {
-    $row['url'] = $dou->rewrite_url('apply', $row['id']);
+    $row['url'] = $dou->rewrite_url('apply', $row['id']).'&cid='.$cat_id;
     $row['add_time'] = date("Y-m-d", $row['add_time']);
     $row['add_time_short'] = date("m-d", $row['add_time']);
     $row['image'] = $row['image'] ? ROOT_URL . $row['image'] : '';
