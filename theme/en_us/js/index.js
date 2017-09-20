@@ -9,6 +9,104 @@ $(document).ready(function(){
 });
 
 
+
+/**页面刷新导航展示问题***/
+if(screen.width > 1023){
+	$(function(){
+		var url=window.location.href.split('?');
+		var url_parent=url[url.length-2].split('/');
+		var url_par=url_parent[url_parent.length-1];
+		var url_id=url[url.length-1].split('=')[1];
+		/*产品导航*/
+		if( url_par == "product_category.php"){
+		
+			var lis=$('.menu_product.listpromo-items-item-hasContent li');
+			lis.each(function(ind,ele){
+				var li_id=$(this).attr('data-proid');
+				if(li_id == url_id){
+					if($(this).parent().hasClass('hasContent_three_content')){
+						$(this).find('a').addClass('active')
+						$(this).parent().css('display','block');
+						$(this).parent().parent().parent().css('display','block');
+
+					}else if($(this).parent().hasClass('hasContent')){
+						$(this).children('div').find('a').addClass('active')
+						$(this).addClass('active').addClass('active');
+						$(this).parent().css('display','block');
+					}
+				}
+			})
+
+		}
+
+		/**产品详情页*/
+		if(url_par == "product.php" ){
+			var url_pro=url[url.length-1].split('&')[1];
+			var url_pro_id=url_pro.split('=')[1];
+			console.log(url_pro_id)
+			var lis=$('.menu_product.listpromo-items-item-hasContent li');
+			lis.each(function(ind,ele){
+				var li_id=$(this).attr('data-proid');
+				if(li_id == url_pro_id){
+					if($(this).parent().hasClass('hasContent_three_content')){
+						$(this).find('a').addClass('active')
+						$(this).parent().css('display','block');
+						$(this).parent().parent().parent().css('display','block');
+
+					}else if($(this).parent().hasClass('hasContent')){
+						$(this).children('div').find('a').addClass('active')
+						$(this).addClass('active').addClass('active');
+						$(this).parent().css('display','block');
+					}
+				}
+			})
+		}
+
+		/**应用*/
+		if(url_par == "apply_category.php"){
+			var lis=$('.menu_other.listpromo-items-item-hasContent li');
+			lis.each(function(ind,ele){
+				var li_id=$(this).attr('data-navid');
+				if(li_id == url_id){
+					if($(this).parent().hasClass('hasContent_three_content')){
+						$(this).find('a').addClass('active')
+						$(this).parent().css('display','block');
+						$(this).parent().parent().parent().css('display','block');
+
+					}else if($(this).parent().hasClass('hasContent')){
+						$(this).children('div').find('a').addClass('active')
+						$(this).addClass('active').addClass('active');
+						$(this).parent().css('display','block');
+					}
+				}
+			})
+		}
+		if(url_par == "apply.php"){
+			var url_pro=url[url.length-1].split('&')[1];
+			var url_pro_id=url_pro.split('=')[1];
+			var lis=$('.menu_other.listpromo-items-item-hasContent li');
+			lis.each(function(ind,ele){
+				var li_id=$(this).attr('data-navid');
+				if(li_id == url_pro_id){
+					if($(this).parent().hasClass('hasContent_three_content')){
+						$(this).find('a').addClass('active')
+						$(this).parent().css('display','block');
+						$(this).parent().parent().parent().css('display','block');
+
+					}else if($(this).parent().hasClass('hasContent')){
+						$(this).children('div').find('a').addClass('active')
+						$(this).addClass('active').addClass('active');
+						$(this).parent().css('display','block');
+					}
+				}
+			})
+		}
+		
+	})
+}
+
+
+
 $('.header-menu-button').click(function(){
 	$('.header-menu').toggle();	
 	$('header').addClass('navVisible');

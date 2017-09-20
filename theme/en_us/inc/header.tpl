@@ -56,7 +56,7 @@
                             </li>
                             <!--{/if}-->
 
-                            <li class="listpromo-items-item listpromo-items-item-hasContent {if $product.cur}active{/if}">
+                            <li class="menu_product listpromo-items-item listpromo-items-item-hasContent {if $product.cur}active{/if}">
                                 <div class="listpromo-items-item-tit"><a href="{$url.product}">Products</a><span class="icon_x"></span></div>
                                 <ol class="hasContent" style="display:none;">
                                     <!--{foreach $nav_product $v}-->
@@ -103,7 +103,7 @@
 
                             <!--{if !$site.cypro}-->
                             <!--{foreach $nav_middle_list $v}-->
-                            <li data-navid="{$v.guide}" class="listpromo-items-item listpromo-items-item-hasContent {if $v.cur}active{/if}">
+                            <li data-navid="{$v.guide}" class="menu_other  listpromo-items-item listpromo-items-item-hasContent {if $v.cur}active{/if}">
                                 <div class="listpromo-items-item-tit"><a href="{$v.url}">{$v.nav_name}</a>{if $v.child}<span class="icon_x"></span>{/if}</div>
                                 <ol class="hasContent"  style="display:none;">
                                     <!--{foreach $v.child $s}-->

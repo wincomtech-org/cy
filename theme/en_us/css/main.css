@@ -33,7 +33,9 @@
 
 /**分页**/
 
-.page{width:100%;overflow:hidden;margin:10px 0;overflow:hidden;}
+.page{width:100%;overflow:hidden;margin:10px 0;overflow:hidden;text-align:right;}
+
+.page_con{display:inline-block;}
 
 .page a{color:#fff;background-color:#e70012;padding:8px 15px;float:left;font-size:14px;margin-right:1px;}
 
