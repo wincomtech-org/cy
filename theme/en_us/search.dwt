@@ -22,7 +22,7 @@
                     </tr>
                 </thead>
                 <tbody align="center">
-                    <!-- {foreach $search_list $v} -->
+                    <!--{foreach $search_list $v}-->
                     <tr>
                         <td>{$v.id}</td>
                         <td><a href="{$v.url}">{$v.title}</a></td>
@@ -31,9 +31,9 @@
                         <td>{$v.add_time_short}</td>
                         <td>View</td>
                     </tr>
-                    <!-- {/foreach} -->
+                    <!--{/foreach}-->
                 </tbody>
-            <!-- {else} -->
+            <!--{else}-->
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -44,7 +44,7 @@
                     </tr>
                 </thead>
                 <tbody align="center">
-                    <!-- {foreach $search_list $v} -->
+                    <!--{foreach $search_list $v}-->
                     <tr>
                         <td>{$v.id}</td>
                         <td><a href="{$v.url}">{$v.name}</a></td>
@@ -52,12 +52,12 @@
                         <td>{$v.add_time_short}</td>
                         <td>View</td>
                     </tr>
-                    <!-- {/foreach} -->
+                    <!--{/foreach}-->
                 </tbody>
-            <!-- {/if} -->
+            <!--{/if}-->
             </table>
 
-            <!-- {include file='inc/pager.tpl'} -->
+            <!--{include file='inc/pager.tpl'}-->
 
             <!-- <div class="aboutCon_content mg-t-30 mg-b-30">
                 <div class="aboutCon_content_con">
@@ -70,6 +70,6 @@
             </div> -->
         </div>
     </div>
-    <!-- {include file='inc/footer.tpl'} -->
+    <!--{include file='inc/footer.tpl'}-->
 </div>
 

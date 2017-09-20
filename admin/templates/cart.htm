@@ -16,7 +16,7 @@
   <div class="mainBox" style="{$workspace.height}"> 
    <!--{if $rec eq 'default'} 订单列表 -->
    <h3>{$ur_here}</h3>
-   <!-- {if $key} -->
+   <!--{if $key}-->
    <div class="filter">
     <form action="cart.php" method="post">
      <select name="srckey">
@@ -28,7 +28,7 @@
      <input name="submit" class="btnGray" type="submit" value="{$lang.btn_filter}" />
     </form>
    </div>
-   <!-- {/if} -->
+   <!--{/if}-->
    <div id="list">
     <form name="action" method="post" action="cart.php?rec=action">
      <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">

@@ -91,12 +91,12 @@ if ($checkids) {
             $product_list_c[] = $row;
         }
         foreach ($product_list_c as $key => $value) {
-            if (count($product_list[$value['cat_id']]['list'])<4) {
+            // if (count($product_list[$value['cat_id']]['list'])<4) {
                 $product_list[$value['cat_id']]['count'] = $value['cat_name'];
                 $product_list[$value['cat_id']]['cat_name'] = $value['cat_name'];
                 $product_list[$value['cat_id']]['cat_url'] = $dou->rewrite_url('product_category', $value['cat_id']);
                 $product_list[$value['cat_id']]['list'][] = $value;
-            }
+            // }
         }
         $smarty->assign('product_list', array_values($product_list));
         $thistpl = 'product_category_child.html';

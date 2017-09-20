@@ -6,13 +6,13 @@
 	<!--主题内容-->
 	<div class="landingPage">
 		<!--轮播-->
-		<!-- {include file='inc/slide_show.tpl'} -->
+		<!--{include file='inc/slide_show.tpl'}-->
 		<!--内容-->
 		<!--{if $recommend_article}-->
 		<section class="gridPromo-module">
 			<ul class="gridPromo-items">
-				<!-- {foreach $recommend_article as $k=>$v} -->
-				<!-- {if $k eq 0} -->
+				<!--{foreach $recommend_article as $k=>$v}-->
+				<!--{if $k eq 0}-->
 				<li class="gridPromo-items-item">
 					<div class="gridSpanTwoPromo">
 						<div class="gridSpanTwoPromo-media">
@@ -28,7 +28,7 @@
 						</div>
 					</div>
 				</li>
-				<!-- {else} -->
+				<!--{else}-->
 				<li class="gridPromo-items-item">
 					<div class="MediaPromo">
 						<div class="MediaPromo-media">
@@ -43,11 +43,11 @@
 						</div>
 					</div>
 				</li>
-				<!-- {/if} -->
-				<!-- {/foreach} -->
+				<!--{/if}-->
+				<!--{/foreach}-->
 			</ul>
 		</section>
-		<!-- {/if} -->
+		<!--{/if}-->
 
 		<!--轮播-->
 		<section class="lunbo">
@@ -56,11 +56,11 @@
 					<span class="prev">&nbsp;</span>
 					<span class="next">&nbsp;</span>
 					<ul>
-						<!-- {foreach $show_list2 $v} -->
+						<!--{foreach $show_list2 $v}-->
 						<li>
 							<a href="{$v.show_link}"><img width="445" height="308" alt="{$v.show_name}" src="{$v.show_img}" /></a>
 						</li>
-						<!-- {/foreach} -->
+						<!--{/foreach}-->
 					</ul>
 				</div>
 			</div>
@@ -68,18 +68,18 @@
 		<section class="lunbo2">
 			<div id="slider">
 				<ul class="slides clearfix">
-					<!-- {foreach $show_list2 $v} -->
+					<!--{foreach $show_list2 $v}-->
 					<li><img class="responsive" src="{$v.show_img}"></li>
-					<!-- {/foreach} -->
+					<!--{/foreach}-->
 				</ul>
 				<!-- <ul class="controls">
 					<li><img src="img/prev.png" alt="previous"></li>
 					<li><img src="img/next.png" alt="next"></li>
 				</ul> -->
 				<ul class="pagination">
-					<!-- {foreach $show_list2 as $k=>$v} -->
+					<!--{foreach $show_list2 as $k=>$v}-->
 					<li class="{if $k eq 0}active{/if}"></li>
-					<!-- {/foreach} -->
+					<!--{/foreach}-->
 				</ul>
 			</div>
 		</section>
@@ -91,7 +91,7 @@
 					<div class="active-content-tit">Company Event</div>
 					<div class="active-con">
 						<ul>
-							<!-- {foreach $article_activity $v} -->
+							<!--{foreach $article_activity $v}-->
 							<li>
 								<div class="active-img">
 									<a href="{$v.url}"><img src="{$v.image}" alt=""></a>
@@ -101,14 +101,14 @@
 								</div>
 								<div class="active-date">{$v.add_time}</div>
 							</li>
-							<!-- {/foreach} -->
+							<!--{/foreach}-->
 						</ul>
 					</div>
 				</div>
 				<div class="about-content">
 					<div class="about-content-tit">About Us</div>
 					<div class="about-con">
-						<!-- {if $index.image} --><div class="about-img"><img src="{$index['image']}" alt=""></div><!-- {/if} -->
+						<!--{if $index.image}--><div class="about-img"><img src="{$index['image']}" alt=""></div><!--{/if}-->
 						<div class="about-zi">
 							<a href="{$index['about_link']}">{$index['about_content']}</a>
 						</div>
@@ -117,7 +117,7 @@
 			</div>
 		</section>
 	</div>
-	<!-- {include file="inc/footer.tpl"} -->
+	<!--{include file="inc/footer.tpl"}-->
 </div>
 <!-- footer -->
 <script src="js/easySlider.min.js"></script>

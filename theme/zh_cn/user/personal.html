@@ -34,26 +34,26 @@
 				<span class="head-cont">购物车</span>
 			</div>
 			<ul class="per-list">
-				<!-- {foreach $carts.list $v} -->
+				<!--{foreach $carts.list $v}-->
 				<li class="per-li">
 					<a href="{$v.url}"><img src="{$v.image}" /></a>
 					<p>名称：<span>{$v.name}</span></p><p>型号：<span>xxxx</span></p><p>价格：<span>{$v.price}</span></p>
 				</li>
-				<!-- {foreachelse} -->
+				<!--{foreachelse}-->
 				<li><p>暂无……</p></li>
-				<!-- {/foreach} -->
+				<!--{/foreach}-->
 				<div class="clear"></div>
 			</ul>
 			<div class="per-m">
-			<!-- {if $carts} -->
+			<!--{if $carts}-->
 				<a class="per-more" href="{$url.order}">>> 查看更多</a>
-			<!-- {else} -->
+			<!--{else}-->
 				<a class="per-more" href="{$url.product}">>> 挑选产品</a>
-			<!-- {/if} -->
+			<!--{/if}-->
 			</div>
 		</div>
 	</div>
 </div>
 
 <!-- 底部 -->
-<!-- {include file='inc/footer.tpl'}  -->
+<!--{include file='inc/footer.tpl'}  -->

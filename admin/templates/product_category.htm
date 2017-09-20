@@ -34,9 +34,9 @@
           <td align="center">{$cate.sort}</td>
           <td align="center">
             <a href="product_category.php?rec=edit&cat_id={$cate.cat_id}">{$lang.edit}</a>
-            <!-- {if !in_array($cate.cat_id,array(1,2,3,4,19,20,21,22))} -->
+            <!--{if !in_array($cate.cat_id,array(1,2,3,4,19,20,21,22))}-->
             | <a href="product_category.php?rec=del&cat_id={$cate.cat_id}">{$lang.del}</a>
-            <!-- {/if} -->
+            <!--{/if}-->
           </td>
         </tr>
         <!--{/foreach}-->
@@ -103,9 +103,9 @@
    <td align="right">产品内页显示指定的字段</td>
    <td>
     <select id="example" name="fields[]" multiple="multiple" style="min-width:800px">
-      <!-- {foreach $designate as $k=>$v} -->
+      <!--{foreach $designate as $k=>$v}-->
       <option {if in_array($k,$cat_info.fields)} selected="true"{/if} value="{$k}">{$v}</option>
-      <!-- {/foreach} -->
+      <!--{/foreach}-->
     </select>
     <input type="hidden" id="hfexample" />
    </td>

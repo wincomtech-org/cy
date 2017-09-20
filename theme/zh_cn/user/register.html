@@ -23,18 +23,18 @@
 					<p class="h-cont">所属领域*<span class="error"></span></p>
 					<select name="industry">
 						<option value="0">请选择</option>
-						<!-- {foreach $industrys $v} -->
+						<!--{foreach $industrys $v}-->
 						<option value="{$v.id}">{$v.title}</option>
-						<!-- {/foreach} -->
+						<!--{/foreach}-->
 					</select>
 				</div>
 				<div class="rc-row">
 					<p class="h-cont">职位*<span class="error"></span></p>
 					<select name="post">
 						<option value="0">请选择</option>
-						<!-- {foreach $posts $v} -->
+						<!--{foreach $posts $v}-->
 						<option value="{$v.id}">{$v.title}</option>
-						<!-- {/foreach} -->
+						<!--{/foreach}-->
 					</select>
 				</div>
 
@@ -42,9 +42,9 @@
 					<p class="h-cont">国家*<span class="error"></span></p>
 					<select name="country">
 						<option value="0">请选择</option>
-						<!-- {foreach $countrys $v} -->
+						<!--{foreach $countrys $v}-->
 						<option value="{$v.cat_id}">{$v.cat_name}</option>
-						<!-- {/foreach} -->
+						<!--{/foreach}-->
 					</select>
 				</div>
 				<div class="rc-row">
@@ -100,4 +100,4 @@
 
 <!-- 底部 -->
 <script src="js/yhvalidate.js"></script>
-<!-- {include file='inc/footer.tpl'}  -->
+<!--{include file='inc/footer.tpl'}  -->

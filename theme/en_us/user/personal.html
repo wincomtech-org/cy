@@ -34,24 +34,24 @@
 				<span class="head-cont">Shopping Cart</span>
 			</div>
 			<ul class="per-list">
-				<!-- {foreach $carts.list $v} -->
+				<!--{foreach $carts.list $v}-->
 				<li class="per-li"><a href="#"><img src="img/p-1.jpg" /></a>
 					<p>Name:<span>{$v.name}</span></p><p>Model:<span>{$v.model}</span></p><p>Price:<span>{$v.price}</span></p>
 				</li>
-				<!-- {foreachelse} -->
+				<!--{foreachelse}-->
 				<li><p>暂无……</p></li>
-				<!-- {/foreach} -->
+				<!--{/foreach}-->
 				<div class="clear"></div>
 			</ul>
 			<div class="per-m">
-				<!-- {if $carts} -->
+				<!--{if $carts}-->
 				<a class="per-more" href="{$url.order}">View More >></a>
-				<!-- {else} -->
+				<!--{else}-->
 				<a class="per-more" href="{$url.product}">Product Choice >></a>
-				<!-- {/if} -->
+				<!--{/if}-->
 			</div>
 		</div>
 	</div>
 </div>
 <!-- 底部 -->
-<!-- {include file='inc/footer.tpl'}  -->
+<!--{include file='inc/footer.tpl'}  -->

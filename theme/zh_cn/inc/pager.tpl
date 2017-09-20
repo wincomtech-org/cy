@@ -1,6 +1,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-<!-- {if $pager.page_count gt 1} -->
+<!--{if $pager.page_count gt 1}-->
 <div class="page">
 	<div class="page_con">
 		 <a href="{$pager.first}">{$lang.pager_first}</a>
@@ -11,4 +11,4 @@
 	</div>
 
 </div>
-<!-- {/if} -->
+<!--{/if}-->

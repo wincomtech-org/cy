@@ -24,7 +24,7 @@
 							</div>
 					</div>	
 				</div>
-				<!-- {foreach $article_list as $k=>$v} -->
+				<!--{foreach $article_list as $k=>$v}-->
 				<div class="the_latest_news mg-t-30 ">
 					<!-- 标题 -->
 					<div class="the_latest_news_tit mg-b-30">
@@ -32,28 +32,28 @@
 					</div>
 					<!-- 内容 -->
 					<div class="serviceCenter">
-						<!-- {if is_array($v)} -->
+						<!--{if is_array($v)}-->
 						<ul>
-							<!-- {foreach $v $t} -->
+							<!--{foreach $v $t}-->
 							<li class="serviceCenter_items black_shadow">
 								<div class="txt">
 									<p class="tit">{$t.title}</p>
 									<p>{$t.description}</p>
 								</div>
 							</li>
-							<!-- {/foreach} -->
+							<!--{/foreach}-->
 							<div class="clear"></div>
 						</ul>
-						<!-- {else} -->
+						<!--{else}-->
 						{$v}
-						<!-- {/if} -->
+						<!--{/if}-->
 					</div>
 				</div>
-				<!-- {/foreach} -->
+				<!--{/foreach}-->
 			</div>
 		</div>
 	</div>
-	<!-- {include file='inc/footer.tpl'} -->
+	<!--{include file='inc/footer.tpl'}-->
 </div>
 
 <script src="js/easySlider.min.js"></script>

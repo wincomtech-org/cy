@@ -10,7 +10,7 @@
 		<div class="clear"></div>
 		<form action="" method="post" name="usercartform">
 			<ul class="per-list">
-				<!-- {foreach $carts.list $v} -->
+				<!--{foreach $carts.list $v}-->
 				<li class="per-li" >
 					<span ><img src="img/p-1.jpg" /></span>
 					<p>Name: <span>{$v.name}</span></p>
@@ -20,9 +20,9 @@
 					<input type="checkbox" name="ids[]" value="{$v.id}" id="cart_check{$v.id}" />
 					<input type="hidden" name="nids[]" value="{$v.number}">
 				</li>
-				<!-- {foreachelse} -->
+				<!--{foreachelse}-->
 				<p>No Resource ……</p>
-				<!-- {/foreach} -->
+				<!--{/foreach}-->
 				<div class="clear"></div>
 			</ul>
 			<div class="sp_button">
@@ -39,4 +39,4 @@
 </div>
 <!-- 底部 -->
 <script src="js/personal.js"></script>
-<!-- {include file='inc/footer.tpl'} -->
+<!--{include file='inc/footer.tpl'}-->

@@ -44,8 +44,8 @@
 					<!-- 产品列表 -->
 					<div class="product_item">
 						<ul>
-							<!-- {foreach $product_category $v} -->
-							<!-- {if $site.cypro && in_array($v.cat_id,array(4,22))} -->
+							<!--{foreach $product_category $v}-->
+							<!--{if $site.cypro && in_array($v.cat_id,array(4,22))}-->
 							<li class="product_item_items">
 								<div class="img">
 									<a href="{$v.url}"><img src="{if $v.thumb}{$v.thumb}{else}images/nopic_s_100x100.jpg{/if}" alt=""></a>
@@ -58,7 +58,7 @@
 									<p class="view"><a href="{$v.url}">View Categories</a></p>
 								</div>
 							</li>
-							<!-- {elseif !$site.cypro && !in_array($v.cat_id,array(4,22))} -->
+							<!--{elseif !$site.cypro && !in_array($v.cat_id,array(4,22))}-->
 							<li class="product_item_items">
 								<div class="img">
 									<a href="{$v.url}"><img src="{if $v.thumb}{$v.thumb}{else}images/nopic_s_100x100.jpg{/if}" alt=""></a>
@@ -71,15 +71,15 @@
 									<p class="view"><a href="{$v.url}">View Categories</a></p>
 								</div>
 							</li>
-							<!-- {/if} -->
-							<!-- {/foreach} -->
+							<!--{/if}-->
+							<!--{/foreach}-->
 						</ul>
 						{include file='inc/pager.tpl'}
 					</div>
 				</div>
 			</div>
 		</div>
-	<!-- {include file="inc/footer.tpl"} -->
+	<!--{include file="inc/footer.tpl"}-->
 	</div>
 <!-- footer -->
 <script src="js/easySlider.min.js"></script>

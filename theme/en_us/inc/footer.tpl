@@ -2,13 +2,13 @@
 <footer class="footer">
     <div class="footer1">
         <ul class="nav">
-            <!-- {if $site.cypro} -->
+            <!--{if $site.cypro}-->
             <li><a href="{$site.domain}">{$lang.homepage}</a></li>
-            <!-- {else} -->
-            <!-- {foreach $nav_bottom_list $v} -->
+            <!--{else}-->
+            <!--{foreach $nav_bottom_list $v}-->
             <li><a href="{$v.url}">{$v.nav_name}</a></li>
-            <!-- {/foreach} -->
-            <!-- {/if} -->
+            <!--{/foreach}-->
+            <!--{/if}-->
         </ul>
         <div class="footer_search">
             <div class="footerSearch">

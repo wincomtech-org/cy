@@ -22,14 +22,14 @@
 					<input type="password" id="password" class="password" name="password" value="111111" placeholder="please input a password"> 
 					<p class="error"></p>
 
-					<!-- {if $site.captcha} -->
+					<!--{if $site.captcha}-->
 					<label for="captcha">Captcha:</label>
 					<input type="text" id="captcha" class="captcha" name="captcha" placeholder="please input captcha">
 					<a href="javascript:refreshimage();" class="captcha"><img id="vcode" src="captcha.php" alt=""></a>
 					<p class="error"></p>
-					<!-- {else} -->
+					<!--{else}-->
 					<input type="hidden" id="captcha" class="captcha" name="captcha" value="captcha">
-					<!-- {/if} -->
+					<!--{/if}-->
 
 					<div class="lr-link">
 						<a href="{$url.register}">Register</a>
@@ -50,4 +50,4 @@
 <!-- 底部 -->
 <script src="js/yhvalidate.js"></script>
 <script src="js/easySlider.min.js"></script>
-<!-- {include file='inc/footer.tpl'}  -->
+<!--{include file='inc/footer.tpl'}  -->

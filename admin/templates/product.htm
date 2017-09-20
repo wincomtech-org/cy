@@ -106,8 +106,8 @@
     </div>
     </form>
     </div>
-    <div class="clear"></div>
     {include file="pager.htm"}
+    <div class="clear"></div>
     <!--{/if}-->
     <!--{if $rec eq 'add' || $rec eq 'edit'} 产品添加或编辑 -->
     <h3><a href="{$action_link.href}" class="actionBtn">{$action_link.text}</a>{$ur_here}</h3>
@@ -196,7 +196,7 @@
        </td>
       </tr>
       <!--{/if}-->
-      <!-- {/foreach} -->
+      <!--{/foreach}-->
 
       <tr>
        <td align="right">{$lang.keywords}</td>
@@ -266,7 +266,7 @@ function douAction(){
 </script>
 <!--{/if}-->
 
-<!-- {if $rec eq 'add' || $rec eq 'edit'} -->
+<!--{if $rec eq 'add' || $rec eq 'edit'}-->
 <script type="text/javascript">
 var frm = 'product.php?rec={$rec}';
 {literal}
@@ -275,7 +275,7 @@ function dgLink(o,id) {
 }
 {/literal}
 </script>
-<!-- {/if} -->
+<!--{/if}-->
 
 <!--{if $rec neq 're_thumb'}-->
 </body>

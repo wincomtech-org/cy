@@ -31,10 +31,10 @@
                         <!--{if $user}-->
                         <a href="{$url.user}" class="login_in">{$user.user_name}</a>
                         <a href="{$url.logout}" class="register">Logout</a>
-                        <!-- {else} -->
+                        <!--{else}-->
                         <a href="{$url.login}" class="login_in">Login</a>
                         <a href="{$url.register}" class="register">Register</a>
-                        <!-- {/if} -->
+                        <!--{/if}-->
                     </div>
                     <!--{/if}-->
                     <a href="{$site.root_url}?lchange={$site.lang_type}" class="header-toggle-button"><img src="img/guoqi.gif"></a>
@@ -45,86 +45,85 @@
                     <div class="listPromo">
                         <div class="header_gather_bottom_botton">
                             <div class="header-search-button" type="submit"></div>
-                            <!--{if $user}--><div class="header-shoppings-button"><a href="{$url.order}"></a></div><!-- {/if} -->
+                            <!--{if $user}--><div class="header-shoppings-button"><a href="{$url.order}"></a></div><!--{/if}-->
                             <div class="header-message-button" ><a href="{$url.guestbook}"></a></div>
                             <div class="header-connect-button"><a href="tel:15375299292"></a></div>
                         </div>
                         <ul class="listPromo-items">
-                            <!-- {if !$site.cypro} -->
+                            <!--{if !$site.cypro}-->
                             <li class="listpromo-items-item {if $index.cur}active{/if}">
-                                <div class="listpromo-items-item-tit"><a href="{$site.root_url}">{$lang.home}</a></div>   
+                                <div class="listpromo-items-item-tit"><a href="{$site.root_url}">{$lang.home}</a></div>
                             </li>
-                            <!-- {/if} -->
+                            <!--{/if}-->
 
                             <li class="listpromo-items-item listpromo-items-item-hasContent {if $product.cur}active{/if}">
-                                <div class="listpromo-items-item-tit"><a href="{$url.product}">Products</a><span class="icon_x"></span></div>      
-                                <ol class="hasContent"  style="display:none;">
-                                    <!-- {foreach $nav_product $v} -->
-                                    <!-- {if $site.cypro} -->
-                                        <!-- {if in_array($v.cat_id,array(4,22))} -->
-                                        <li>
+                                <div class="listpromo-items-item-tit"><a href="{$url.product}">Products</a><span class="icon_x"></span></div>
+                                <ol class="hasContent" style="display:none;">
+                                    <!--{foreach $nav_product $v}-->
+                                    <!--{if $site.cypro}-->
+                                        <!--{if in_array($v.cat_id,array(4,22))}-->
+                                        <li data-proid="{$v.cat_id}">
                                             <div class="hasContent_three">
                                                 <a href="{$v.url}">{$v.cat_name}</a>
                                                 {if $v.child}<span class="icon_x"></span>{/if}
                                             </div>
                                             <ul class="hasContent_three_content" style="display:none">
-                                                <!-- {foreach $v.child $t} -->
-                                                <li><a {if $t.cur}class="active"{/if} href="{$t.url}">{$t.cat_name}</a></li>
-                                                <!-- {/foreach} -->
-                                            </ul>   
+                                                <!--{foreach $v.child $t}-->
+                                                <li data-proid="{$v.cat_id}"><a {if $t.cur}class="active"{/if} href="{$t.url}">{$t.cat_name}</a></li>
+                                                <!--{/foreach}-->
+                                            </ul>
                                         </li>
-                                        <!-- {else} -->
+                                        <!--{else}-->
                                         <li></li>
-                                        <!-- {/if} -->
-                                    <!-- {else} -->
-                                        <!-- {if in_array($v.cat_id,array(4,22))} -->
-                                        <li>
+                                        <!--{/if}-->
+                                    <!--{else}-->
+                                        <!--{if in_array($v.cat_id,array(4,22))}-->
+                                        <li data-proid="{$v.cat_id}">
                                             <div class="hasContent_three">
                                                 <a href="{$v.url}">{$v.cat_name}</a>
                                             </div>
                                         </li>
-                                        <!-- {else} -->
-                                        <li>
+                                        <!--{else}-->
+                                        <li data-proid="{$v.cat_id}">
                                             <div class="hasContent_three">
                                                 <a href="{$v.url}">{$v.cat_name}</a>
                                                 {if $v.child}<span class="icon_x"></span>{/if}
                                             </div>
                                             <ul class="hasContent_three_content" style="display:none">
-                                                <!-- {foreach $v.child $t} -->
-                                                <li><a {if $t.cur}class="active"{/if} href="{$t.url}">{$t.cat_name}</a></li>
-                                                <!-- {/foreach} -->
-                                            </ul>   
+                                                <!--{foreach $v.child $t}-->
+                                                <li data-proid="{$t.cat_id}"><a {if $t.cur}class="active"{/if} href="{$t.url}">{$t.cat_name}</a></li>
+                                                <!--{/foreach}-->
+                                            </ul>
                                         </li>
-                                        <!-- {/if} -->
-                                    <!-- {/if} -->
-                                    <!-- {/foreach} -->
+                                        <!--{/if}-->
+                                    <!--{/if}-->
+                                    <!--{/foreach}-->
                                 </ol>
                             </li>
 
-                            <!-- {if !$site.cypro} -->
-                            <!-- {foreach $nav_middle_list $v} -->
-                            <li class="listpromo-items-item listpromo-items-item-hasContent {if $v.cur}active{/if}">
-
-                                <div class="listpromo-items-item-tit"><a href="{$v.url}">{$v.nav_name}</a>{if $v.child}<span class="icon_x"></span>{/if}</div>      
+                            <!--{if !$site.cypro}-->
+                            <!--{foreach $nav_middle_list $v}-->
+                            <li data-navid="{$v.id}" class="listpromo-items-item listpromo-items-item-hasContent {if $v.cur}active{/if}">
+                                <div class="listpromo-items-item-tit"><a href="{$v.url}">{$v.nav_name}</a>{if $v.child}<span class="icon_x"></span>{/if}</div>
                                 <ol class="hasContent"  style="display:none;">
-                                    <!-- {foreach $v.child $s} -->
-                                    <li>
+                                    <!--{foreach $v.child $s}-->
+                                    <li data-navid="{$s.id}">
                                         <div class="hasContent_three">
                                             <a href="{$s.url}">{$s.nav_name}</a>
                                             {if $s.child}<span class="icon_x"></span>{/if}
                                         </div>
                                         <ul class="hasContent_three_content" style="display:none">
-                                            <!-- {foreach $s.child $t} -->
-                                            <li><a {if $t.cur}class="active"{/if} href="{$t.url}">{$t.nav_name}</a></li>
-                                            <!-- {/foreach} -->
-                                        </ul>   
+                                            <!--{foreach $s.child $t}-->
+                                            <li data-navid="{$t.id}"><a {if $t.cur}class="active"{/if} href="{$t.url}">{$t.nav_name}</a></li>
+                                            <!--{/foreach}-->
+                                        </ul>
                                     </li>
-                                    <!-- {/foreach} -->
+                                    <!--{/foreach}-->
                                 </ol>
                             </li>
-                            <!-- {/foreach} -->
-                            <!-- {/if} -->
-                        </ul>   
+                            <!--{/foreach}-->
+                            <!--{/if}-->
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -133,11 +132,11 @@
                 <button class="close"></button>
                 <div class="home_serach_con">
                     <form action="search.php" method="post" accept-charset="{$site.dou_charset}" class="Search-form">
-                        <!-- {if $site.cypro} -->
+                        <!--{if $site.cypro}-->
                         <input type="hidden" name="module" value="product">
-                        <!-- {else} -->
+                        <!--{else}-->
                         <input type="hidden" name="module" value="article">
-                        <!-- {/if} -->
+                        <!--{/if}-->
                         <input class="Search-input" type="text" name="srcval" placeholder="{if $srcval}{$srcval}{else}Keyword{/if}">
                         <button style="border:1px solid #CCC;background-color:#EEE;padding:5px;" type="submit">Submit</button>
                     </form>

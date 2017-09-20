@@ -34,7 +34,7 @@ $('.header-menu-button').click(function(){
 		$('.main-body').removeClass('main-body1');
 		$('.header').removeClass('header-fixed');
 	}
-	
+
 	if(y =="block"){
 		$('.home_serach').css('display','none');
 	}
@@ -49,8 +49,6 @@ $('.header-menu-button').click(function(){
 			}else{
 				$('.main-body').css('padding-top','0')
 			}
-
-			
 		}
 
 })
@@ -61,24 +59,23 @@ $('.listPromo1-item-content>a').mouseover(function(event) {
 });
 
 $('.listpromo-items-item-tit').click(function(){
+	// alert(url);
 	$(this).siblings('ol').toggle();
 	if($(this).children('span').hasClass('icon_x')){
 		$(this).children('span').addClass('icon_x1').removeClass('icon_x');
 	}else{
 		$(this).children('span').addClass('icon_x').removeClass('icon_x1');
-		console.log($(this).siblings('ol').children('li').children('.hasContent_three').children('span'))
+		console.log($(this).siblings('ol').children('li').children('.hasContent_three').children('span'));
 		if($(this).siblings('ol').children('li').children('.hasContent_three').children('span').hasClass('icon_x1')){
 		  $(this).siblings('ol').children('li').children('.hasContent_three').children('span').removeClass('icon_x1').addClass('icon_x');
 		  $(this).siblings('ol').children('li').children('.hasContent_three_content').hide();
 		}
 	}
-	
-})
+});
 
 /*导航联系我们hover*/
 if(screen.width >1024){
 	$('.header-connect-button').hover(function(){
-		
 		$('.index_contact_us_con').show();
 	},function(){
 		$('.index_contact_us_con').hide();

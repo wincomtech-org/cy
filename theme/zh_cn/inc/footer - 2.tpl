@@ -2,28 +2,28 @@
     <footer class="footer">
     <div class="footer1">
         <ul class="nav">
-            <!-- {if $site.cypro} -->
+            <!--{if $site.cypro}-->
             <li><a href="{$site.domain}">{$lang.homepage}</a></li>
-            <!-- {else} -->
-            <!-- {foreach $nav_bottom_list $v} -->
+            <!--{else}-->
+            <!--{foreach $nav_bottom_list $v}-->
             <li><a href="{$v.url}">{$v.nav_name}</a></li>
-            <!-- {/foreach} -->
-            <!-- {/if} -->
+            <!--{/foreach}-->
+            <!--{/if}-->
         </ul>
         <div class="footer_search">
             <div class="footerSearch">
                 <span>搜索</span>
                 <div class="footerser">
                     <form action="search.php" method="POST" accept-charset="{$site.dou_charset}">
-                        <!-- {if $site.cypro} -->
+                        <!--{if $site.cypro}-->
                         <input type="hidden" name="module" value="product">
-                        <!-- {else} -->
+                        <!--{else}-->
                         <select name="module" style="height:30px;line-height:30px;border:none;">
                             <option {if $module eq 'project' || $module eq null}selected{/if} value="product">产品</option>
                             <option {if $module eq 'article'}selected{/if} value="article">文章</option>
                             <span class="module_arr"></span>
                         </select>
-                        <!-- {/if} -->
+                        <!--{/if}-->
                         <input type="text" name="srcval" placeholder="{if $srcval}{$srcval}{else}关键词{/if}">
                         <button type="submit"></button>
                     </form>
