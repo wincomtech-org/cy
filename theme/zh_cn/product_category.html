@@ -13,7 +13,7 @@
 				</div>
 				<!--内容-->
 				<div class="aboutCon_content">
-					<!-- {if $cate_info.thumb} -->
+					<!--{if $cate_info.thumb}-->
 					<div class="aboutCon_content_img notes_img">
 						<img src="{$cate_info.thumb}" alt="">
 						<div class="notes">
@@ -25,7 +25,7 @@
 							</div>
 						</div>		
 					</div>
-					<!-- {/if} -->
+					<!--{/if}-->
 					<div class="news_items_new">
 						<ul>
 							<li class="news_items_new_item">
@@ -46,8 +46,8 @@
 					<!-- 产品列表 -->
 					<div class="product_item">
 						<ul>
-							<!-- {foreach $product_category $v} -->
-							<!-- {if $site.cypro && in_array($v.cat_id,array(4,22))} -->
+							<!--{foreach $product_category $v}-->
+							<!--{if $site.cypro && in_array($v.cat_id,array(4,22))}-->
 							<li class="product_item_items">
 								<div class="img">
 									<a href="{$v.url}"><img src="{if $v.thumb}{$v.thumb}{else}images/nopic_s_100x100.jpg{/if}" alt=""></a>
@@ -60,7 +60,7 @@
 									<p class="view"><a href="{$v.url}">查看分类</a></p>
 								</div>
 							</li>
-							<!-- {elseif !$site.cypro && !in_array($v.cat_id,array(4,22))} -->
+							<!--{elseif !$site.cypro && !in_array($v.cat_id,array(4,22))}-->
 							<li class="product_item_items">
 								<div class="img">
 									<a href="{$v.url}"><img src="{if $v.thumb}{$v.thumb}{else}images/nopic_s_100x100.jpg{/if}" alt=""></a>
@@ -73,8 +73,8 @@
 									<p class="view"><a href="{$v.url}">查看分类</a></p>
 								</div>
 							</li>
-							<!-- {/if} -->
-							<!-- {/foreach} -->
+							<!--{/if}-->
+							<!--{/foreach}-->
 						</ul>
 						{include file='inc/pager.tpl'}
 					</div>			
@@ -83,4 +83,4 @@
 		</div>
 	</div>
 
-<!-- {include file="inc/footer.tpl"} -->
+<!--{include file="inc/footer.tpl"}-->

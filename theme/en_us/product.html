@@ -41,7 +41,7 @@
 							<h3><span>Standard</span></h3>		
 						</div>		
 					</div>
-					<!-- {if $defined} -->
+					<!--{if $daos || $product.model}-->
 					<table style="table-layout:fixed;">
 						<thead>
 							<tr>
@@ -50,17 +50,18 @@
 							</tr>
 						</thead>
 						<tbody>
-							<!-- {foreach $defined $d} -->
+							<!--{if $product.model}--><tr><td>Model</td><td>{$product.model}</td></tr><!--{/if}-->
+							<!--{foreach $daos as $k=>$d}-->
 							<tr>
-								<td>{$d.dkey}</td>
-								<td colspan="2">{$d.dval}</td>
+								<td>{$designate[$k]}</td>
+								<td colspan="2">{$d}</td>
 							</tr>
-							<!-- {/foreach} -->
+							<!--{/foreach}-->
 						</tbody>
 					</table>
-					<!-- {else} -->
+					<!--{else}-->
 						<div class="no_source">No Resource ……</div>
-					<!-- {/if} -->
+					<!--{/if}-->
 					<form action="order.php?rec=insert" method="post" accept-charset="{$site.dou_charset}">
 						<input type="hidden" name="product_id" value="{$product.id}">
 						<input type="hidden" name="number" value="1">
@@ -73,7 +74,7 @@
 		</div>		
 	</div>	
 	<!--endprint--> 
-	<!-- {include file="inc/footer.tpl"} -->
+	<!--{include file="inc/footer.tpl"}-->
 </div>
 {literal}
 	<script>

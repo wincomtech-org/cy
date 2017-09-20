@@ -34,7 +34,7 @@
 							<h3><span>规格</span></h3>
 						</div>		
 					</div>
-					<!-- {if $defined || $product.model} -->
+					<!--{if $daos || $product.model}-->
 					<table style="table-layout:fixed;">
 						<thead>
 							<tr>
@@ -43,18 +43,18 @@
 							</tr>
 						</thead>
 						<tbody>
-							<!-- {if $product.model} --><tr><td>型号</td><td>{$product.model}</td></tr><!-- {/if} -->
-							<!-- {foreach $defined $d} -->
+							<!--{if $product.model}--><tr><td>型号</td><td>{$product.model}</td></tr><!--{/if}-->
+							<!--{foreach $daos as $k=>$d}-->
 							<tr>
-								<td>{$d.dkey}</td>
-								<td colspan="2">{$d.dval}</td>
+								<td>{$designate[$k]}</td>
+								<td colspan="2">{$d}</td>
 							</tr>
-							<!-- {/foreach} -->
+							<!--{/foreach}-->
 						</tbody>
 					</table>
-					<!-- {else} -->
+					<!--{else}-->
 						<div class="no_source">暂无……</div>
-					<!-- {/if} -->
+					<!--{/if}-->
 					<form action="order.php?rec=insert" method="post" accept-charset="{$site.dou_charset}">
 						<input type="hidden" name="product_id" value="{$product.id}">
 						<input type="hidden" name="number" value="1">
@@ -98,4 +98,4 @@
 		};
 	</script>
 {/literal}
-<!-- {include file="inc/footer.tpl"} -->
+<!--{include file="inc/footer.tpl"}-->

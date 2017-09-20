@@ -24,6 +24,32 @@ $_CFG['thumb_width'] = 271;$_CFG['thumb_height'] = 147;
 // 赋值给模板
 $smarty->assign('rec', $rec);
 $smarty->assign('cur', 'product');
+// $dou->debug($_GET,1);
+if (in_array($rec,array('default','add','edit'))) {
+    // 获取参数
+    $cat_id = $check->is_number($_REQUEST['cat_id']) ? intval($_REQUEST['cat_id']) : ($rec=='default'?0:1);
+    $cid = isset($_GET['cid']) ? intval($_GET['cid']) : 0;
+    if ($cid) {
+        $cat_id = $cid;
+    }
+    if ($rec=='edit') {
+        // 验证并获取合法的ID
+        $id = $check->is_number($_REQUEST['id']) ? intval($_REQUEST['id']) : 0;
+        if (!$cid) {
+            $cat_id = $dou->get_one("SELECT cat_id from ".$dou->table('product')." WHERE id=".$id);
+        }
+    }
+
+    // 选定字段 和 筛子
+    $daos = $dou->get_dao_fields($cat_id);
+    if (empty($daos['fields'])) {
+        $tid = $dou->get_tid('product_category',$cat_id);
+        $daos = $dou->get_dao_fields($tid);
+    }
+    // $dou->get_dao_series();
+
+    $smarty->assign('cat_id', $cat_id);
+}
 
 /**
  * +----------------------------------------------------------
@@ -38,7 +64,6 @@ if ($rec == 'default') {
     ));
     
     // 获取参数
-    $cat_id = $check->is_number($_REQUEST['cat_id']) ? $_REQUEST['cat_id'] : 0;
     $keyword = isset($_REQUEST['keyword']) ? trim($_REQUEST['keyword']) : '';
 
     // 筛选条件
@@ -74,7 +99,6 @@ if ($rec == 'default') {
     $smarty->assign('if_sort', $_SESSION['if_sort']);
     $smarty->assign('sort', get_sort_product());
     $smarty->assign('sort_bg', $sort_bg);
-    $smarty->assign('cat_id', $cat_id);
     $smarty->assign('keyword', $keyword);
     $smarty->assign('product_category', $dou->get_category_nolevel('product_category'));
     $smarty->assign('product_list', $product_list);
@@ -103,6 +127,7 @@ elseif ($rec == 'add') {
         $product['defined'] = trim($defined_product);
         $product['defined_count'] = count(explode("\n", $product['defined'])) * 2;
     }
+    // 获取自定义属性
     
     // CSRF防御令牌生成
     $smarty->assign('token', $firewall->get_token());
@@ -151,7 +176,12 @@ elseif ($rec == 'insert') {
             'description'  => $_POST['description'],
             'sort'  => $_POST['sort'],
             'add_time'  => time()
-        );
+    );
+    // 获取选定字段
+    // $dou->debug($daos,1);
+    if ($_POST['daos']) {
+        $data['daos'] = serialize($_POST['daos']);
+    }
     $dou->insert('product',$data);
     
     $dou->create_admin_log($_LANG['product_add'] . ': ' . $_POST['name']);
@@ -169,10 +199,7 @@ elseif ($rec == 'edit') {
             'text' => $_LANG['product'],
             'href' => 'product.php' 
     ));
-    
-    // 验证并获取合法的ID
-    $id = $check->is_number($_REQUEST['id']) ? $_REQUEST['id'] : '';
-    
+
     $query = $dou->select($dou->table('product'), '*', '`id`=\''. $id .'\'');
     $product = $dou->fetch_array($query);
     
@@ -188,6 +215,12 @@ elseif ($rec == 'edit') {
     } else {
         $product['defined'] = '';
         $product['defined_count'] = 0;
+    }
+
+    // 反序列化选定字段
+    if ($product['daos']) {
+        $daos = unserialize($product['daos']);
+        $product = array_merge($product,$daos);
     }
     
     // CSRF防御令牌生成
@@ -240,6 +273,11 @@ elseif ($rec == 'update') {
         );
     if ($image)
         $data['image'] = $image;
+    // 获取选定字段
+    // $dou->debug($daos,1);
+    if ($_POST['daos']) {
+        $data['daos'] = serialize($_POST['daos']);
+    }
     $dou->update('product',$data,'id='.$_POST['id']);
     
     $dou->create_admin_log($_LANG['product_edit'] . ': ' . $_POST['name']);

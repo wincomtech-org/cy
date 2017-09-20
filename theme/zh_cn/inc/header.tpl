@@ -8,7 +8,7 @@
             <!--{if $open.user}-->
             <!--{if $user}-->
                 <div class="login">
-                    <a href="{$url.user}">{$user.user_name}<!-- ，{*$lang.user_welcom_top*} --></a><a href="{$url.logout}">{$lang.user_logout}</a>
+                    <a href="{$url.user}">{$user.user_name}<!-- ，{*$lang.user_welcom_top*}--></a><a href="{$url.logout}">{$lang.user_logout}</a>
                 </div>
                 <div class="header-shoppings-button"><a href="{$url.order}"></a></div>
             <!--{else}-->
@@ -39,14 +39,14 @@
 <div class="header-top-search">
     <div class="headerTop_serCon">
         <form action="search.php" method="POST" accept-charset="{$site.dou_charset}">
-            <!-- {if $site.cypro} -->
+            <!--{if $site.cypro}-->
             <input type="hidden" name="module" value="product">
-            <!-- {else} -->
+            <!--{else}-->
             <select name="module" style="height:30px;line-height:30px;border:none;">
                 <option {if $module eq 'project' || $module eq null}selected{/if} value="product">产品</option>
                 <option {if $module eq 'article'}selected{/if} value="article">文章</option>
             </select>
-            <!-- {/if} -->
+            <!--{/if}-->
             <input type="text" name="srcval" placeholder="{if $srcval}{$srcval}{else}请输入搜索内容{/if}">
             <button type="submit"></button>
         </form>
@@ -66,13 +66,13 @@
     <!--菜单导航-->
     <div class="china_nav">
         <ul class="chinaNav_header ">
-            <!-- {if !$site.cypro} -->
+            <!--{if !$site.cypro}-->
             <li class="{if $index.cur}active on{/if}">
                 <div class="headerContent_item">
                     <a href="{$site.root_url}">{$lang.home}</a>
                 </div>
             </li>
-            <!-- {/if} -->
+            <!--{/if}-->
 
             <li class="header_hasContent {if $product.cur}active{/if}">
                 <div class="headerContent_item arr1">
@@ -80,66 +80,66 @@
                 </div>
                 <div class="china_nav_content " style="display:none;">
                     <ol class="chinaNav_content_item">
-                        <!-- {foreach $nav_product $v} -->
-                        <!-- {if $site.cypro} -->
-                            <!-- {if in_array($v.cat_id,array(4,22))} -->
+                        <!--{foreach $nav_product $v}-->
+                        <!--{if $site.cypro}-->
+                            <!--{if in_array($v.cat_id,array(4,22))}-->
                             <li class="chinaNav_content_items">
                                 <p class="arr1"><a href="{$v.url}">{$v.cat_name}</a></p>
                                 <ul class="chinaNav_content">
-                                    <!-- {foreach $v.child $t} -->
+                                    <!--{foreach $v.child $t}-->
                                     <li><a href="{$t.url}">{$t.cat_name}</a></li>
-                                    <!-- {/foreach} -->
+                                    <!--{/foreach}-->
                                 </ul>
                             </li>
-                            <!-- {else} -->
+                            <!--{else}-->
                             <li></li>
-                            <!-- {/if} -->
-                        <!-- {else} -->
-                            <!-- {if in_array($v.cat_id,array(4,22))} -->
+                            <!--{/if}-->
+                        <!--{else}-->
+                            <!--{if in_array($v.cat_id,array(4,22))}-->
                             <li class="chinaNav_content_items">
                                 <p class="arr1"><a href="{$v.url}">{$v.cat_name}</a></p>
                             </li>
-                            <!-- {else} -->
+                            <!--{else}-->
                             <li class="chinaNav_content_items">
                                 <p class="arr1"><a href="{$v.url}">{$v.cat_name}</a></p>
                                 <ul class="chinaNav_content">
-                                    <!-- {foreach $v.child $t} -->
+                                    <!--{foreach $v.child $t}-->
                                     <li><a href="{$t.url}">{$t.cat_name}</a></li>
-                                    <!-- {/foreach} -->
+                                    <!--{/foreach}-->
                                 </ul>
                             </li>
-                            <!-- {/if} -->
-                        <!-- {/if} -->
-                        <!-- {/foreach} -->
+                            <!--{/if}-->
+                        <!--{/if}-->
+                        <!--{/foreach}-->
                     </ol>
                 </div>
             </li>
 
-            <!-- {if !$site.cypro} -->
-            <!-- {foreach $nav_middle_list $f} -->
+            <!--{if !$site.cypro}-->
+            <!--{foreach $nav_middle_list $f}-->
             <li class="header_hasContent {if $f.cur}active{/if}" >
                 <div class="headerContent_item arr1">
                     <a href="{$f.url}">{$f.nav_name}</a>
                 </div>
-                <!-- {if $f.child} -->
+                <!--{if $f.child}-->
                 <div class="china_nav_content" style="display:none;">
                     <ol class="chinaNav_content_item">
-                        <!-- {foreach $f.child $s} -->
+                        <!--{foreach $f.child $s}-->
                         <li class="chinaNav_content_items">
                             <p class="arr1"><a href="{$s.url}">{$s.nav_name}</a></p>
                             <ul class="chinaNav_content">
-                                <!-- {foreach $s.child $t} -->
+                                <!--{foreach $s.child $t}-->
                                 <li><a href="{$t.url}">{$t.nav_name}</a></li>
-                                <!-- {/foreach} -->
+                                <!--{/foreach}-->
                             </ul>
                         </li>
-                        <!-- {/foreach} -->
+                        <!--{/foreach}-->
                     </ol>
                 </div>
-                <!-- {/if} -->
+                <!--{/if}-->
             </li>
-            <!-- {/foreach} -->
-            <!-- {/if} -->
+            <!--{/foreach}-->
+            <!--{/if}-->
         </ul>
     </div>
 </header>

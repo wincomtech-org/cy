@@ -90,8 +90,4 @@ $smarty->display('search.dwt');
 function get_list() {
 
 }
-
-// 终止执行文件外的程序
-// exit();
-
 ?>

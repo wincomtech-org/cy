@@ -1,5 +1,5 @@
 <!-- 底部 -->
-<footer class="footer">
+    <footer class="footer">
     <div class="footer1">
         <ul class="nav">
             <!--{if $site.cypro}-->
@@ -15,7 +15,15 @@
                 <span>搜索</span>
                 <div class="footerser">
                     <form action="search.php" method="POST" accept-charset="{$site.dou_charset}">
+                        <!--{if $site.cypro}-->
                         <input type="hidden" name="module" value="product">
+                        <!--{else}-->
+                        <select name="module" style="height:30px;line-height:30px;border:none;">
+                            <option {if $module eq 'project' || $module eq null}selected{/if} value="product">产品</option>
+                            <option {if $module eq 'article'}selected{/if} value="article">文章</option>
+                            <span class="module_arr"></span>
+                        </select>
+                        <!--{/if}-->
                         <input type="text" name="srcval" placeholder="{if $srcval}{$srcval}{else}关键词{/if}">
                         <button type="submit"></button>
                     </form>
@@ -37,7 +45,7 @@
                 </div>
             </div>
         </div>
-        <!-- </div> -->
+    <!-- </div> -->
     </footer>
 
     <footer class="footer2">

@@ -5,11 +5,11 @@
 // if ($memory->get('nav_product')) {
 //     $nav_product = $memory->get('nav_product');
 // } else {
-    $nav_product = array(
-            'url'=>'product_category.php',
-            'cur'=>1,'nav_name'=>$_LANG['product_tag'],
-            'child'=>$dou->get_category('product_category')
-        );
+    // $nav_product = array(
+    //         'url'=>'product_category.php',
+    //         'cur'=>1,'nav_name'=>$_LANG['product_tag'],
+    //         'child'=>$dou->get_category('product_category')
+    //     );
     $nav_product = $dou->get_category('product_category');
     // $memory->set('nav_product',$nav_product);
 // }

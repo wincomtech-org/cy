@@ -11,14 +11,14 @@
             </div>
             <!--内容-->
             <div class="aboutCon_content">
-                <!-- {if $page.content} -->
+                <!--{if $page.content}-->
                 {$page.content}
-                <!-- {else} -->
+                <!--{else}-->
                 No Resource …… （<a href="{$site.root_url}">try change url</a>）
-                <!-- {/if} -->
+                <!--{/if}-->
             </div>
         </div>
     </div>  
-    <!-- {include file='inc/footer.tpl'} -->
+    <!--{include file='inc/footer.tpl'}-->
 </div>
 

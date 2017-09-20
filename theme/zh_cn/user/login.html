@@ -22,15 +22,15 @@
 						<input type="password" id="password" class="password" name="password" value="111111" placeholder="请输入密码">
 						<p class="error"></p>
 						
-						<!-- {if $site.captcha} -->
+						<!--{if $site.captcha}-->
 						<label for="captcha">验证码:</label>
 						<input type="text" id="captcha" class="captcha" name="captcha" placeholder="请输入验证码">
 						<a href="javascript:refreshimage();" class="captcha"><img id="vcode" src="captcha.php" alt=""></a>
 						<!-- <img onclick="refreshimage()" id="vcode" src="captcha.php" alt=""> -->
 						<p class="error"></p>
-						<!-- {else} -->
+						<!--{else}-->
 						<input type="hidden" id="captcha" class="captcha" name="captcha" value="captcha">
-						<!-- {/if} -->
+						<!--{/if}-->
 
 						<div class="lr-link">
 							<a href="{$url.register}">注册</a>
@@ -50,4 +50,4 @@
 </div>
 <!-- 底部 -->
 <script src="js/yhvalidate.js"></script>
-<!-- {include file='inc/footer.tpl'}  -->
+<!--{include file='inc/footer.tpl'}  -->

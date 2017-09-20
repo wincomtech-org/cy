@@ -79,6 +79,7 @@ require_once ROOT_PATH . 'include/lang.init.php';
 
 // 读取站点信息 
 $smarty->assign("site", $_CFG = $dou->get_config());
+// $dou->debug($_CFG['defined'],1);
 $_CFG['lang_type'] = $lang_type;
 
 // 系统模块

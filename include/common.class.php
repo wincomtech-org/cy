@@ -3,6 +3,51 @@ if (!defined('IN_LOTHAR')) {
     die('Hacking attempt');
 }
 class Common extends DbMysql {
+    /*
+    * 选定字段
+    */
+    public function get_dao_fields($cat_id='0', $table='product')
+    {
+        // 获取所有属性
+        $title = $GLOBALS['lang_type']==2?'title2':'title';
+        $dao_c = $GLOBALS['dou']->fetchAll("SELECT unique_id,". $title ." FROM ".$GLOBALS['dou']->table('diy')." WHERE cat_id=4");
+        foreach ($dao_c as $val) {
+            $dkey[] = $val['unique_id'];
+            $dexplain[] = $val[$title];
+        }
+        // 字段对应解释
+        foreach ($dkey as $key => $value) {
+            $designate[$value] = $dexplain[$key];
+        }
+        // 分类选定字段
+        $fields = '';
+        if ($cat_id) {
+            $fields = $GLOBALS['dou']->get_one('SELECT fields from '.$GLOBALS['dou']->table($table .'_category').' where cat_id='.$cat_id);
+        }
+        $fieldsarr = explode(',', $fields);
+
+        $GLOBALS['smarty']->assign('designate', $designate);
+        $GLOBALS['smarty']->assign('fieldsarr', $fieldsarr);
+        return $fields;
+        // return array('fields'=>$fields,'dao'=>$dao);
+        // return array('fields'=>explode(',', $fields),'dao'=>$dao);
+    }
+
+    public function get_dao_series($select='')
+    {
+        // 所有行业
+        $industrys = $GLOBALS['dou']->fetchAll(sprintf('SELECT id,title from %s where cat_id=1 order by sort',$GLOBALS['dou']->table('diy')));
+        // 所有省份
+        $provinces = $GLOBALS['dou']->fetchAll(sprintf('SELECT cat_id,cat_name from %s order by sort',$GLOBALS['dou']->table('district')));
+        // 所有账号类型
+        $account_types = $GLOBALS['dou']->fetchAll(sprintf('SELECT id,title from %s where cat_id=2',$GLOBALS['dou']->table('diy')));
+        $GLOBALS['smarty']->assign('industrys', $industrys);
+        $GLOBALS['smarty']->assign('provinces', $provinces);
+        $GLOBALS['smarty']->assign('account_types', $account_types);
+    }
+
+
+
     /**
      * +----------------------------------------------------------
      * 获取导航菜单

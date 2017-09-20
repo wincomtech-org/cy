@@ -21,6 +21,7 @@
           <th align="left">{$lang.product_category_name}</th>
           <th align="left">{$lang.unique}</th>
           <th align="left">{$lang.description}</th>
+          <th align="left">{$lang.product_dao}</th>
           <th width="60" align="center">{$lang.sort}</th>
           <th width="80" align="center">{$lang.handler}</th>
         </tr>
@@ -29,18 +30,37 @@
           <td align="left">{$cate.mark} <a href="product.php?cat_id={$cate.cat_id}">{$cate.cat_name}</a></td>
           <td>{$cate.unique_id}</td>
           <td>{$cate.description}</td>
+          <td>{$cate.fields}</td>
           <td align="center">{$cate.sort}</td>
           <td align="center">
             <a href="product_category.php?rec=edit&cat_id={$cate.cat_id}">{$lang.edit}</a>
-            <!-- {if !in_array($cate.cat_id,array(1,2,3,4,19,20,21,22))} -->
+            <!--{if !in_array($cate.cat_id,array(1,2,3,4,19,20,21,22))}-->
             | <a href="product_category.php?rec=del&cat_id={$cate.cat_id}">{$lang.del}</a>
-            <!-- {/if} -->
+            <!--{/if}-->
           </td>
         </tr>
         <!--{/foreach}-->
       </table>
       <!--{/if}-->
       <!--{if $rec eq 'add' || $rec eq 'edit'} 分类添加或编辑 -->
+      <script type="text/javascript">
+      {literal}
+        $(function(){
+          $("#example").multiselect({
+            header: false,
+            height: 200,
+            minWidth: 200,
+            selectedList: 10,//预设值最多显示10被选中项
+            hide: ["explode", 500],
+            noneSelectedText: 'Please select an option',
+            close: function(){
+              var values= $("#example").val();
+              $("#hfexample").val(values);
+            }
+          });
+        });
+      {/literal}
+      </script>
       <h3><a href="{$action_link.href}" class="actionBtn">{$action_link.text}</a>{$ur_here}</h3>
       <form action="product_category.php?rec={$form_action}" method="post" enctype="multipart/form-data">
        <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
@@ -77,6 +97,18 @@
    <td>
     <input type="file" name="image" size="38" class="inpFlie" />
     {if $cat_info.image}<a href="../{$cat_info.image}" target="_blank"><img src="images/icon_yes.png"></a>{else}<img src="images/icon_no.png">{/if}</td>
+  </tr>
+
+  <tr>
+   <td align="right">产品内页显示指定的字段</td>
+   <td>
+    <select id="example" name="fields[]" multiple="multiple" style="min-width:800px">
+      <!--{foreach $designate as $k=>$v}-->
+      <option {if in_array($k,$cat_info.fields)} selected="true"{/if} value="{$k}">{$v}</option>
+      <!--{/foreach}-->
+    </select>
+    <input type="hidden" id="hfexample" />
+   </td>
   </tr>
 
   <tr>

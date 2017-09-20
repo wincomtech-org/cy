@@ -26,7 +26,7 @@
 				</div>
 				<div class="news_items_new reserDeve">
 					<ul>
-						<!-- {foreach $teams $v} -->
+						<!--{foreach $teams $v}-->
 						<li class="news_items_new_item">
 							<div class="img"><a href="javascript:void(0)"><img src="{$v.image}" alt=""></a></div>
 							<div class="txt">
@@ -36,7 +36,7 @@
 								</dl>
 							</div>
 						</li>
-						<!-- {/foreach} -->
+						<!--{/foreach}-->
 						<div class="clear"></div>
 					</ul>
 				</div>
@@ -51,7 +51,7 @@
 					<!-- 内容 -->
 					<div class="the_latest_news_con "> 
 						<ul>
-							<!-- {foreach $fresh_research $v} -->
+							<!--{foreach $fresh_research $v}-->
 							<li>
 								<div class="img"><img src="img/2.png" alt=""></div>
 								<div class="txt">
@@ -60,7 +60,7 @@
 									<a href="javascript:void(0);">{$v.description}</a>
 								</div>
 							</li>
-							<!-- {/foreach} -->
+							<!--{/foreach}-->
 							<div class="clear"></div>
 						</ul>
 					</div>
@@ -77,14 +77,14 @@
 					<!-- 内容 -->
 					<div class="the_latest_news_con newsInfo"> 
 						<ul>
-							<!-- {foreach $research_list as $k=>$v} -->
+							<!--{foreach $research_list as $k=>$v}-->
 							<li>
 								<div class="txt">
 									<span class="order">{$k+1}</span>
 									<a href="javascript:void(0);">{$v.title}</a>
 								</div>
 							</li>
-							<!-- {/foreach} -->
+							<!--{/foreach}-->
 							<div class="clear"></div>
 						</ul>
 						{include file='inc/pager.tpl'}
@@ -95,4 +95,4 @@
 		</div>
 	</div>
 </div>
-<!-- {include file='inc/footer.tpl'} -->
+<!--{include file='inc/footer.tpl'}-->

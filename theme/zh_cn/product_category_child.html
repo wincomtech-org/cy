@@ -32,7 +32,7 @@
 					<div class="clear"></div>
 				</div>
 
-				<!-- {foreach $product_list $v} -->
+				<!--{foreach $product_list $v}-->
 				<div class="the_latest_news mg-t-30">
 					<!-- 标题 -->
 					<div class="the_latest_news_tit mg-b-30">
@@ -43,14 +43,14 @@
 					<!--分类对应产品-->
 					<div class="product_endoscope">
 						<ul class="product_endoscope_item">
-							<!-- {foreach $v.list $t} -->
+							<!--{foreach $v.list $t}-->
 							<li class="product_endoscope_items">
 								<div class="img"><a href="{$t.url}"><img src="{$t.thumb}" alt="image"></a></div>
 								<div class="txt"><a href="{$t.url}">{$t.name}</a></div>
 							</li>
-							<!-- {foreachelse} -->
+							<!--{foreachelse}-->
 							<li>暂无……</li>
-							<!-- {/foreach} -->
+							<!--{/foreach}-->
 							<div class="clear"></div>
 						</ul>
 						<p class="more">
@@ -58,12 +58,12 @@
 						</p>
 					</div>
 				</div>
-				<!-- {foreachelse} -->
+				<!--{foreachelse}-->
 				<div class="the_latest_news mg-t-30 "><p>暂无……</p></div>
-				<!-- {/foreach} -->
+				<!--{/foreach}-->
 			</div>
 		</div>
 	</div>
 </div>
 
-<!-- {include file="inc/footer.tpl"} -->
+<!--{include file="inc/footer.tpl"}-->
