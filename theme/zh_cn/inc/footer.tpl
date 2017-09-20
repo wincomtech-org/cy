@@ -1,9 +1,9 @@
 <!-- 底部 -->
-    <footer class="footer">
+<footer class="footer">
     <div class="footer1">
         <ul class="nav">
             <!-- {if $site.cypro} -->
-            <li><a href="{$site.cyurl}">{$lang.homepage}</a></li>
+            <li><a href="{$site.domain}">{$lang.homepage}</a></li>
             <!-- {else} -->
             <!-- {foreach $nav_bottom_list $v} -->
             <li><a href="{$v.url}">{$v.nav_name}</a></li>
@@ -37,7 +37,7 @@
                 </div>
             </div>
         </div>
-    <!-- </div> -->
+        <!-- </div> -->
     </footer>
 
     <footer class="footer2">

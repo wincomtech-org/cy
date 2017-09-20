@@ -11,6 +11,4 @@ images/product/
 images/product_category/
 images/research/
 include/memory.class.php
-include/init.php
 data/config.php
-product_category.php
