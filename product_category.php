@@ -1,5 +1,6 @@
 <?php
 define('IN_LOTHAR', true);
+require (dirname(__FILE__) . '/include/init.php');
 // 特殊处理
 if (isset($_GET['id']) && strpos($_SERVER['HTTP_HOST'],'cypro')===false) {
     $cat_id = intval($_GET['id']);
@@ -7,7 +8,6 @@ if (isset($_GET['id']) && strpos($_SERVER['HTTP_HOST'],'cypro')===false) {
         header('Location:'. $_CFG['domain_pro'] .'?id='.$cat_id);exit();
     }
 }
-require (dirname(__FILE__) . '/include/init.php');
 require ROOT_PATH .'public.php';
 if ($GLOBALS['lang_type']==2 && $_CFG['cypro']) {
     $sql = 'SELECT page_name,content,image,description FROM '. $dou->table('page') .' WHERE id=2';
