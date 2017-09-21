@@ -1,5 +1,6 @@
 <?php
 define('IN_LOTHAR', true);
+define('CMOD', 'page');
 require (dirname(__FILE__) . '/include/init.php');
 // 权限判断
 $rbac->access_jump('page',$_USER);

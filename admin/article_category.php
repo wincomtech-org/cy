@@ -1,5 +1,6 @@
 <?php
 define('IN_LOTHAR', true);
+define('CMOD', 'article_category');
 require (dirname(__FILE__) . '/include/init.php');
 // 权限判断
 $rbac->access_jump('article',$_USER);
@@ -9,7 +10,7 @@ $rec = $check->is_rec($_REQUEST['rec']) ? $_REQUEST['rec'] : 'default';
 
 // 图片上传
 include_once (ROOT_PATH . 'include/upload.class.php');
-$images_dir = 'images/article_category/'; // 文件上传路径，结尾加斜杠
+$images_dir = 'images/'.CMOD.'/'; // 文件上传路径，结尾加斜杠
 $thumb_dir = ''; // 缩略图路径（相对于$images_dir） 结尾加斜杠，留空则跟$images_dir相同
 $img = new Upload(ROOT_PATH . $images_dir, $thumb_dir); // 实例化类文件
 if (!file_exists(ROOT_PATH . $images_dir)) {
@@ -18,7 +19,7 @@ if (!file_exists(ROOT_PATH . $images_dir)) {
 
 // 赋值给模板
 $smarty->assign('rec', $rec);
-$smarty->assign('cur', 'article_category');
+$smarty->assign('cur', CMOD);
 
 if (in_array($rec,array('default','add','edit'))) {
     // 允许指定模板
@@ -40,14 +41,14 @@ if ($rec == 'default') {
     $smarty->assign('ur_here', $_LANG['article_category']);
     $smarty->assign('action_link', array(
             'text' => $_LANG['article_category_add'],
-            'href' => 'article_category.php?rec=add' 
+            'href' => 'article_category.php?rec=add'
     ));
-    
+
     // 赋值给模板
     $smarty->assign('article_category', $dou->get_category_nolevel('article_category'));
-    
+
     $smarty->display('article_category.htm');
-} 
+}
 
 /**
  * +----------------------------------------------------------
@@ -58,18 +59,18 @@ elseif ($rec == 'add') {
     $smarty->assign('ur_here', $_LANG['article_category_add']);
     $smarty->assign('action_link', array(
             'text' => $_LANG['article_category'],
-            'href' => 'article_category.php' 
+            'href' => 'article_category.php'
     ));
-    
+
     // CSRF防御令牌生成
     $smarty->assign('token', $firewall->get_token());
-    
+
     // 赋值给模板
     $smarty->assign('form_action', 'insert');
     $smarty->assign('article_category', $dou->get_category_nolevel('article_category'));
-    
+
     $smarty->display('article_category.htm');
-} 
+}
 
 elseif ($rec == 'insert') {
     if (empty($_POST['cat_name']))
@@ -90,7 +91,7 @@ elseif ($rec == 'insert') {
 
     // CSRF防御令牌验证
     $firewall->check_token($_POST['token']);
-    
+
     $data = array(
             'unique_id' => $_POST['unique_id'],
             'parent_id' => $_POST['parent_id'],
@@ -110,7 +111,7 @@ elseif ($rec == 'insert') {
     } else {
         $dou->dou_msg('修改失败！');
     }
-} 
+}
 
 /**
  * +----------------------------------------------------------
@@ -121,24 +122,24 @@ elseif ($rec == 'edit') {
     $smarty->assign('ur_here', $_LANG['article_category_edit']);
     $smarty->assign('action_link', array(
             'text' => $_LANG['article_category'],
-            'href' => 'article_category.php' 
+            'href' => 'article_category.php'
     ));
-    
+
     // 获取分类信息
     $cat_id = $check->is_number($_REQUEST['cat_id']) ? $_REQUEST['cat_id'] : '';
     $query = $dou->select($dou->table('article_category'), '*', '`cat_id`=\''. $cat_id .'\'');
     $cat_info = $dou->fetch_array($query);
-    
+
     // CSRF防御令牌生成
     $smarty->assign('token', $firewall->get_token());
-    
+
     // 赋值给模板
     $smarty->assign('form_action', 'update');
     $smarty->assign('article_category', $dou->get_category_nolevel('article_category', '0', '0', $cat_id));
     $smarty->assign('cat_info', $cat_info);
-    
+
     $smarty->display('article_category.htm');
-} 
+}
 
 elseif ($rec == 'update') {
     if (empty($_POST['cat_name']))
@@ -173,7 +174,7 @@ elseif ($rec == 'update') {
             'sort' => $_POST['sort'],
             'template' => trim($_POST['template']),
         );
-    if ($image) 
+    if ($image)
         $data['image'] = $image;
     $res = $dou->update('article_category',$data,"cat_id = '$_POST[cat_id]'");
     if ($res) {
@@ -182,7 +183,7 @@ elseif ($rec == 'update') {
     } else {
         $dou->dou_msg('内容无变化 或 修改失败！');
     }
-} 
+}
 
 /**
  * +----------------------------------------------------------

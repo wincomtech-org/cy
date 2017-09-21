@@ -77,10 +77,11 @@ var_export($_USER);
 // 注意后台这里没有载入模块文件，需要加
 require_once ROOT_PATH . 'include/lang.init.php';
 
-// 读取站点信息 
+// 读取站点信息
 $smarty->assign("site", $_CFG = $dou->get_config());
 // $dou->debug($_CFG['defined'],1);
 $_CFG['lang_type'] = $lang_type;
+require ROOT_PATH . ADMIN_PATH . '/include/image_thumb.config.php';
 
 // 系统模块
 $_MODULE = $dou->dou_module();

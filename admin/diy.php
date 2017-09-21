@@ -1,5 +1,6 @@
 <?php
 define('IN_LOTHAR', true);
+// define('CMOD', 'diy');
 require (dirname(__FILE__) . '/include/init.php');
 // 权限判断
 $rbac->access_jump('diy',$_USER);
@@ -123,8 +124,11 @@ elseif ($rec == 'insert') {
             $dou->dou_msg($_LANG['unique_id_existed']);
     }
     // 图片上传
-    if ($_FILES['image']['name'] != '')
-        $image = $images_dir . $img->upload_image('image', $img->create_file_name('diy'));
+    if ($_FILES['image']['name'] != ''){
+        $image_name = $img->upload_image('image', $img->create_file_name('diy'));
+        $image = $images_dir . $image_name;
+        // $img->make_thumb($image_name, $_CFG['thumb_width'], $_CFG['thumb_height']);
+    }
 
     // 数据格式化
     $_POST['defined'] = str_replace("\r\n", ',', $_POST['defined']);

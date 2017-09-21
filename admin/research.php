@@ -1,5 +1,6 @@
 <?php
 define('IN_LOTHAR', true);
+define('CMOD', 'research');
 require (dirname(__FILE__) . '/include/init.php');
 // 权限判断
 $rbac->access_jump('research',$_USER);
@@ -14,7 +15,6 @@ $thumb_dir = ''; // 缩略图路径（相对于$images_dir） 结尾加斜杠，
 $img = new Upload(ROOT_PATH . $images_dir, $thumb_dir); // 实例化类文件
 if (!file_exists(ROOT_PATH . $images_dir))
     mkdir(ROOT_PATH . $images_dir, 0777);
-$_CFG['thumb_width'] = 283;$_CFG['thumb_height'] = 160;
 
 // 赋值给模板
 $smarty->assign('rec', $rec);

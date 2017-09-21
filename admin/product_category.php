@@ -1,5 +1,6 @@
 <?php
 define('IN_LOTHAR', true);
+define('CMOD', 'product_category');
 require (dirname(__FILE__) . '/include/init.php');
 // 权限判断
 $rbac->access_jump('product',$_USER);
@@ -15,7 +16,6 @@ $img = new Upload(ROOT_PATH . $images_dir, $thumb_dir); // 实例化类文件
 if (!file_exists(ROOT_PATH . $images_dir)) {
     mkdir(ROOT_PATH . $images_dir, 0777);
 }
-$_CFG['thumb_width'] = 374;$_CFG['thumb_height'] = 374;
 
 // 赋值给模板
 $smarty->assign('rec', $rec);
@@ -35,13 +35,13 @@ if ($rec == 'default') {
     $smarty->assign('ur_here', $_LANG['product_category']);
     $smarty->assign('action_link', array(
             'text' => $_LANG['product_category_add'],
-            'href' => 'product_category.php?rec=add' 
+            'href' => 'product_category.php?rec=add'
     ));
-    
+
     // 赋值给模板
     $smarty->assign('product_category', $dou->get_category_nolevel('product_category'));
     $smarty->display('product_category.htm');
-} 
+}
 
 /**
  * +----------------------------------------------------------
@@ -52,26 +52,26 @@ elseif ($rec == 'add') {
     $smarty->assign('ur_here', $_LANG['product_category_add']);
     $smarty->assign('action_link', array(
             'text' => $_LANG['product_category'],
-            'href' => 'product_category.php' 
+            'href' => 'product_category.php'
     ));
-    
+
     // CSRF防御令牌生成
     $smarty->assign('token', $firewall->get_token());
 
     $cat_info['fields'] = array();
-    
+
     // 赋值给模板
     $smarty->assign('form_action', 'insert');
     $smarty->assign('cat_info', $cat_info);
     $smarty->assign('product_category', $dou->get_category_nolevel('product_category'));
-    
+
     $smarty->display('product_category.htm');
-} 
+}
 
 elseif ($rec == 'insert') {
     if (empty($_POST['cat_name']))
         $dou->dou_msg($_LANG['product_category_name'] . $_LANG['is_empty']);
-    
+
     if (!$check->is_unique_id($_POST['unique_id']))
         $dou->dou_msg($_LANG['unique_id_wrong']);
     if ($dou->value_exist('product_category', 'unique_id', $_POST['unique_id']))
@@ -86,7 +86,7 @@ elseif ($rec == 'insert') {
 
     // CSRF防御令牌验证
     $firewall->check_token($_POST['token']);
-    
+
     $data = array(
             'unique_id' => $_POST['unique_id'],
             'parent_id' => $_POST['parent_id'],
@@ -105,10 +105,10 @@ elseif ($rec == 'insert') {
         $data['fields'] = $fields;
     }
     $dou->insert('product_category',$data);
-    
+
     $dou->create_admin_log($_LANG['product_category_add'] . ': ' . $_POST['cat_name']);
     $dou->dou_msg($_LANG['product_category_add_succes'], 'product_category.php');
-} 
+}
 
 /**
  * +----------------------------------------------------------
@@ -119,25 +119,25 @@ elseif ($rec == 'edit') {
     $smarty->assign('ur_here', $_LANG['product_category_edit']);
     $smarty->assign('action_link', array(
             'text' => $_LANG['product_category'],
-            'href' => 'product_category.php' 
+            'href' => 'product_category.php'
     ));
-    
+
     // 获取分类信息
     $cat_id = $check->is_number($_REQUEST['cat_id']) ? $_REQUEST['cat_id'] : '';
     $query = $dou->select($dou->table('product_category'), '*', '`cat_id`=\''. $cat_id .'\'');
     $cat_info = $dou->fetch_assoc($query);
     $cat_info['fields'] = explode(',', $cat_info['fields']);
-    
+
     // CSRF防御令牌生成
     $smarty->assign('token', $firewall->get_token());
-    
+
     // 赋值给模板
     $smarty->assign('form_action', 'update');
     $smarty->assign('product_category', $dou->get_category_nolevel('product_category', '0', '0', $cat_id));
     $smarty->assign('cat_info', $cat_info);
-    
+
     $smarty->display('product_category.htm');
-} 
+}
 
 elseif ($rec == 'update') {
     if (empty($_POST['cat_name']))
@@ -160,7 +160,7 @@ elseif ($rec == 'update') {
 
     // CSRF防御令牌验证
     $firewall->check_token($_POST['token']);
-    
+
     $data = array(
             'cat_name'  => $_POST['cat_name'],
             'unique_id'  => $_POST['unique_id'],
@@ -179,10 +179,10 @@ elseif ($rec == 'update') {
         $data['fields'] = $fields;
     }
     $dou->update('product_category',$data,'cat_id='.$_POST['cat_id']);
-    
+
     $dou->create_admin_log($_LANG['product_category_edit'] . ': ' . $_POST['cat_name']);
     $dou->dou_msg($_LANG['product_category_edit_succes'], 'product_category.php');
-} 
+}
 
 /**
  * +----------------------------------------------------------
@@ -194,7 +194,7 @@ elseif ($rec == 'del') {
     $cat_name = $dou->get_one("SELECT cat_name FROM " . $dou->table('product_category') . " WHERE cat_id = '$cat_id'");
     $is_parent = $dou->get_one("SELECT id FROM " . $dou->table('product') . " WHERE cat_id = '$cat_id'") .
              $dou->get_one("SELECT cat_id FROM " . $dou->table('product_category') . " WHERE parent_id = '$cat_id'");
-    
+
     if ($is_parent) {
         $_LANG['product_category_del_is_parent'] = preg_replace('/d%/Ums', $cat_name, $_LANG['product_category_del_is_parent']);
         $dou->dou_msg($_LANG['product_category_del_is_parent'], 'product_category.php', '', '3');

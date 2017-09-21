@@ -12,7 +12,7 @@
 			<ul class="per-list">
 				<!--{foreach $carts.list $v}-->
 				<li class="per-li" >
-					<span ><img src="img/p-1.jpg" /></span>
+					<span ><img src="{$v.thumb}" /></span>
 					<p>Name: <span>{$v.name}</span></p>
 					<p>Model: <span>{$v.model}</span></p>
 					<p>Price: <span>{$v.price}</span>.&nbsp;&nbsp;Number: <span>{$v.number}</span></p>
@@ -25,6 +25,7 @@
 				<!--{/foreach}-->
 				<div class="clear"></div>
 			</ul>
+			<!--{if $carts}-->
 			<div class="sp_button">
 				<div class="sp_b_left lf">
 					<input type="button" value="Export Excel" onclick="usercartform.action='{$url.order}&op=excel';usercartform.submit();"/>
@@ -34,6 +35,7 @@
 				<div class="rt">{include file="inc/pager.tpl"}</div>
 				<div class="clear"></div>
 			</div>
+			<!--{/if}-->
 		</form>
 	</div>
 </div>

@@ -23,8 +23,8 @@
 				<div class="clear"></div>
 			</div>
 			<div class="per-m1f">
-				<a class="per-m1f-l  lf" href="{$url.edit}">Modify personal data</a>
-				<a class="per-m1f-r  rt" href="{$url.password}">Modify login password</a>
+				<a class="per-m1f-l lf" href="{$url.edit}">Modify personal data</a>
+				<a class="per-m1f-r rt" href="{$url.password}">Modify login password</a>
 				<div class="clear"></div>
 			</div>
 		</div>
@@ -35,7 +35,8 @@
 			</div>
 			<ul class="per-list">
 				<!--{foreach $carts.list $v}-->
-				<li class="per-li"><a href="#"><img src="img/p-1.jpg" /></a>
+				<li class="per-li">
+					<a href="{$v.url}"><img src="{$v.thumb}" /></a>
 					<p>Name:<span>{$v.name}</span></p><p>Model:<span>{$v.model}</span></p><p>Price:<span>{$v.price}</span></p>
 				</li>
 				<!--{foreachelse}-->
@@ -53,5 +54,6 @@
 		</div>
 	</div>
 </div>
+
 <!-- 底部 -->
 <!--{include file='inc/footer.tpl'}  -->

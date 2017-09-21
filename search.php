@@ -20,8 +20,9 @@ if (!$check->is_search_keyword( $srcval=trim($_REQUEST['srcval']) )) {
 }*/
 
 $module = $check->is_rec($_REQUEST['module']) ? $_REQUEST['module'] : 'product';
+
 switch ($module) {
-    case 'article' : 
+    case 'article' :
         $name_field = 'title';
         $fields = 'click,'.$name_field;
         $search_url = 'search.php?module=article&srcval=';
@@ -33,12 +34,12 @@ switch ($module) {
         break;
 }
 $smarty->assign('module', $module);
-
 $smarty->assign('srcval', $srcval);
 
-// 筛选条件
+// 筛选条件 $lang_type区分中英文 ，但用户保存的数据可能不是当前语言的。
 // $where = ' WHERE (a.'.$name_field." LIKE '%$srcval%' OR a.keywords LIKE '%$srcval%') AND a.lang_id=$lang_type";
-$where = sprintf("WHERE (a.%s LIKE '%s' OR a.keywords LIKE '%s') AND a.lang_id='%d'",$name_field,$srcval,$srcval,$lang_type);
+// $where = sprintf("WHERE (a.%s LIKE '%%s%' OR a.keywords LIKE '%%s%') AND a.lang_id='%d'",$name_field,$srcval,$srcval,$lang_type);
+$where = "WHERE a.". $name_field ." LIKE '%". $srcval ."%' OR a.keywords LIKE '%". $srcval ."%'";
 $search_url = ROOT_URL . $search_url . $srcval;
 // $search_url = $dou->rewrite_url('search', $cat_id);
 
@@ -48,14 +49,13 @@ $where2 = str_replace('a.','',$where);
 $limit = $dou->pager($module, ($_DISPLAY[$module] ? $_DISPLAY[$module] : 25), $page, $search_url, $where2, '', '', true);
 
 /* 获取搜索结果列表 */
-$fields = $dou->create_fields_quote('id,image,add_time,description,'.$fields,'a');
+$fields = $dou->create_fields_quote('id,image,add_time,'.$fields,'a');
 $sql = "SELECT ".$fields.",b.cat_name FROM ". $dou->table($module) .' a LEFT JOIN '. $dou->table($module.'_category') .' b ON a.cat_id=b.cat_id '. $where .' ORDER BY id DESC' . $limit;
 $query = $dou->query($sql);
-while ($row = $dou->fetch_array($query)) {
+while ($row = $dou->fetch_assoc($query)) {
     $row['url'] = $dou->rewrite_url($module, $row['id']);
     $row['add_time_short'] = date("m-d", $row['add_time']);
-    $row['add_time'] = date("Y-m-d H:i:s", $row['add_time']);
-    $row['description'] = $row['description'] ? $row['description'] : '';
+    // $row['add_time'] = date("Y-m-d H:i:s", $row['add_time']);
     // 生成缩略图的文件名
     // $image = explode('.', $row['image']);
     // $row['thumb'] = ROOT_URL . $image[0] . '_thumb.' . $image[1];

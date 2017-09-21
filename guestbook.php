@@ -25,19 +25,14 @@ if ($rec == 'default') {
     // $page = $check->is_number($_REQUEST['page']) ? trim($_REQUEST['page']) : 1;
     // $limit = $dou->pager('guestbook', 10, $page, $dou->rewrite_url('guestbook'), $where);
 
-    // // CSRF防御令牌生成
-    $smarty->assign('token', $firewall->set_token('guestbook'));
-
     // $sql = "SELECT * FROM " . $GLOBALS['dou']->table('guestbook') . $where . " ORDER BY id DESC" . $limit;
     // $query = $GLOBALS['dou']->query($sql);
     // while ($row = $GLOBALS['dou']->fetch_array($query)) {
     //     $add_time = date("Y-m-d", $row['add_time']);
-
     //     // 获取管理员回复
     //     $reply = "SELECT content, add_time FROM " . $dou->table('guestbook') . " WHERE reply_id = '$row[id]'";
     //     $reply = $dou->fetch_array($dou->query($reply));
     //     $reply_time = date("Y-m-d", $reply['add_time']);
-
     //     $guestbook[] = array(
     //             "id" => $row['id'],
     //             "title" => $row['title'],
@@ -56,6 +51,9 @@ if ($rec == 'default') {
     //     $option .= "<option value=" . $value . $selected . ">" . $_LANG['guestbook_' . $value] . "</option>";
     // }
 
+    // // CSRF防御令牌生成
+    $smarty->assign('token', $firewall->set_token('guestbook'));
+
     // 赋值给模板-meta和title信息
     $smarty->assign('page_title', $dou->page_title('guestbook'));
     $smarty->assign('keywords', $_CFG['site_keywords']);
@@ -63,19 +61,17 @@ if ($rec == 'default') {
 
     // // 赋值给模板-导航栏
     // $smarty->assign('nav_top_list', $dou->get_nav('top'));
-    // $smarty->assign('nav_middle_list', $dou->get_nav('middle', 0, 'guestbook', 0));
-    // $smarty->assign('nav_bottom_list', $dou->get_nav('bottom'));
+    $smarty->assign('nav_middle_list', $dou->get_nav('middle', 0, 'guestbook', 0));
+    $smarty->assign('nav_bottom_list', $dou->get_nav('bottom'));
 
     // // 赋值给模板-数据
+    // $smarty->assign('ur_here', $dou->ur_here('guestbook'));
     // $smarty->assign('rec', $rec);
     // $smarty->assign('insert_url', $_URL['insert']);
     // $smarty->assign('option', $option);
     // $smarty->assign('guestbook', $guestbook);
     $smarty->assign('countrys', $countrys);
     $smarty->assign('Inquiry_Type', $Inquiry_Type);
-    // $smarty->assign('ur_here', $dou->ur_here('guestbook'));
-    $smarty->assign('nav_middle_list', $dou->get_nav('middle'));
-    $smarty->assign('nav_bottom_list', $dou->get_nav('bottom'));
 
     $smarty->display('consultation.html');
 }
