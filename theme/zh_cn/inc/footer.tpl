@@ -16,7 +16,7 @@
                 <div class="footerser">
                     <form action="search.php" method="POST" accept-charset="{$site.dou_charset}">
                         <input type="hidden" name="module" value="product">
-                        <input type="text" name="srcval" placeholder="{if $srcval}{$srcval}{else}关键词{/if}">
+                        <input type="text" name="srcval" placeholder="{if $srcval}{$srcval}{else}产品名{/if}">
                         <button type="submit"></button>
                     </form>
                 </div>
