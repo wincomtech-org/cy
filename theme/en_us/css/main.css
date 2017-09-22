@@ -752,13 +752,18 @@
 
   /**产品**/
 
-  .product_item_items .img{width:31.86%;}
+  .product_item_items .img{width:30.86%;}
 
   .product_item_items .txt {width:65.934%;}
 
   .product_item_items .txt .products_content{max-height:267px;overflow:hidden;}
 
   .product_item_items .txt h3{padding-bottom:20px;}
+
+@media only screen  and (max-width:767px) {
+    
+}
+
 
   /**医用内窥镜**/
 
