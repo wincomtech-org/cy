@@ -53,7 +53,7 @@ if ($cat_id == -1) {
 // 获取所有子类id组
 $checkids = $dou->dou_child_id('product_category',$cat_id,'',1);
 // 判断子类id是否还有子类
-$check_last = $dou->get_one("SELECT count(*) FROM ". $dou->table('product_category') ." WHERE parent_id IN ({$checkids}) AND lang_id='{$GLOBALS[lang_type]}'");
+$check_last = $dou->get_one("SELECT count(*) FROM ". $dou->table('product_category') ." WHERE parent_id IN ({$checkids}) AND lang_id=".$_CFG['lang_type']);
 
 // 有无子分类区别
 if ($checkids) {
@@ -72,51 +72,47 @@ if ($checkids) {
                 $image = explode('.', $row['image']);
                 $row['thumb'] = ROOT_URL . $image[0] . "_thumb." . $image[1];
                 // $row['image'] = ROOT_URL . $row['image'];
+            } else {
+                $row['thumb'] = ROOT_URL .'images/nopic_s_100x100.jpg';
             }
             $product_category[] = $row;
         }
-
         // $dou->debug($product_category,1);
         $smarty->assign('product_category', $product_category);
         $thistpl = 'product_category.html';
+
     } else {
         // product_category_child.html
         $cat_ids = $cat_id . $dou->dou_child_id('product_category', $cat_id);
         if (strpos($cat_ids,',')) {
-            $where = ' WHERE a.cat_id IN ('. $cat_ids .") AND a.lang_id='{$GLOBALS[lang_type]}'";
+            $where = ' WHERE cat_id IN ('. $cat_ids .') AND lang_id='. $lang_type;
         } else {
-            $where = ' WHERE a.cat_id='.$cat_ids;
+            $where = ' WHERE cat_id='.$cat_id;
         }
         // 获取分页信息
         $page = $check->is_number($_REQUEST['page']) ? trim($_REQUEST['page']) : 1;
         $where2 = str_replace('a.','',$where);
-        $limit = $dou->pager('product', ($_DISPLAY['product'] ? $_DISPLAY['product'] : 10), $page, $dou->rewrite_url('product_category', $cat_id), $where2);
-        /* 获取产品列表 */
-        $fields = $dou->create_fields_quote('id,cat_id,name,price,image,add_time,description,content','a');
-        $sql = sprintf('SELECT %s,b.cat_name from %s as a join %s b on a.cat_id=b.cat_id %s order by a.sort asc,a.id desc %s',$fields,$dou->table('product'),$dou->table('product_category'),$where,$limit);
+        $limit = $dou->pager('product_category', ($_DISPLAY['product'] ? $_DISPLAY['product'] : 10), $page, $dou->rewrite_url('product_category', $cat_id), $where2);
+        /* 获取二级产品列表 */
+        $sql = sprintf('SELECT cat_id,cat_name FROM %s %s ORDER BY sort',$dou->table('product_category'),$where,$limit);
         $query = $dou->query($sql);
-        while ($row = $dou->fetch_assoc($query,MYSQL_ASSOC)) {
-            $row['url'] = $dou->rewrite_url('product', $row['id']).'&cid='.$cat_id; // 获取经过伪静态产品链接
-            $row['add_time'] = date("Y-m-d", $row['add_time']);
-            // 如果描述不存在则自动从详细介绍中截取
-            $row['description'] = $row['description'] ? $row['description'] : $dou->dou_substr($row['content'], 150, false);
-            // 生成缩略图的文件名
-            $image = explode('.', $row['image']);
-            $row['thumb'] = ROOT_URL . $image[0] . "_thumb." . $image[1];
-            $row['image'] = ROOT_URL . $row['image'];
-            // 格式化价格
-            $row['price'] = $row['price'] > 0 ? $dou->price_format($row['price']) : $_LANG['price_discuss'];
-            $product_list_c[] = $row;
+        while ($row = $dou->fetch_assoc($query)) {
+            $row['url'] = $dou->rewrite_url('product_category', $row['cat_id']);
+            $list = array();
+            $result = $dou->query('SELECT id,name,image from '.$dou->table('product').' where cat_id='. $row['cat_id'] .' ORDER BY sort LIMIT 4');
+            while ($r = $dou->fetch_assoc($result)) {
+                $r['url'] = $dou->rewrite_url('product', $r['id']).'&cid='.$row['cat_id'];
+                if ($r['image']) {
+                    $image = explode('.', $r['image']);
+                    $r['thumb'] = ROOT_URL . $image[0] . "_thumb." . $image[1];
+                    // $r['image'] = ROOT_URL . $r['image'];
+                }
+                $list[] = $r;
+            }
+            $row['list'] = $list;
+            $product_list[] = $row;
         }
-        foreach ($product_list_c as $key => $value) {
-            // if (count($product_list[$value['cat_id']]['list'])<4) {
-                $product_list[$value['cat_id']]['count'] = $value['cat_name'];
-                $product_list[$value['cat_id']]['cat_name'] = $value['cat_name'];
-                $product_list[$value['cat_id']]['cat_url'] = $dou->rewrite_url('product_category', $value['cat_id']);
-                $product_list[$value['cat_id']]['list'][] = $value;
-            // }
-        }
-        $smarty->assign('product_list', array_values($product_list));
+        $smarty->assign('product_list', $product_list);
         $thistpl = 'product_category_child.html';
     }
 
