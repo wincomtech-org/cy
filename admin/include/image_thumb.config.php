@@ -42,7 +42,7 @@ if (CMOD) {
     $_CFG['thumb_width'] = $thumb_conf[CMOD][0][0];
     $_CFG['thumb_height'] = $thumb_conf[CMOD][0][1];
 
-    // 第二张 缩略图未能实现
+    // 第二张 缩略图
     $thumb['w2'] = $thumb_conf[CMOD][1][0];
     $thumb['h2'] = $thumb_conf[CMOD][1][1];
 

@@ -44,7 +44,7 @@
                     <button type="" class="header-menu-close-button"></button>
                     <div class="listPromo">
                         <div class="header_gather_bottom_botton">
-                            <div class="header-search-button" type="submit"></div>
+                            <div class="header-search-button"></div>
                             <!--{if $user}--><div class="header-shoppings-button"><a href="{$url.order}"></a></div><!--{/if}-->
                             <div class="header-message-button" ><a href="{$url.guestbook}"></a></div>
                             <div class="header-connect-button"><a href="tel:15375299292"></a></div>
@@ -132,11 +132,7 @@
                 <button class="close"></button>
                 <div class="home_serach_con">
                     <form action="search.php" method="post" accept-charset="{$site.dou_charset}" class="Search-form">
-                        <!--{if $site.cypro}-->
                         <input type="hidden" name="module" value="product">
-                        <!--{else}-->
-                        <input type="hidden" name="module" value="article">
-                        <!--{/if}-->
                         <input class="Search-input" type="text" name="srcval" placeholder="{if $srcval}{$srcval}{else}Keyword{/if}">
                         <button style="border:1px solid #CCC;background-color:#EEE;padding:5px;" type="submit">Submit</button>
                     </form>
