@@ -37,9 +37,9 @@ $smarty->assign('module', $module);
 $smarty->assign('srcval', $srcval);
 
 // 筛选条件 $lang_type区分中英文 ，但用户保存的数据可能不是当前语言的。
-// $where = ' WHERE (a.'.$name_field." LIKE '%$srcval%' OR a.keywords LIKE '%$srcval%') AND a.lang_id=$lang_type";
 // $where = sprintf("WHERE (a.%s LIKE '%%s%' OR a.keywords LIKE '%%s%') AND a.lang_id='%d'",$name_field,$srcval,$srcval,$lang_type);
-$where = "WHERE a.". $name_field ." LIKE '%". $srcval ."%' OR a.keywords LIKE '%". $srcval ."%'";
+$where = ' WHERE (a.'.$name_field." LIKE '%{$srcval}%' OR a.keywords LIKE '%{$srcval}%') AND a.lang_id={$lang_type}";
+// $where = 'WHERE a.'. $name_field ." LIKE '%". $srcval ."%' OR a.keywords LIKE '%". $srcval ."%'";
 $search_url = ROOT_URL . $search_url . $srcval;
 // $search_url = $dou->rewrite_url('search', $cat_id);
 
