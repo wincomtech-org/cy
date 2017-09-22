@@ -36,7 +36,7 @@
 			<ul class="per-list">
 				<!--{foreach $carts.list $v}-->
 				<li class="per-li">
-					<a href="{$v.url}"><img src="{$v.image}" /></a>
+					<a href="{$v.url}"><img src="{$v.thumb}" /></a>
 					<p>名称：<span>{$v.name}</span></p><p>型号：<span>xxxx</span></p><p>价格：<span>{$v.price}</span></p>
 				</li>
 				<!--{foreachelse}-->
@@ -45,11 +45,11 @@
 				<div class="clear"></div>
 			</ul>
 			<div class="per-m">
-			<!--{if $carts}-->
-				<a class="per-more" href="{$url.order}">>> 查看更多</a>
-			<!--{else}-->
-				<a class="per-more" href="{$url.product}">>> 挑选产品</a>
-			<!--{/if}-->
+				<!--{if $carts}-->
+				<a class="per-more" href="{$url.order}">查看更多 >></a>
+				<!--{else}-->
+				<a class="per-more" href="{$url.product}">挑选产品 >></a>
+				<!--{/if}-->
 			</div>
 		</div>
 	</div>

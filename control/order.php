@@ -23,7 +23,7 @@ if ($op=='order_detail') {
     $order = $dou->fetch_array($query);
     // 判断订单是否存在
     if (!$order) $dou->dou_header($_URL['order']);
-    
+
     // 格式化订单信息
     $order['pay_name'] = $dou->get_one("SELECT name FROM " . $dou->table('plugin') . " WHERE unique_id = '$order[pay_id]'");
     $order['shipping_name'] = $dou->get_one("SELECT name FROM " . $dou->table('plugin') . " WHERE unique_id = '$order[shipping_id]'");
@@ -71,15 +71,19 @@ if ($op=='order_detail') {
         }
 
         // 导出列表
+        $country = $GLOBALS['dou']->get_one('SELECT '. ($lang_type==2?'unique_id':'cat_name') .' FROM '. $GLOBALS['dou']->table('district') .' WHERE cat_id='. $gUinfos['country']);
         $list_user = array(
                 $gUinfos['truename']?$gUinfos['truename']:$gUinfos['nickname'],
                 $gUinfos['sex']?$GLOBALS['_LANG']['user_man']:$GLOBALS['_LANG']['user_woman'],
-                $gUinfos['telephone'],$gUinfos['email'],
-                $gUinfos['country'],$gUinfos['address'],
+                $gUinfos['telephone'],
+                $gUinfos['email'],
+                $country,
+                $gUinfos['address'],
                 $gUinfos['company']
             );
         $carts = $GLOBALS['dou_order']->get_cart($_SESSION[DOU_ID]['cart'], $checkbox);
         foreach ($carts['list'] as $c) {
+            $list = array();
             foreach ((array)$field as $v) {
                 $list[] = $c[$v];
             }
@@ -112,17 +116,19 @@ if ($op=='order_detail') {
     $nids = $_POST['nids'] ? $_POST['nids'] : array();
     // sort($nids);
     $nids = implode(',', $nids);
+
     $data = array(
             'pro_ids'   => $ids,
             'num_ids'   => $nids,
             'uid'       => $gUid,
-            'addtime'   => CTIME,
             'ip'        => $dou->get_ip()
         );
     $is_exist = $dou->get_one("SELECT id from ".$dou->table('cart')." WHERE uid={$gUid}");
     if ($is_exist) {
+        $data['modtime'] = CTIME;
         $dou->update('cart',$data,'uid='.$gUid);
     } else {
+        $data['addtime'] = CTIME;
         $dou->insert('cart',$data);
     }
     $dou->dou_msg($_LANG['dou_msg_success'],$_URL['order']);

@@ -1,5 +1,6 @@
 <?php
 define('IN_LOTHAR', true);
+define('CMOD', 'product');
 require (dirname(__FILE__) . '/include/init.php');
 // 权限判断
 $rbac->access_jump('product',$_USER);
@@ -10,21 +11,22 @@ $rec = $check->is_rec($_REQUEST['rec']) ? $_REQUEST['rec'] : 'default';
 // 图片上传
 include_once (ROOT_PATH . 'include/upload.class.php');
 $images_dir = 'images/product/'; // 文件上传路径，结尾加斜杠
+
 $thumb_dir = ''; // 缩略图路径（相对于$images_dir） 结尾加斜杠，留空则跟$images_dir相同
-// $thumb_dir2 = 'thumb/';// 第二张缩略图
 $img = new Upload(ROOT_PATH . $images_dir, $thumb_dir); // 实例化类文件
-if (!file_exists(ROOT_PATH . $images_dir)) {
+if(!file_exists(ROOT_PATH . $images_dir)) {
     mkdir(ROOT_PATH . $images_dir, 0777);
 }
-if (!file_exists(ROOT_PATH . $images_dir . $thumb_dir2)) {
+$thumb_dir2 = 'thumb/';// 第二张缩略图
+$img2 = new Upload(ROOT_PATH . $images_dir, $thumb_dir2);
+if(!file_exists(ROOT_PATH . $images_dir . $thumb_dir2)) {
     mkdir(ROOT_PATH . $images_dir . $thumb_dir2, 0777);
 }
-$_CFG['thumb_width'] = 271;$_CFG['thumb_height'] = 147;
 
 // 赋值给模板
 $smarty->assign('rec', $rec);
 $smarty->assign('cur', 'product');
-// $dou->debug($_GET,1);
+
 if (in_array($rec,array('default','add','edit'))) {
     // 获取参数
     $cat_id = $check->is_number($_REQUEST['cat_id']) ? intval($_REQUEST['cat_id']) : ($rec=='default'?0:1);
@@ -60,9 +62,9 @@ if ($rec == 'default') {
     $smarty->assign('ur_here', $_LANG['product']);
     $smarty->assign('action_link', array(
             'text' => $_LANG['product_add'],
-            'href' => 'product.php?rec=add' 
+            'href' => 'product.php?rec=add'
     ));
-    
+
     // 获取参数
     $keyword = isset($_REQUEST['keyword']) ? trim($_REQUEST['keyword']) : '';
 
@@ -75,7 +77,7 @@ if ($rec == 'default') {
         $where .= " AND a.name LIKE '%$keyword%'";
         $get = '&keyword=' . $keyword;
     }
-    
+
     // 分页
     $page = $check->is_number($_REQUEST['page']) ? $_REQUEST['page'] : 1;
     $page_url = 'product.php' . ($cat_id ? '?cat_id=' . $cat_id : '');
@@ -89,12 +91,12 @@ if ($rec == 'default') {
         $row['add_time'] = date("Y-m-d", $row['add_time']);
         $product_list[] = $row;
     }
-    
+
     // 首页显示产品数量限制框
     for($i=1; $i<=$_CFG['home_display_product']; $i++) {
         $sort_bg .= "<li><em></em></li>";
     }
-    
+
     // 赋值给模板
     $smarty->assign('if_sort', $_SESSION['if_sort']);
     $smarty->assign('sort', get_sort_product());
@@ -102,9 +104,9 @@ if ($rec == 'default') {
     $smarty->assign('keyword', $keyword);
     $smarty->assign('product_category', $dou->get_category_nolevel('product_category'));
     $smarty->assign('product_list', $product_list);
-    
+
     $smarty->display('product.htm');
-} 
+}
 
 /**
  * +----------------------------------------------------------
@@ -115,9 +117,9 @@ elseif ($rec == 'add') {
     $smarty->assign('ur_here', $_LANG['product_add']);
     $smarty->assign('action_link', array(
             'text' => $_LANG['product'],
-            'href' => 'product.php' 
+            'href' => 'product.php'
     ));
-    
+
     // 格式化自定义参数，并存到数组$product，产品编辑页面中调用产品详情也是用数组$product，
     if ($_DEFINED['product']) {
         $defined = explode(',', $_DEFINED['product']);
@@ -128,37 +130,36 @@ elseif ($rec == 'add') {
         $product['defined_count'] = count(explode("\n", $product['defined'])) * 2;
     }
     // 获取自定义属性
-    
+
     // CSRF防御令牌生成
     $smarty->assign('token', $firewall->get_token());
-    
+
     // 赋值给模板
     $smarty->assign('form_action', 'insert');
     $smarty->assign('product_category', $dou->get_category_nolevel('product_category'));
     $smarty->assign('product', $product);
-    
+
     $smarty->display('product.htm');
-} 
+}
 
 elseif ($rec == 'insert') {
     // 数据验证
     if (empty($_POST['name'])) $dou->dou_msg($_LANG['name'] . $_LANG['is_empty']);
     if (!$check->is_price($_POST['price'] = trim($_POST['price']))) $dou->dou_msg($_LANG['price_wrong']);
-        
+
     // 图片上传
     if ($_FILES['image']['name'] != '') {
         $image_name = $img->upload_image('image', $img->create_file_name('product'));
         $image = $images_dir . $image_name;
         $img->make_thumb($image_name, $_CFG['thumb_width'], $_CFG['thumb_height']);
-        if ($thumb_dir2) {
-            $img = new Upload(ROOT_PATH . $images_dir, $thumb_dir2); // 实例化类文件
-            $img->make_thumb($image_name, 375, 216);
-        }
+        // 第2张 不行，需要改代码
+        // $image_name2 = $img->upload_image('image', $img->create_file_name('product'));
+        // $img2->make_thumb($image_name2, $thumb['w2'], $thumb['h2']);
     }
-    
+
     // 数据格式化
     $_POST['defined'] = str_replace("\r\n", ',', $_POST['defined']);
-    
+
     // CSRF防御令牌验证
     $firewall->check_token($_POST['token']);
 
@@ -183,10 +184,10 @@ elseif ($rec == 'insert') {
         $data['daos'] = serialize($_POST['daos']);
     }
     $dou->insert('product',$data);
-    
+
     $dou->create_admin_log($_LANG['product_add'] . ': ' . $_POST['name']);
     $dou->dou_msg($_LANG['product_add_succes'], 'product.php');
-} 
+}
 
 /**
  * +----------------------------------------------------------
@@ -197,12 +198,12 @@ elseif ($rec == 'edit') {
     $smarty->assign('ur_here', $_LANG['product_edit']);
     $smarty->assign('action_link', array(
             'text' => $_LANG['product'],
-            'href' => 'product.php' 
+            'href' => 'product.php'
     ));
 
     $query = $dou->select($dou->table('product'), '*', '`id`=\''. $id .'\'');
     $product = $dou->fetch_array($query);
-    
+
     // 格式化自定义参数
     if ($_DEFINED['product']) {
         $defined = explode(',', $_DEFINED['product']);
@@ -222,17 +223,17 @@ elseif ($rec == 'edit') {
         $daos = unserialize($product['daos']);
         $product = array_merge($product,$daos);
     }
-    
+
     // CSRF防御令牌生成
     $smarty->assign('token', $firewall->get_token());
-    
+
     // 赋值给模板
     $smarty->assign('form_action', 'update');
     $smarty->assign('product_category', $dou->get_category_nolevel('product_category'));
     $smarty->assign('product', $product);
-    
+
     $smarty->display('product.htm');
-} 
+}
 
 elseif ($rec == 'update') {
     // 数据验证
@@ -244,18 +245,17 @@ elseif ($rec == 'update') {
         $image_name = $img->upload_image('image', $img->create_file_name('product', $_POST['id'], 'image'));
         $image = $images_dir . $image_name;
         $img->make_thumb($image_name, $_CFG['thumb_width'], $_CFG['thumb_height']);
-        if ($thumb_dir2) {
-            $img = new Upload(ROOT_PATH . $images_dir, $thumb_dir2); // 实例化类文件
-            $img->make_thumb($image_name, 375, 216);
-        }
+        // 第2张 不行，需要改代码
+        // $image_name2 = $img->upload_image('image', $img->create_file_name('product', $_POST['id'], 'image'));
+        // $img2->make_thumb($image_name2, $thumb['w2'], $thumb['h2']);
         // 因为这里文件名始终相同，会直接覆盖源文件，所以不可以做额外删除
         // $old_pic = $dou->get_one("SELECT image from ".$dou->table('product')." where id='$_POST[id]' ");
         // if ($old_pic) { $dou->del_image($old_pic); }
     }
-    
+
     // 格式化自定义参数
     $_POST['defined'] = str_replace("\r\n", ',', $_POST['defined']);
-    
+
     // CSRF防御令牌验证
     $firewall->check_token($_POST['token']);
 
@@ -279,10 +279,10 @@ elseif ($rec == 'update') {
         $data['daos'] = serialize($_POST['daos']);
     }
     $dou->update('product',$data,'id='.$_POST['id']);
-    
+
     $dou->create_admin_log($_LANG['product_edit'] . ': ' . $_POST['name']);
     $dou->dou_msg($_LANG['product_edit_succes'], 'product.php');
-} 
+}
 
 /**
  * +----------------------------------------------------------
@@ -293,21 +293,21 @@ elseif ($rec == 're_thumb') {
     $smarty->assign('ur_here', $_LANG['product_thumb']);
     $smarty->assign('action_link', array(
             'text' => $_LANG['product'],
-            'href' => 'product.php' 
+            'href' => 'product.php'
     ));
-    
+
     $sql = "SELECT id, image FROM " . $dou->table('product') . "ORDER BY id ASC";
     $count = mysql_num_rows($query = $dou->query($sql));
     $mask['count'] = preg_replace('/d%/Ums', $count, $_LANG['product_thumb_count']);
     $mask_tag = '<i></i>';
     $mask['confirm'] = $_POST['confirm'];
-    
+
     for($i=1; $i<=$count; $i++)
         $mask['bg'] .= $mask_tag;
-    
+
     $smarty->assign('mask', $mask);
     $smarty->display('product.htm');
-    
+
     if (isset($_POST['confirm'])) {
         echo ' ';
         while ($row = $dou->fetch_array($query)) {
@@ -327,10 +327,10 @@ elseif ($rec == 're_thumb') {
  */
 elseif ($rec == 'sort') {
     $_SESSION['if_sort'] = $_SESSION['if_sort'] ? false : true;
-    
+
     // 跳转到上一页面
     $dou->dou_header($_SERVER['HTTP_REFERER']);
-} 
+}
 
 /**
  * +----------------------------------------------------------
@@ -340,13 +340,13 @@ elseif ($rec == 'sort') {
 elseif ($rec == 'set_sort') {
     // 验证并获取合法的ID
     $id = $check->is_number($_REQUEST['id']) ? $_REQUEST['id'] : $dou->dou_msg($_LANG['illegal'], 'product.php');
-    
+
     $max_sort = $dou->get_one("SELECT sort FROM " . $dou->table('product') . " ORDER BY sort DESC");
     $new_sort = $max_sort + 1;
     $dou->query("UPDATE " . $dou->table('product') . " SET sort = '$new_sort' WHERE id='$id'");
-    
+
     $dou->dou_header($_SERVER['HTTP_REFERER']);
-} 
+}
 
 /**
  * +----------------------------------------------------------
@@ -356,11 +356,11 @@ elseif ($rec == 'set_sort') {
 elseif ($rec == 'del_sort') {
     // 验证并获取合法的ID
     $id = $check->is_number($_REQUEST['id']) ? $_REQUEST['id'] : $dou->dou_msg($_LANG['illegal'], 'product.php');
-    
+
     $dou->query("UPDATE " . $dou->table('product') . " SET sort = '' WHERE id='$id'");
-    
+
     $dou->dou_header($_SERVER['HTTP_REFERER']);
-} 
+}
 
 /**
  * +----------------------------------------------------------
@@ -370,21 +370,21 @@ elseif ($rec == 'del_sort') {
 elseif ($rec == 'del') {
     // 验证并获取合法的ID
     $id = $check->is_number($_REQUEST['id']) ? $_REQUEST['id'] : $dou->dou_msg($_LANG['illegal'], 'product.php');
-    
+
     $name = $dou->get_one("SELECT name FROM " . $dou->table('product') . " WHERE id='$id'");
-    
+
     if (isset($_POST['confirm']) ? $_POST['confirm'] : '') {
         // 删除相应产品图片
         $image = $dou->get_one("SELECT image FROM " . $dou->table('product') . " WHERE id='$id'");
         $dou->del_image($image);
-        
+
         $dou->create_admin_log($_LANG['product_del'] . ': ' . $name);
         $dou->delete($dou->table('product'), "id = $id", 'product.php');
     } else {
         $_LANG['del_check'] = preg_replace('/d%/Ums', $name, $_LANG['del_check']);
         $dou->dou_msg($_LANG['del_check'], 'product.php', '', '30', "product.php?rec=del&id=$id");
     }
-} 
+}
 
 /**
  * +----------------------------------------------------------
@@ -418,14 +418,14 @@ function get_sort_product() {
     $query = $GLOBALS['dou']->query($sql);
     while ($row = $GLOBALS['dou']->fetch_array($query)) {
         $image = ROOT_URL . $row['image'];
-        
+
         $sort[] = array(
                 "id" => $row['id'],
                 "name" => $row['name'],
-                "image" => $image 
+                "image" => $image
         );
     }
-    
+
     return $sort;
 }
 ?>

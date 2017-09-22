@@ -1,15 +1,16 @@
 <?php
 define('IN_LOTHAR', true);
+define('CMOD', 'job');
 require (dirname(__FILE__) . '/include/init.php');
 // 权限判断
-$rbac->access_jump('job',$_USER);
+$rbac->access_jump(CMOD,$_USER);
 
 // rec操作项的初始化
 $rec = $check->is_rec($_REQUEST['rec']) ? $_REQUEST['rec'] : 'default';
 
 // 图片上传
 include_once (ROOT_PATH . 'include/upload.class.php');
-$images_dir = 'images/job/'; // 文件上传路径，结尾加斜杠
+$images_dir = 'images/'.CMOD.'/'; // 文件上传路径，结尾加斜杠
 $thumb_dir = ''; // 缩略图路径（相对于$images_dir） 结尾加斜杠，留空则跟$images_dir相同
 $img = new Upload(ROOT_PATH . $images_dir, $thumb_dir); // 实例化类文件
 if (!file_exists(ROOT_PATH . $images_dir))
@@ -17,7 +18,7 @@ if (!file_exists(ROOT_PATH . $images_dir))
 
 // 赋值给模板
 $smarty->assign('rec', $rec);
-$smarty->assign('cur', 'job');
+$smarty->assign('cur', CMOD);
 
 /**
  * +----------------------------------------------------------

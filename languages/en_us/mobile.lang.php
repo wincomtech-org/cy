@@ -26,5 +26,5 @@ $_LANG['m_guestbook_content'] = 'Please enter the Content';
 $_LANG['m_captcha'] = 'Please enter the Captcha';
 
 // 手机版提示
-$_LANG['m_dou_msg_cue'] = "If you don't make a choice, will be in d% seconds after the jump to a page";
+$_LANG['m_dou_msg_cue'] = "If you don't make a choice, will be in d% seconds after the jump to a page ";
 ?>

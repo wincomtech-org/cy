@@ -84,7 +84,7 @@ $_LANG['online_qq'] = 'Start Chat';
 
 // 提示信息
 $_LANG['dou_msg'] = 'Message';
-$_LANG['dou_msg_cue'] = "If you don't make a choice, will be in d% seconds after the jump to a page, you can also manually click";
+$_LANG['dou_msg_cue'] = "If you don't make a choice, will be in d% seconds after the jump to a page, you can also manually click ";
 $_LANG['dou_msg_back'] = 'Back';
 $_LANG['dou_msg_success'] = 'The operation has completed successfully';
 $_LANG['dou_msg_sel'] = 'You haven`t made any choices';
