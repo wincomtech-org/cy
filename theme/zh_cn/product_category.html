@@ -8,8 +8,8 @@
 				<!--标题-->
 				<div class="about_content_tit">
 					<div class="about_conTit_div">
-						<h3><span>{$cate_info.cat_name}</span></h3>		
-					</div>		
+						<h3><span>{$cate_info.cat_name}</span></h3>
+					</div>
 				</div>
 				<!--内容-->
 				<div class="aboutCon_content">
@@ -23,7 +23,7 @@
 									<span class="img"><img src="img/iphone.png" alt=""></span>
 								</a>
 							</div>
-						</div>		
+						</div>
 					</div>
 					<!--{/if}-->
 					<div class="news_items_new">
@@ -50,7 +50,7 @@
 							<!--{if $site.cypro && in_array($v.cat_id,array(4,22))}-->
 							<li class="product_item_items">
 								<div class="img">
-									<a href="{$v.url}"><img src="{if $v.thumb}{$v.thumb}{else}images/nopic_s_100x100.jpg{/if}" alt=""></a>
+									<a href="{$v.url}"><img src="{if $v.thumb}{$v.thumb}{/if}" alt=""></a>
 								</div>
 								<div class="txt">
 									<h3><a href="{$v.url}">{$v.cat_name}</a></h3>
@@ -63,7 +63,7 @@
 							<!--{elseif !$site.cypro && !in_array($v.cat_id,array(4,22))}-->
 							<li class="product_item_items">
 								<div class="img">
-									<a href="{$v.url}"><img src="{if $v.thumb}{$v.thumb}{else}images/nopic_s_100x100.jpg{/if}" alt=""></a>
+									<a href="{$v.url}"><img src="{if $v.thumb}{$v.thumb}{/if}" alt=""></a>
 								</div>
 								<div class="txt">
 									<h3><a href="{$v.url}">{$v.cat_name}</a></h3>
@@ -77,9 +77,9 @@
 							<!--{/foreach}-->
 						</ul>
 						{include file='inc/pager.tpl'}
-					</div>			
-				</div>		
-			</div>		
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 

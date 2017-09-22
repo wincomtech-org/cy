@@ -60,7 +60,24 @@ if ($checkids) {
     if ($check_last) {
         // product_category.html
         // $smarty->assign('product_category', $dou->get_category('product_category', 0, $cat_id));
-        $smarty->assign('product_category', $dou->get_category('product_category', $cat_id));
+        // $smarty->assign('product_category', $dou->get_category('product_category',$cat_id));
+        $sql = 'SELECT cat_id,cat_name,image,description FROM '. $dou->table('product_category') .' WHERE parent_id=0 AND lang_id='.$_CFG['lang_type'];
+        $query = $dou->query($sql);
+        while ($row = $dou->fetch_assoc($query,MYSQL_ASSOC)) {
+            $row['url'] = $dou->rewrite_url('product_category', $row['cat_id']); // 获取经过伪静态产品分类
+            // $row['add_time'] = date("Y-m-d", $row['add_time']);
+            $row['description'] = $row['description'] ? $row['description'] : $dou->dou_substr($row['content'], 150, false);
+            // 生成缩略图的文件名
+            if ($row['image']) {
+                $image = explode('.', $row['image']);
+                $row['thumb'] = ROOT_URL . $image[0] . "_thumb." . $image[1];
+                // $row['image'] = ROOT_URL . $row['image'];
+            }
+            $product_category[] = $row;
+        }
+
+        // $dou->debug($product_category,1);
+        $smarty->assign('product_category', $product_category);
         $thistpl = 'product_category.html';
     } else {
         // product_category_child.html
@@ -78,7 +95,7 @@ if ($checkids) {
         $fields = $dou->create_fields_quote('id,cat_id,name,price,image,add_time,description,content','a');
         $sql = sprintf('SELECT %s,b.cat_name from %s as a join %s b on a.cat_id=b.cat_id %s order by a.sort asc,a.id desc %s',$fields,$dou->table('product'),$dou->table('product_category'),$where,$limit);
         $query = $dou->query($sql);
-        while ($row = $dou->fetch_array($query,MYSQL_ASSOC)) {
+        while ($row = $dou->fetch_assoc($query,MYSQL_ASSOC)) {
             $row['url'] = $dou->rewrite_url('product', $row['id']).'&cid='.$cat_id; // 获取经过伪静态产品链接
             $row['add_time'] = date("Y-m-d", $row['add_time']);
             // 如果描述不存在则自动从详细介绍中截取

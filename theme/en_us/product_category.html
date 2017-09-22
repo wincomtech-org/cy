@@ -48,7 +48,7 @@
 							<!--{if $site.cypro && in_array($v.cat_id,array(4,22))}-->
 							<li class="product_item_items">
 								<div class="img">
-									<a href="{$v.url}"><img src="{if $v.thumb}{$v.thumb}{else}images/nopic_s_100x100.jpg{/if}" alt=""></a>
+									<a href="{$v.url}"><img src="{if $v.thumb}{$v.thumb}{/if}" alt=""></a>
 								</div>
 								<div class="txt">
 									<h3><a href="{$v.url}">{$v.cat_name}</a></h3>
@@ -58,10 +58,10 @@
 									<p class="view"><a href="{$v.url}">View Categories</a></p>
 								</div>
 							</li>
-							<!--{elseif !$site.cypro && !in_array($v.cat_id,array(4,22))}-->
+							<!--{elseif !$site.cypro}-->
 							<li class="product_item_items">
 								<div class="img">
-									<a href="{$v.url}"><img src="{if $v.thumb}{$v.thumb}{else}images/nopic_s_100x100.jpg{/if}" alt=""></a>
+									<a href="{$v.url}"><img src="{if $v.thumb}{$v.thumb}{/if}" alt=""></a>
 								</div>
 								<div class="txt">
 									<h3><a href="{$v.url}">{$v.cat_name}</a></h3>

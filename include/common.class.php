@@ -430,9 +430,12 @@ class Common extends DbMysql {
             $item['add_time'] = date("Y-m-d", $row['add_time']);
             $item['add_time_short'] = date("m-d", $row['add_time']);
             $item['description'] = $row['description'] ? $row['description'] : ($cutlen?$this->dou_substr($row['content'], $cutlen):$row['content']);
-            $item['image'] = $row['image'] ? ROOT_URL . $row['image'] : '';
-            $image = explode('.', $row['image']);
-            $item['thumb'] = ROOT_URL . $image[0] . "_thumb." . $image[1];
+            if ($row['image']) {
+                $image = explode('.', $row['image']);
+                $item['thumb'] = ROOT_URL . $image[0] . "_thumb." . $image[1];
+                $item['thumb2'] = ROOT_URL . $image[0] . "_thumb2." . $image[1];
+                $item['image'] = $row['image'] ? ROOT_URL . $row['image'] : '';
+            }
             $item['url'] = $this->rewrite_url($module, $row['id']);
             $list[] = $item;
         }
@@ -530,6 +533,8 @@ class Common extends DbMysql {
                 if ($value['image']) {
                     $thumb = explode('.', $value['image']);
                     $value['thumb'] = ROOT_URL . $thumb[0] . "_thumb." . $thumb[1];
+                } else {
+                    $value['thumb'] = ROOT_URL .'images/nopic_s_100x100.jpg';
                 }
                 foreach ($data as $child) {
                     // 筛选下级导航

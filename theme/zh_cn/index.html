@@ -16,9 +16,7 @@
 				<li class="gridPromo-items-item">
 					<div class="gridSpanTwoPromo">
 						<div class="gridSpanTwoPromo-media">
-							<div class="figure-image">
-								<span class="Image"><img src="{$v.image}" alt=""></span>
-							</div>
+							<div class="figure-image"><span class="Image"><img src="{$v.image}" alt=""></span></div>
 						</div>
 						<div class="gridSpanTwoPromo-text">
 							<div class="gridSpanTwoPromo-tit">
@@ -34,7 +32,7 @@
 				<li class="gridPromo-items-item">
 					<div class="MediaPromo">
 						<div class="MediaPromo-media">
-							<a href="{$v.image}"><span class="Image"><img src="{$v.image}" alt=""></span></a>
+							<a href="{$v.image}"><span class="Image"><img src="{$v.thumb}" alt=""></span></a>
 						</div>
 						<div class="MediaPromo-category-wrapper">
 							<span class="MediaPromo-category"><a href="{$v.url}">{$v.title|truncate:26:"..."}</a></span>
@@ -60,7 +58,7 @@
 					<ul>
 						<!--{foreach $show_list2 $v}-->
 						<li>
-							<a href="{$v.show_link}"><img width="445" height="308" alt="{$v.show_name}" src="{$v.show_img}" /></a>	
+							<a href="{$v.show_link}"><img width="445" height="308" alt="{$v.show_name}" src="{$v.show_img}" /></a>
 						</li>
 						<!--{/foreach}-->
 					</ul>
@@ -94,7 +92,7 @@
 							<!--{foreach $article_activity $v}-->
 							<li>
 								<div class="active-img">
-									<a href="{$v.url}"><img src="{$v.image}" alt=""></a>
+									<a href="{$v.url}"><img src="{$v.thumb2}" alt=""></a>
 								</div>
 								<div class="activeContent">
 									<a href="{$v.url}">{$v.description}</a>
