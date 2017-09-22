@@ -137,7 +137,7 @@
 	line-height: 22px;
 }
 .columnlist-cont li>span:nth-of-type(1){
-	width:29%;
+	width:23%;
 }
 
 @media screen and (max-width:768px){

@@ -22,7 +22,7 @@ $_LANG['product_more'] = 'More Products';
 
 $_LANG['product_tag'] = 'Product';
 
-$_LANG['product_t'] = 'Company products';
+$_LANG['product_t'] = 'Company Products';
 $_LANG['product_k'] = 'Complete Equipment';
 $_LANG['product_d'] = 'Complete set of equipment set equipment complete set equipment complete set equipment complete sets of equipment and equipment';
 ?>

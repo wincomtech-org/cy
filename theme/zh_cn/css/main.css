@@ -42,6 +42,8 @@
 
 .page a{color:#fff;background-color:#e70012;padding:8px 15px;float:left;font-size:14px;margin-right:1px;}
 
+.page a.current{color:#e70012;background-color:#fff;}
+
 .page span{padding:8px 10px;display:inline-block;color:#787878;font-size:14px;}
 
 @media only screen and (min-width:360px) and (max-width:425px){
@@ -772,7 +774,7 @@
 
   /**产品**/
 
-  .product_item_items .img{width:23%;display:inline-block;vertical-align:middle;float:none;margin-right:3%;}
+  .product_item_items .img{width:21%;display:inline-block;vertical-align:middle;float:none;margin-right:3%;}
 
   .product_item_items .txt {width:72%;display:inline-block;vertical-align:middle;float:none;;}
 
