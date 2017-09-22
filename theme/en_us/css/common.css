@@ -82,7 +82,7 @@ transition: width 400ms ease;padding-left: 0;padding-right: 0;overflow-x: hidden
 
 .listPromo{width:100%;}
 
-.active .listpromo-items-item-tit>a{color:red;}
+.active .listpromo-items-item-tit>a{color:#e70012;}
 
 .listpromo-items-item-tit{line-height:20px;border-bottom:1px solid #ddd;padding:15px 27px 15px 0px;box-sizing:border-box;position:relative;}
 

@@ -221,24 +221,25 @@ $(function(){
 	var productTxt=$('.product_item_items .txt').height();
 	var productInt=productImg - productTxt;
 	console.log(productInt)
-	if(screen.width>767){
-		$.each(arrPro,function(i,val){
+	// if(screen.width>767){
+	// 	$.each(arrPro,function(i,val){
 		
-			// console.log(typeof($(this)[i]))
-			var productImg=$(this).children('.img').children('a').children('img').height();
-			var productTxt=$(this).children('.txt').height();
-			var productInt=productImg - productTxt;
-			console.log(productInt,productTxt);
+	// 		// console.log(typeof($(this)[i]))
+	// 		var productImg=$(this).children('.img').children('a').children('img').height();
+	// 		var productTxt=$(this).children('.txt').height();
+	// 		var productInt=productImg - productTxt;
+	// 		console.log(productInt,productTxt);
 
-			if(productInt > 0){
-				$(this).children('.txt').css('margin-top',productInt/2.5+'px')
+	// 		if(productInt > 0){
+	// 			$(this).children('.txt').css('margin-top',productInt/2.5+'px')
 			
-			}else{
-				productInt1= productTxt - productImg;
-				$(this).children('.img').css('margin-top',productInt1/2+'px')
-			}
-		})
-	}
+	// 		}else{
+				
+	// 			$(this).children('.txt').css('margin-top',-productInt/2+'px')
+
+	// 		}
+	// 	})
+	// }
 	
 	
 

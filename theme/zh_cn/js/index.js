@@ -69,18 +69,18 @@ $(document).ready(function(){
 	var productImg=$('.product_item_items .img img').height();
 	var productTxt=$('.product_item_items .txt').height();
 	var productInt=productImg - productTxt;
-	if(screen.width > 768){
-		$.each(arrPro,function(i,val){
+	// if(screen.width > 768){
+	// 	$.each(arrPro,function(i,val){
 		
-			var productImg=$(this).children('.img').children('a').children('img').height();
-			var productTxt=$(this).children('.txt').height();
-			var productInt=productImg - productTxt;
-			if(productInt > 0){
-				$(this).children('.txt').css('margin-top',productInt/2.5+'px')
+	// 		var productImg=$(this).children('.img').children('a').children('img').height();
+	// 		var productTxt=$(this).children('.txt').height();
+	// 		var productInt=productImg - productTxt;
+	// 		if(productInt > 0){
+	// 			$(this).children('.txt').css('margin-top',productInt/2.5+'px')
 			
-			}
-		})
-	}		
+	// 		}
+	// 	})
+	// }		
 })
 
 

@@ -772,9 +772,9 @@
 
   /**产品**/
 
-  .product_item_items .img{width:28%;}
+  .product_item_items .img{width:23%;display:inline-block;vertical-align:middle;float:none;margin-right:3%;}
 
-  .product_item_items .txt {width:65.934%;}
+  .product_item_items .txt {width:72%;display:inline-block;vertical-align:middle;float:none;;}
 
   .product_item_items .txt .products_content{max-height:267px;overflow:hidden;margin:5px 0 10px;}
 
@@ -788,6 +788,8 @@
 
 
 
+
+
   /***服务中心**/
 
   .serviceCenter_items:nth-child(3n+2){margin:0 2%;}
@@ -795,17 +797,19 @@
   .serviceCenter_items{min-height:170px;}
 
 
-
-  /*****/
-
-  
-
 }
+
+
+
 
 @media only screen  and (max-width:1024px) and (min-width:768px){
     
     .news_items_new_item .img{width:34%;}
     .news_items_new_item .txt{width:63%;}
+
+     .product_item_items .img{width:27%;margin-right:2%;}
+
+     .product_item_items .txt {width:70%;}
 
 }
 
