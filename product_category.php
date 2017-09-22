@@ -55,6 +55,7 @@ $checkids = $dou->dou_child_id('product_category',$cat_id,'',1);
 // 判断子类id是否还有子类
 $check_last = $dou->get_one("SELECT count(*) FROM ". $dou->table('product_category') ." WHERE parent_id IN ({$checkids}) AND lang_id=".$_CFG['lang_type']);
 
+$product['description_format'] = str_replace(PHP_EOL,'<br>',$product['description']);
 // 有无子分类区别
 if ($checkids) {
     if ($check_last) {
@@ -66,7 +67,7 @@ if ($checkids) {
         while ($row = $dou->fetch_assoc($query,MYSQL_ASSOC)) {
             $row['url'] = $dou->rewrite_url('product_category', $row['cat_id']); // 获取经过伪静态产品分类
             // $row['add_time'] = date("Y-m-d", $row['add_time']);
-            $row['description'] = $row['description'] ? $row['description'] : $dou->dou_substr($row['content'], 150, false);
+            $row['description'] = $row['description'] ? str_replace(PHP_EOL,'<br>',$row['description']) : '';
             // 生成缩略图的文件名
             if ($row['image']) {
                 $image = explode('.', $row['image']);
@@ -129,7 +130,7 @@ if ($checkids) {
         $row['url'] = $dou->rewrite_url('product', $row['id']).'&cid='.$cat_id; // 获取经过伪静态产品链接
         $row['add_time'] = date("Y-m-d", $row['add_time']);
         // 如果描述不存在则自动从详细介绍中截取
-        $row['description'] = $row['description'] ? $row['description'] : $dou->dou_substr($row['content'], 150, false);
+        $row['description'] = $row['description'] ? str_replace(PHP_EOL,'<br>',$row['description']) : $dou->dou_substr($row['content'], 150, false);
         // 生成缩略图的文件名
         $image = explode('.', $row['image']);
         $row['thumb'] = ROOT_URL . $image[0] . "_thumb." . $image[1];

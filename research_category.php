@@ -33,7 +33,7 @@ while ($row = $dou->fetch_array($query,MYSQL_ASSOC)) {
     $row['add_time_short'] = date("m-d", $row['add_time']);
     $row['image'] = $row['image'] ? ROOT_URL . $row['image'] : '';
     // 如果描述不存在则自动从详细介绍中截取
-    $row['description'] = $row['description'] ? $row['description'] : $dou->dou_substr($row['content'], 200);
+    $row['description'] = $row['description'] ? str_replace(PHP_EOL,'<br>',$row['description']) : $dou->dou_substr($row['content'], 200);
     $research_list[] = $row;
 }
 
