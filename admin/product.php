@@ -11,16 +11,10 @@ $rec = $check->is_rec($_REQUEST['rec']) ? $_REQUEST['rec'] : 'default';
 // 图片上传
 include_once (ROOT_PATH . 'include/upload.class.php');
 $images_dir = 'images/product/'; // 文件上传路径，结尾加斜杠
-
 $thumb_dir = ''; // 缩略图路径（相对于$images_dir） 结尾加斜杠，留空则跟$images_dir相同
 $img = new Upload(ROOT_PATH . $images_dir, $thumb_dir); // 实例化类文件
 if(!file_exists(ROOT_PATH . $images_dir)) {
     mkdir(ROOT_PATH . $images_dir, 0777);
-}
-$thumb_dir2 = 'thumb/';// 第二张缩略图
-$img2 = new Upload(ROOT_PATH . $images_dir, $thumb_dir2);
-if(!file_exists(ROOT_PATH . $images_dir . $thumb_dir2)) {
-    mkdir(ROOT_PATH . $images_dir . $thumb_dir2, 0777);
 }
 
 // 赋值给模板
@@ -152,9 +146,8 @@ elseif ($rec == 'insert') {
         $image_name = $img->upload_image('image', $img->create_file_name('product'));
         $image = $images_dir . $image_name;
         $img->make_thumb($image_name, $_CFG['thumb_width'], $_CFG['thumb_height']);
-        // 第2张 不行，需要改代码
-        // $image_name2 = $img->upload_image('image', $img->create_file_name('product'));
-        // $img2->make_thumb($image_name2, $thumb['w2'], $thumb['h2']);
+        // 第二张缩略图
+        $img->make_thumb($image_name, $thumb['w2'], $thumb['h2'], '90', '2');
     }
 
     // 数据格式化
@@ -245,9 +238,8 @@ elseif ($rec == 'update') {
         $image_name = $img->upload_image('image', $img->create_file_name('product', $_POST['id'], 'image'));
         $image = $images_dir . $image_name;
         $img->make_thumb($image_name, $_CFG['thumb_width'], $_CFG['thumb_height']);
-        // 第2张 不行，需要改代码
-        // $image_name2 = $img->upload_image('image', $img->create_file_name('product', $_POST['id'], 'image'));
-        // $img2->make_thumb($image_name2, $thumb['w2'], $thumb['h2']);
+        // 第二张缩略图
+        $img->make_thumb($image_name, $thumb['w2'], $thumb['h2'], '90', '2');
         // 因为这里文件名始终相同，会直接覆盖源文件，所以不可以做额外删除
         // $old_pic = $dou->get_one("SELECT image from ".$dou->table('product')." where id='$_POST[id]' ");
         // if ($old_pic) { $dou->del_image($old_pic); }

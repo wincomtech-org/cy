@@ -44,7 +44,7 @@ if (CMOD) {
 
     // 第二张 缩略图未能实现
     $thumb['w2'] = $thumb_conf[CMOD][1][0];
-    $thumb['h2'] = $thumb_conf[CMOD][1][2];
+    $thumb['h2'] = $thumb_conf[CMOD][1][1];
 
     // echo $thumb_conf[CMOD][0][0];
     // echo ",";
