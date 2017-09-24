@@ -28,7 +28,7 @@ if ($cat_id == -1) {
         $where = ' WHERE cat_id='.$cat_ids;
     }
     // 获取分类信息
-    $sql = "SELECT * FROM " . $dou->table('product_category') . 'WHERE cat_id='.$cat_id;
+    $sql = "SELECT cat_name,image,keywords,description FROM " . $dou->table('product_category') . 'WHERE cat_id='.$cat_id;
     $query = $dou->query($sql);
     $cate_info = $dou->fetch_assoc($query);
     // 获取分类信息
@@ -46,6 +46,7 @@ if ($cat_id == -1) {
         } else {
             $cate_info['thumb'] = ROOT_URL .'images/nopic_s_100x100.jpg';
         }
+        $cate_info['description'] = str_replace(PHP_EOL,'<br>',$cate_info['description']);
     }
 }
 
@@ -55,7 +56,6 @@ $checkids = $dou->dou_child_id('product_category',$cat_id,'',1);
 // 判断子类id是否还有子类
 $check_last = $dou->get_one("SELECT count(*) FROM ". $dou->table('product_category') ." WHERE parent_id IN ({$checkids}) AND lang_id=".$_CFG['lang_type']);
 
-$product['description_format'] = str_replace(PHP_EOL,'<br>',$product['description']);
 // 有无子分类区别
 if ($checkids) {
     if ($check_last) {
@@ -64,9 +64,8 @@ if ($checkids) {
         // $smarty->assign('product_category', $dou->get_category('product_category',$cat_id));
         $sql = 'SELECT cat_id,cat_name,image,description FROM '. $dou->table('product_category') .' WHERE parent_id=0 AND lang_id='.$_CFG['lang_type'];
         $query = $dou->query($sql);
-        while ($row = $dou->fetch_assoc($query,MYSQL_ASSOC)) {
-            $row['url'] = $dou->rewrite_url('product_category', $row['cat_id']); // 获取经过伪静态产品分类
-            // $row['add_time'] = date("Y-m-d", $row['add_time']);
+        while ($row = $dou->fetch_assoc($query)) {
+            $row['url'] = $dou->rewrite_url('product_category', $row['cat_id']);
             $row['description'] = $row['description'] ? str_replace(PHP_EOL,'<br>',$row['description']) : '';
             // 生成缩略图的文件名
             if ($row['image']) {
@@ -106,7 +105,6 @@ if ($checkids) {
                 if ($r['image']) {
                     $image = explode('.', $r['image']);
                     $r['thumb'] = ROOT_URL . $image[0] . "_thumb." . $image[1];
-                    // $r['image'] = ROOT_URL . $r['image'];
                 }
                 $list[] = $r;
             }
@@ -123,19 +121,18 @@ if ($checkids) {
     $page = $check->is_number($_REQUEST['page']) ? trim($_REQUEST['page']) : 1;
     $limit = $dou->pager('product', ($_DISPLAY['product'] ? $_DISPLAY['product'] : 10), $page, $dou->rewrite_url('product_category', $cat_id), $where);
     /* 获取产品列表 */
-    $fields = $dou->create_fields_quote('id,cat_id,name,price,content,image,add_time,description');
+    $fields = $dou->create_fields_quote('id,cat_id,name,image');
     $sql = sprintf('SELECT %s from %s %s order by sort,id desc %s',$fields,$dou->table('product'),$where,$limit);
     $query = $dou->query($sql);
-    while ($row = $dou->fetch_array($query)) {
+    while ($row = $dou->fetch_assoc($query)) {
         $row['url'] = $dou->rewrite_url('product', $row['id']).'&cid='.$cat_id; // 获取经过伪静态产品链接
-        $row['add_time'] = date("Y-m-d", $row['add_time']);
-        // 如果描述不存在则自动从详细介绍中截取
-        $row['description'] = $row['description'] ? str_replace(PHP_EOL,'<br>',$row['description']) : $dou->dou_substr($row['content'], 150, false);
+        // $row['add_time'] = date("Y-m-d", $row['add_time']);
+        // $row['description'] = $row['description'] ? str_replace(PHP_EOL,'<br>',$row['description']) : '';
         // 生成缩略图的文件名
         $image = explode('.', $row['image']);
         $row['thumb'] = ROOT_URL . $image[0] . "_thumb." . $image[1];
         // 格式化价格
-        $row['price'] = $row['price'] > 0 ? $dou->price_format($row['price']) : $_LANG['price_discuss'];
+        // $row['price'] = $row['price'] > 0 ? $dou->price_format($row['price']) : $_LANG['price_discuss'];
         $product_list[] = $row;
     }
     $smarty->assign('product_list', $product_list);
