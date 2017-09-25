@@ -82,11 +82,16 @@ if ($checkids) {
 
     } else {
         // product_category_child.html
-        $cat_ids = $cat_id . $dou->dou_child_id('product_category', $cat_id);
+        /*$cat_ids = $cat_id . $dou->dou_child_id('product_category', $cat_id);
         if (strpos($cat_ids,',')) {
             $where = ' WHERE cat_id IN ('. $cat_ids .') AND lang_id='. $lang_type;
         } else {
             $where = ' WHERE cat_id='.$cat_id;
+        }*/
+        if (strpos($checkids,',')) {
+            $where = ' WHERE cat_id IN ('. $checkids .') AND lang_id='. $lang_type;
+        } else {
+            $where = '';
         }
         // 获取分页信息
         $page = $check->is_number($_REQUEST['page']) ? trim($_REQUEST['page']) : 1;
