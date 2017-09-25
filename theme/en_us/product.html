@@ -62,14 +62,21 @@
 					<!--{else}-->
 						<div class="no_source">No Resource ……</div>
 					<!--{/if}-->
+					<div class="about_content_tit unline">
+						<div class="about_conTit_div">
+							<h3><span>Details</span></h3>
+						</div>
+					</div>
+					<div class="no_source">{$product.content}</div>
+				</div>
+
+				<div class="products_standard mg-t-30n pad-b-30 pad-t-30">
 					<form action="order.php?rec=insert" method="post" accept-charset="{$site.dou_charset}">
 						<input type="hidden" name="product_id" value="{$product.id}">
 						<input type="hidden" name="number" value="1">
 						<p><input class="btn-view-red" type="submit" value="Add to Cart"><a href="javascript:void(0);" title="打印" onclick="doPrint()" target="_blank" class="print">Print</a></p>
 					</form>
 				</div>
-
-				<div class="no_source">{$product.content}</div>
 			</div>
 		</div>
 	</div>

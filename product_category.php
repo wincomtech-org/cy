@@ -77,7 +77,6 @@ if ($checkids) {
             }
             $product_category[] = $row;
         }
-        // $dou->debug($product_category,1);
         $smarty->assign('product_category', $product_category);
         $thistpl = 'product_category.html';
 
@@ -119,7 +118,7 @@ if ($checkids) {
     // product_list.html
     // 获取分页信息
     $page = $check->is_number($_REQUEST['page']) ? trim($_REQUEST['page']) : 1;
-    $limit = $dou->pager('product', ($_DISPLAY['product'] ? $_DISPLAY['product'] : 10), $page, $dou->rewrite_url('product_category', $cat_id), $where);
+    $limit = $dou->pager('product', ($_DISPLAY['product'] ? $_DISPLAY['product'] : 12), $page, $dou->rewrite_url('product_category', $cat_id), $where);
     /* 获取产品列表 */
     $fields = $dou->create_fields_quote('id,cat_id,name,image');
     $sql = sprintf('SELECT %s from %s %s order by sort,id desc %s',$fields,$dou->table('product'),$where,$limit);
@@ -157,8 +156,8 @@ $smarty->assign('nav_bottom_list', $dou->get_nav('bottom'));
 $smarty->assign('cate_info', $cate_info);
 $smarty->assign('product', $product);
 
-// $dou->debug($dou->get_category('product_category', $cat_id),1);
 // $dou->debug($cate_info);
+// $dou->debug($product_category,1);
 // $dou->debug($product_list,1);
 
 
