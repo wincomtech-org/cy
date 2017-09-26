@@ -8,18 +8,7 @@ class Order {
     */
     public function user_cart($uid)
     {
-        if (is_numeric($uid)) {
-            $user_cart_c = $GLOBALS['dou']->fetchRow('SELECT pro_ids,num_ids from '. $GLOBALS['dou']->table('cart') .' where uid='.$uid);
-            if (empty($user_cart_c)) {
-                return array();
-            }
-            $pro_ids = explode(',', $user_cart_c['pro_ids']);
-            $num_ids = explode(',', $user_cart_c['num_ids']);
-            foreach ($pro_ids as $k => $v) {
-                $user_cart[$v] = $num_ids[$k];
-            }
-            $_SESSION[DOU_ID]['cart'] = $user_cart;
-        } elseif (is_string($uid)) {
+        if (is_string($uid)) {
             // $uid 可能的值 '1=1'  'a.uid in (1,2)'  'a.uid=1'  'a.id in (3,4)'
             $field_pro = $GLOBALS['dou']->create_fields_quote('id,pro_ids,num_ids,uid,status,addtime','a');
             $field_user = $GLOBALS['dou']->create_fields_quote('nickname,truename,sex,telephone,email,country,address,company','b');
@@ -52,8 +41,21 @@ class Order {
                 );
             }
             return $usa;
+        }
+
+        if ($_SESSION[DOU_ID]['cart']) {
+            $user_cart = $_SESSION[DOU_ID]['cart'];
         } else {
-            $user_cart = $_SESSION[DOU_ID]['cart']?$_SESSION[DOU_ID]['cart']:'';
+            $user_cart_c = $GLOBALS['dou']->fetchRow('SELECT pro_ids,num_ids from '. $GLOBALS['dou']->table('cart') .' where uid='.$uid);
+            if (empty($user_cart_c)) {
+                return array();
+            }
+            $pro_ids = explode(',', $user_cart_c['pro_ids']);
+            $num_ids = explode(',', $user_cart_c['num_ids']);
+            foreach ($pro_ids as $k => $v) {
+                $user_cart[$v] = $num_ids[$k];
+            }
+            $_SESSION[DOU_ID]['cart'] = $user_cart;
         }
 
         return $this->get_cart($user_cart);

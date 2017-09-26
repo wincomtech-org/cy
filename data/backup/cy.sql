@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50540
 File Encoding         : 65001
 
-Date: 2017-09-15 11:45:14
+Date: 2017-09-22 14:29:38
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -34,7 +34,7 @@ CREATE TABLE `dou_admin` (
 -- ----------------------------
 -- Records of dou_admin
 -- ----------------------------
-INSERT INTO `dou_admin` VALUES ('1', 'admin', '', 'e10adc3949ba59abbe56e057f20f883e', '99', '1478503787', '1505282651', '36.57.144.255');
+INSERT INTO `dou_admin` VALUES ('1', 'admin', '', 'e10adc3949ba59abbe56e057f20f883e', '99', '1478503787', '1506044927', '127.0.0.1');
 INSERT INTO `dou_admin` VALUES ('2', 'lothar', '', 'e10adc3949ba59abbe56e057f20f883e', '50', '1478503787', '1502855307', '127.0.0.1');
 INSERT INTO `dou_admin` VALUES ('3', 'ask1', '', 'e10adc3949ba59abbe56e057f20f883e', '10', '1478503787', '1502855307', '127.0.0.1');
 
@@ -51,7 +51,7 @@ CREATE TABLE `dou_admin_log` (
   PRIMARY KEY (`id`),
   KEY `create_time` (`create_time`),
   KEY `user_id` (`user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=61 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of dou_admin_log
@@ -60,6 +60,62 @@ INSERT INTO `dou_admin_log` VALUES ('1', '1505381139', '1', '编辑产品: Video
 INSERT INTO `dou_admin_log` VALUES ('2', '1505381393', '1', '编辑产品: HD Video Endoscopy System 6100H Series ', '127.0.0.1');
 INSERT INTO `dou_admin_log` VALUES ('3', '1505381408', '1', '编辑产品: Video Center VEP-6100H Series', '127.0.0.1');
 INSERT INTO `dou_admin_log` VALUES ('4', '1505381471', '1', '编辑产品: Video Center VEP-6100H Series', '127.0.0.1');
+INSERT INTO `dou_admin_log` VALUES ('5', '1505465622', '1', '管理员登录: 登录成功！', '127.0.0.1');
+INSERT INTO `dou_admin_log` VALUES ('6', '1505469704', '1', '编辑产品: 电子胃镜GVE-2100', '127.0.0.1');
+INSERT INTO `dou_admin_log` VALUES ('7', '1505470504', '1', '编辑DIY分类: 部门', '127.0.0.1');
+INSERT INTO `dou_admin_log` VALUES ('8', '1505470515', '1', '编辑DIY分类: 所属领域', '127.0.0.1');
+INSERT INTO `dou_admin_log` VALUES ('9', '1505470533', '1', '编辑DIY分类: 职业', '127.0.0.1');
+INSERT INTO `dou_admin_log` VALUES ('10', '1505471269', '1', '添加DIY: 销售', '127.0.0.1');
+INSERT INTO `dou_admin_log` VALUES ('11', '1505471482', '1', '添加DIY: 销售', '127.0.0.1');
+INSERT INTO `dou_admin_log` VALUES ('12', '1505471499', '1', '添加DIY: 销售', '127.0.0.1');
+INSERT INTO `dou_admin_log` VALUES ('13', '1505471775', '1', '添加DIY: 销售', '127.0.0.1');
+INSERT INTO `dou_admin_log` VALUES ('14', '1505473032', '1', '添加DIY: 服务', '127.0.0.1');
+INSERT INTO `dou_admin_log` VALUES ('15', '1505473063', '1', '添加DIY: 管理员', '127.0.0.1');
+INSERT INTO `dou_admin_log` VALUES ('16', '1505720857', '1', '管理员登录: 登录成功！', '127.0.0.1');
+INSERT INTO `dou_admin_log` VALUES ('17', '1505727940', '1', '编辑产品: Video Gastroscope AGVE-2100AL', '127.0.0.1');
+INSERT INTO `dou_admin_log` VALUES ('18', '1505781824', '1', '管理员登录: 登录成功！', '127.0.0.1');
+INSERT INTO `dou_admin_log` VALUES ('19', '1505785777', '1', '编辑产品: Video Center VEP-6100H Series', '127.0.0.1');
+INSERT INTO `dou_admin_log` VALUES ('20', '1505789996', '1', '添加分类: 产品属性', '127.0.0.1');
+INSERT INTO `dou_admin_log` VALUES ('21', '1505790072', '1', '添加DIY: 尺寸', '127.0.0.1');
+INSERT INTO `dou_admin_log` VALUES ('22', '1505790122', '1', '添加DIY: 电压', '127.0.0.1');
+INSERT INTO `dou_admin_log` VALUES ('23', '1505790149', '1', '添加DIY: 频率', '127.0.0.1');
+INSERT INTO `dou_admin_log` VALUES ('24', '1505790171', '1', '添加DIY: 功率', '127.0.0.1');
+INSERT INTO `dou_admin_log` VALUES ('25', '1505790195', '1', '添加DIY: 大小', '127.0.0.1');
+INSERT INTO `dou_admin_log` VALUES ('26', '1505794842', '1', '编辑产品分类: Veterinary Endoscopy', '127.0.0.1');
+INSERT INTO `dou_admin_log` VALUES ('27', '1505795290', '1', '编辑产品分类: Veterinary Endoscopy', '127.0.0.1');
+INSERT INTO `dou_admin_log` VALUES ('28', '1505809462', '1', '编辑DIY: 销售', '127.0.0.1');
+INSERT INTO `dou_admin_log` VALUES ('29', '1505809476', '1', '编辑DIY: 电器', '127.0.0.1');
+INSERT INTO `dou_admin_log` VALUES ('30', '1505809491', '1', '编辑DIY: 大小', '127.0.0.1');
+INSERT INTO `dou_admin_log` VALUES ('31', '1505811760', '1', '编辑产品分类: Veterinary Endoscopy', '127.0.0.1');
+INSERT INTO `dou_admin_log` VALUES ('32', '1505811786', '1', '编辑产品分类: Veterinary Endoscopy', '127.0.0.1');
+INSERT INTO `dou_admin_log` VALUES ('33', '1505813191', '1', '添加产品: test', '127.0.0.1');
+INSERT INTO `dou_admin_log` VALUES ('34', '1505813288', '1', '添加产品: test', '127.0.0.1');
+INSERT INTO `dou_admin_log` VALUES ('35', '1505813333', '1', '编辑产品: test', '127.0.0.1');
+INSERT INTO `dou_admin_log` VALUES ('36', '1505813349', '1', '编辑产品: test', '127.0.0.1');
+INSERT INTO `dou_admin_log` VALUES ('37', '1505813388', '1', '编辑产品分类: Medical Endoscopy', '127.0.0.1');
+INSERT INTO `dou_admin_log` VALUES ('38', '1505813421', '1', '编辑产品分类: Medical Endoscopy', '127.0.0.1');
+INSERT INTO `dou_admin_log` VALUES ('39', '1505815087', '1', '编辑产品: test', '127.0.0.1');
+INSERT INTO `dou_admin_log` VALUES ('40', '1505872238', '1', '管理员登录: 登录成功！', '127.0.0.1');
+INSERT INTO `dou_admin_log` VALUES ('41', '1505892519', '1', '编辑产品: test', '127.0.0.1');
+INSERT INTO `dou_admin_log` VALUES ('42', '1505893263', '1', '编辑产品: test', '127.0.0.1');
+INSERT INTO `dou_admin_log` VALUES ('43', '1505893307', '1', '编辑产品: test', '127.0.0.1');
+INSERT INTO `dou_admin_log` VALUES ('44', '1505895805', '1', '编辑产品: test', '127.0.0.1');
+INSERT INTO `dou_admin_log` VALUES ('45', '1505900763', '1', '管理员登录: 登录成功！', '127.0.0.1');
+INSERT INTO `dou_admin_log` VALUES ('46', '1505955498', '1', '管理员登录: 登录成功！', '127.0.0.1');
+INSERT INTO `dou_admin_log` VALUES ('47', '1505955508', '1', '系统设置: 编辑成功', '127.0.0.1');
+INSERT INTO `dou_admin_log` VALUES ('48', '1505955545', '1', '管理员登录: 登录成功！', '127.0.0.1');
+INSERT INTO `dou_admin_log` VALUES ('49', '1505955560', '1', '系统设置: 编辑成功', '127.0.0.1');
+INSERT INTO `dou_admin_log` VALUES ('50', '1505955569', '1', '管理员登录: 登录成功！', '127.0.0.1');
+INSERT INTO `dou_admin_log` VALUES ('51', '1505985961', '1', '编辑产品: 电子胃镜GVE-2100', '127.0.0.1');
+INSERT INTO `dou_admin_log` VALUES ('52', '1505986085', '1', '编辑产品: 电子胃镜GVE-2100', '127.0.0.1');
+INSERT INTO `dou_admin_log` VALUES ('53', '1505986360', '1', '编辑产品: 电子胃镜GVE-2100', '127.0.0.1');
+INSERT INTO `dou_admin_log` VALUES ('54', '1506044927', '1', '管理员登录: 登录成功！', '127.0.0.1');
+INSERT INTO `dou_admin_log` VALUES ('55', '1506045020', '1', '编辑产品: test', '127.0.0.1');
+INSERT INTO `dou_admin_log` VALUES ('56', '1506045040', '1', '编辑产品: test', '127.0.0.1');
+INSERT INTO `dou_admin_log` VALUES ('57', '1506046266', '1', '编辑产品: test', '127.0.0.1');
+INSERT INTO `dou_admin_log` VALUES ('58', '1506050172', '1', '编辑文章: Launching Company&#039;s Official Website on 8th of Oct. 2017', '127.0.0.1');
+INSERT INTO `dou_admin_log` VALUES ('59', '1506050784', '1', '编辑单页面: About Us', '127.0.0.1');
+INSERT INTO `dou_admin_log` VALUES ('60', '1506050804', '1', '编辑文章: Activity title 1', '127.0.0.1');
 
 -- ----------------------------
 -- Table structure for dou_apply
@@ -157,11 +213,11 @@ INSERT INTO `dou_article` VALUES ('8', '2', '1', '活动标题3', '', '活动内
 INSERT INTO `dou_article` VALUES ('9', '3', '1', '服务1', '', '400-800-00000', '', '', '1502244202', '0', '', '400-800-00000', 'article.dwt', '1');
 INSERT INTO `dou_article` VALUES ('10', '3', '1', '服务2', '', 'HUGER after sales departmen', '', '', '1502244232', '0', '', 'HUGER after sales departmen', 'article.dwt', '2');
 INSERT INTO `dou_article` VALUES ('11', '3', '1', '服务3', '', 'No. 1328 Yao North Road, Shanghai, Songjiang District', '', '', '1502244276', '0', '', 'No. 1328 Yao North Road, Shanghai, Songjiang District', 'article.dwt', '3');
-INSERT INTO `dou_article` VALUES ('12', '4', '2', 'Launching Company\'s Official Website on 8th of Oct. 2017', '', '<p class=\"MsoNormal\">\r\n	HUGER MEDICAI is delighted to\r\nlaunch her new official website. This new website contains HUGER’s general\r\ninformation, products and services, R&amp;D results and News &amp; Events. It\r\nalso plays the role of a platform for customers contacting with us. We hope you\r\nfind what you would like to know via surfing this website or reach at the\r\nperson who is right the one in charge of your enquiries and problems.\r\n</p>\r\n<p class=\"MsoNormal\">\r\n	Hope your enjoy this website and\r\nif you have any questions or suggestions, we sincerely appreciate you let us\r\nknow. <span></span> \r\n</p>', '', '', '1503292376', '0', '', '', 'news_info.html', '50');
+INSERT INTO `dou_article` VALUES ('12', '4', '2', 'Launching Company\'s Official Website on 8th of Oct. 2017', '', '<p class=\"MsoNormal\">\r\n	HUGER MEDICAI is delighted to\r\nlaunch her new official website. This new website contains HUGER’s general\r\ninformation, products and services, R&amp;D results and News &amp; Events. It\r\nalso plays the role of a platform for customers contacting with us. We hope you\r\nfind what you would like to know via surfing this website or reach at the\r\nperson who is right the one in charge of your enquiries and problems.\r\n</p>\r\n<p class=\"MsoNormal\">\r\n	Hope your enjoy this website and\r\nif you have any questions or suggestions, we sincerely appreciate you let us\r\nknow. <span></span> \r\n</p>', 'images/article/12_1506050172390522.jpg', '', '1503292376', '0', '', '', 'news_info.html', '50');
 INSERT INTO `dou_article` VALUES ('13', '6', '2', 'Services 1', '', '<span style=\"color:#000000;font-family:\" font-size:12px;font-style:normal;font-weight:normal;\"=\"\"><br />\r\n</span>', '', '', '1503292525', '0', '', '400-800-00000', 'article.dwt', '1');
 INSERT INTO `dou_article` VALUES ('14', '6', '2', 'Services 2', '', '<span style=\"color:#000000;font-family:&quot;font-size:12px;font-style:normal;font-weight:normal;\">HUGER after sales departmen</span>', '', '', '1503294182', '0', '', '', 'article.dwt', '2');
 INSERT INTO `dou_article` VALUES ('15', '6', '2', 'Services 3', '', '<span style=\"color:#000000;font-family:&quot;font-size:12px;font-style:normal;font-weight:normal;\">No. 1328 Yao North Road, Shanghai, Songjiang District</span>', '', '', '1503294218', '0', '', '', 'article.dwt', '3');
-INSERT INTO `dou_article` VALUES ('16', '5', '2', 'Activity title 1', '', 'Activity Content 1', '', '', '1503294310', '0', '', '', 'article.dwt', '1');
+INSERT INTO `dou_article` VALUES ('16', '5', '2', 'Activity title 1', '', 'Activity Content 1', 'images/article/16_1506050804334218.jpg', '', '1503294310', '0', '', '', 'article.dwt', '1');
 INSERT INTO `dou_article` VALUES ('17', '5', '2', 'Activity Title 21', '', 'Activity Content 2', '', '', '1503294352', '0', '', '', 'article.dwt', '2');
 
 -- ----------------------------
@@ -204,13 +260,16 @@ CREATE TABLE `dou_cart` (
   `uid` int(11) unsigned NOT NULL COMMENT '操作用户的id',
   `status` tinyint(1) NOT NULL DEFAULT '0' COMMENT '操作状态',
   `addtime` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '添加时机',
+  `modtime` int(10) NOT NULL DEFAULT '0',
   `ip` varchar(15) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of dou_cart
 -- ----------------------------
+INSERT INTO `dou_cart` VALUES ('3', '23,40', '1,1', '2', '0', '1505900802', '1505961508', '127.0.0.1');
+INSERT INTO `dou_cart` VALUES ('4', '23,33,38', '1,1,2', '1', '0', '1505961379', '0', '127.0.0.1');
 
 -- ----------------------------
 -- Table structure for dou_case
@@ -286,17 +345,16 @@ INSERT INTO `dou_config` VALUES ('tel', '+86-21-67691764', '+86-21-67691764', 't
 INSERT INTO `dou_config` VALUES ('fax', '+86-21-67691721', '+86-21-67691721', 'text', '', 'main', '10', '1');
 INSERT INTO `dou_config` VALUES ('qq', '', '', 'text', '', 'main', '11', '1');
 INSERT INTO `dou_config` VALUES ('email', 'inform@huger.cn', 'inform@huger.cn', 'text', '', 'main', '12', '1');
-INSERT INTO `dou_config` VALUES ('language', 'en_us', 'en_us', 'select', '', 'main', '13', '1');
 INSERT INTO `dou_config` VALUES ('rewrite', '0', '0', 'radio', '', 'main', '14', '1');
 INSERT INTO `dou_config` VALUES ('sitemap', '0', '0', 'radio', '', 'main', '15', '1');
 INSERT INTO `dou_config` VALUES ('captcha', '0', '0', 'radio', '', 'main', '16', '1');
-INSERT INTO `dou_config` VALUES ('guestbook_check_chinese', '1', '1', 'radio', '', 'main', '17', '1');
+INSERT INTO `dou_config` VALUES ('guestbook_check_chinese', '0', '0', 'radio', '', 'main', '17', '1');
 INSERT INTO `dou_config` VALUES ('code', '', '', 'textarea', '', 'main', '18', '1');
 INSERT INTO `dou_config` VALUES ('thumb_width', '135', '135', 'text', '', 'display', '1', '1');
 INSERT INTO `dou_config` VALUES ('thumb_height', '135', '135', 'text', '', 'display', '2', '1');
 INSERT INTO `dou_config` VALUES ('price_decimal', '2', '2', 'text', '', 'display', '3', '1');
 INSERT INTO `dou_config` VALUES ('display', 'a:10:{s:7:\"article\";s:1:\"1\";s:12:\"home_article\";s:1:\"5\";s:7:\"product\";s:2:\"10\";s:12:\"home_product\";s:1:\"4\";s:5:\"apply\";s:2:\"10\";s:10:\"home_apply\";s:1:\"5\";s:8:\"research\";s:1:\"9\";s:13:\"home_research\";s:1:\"5\";s:3:\"job\";s:2:\"20\";s:8:\"home_job\";s:1:\"5\";}', 'a:10:{s:7:\"article\";s:1:\"1\";s:12:\"home_article\";s:1:\"5\";s:7:\"product\";s:2:\"10\";s:12:\"home_product\";s:1:\"4\";s:5:\"apply\";s:2:\"10\";s:10:\"home_apply\";s:1:\"5\";s:8:\"research\";s:1:\"9\";s:13:\"home_research\";s:1:\"5\";s:3:\"job\";s:2:\"20\";s:8:\"home_job\";s:1:\"5\";}', 'array', '', 'display', '4', '1');
-INSERT INTO `dou_config` VALUES ('defined', 'a:2:{s:7:\"article\";s:0:\"\";s:7:\"product\";s:500:\"尺寸,电压,频率,功率,大小,重量,模拟信号输出,电子信号输出,白平衡,颜色调节,饱和度调节,测光测试,血红蛋白增强,结构增强,边缘增强,冻结,回放,电子放大,增益,画中画,图像存储,视频存储,SD卡,管理文件夹,主灯,灯泡平均寿命,亮度调节,备用灯,备用灯平均寿命,气泵压力,压力档位,方法,视野角,视向,景深(mm),头端外径(mm),头端放大图,插入部外径(mm),钳道内径(mm),弯角,工作长度,总长度\";}', 'a:2:{s:7:\"article\";s:0:\"\";s:7:\"product\";s:547:\"measure,voltage,frequency,power,size,weight,AO,ElectronicSignalOutput,white balance,Rgb,SATURATION,Photometric test,Hemoglobin enhancement,structure enhance,edge enhancement,freeze,playback,Digital zoom,gain,PIP,image storage,video storage,SD Card,Manage Folders,king light,Bulb life,brilliance control,standby lamp,Spare lamp average life,Pump pressure,Pressure gear,Method,field angle,view direction,depth of field(mm),Head end diameter(mm),Head enlargement,Insert external diameter(mm),Pliers way inside(mm),Corner,working length,Overall length\";}', 'array', '', 'defined', '1', '1');
+INSERT INTO `dou_config` VALUES ('defined', 'a:1:{i:0;s:0:\"\";}', 'a:1:{i:0;s:0:\"\";}', 'array', '', 'defined', '1', '1');
 INSERT INTO `dou_config` VALUES ('mail_service', '1', '1', 'radio', '', 'mail', '1', '1');
 INSERT INTO `dou_config` VALUES ('mail_host', 'smtp.qq.com', 'smtp.qq.com', 'text', '', 'mail', '2', '1');
 INSERT INTO `dou_config` VALUES ('mail_port', '25', '25', 'text', '', 'mail', '3', '1');
@@ -318,6 +376,9 @@ INSERT INTO `dou_config` VALUES ('update_date', 'a:3:{s:6:\"system\";a:2:{s:6:\"
 INSERT INTO `dou_config` VALUES ('cloud_account', 'a:2:{s:4:\"user\";s:16:\"keven518@163.com\";s:8:\"password\";s:32:\"e10adc3949ba59abbe56e057f20f883e\";}', 'a:2:{s:4:\"user\";s:16:\"keven518@163.com\";s:8:\"password\";s:32:\"e10adc3949ba59abbe56e057f20f883e\";}', 'hidden', '', '', '105', '1');
 INSERT INTO `dou_config` VALUES ('hash_code', '8181e1868966225f612680d39d3aa209', '8181e1868966225f612680d39d3aa209', 'hidden', '', '', '106', '1');
 INSERT INTO `dou_config` VALUES ('douphp_version', 'v1.3 Release 20170424', 'v1.3 Release 20170424', 'hidden', '', '', '107', '1');
+INSERT INTO `dou_config` VALUES ('domain_pro', 'http://cypro.ext1.cn/product_category.php', 'http://cypro.ext1.cn/product_category.php', 'text', '', 'main', '5', '1');
+INSERT INTO `dou_config` VALUES ('domain', 'http://cy.ext1.cn', 'http://cy.ext1.cn', 'text', '', 'main', '5', '1');
+INSERT INTO `dou_config` VALUES ('copyright', '版权', '', 'text', '', 'main', '8', '1');
 
 -- ----------------------------
 -- Table structure for dou_district
@@ -350,24 +411,36 @@ DROP TABLE IF EXISTS `dou_diy`;
 CREATE TABLE `dou_diy` (
   `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
   `cat_id` smallint(5) NOT NULL DEFAULT '0',
+  `unique_id` varchar(30) NOT NULL COMMENT '唯一字段',
   `lang_id` tinyint(4) unsigned NOT NULL DEFAULT '1',
   `title` varchar(150) NOT NULL DEFAULT '',
   `title2` varchar(150) NOT NULL COMMENT '英文',
   `image` varchar(255) NOT NULL DEFAULT '',
   `sort` smallint(6) unsigned NOT NULL DEFAULT '1',
+  `content` text NOT NULL,
+  `keywords` varchar(255) NOT NULL,
+  `description` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of dou_diy
 -- ----------------------------
-INSERT INTO `dou_diy` VALUES ('1', '1', '1', '医疗业', '', '', '0');
-INSERT INTO `dou_diy` VALUES ('2', '1', '1', '电器', '', '', '0');
-INSERT INTO `dou_diy` VALUES ('3', '2', '1', '产品经理', '', '', '0');
-INSERT INTO `dou_diy` VALUES ('4', '2', '1', '技术总监', '', '', '0');
-INSERT INTO `dou_diy` VALUES ('5', '2', '1', '行政主管', '', '', '0');
-INSERT INTO `dou_diy` VALUES ('6', '2', '1', '客服', '', '', '0');
-INSERT INTO `dou_diy` VALUES ('7', '2', '1', '销售', '', '', '0');
+INSERT INTO `dou_diy` VALUES ('1', '1', '', '1', '医疗业', '', '', '0', '', '', '');
+INSERT INTO `dou_diy` VALUES ('2', '1', '', '1', '电器', 'elec', '', '0', '', '', '');
+INSERT INTO `dou_diy` VALUES ('3', '2', '', '1', '产品经理', '', '', '0', '', '', '');
+INSERT INTO `dou_diy` VALUES ('4', '2', '', '1', '技术总监', '', '', '0', '', '', '');
+INSERT INTO `dou_diy` VALUES ('5', '2', '', '1', '行政主管', '', '', '0', '', '', '');
+INSERT INTO `dou_diy` VALUES ('6', '2', '', '1', '客服', '', '', '0', '', '', '');
+INSERT INTO `dou_diy` VALUES ('7', '2', '', '1', '销售', 'sales', '', '0', '', '', '');
+INSERT INTO `dou_diy` VALUES ('8', '3', '', '1', '销售', 'sales', '', '0', '', '', '');
+INSERT INTO `dou_diy` VALUES ('9', '3', '', '1', '服务', 'service', '', '0', '', '', '');
+INSERT INTO `dou_diy` VALUES ('10', '3', '', '1', '管理员', 'administration', '', '0', '', '', '');
+INSERT INTO `dou_diy` VALUES ('11', '4', 'measure', '1', '尺寸', 'Measure', '', '0', '', '', '');
+INSERT INTO `dou_diy` VALUES ('12', '4', 'voltage', '1', '电压', 'Voltage', '', '0', '', '', '');
+INSERT INTO `dou_diy` VALUES ('13', '4', 'frequency', '1', '频率', 'Frequency', '', '0', '', '', '');
+INSERT INTO `dou_diy` VALUES ('14', '4', 'power', '1', '功率', 'Power', '', '0', '', '', '');
+INSERT INTO `dou_diy` VALUES ('15', '4', 'size', '1', '大小', 'Size', '', '0', '', '', '');
 
 -- ----------------------------
 -- Table structure for dou_diy_category
@@ -382,14 +455,15 @@ CREATE TABLE `dou_diy_category` (
   `cat_name2` varchar(150) NOT NULL DEFAULT '' COMMENT '英文',
   `sort` tinyint(3) unsigned NOT NULL DEFAULT '50',
   PRIMARY KEY (`cat_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of dou_diy_category
 -- ----------------------------
-INSERT INTO `dou_diy_category` VALUES ('1', '0', '1', 'industry', '所属领域', '', '10');
-INSERT INTO `dou_diy_category` VALUES ('2', '0', '1', 'post', '职业', '', '20');
-INSERT INTO `dou_diy_category` VALUES ('3', '0', '1', 'interest', '兴趣', '', '30');
+INSERT INTO `dou_diy_category` VALUES ('1', '0', '1', 'industry', '所属领域', 'Industry', '10');
+INSERT INTO `dou_diy_category` VALUES ('2', '0', '1', 'post', '职业', 'Post', '20');
+INSERT INTO `dou_diy_category` VALUES ('3', '0', '1', 'interest', '部门', 'Inquiry Type', '30');
+INSERT INTO `dou_diy_category` VALUES ('4', '0', '1', '', '产品属性', 'Products Attributes', '40');
 
 -- ----------------------------
 -- Table structure for dou_download
@@ -501,7 +575,7 @@ CREATE TABLE `dou_guestbook` (
   `telephone` varchar(20) NOT NULL,
   `email` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of dou_guestbook
@@ -509,6 +583,8 @@ CREATE TABLE `dou_guestbook` (
 INSERT INTO `dou_guestbook` VALUES ('1', '测试主题', '迪拜', '', '', '网站建议', '0', '0', '127.0.0.1', '1502700076', '0', 'HUGER研发部', '0', '机构', '0', '这是地址', '236000', '13954687952', 'cy@qq.com');
 INSERT INTO `dou_guestbook` VALUES ('2', '测试主题', '迪拜', '', '', '网站建议', '0', '0', '127.0.0.1', '1502700102', '0', 'HUGER研发部', '0', '机构', '0', '这是地址', '236000', '13954687952', 'cy@qq.com');
 INSERT INTO `dou_guestbook` VALUES ('4', '测试主题', '迪拜', '', '', '网站建议', '0', '1', '127.0.0.1', '1502700296', '0', 'HUGER研发部', '0', '机构', '0', '这是地址', '236000', '13954687952', 'cy@qq.com');
+INSERT INTO `dou_guestbook` VALUES ('5', '白开水', '哈丽丽', '', '', '路演导撒换货单号似乎', '0', '1', '127.0.0.1', '1505987261', '0', '管理员', '0', '', '1', '', '', '15555423198', 'hlili@qq.com');
+INSERT INTO `dou_guestbook` VALUES ('6', 'msg', 'lotharAdun', '', '', 'leave msg', '0', '0', '127.0.0.1', '1505987408', '0', 'service', '1', '', '3', '', '', '88446546', 'lothar@foxmail.com');
 
 -- ----------------------------
 -- Table structure for dou_job
@@ -700,7 +776,7 @@ CREATE TABLE `dou_page` (
 -- Records of dou_page
 -- ----------------------------
 INSERT INTO `dou_page` VALUES ('1', 'about', '0', '1', '关于我们', '<div class=\"aboutCon_content_img\">\r\n	<img src=\"http://cypro.wincomtech.cn/admin/theme/zh_cn/img/lb1.jpg\" alt=\"\" /> \r\n</div>\r\n<div class=\"aboutCon_content_con\">\r\n	<p>\r\n		上海成运医疗器械股份有限公司是一家中德技术合作企业，公司主要生产医用电子内窥镜。于2003年3月获得国家食品药品监督管理局《医疗器械产品生产注册证》成为国内第一家成功获准注册上市的医用电子内窥镜生产厂家。内镜的应用领域极为广泛，其中包括如：涡轮机的内部构造、飞机走私货物侦查或进行自然科学研究等用途。而测量系统、电子内镜、软性内镜及管道镜等品类丰富的产品则可保证在各种工作条件及应用领域中，使用者均可快速便捷地使用产品。\r\n	</p>\r\n	<p>\r\n		上海成运医疗器械股份有限公司是一家中德技术合作企业，公司主要生产医用电子内窥镜。于2003年3月获得国家食品药品监督管理局《医疗器械产品生产注册证》成为国内第一家成功获准注册上市的医用电子内窥镜生产厂家。内镜的应用领域极为广泛，其中包括如：涡轮机的内部构造、飞机走私货物侦查或进行自然科学研究等用途。而测量系统、电子内镜、软性内镜及管道镜等品类丰富的产品则可保证在各种工作条件及应用领域中，使用者均可快速便捷地使用产品。上海成运医疗器械股份有限公司是一家中德技术合作企业，公司主要生产医用电子内窥镜。于2003年3月获得国家食品药品监督管理局《医疗器械产品生产注册证》成为国内第一家成功获准注册上市的医用电子内窥镜生产厂家。内镜的应用领域极为广泛，其中包括如：涡轮机的内部构造、飞机走私货物侦查或进行自然科学研究等用途。而测量系统、电子内镜、软性内镜及管道镜等品类丰富的产品则可保证在各种工作条件及应用领域中，使用者均可快速便捷地使用产品。上海成运医疗器械股份有限公司是一家中德技术合作企业，公司主要生产医用电子内窥镜。于2003年3月获得国家食品药品监督管理局《医疗器械产品生产注册证》成为国内第一家成功获准注册上市的医用电子内窥镜生产厂家, 内镜的应用领域极为广泛，其中包括如：涡轮机的内部构造、飞机走私货物侦查或进行自然科学研究等用途。而测量系统、电子内镜、软性内镜及管道镜等品类丰富的产品则可保证在各种工作条件及应用领域中，使用者均可快速便捷地使用产品。上海成运医疗器械股份有限公司是一家中德技术合作企业，公司主要生产医用电子内窥镜。于2003年3月获得国家食品药品监督管理局《医疗器械产品生产注册证》成为国内第一家成功获准注册上市的医用电子内窥镜生产厂家。内镜的应用领域极为广泛，其中包括如：涡轮机的内部构造、飞机走私货物侦查或进行自然科学研究等用途。而测量系统、电子内镜、软性内镜及管道镜等品类丰富的产品则可保证在各种工作条件及应用领域中，使用者均可快速便捷地使用产品。\r\n	</p>\r\n	<p>\r\n		上海成运医疗器械股份有限公司是一家中德技术合作企业，公司主要生产医用电子内窥镜。于2003年3月获得国家食品药品监督管理局《医疗器械产品生产注册证》成为国内第一家成功获准注册上市的医用电子内窥镜生产厂家。内镜的应用领域极为广泛，其中包括如：涡轮机的内部构造、飞机走私货物侦查或进行自然科学研究等用途。而测量系统、电子内镜、软性内镜及管道镜等品类丰富的产品则可保证在各种工作条件及应用领域中，使用者均可快速便捷地使用产品。\r\n	</p>\r\n</div>', '', '', '上海成运医疗器械股份有限公司是一家中德技术合作企业，公司主要生产医用电子内窥镜。', 'about.html');
-INSERT INTO `dou_page` VALUES ('2', 'AboutUs', '0', '2', 'About Us', '<p class=\"MsoNormal\">\r\n	<br />\r\n</p>\r\n<p class=\"MsoNormal\">\r\n	HUGER MEDICAI INSTRUMENT Co.,\r\nLtd. is proud to be the first manufacture of medical video endoscope in China.\r\nThe advanced manufacturing system and motivated engineers with decades\r\nexperience guarantee products and systems distinguished by their quality and\r\nsafety. Huger has always been a driving force to the development in endoscopy\r\nfield.\r\n</p>\r\n<p class=\"MsoNormal\">\r\n	<br />\r\n</p>\r\n<p class=\"MsoNormal\">\r\n	Huger are not satisfied with the\r\ndomestic No.1, but also becoming the worldwide top-class company. It has been\r\ntaken comprehensively in the European market and enjoy a good name for its\r\nexcellent products and service. Based on the numerous distributors worldwide,\r\nwe can offer our products with considerate service after sales to most parts of\r\nthe world.\r\n</p>\r\n<p>\r\n	<br />\r\n</p>', '', '', 'HUGER MEDICAI INSTRUMENT Co., Ltd. is proud to be the first manufacture of medical video endoscope in China. ', 'about.html');
+INSERT INTO `dou_page` VALUES ('2', 'AboutUs', '0', '2', 'About Us', '<p class=\"MsoNormal\">\r\n	<br />\r\n</p>\r\n<p class=\"MsoNormal\">\r\n	HUGER MEDICAI INSTRUMENT Co.,\r\nLtd. is proud to be the first manufacture of medical video endoscope in China.\r\nThe advanced manufacturing system and motivated engineers with decades\r\nexperience guarantee products and systems distinguished by their quality and\r\nsafety. Huger has always been a driving force to the development in endoscopy\r\nfield.\r\n</p>\r\n<p class=\"MsoNormal\">\r\n	<br />\r\n</p>\r\n<p class=\"MsoNormal\">\r\n	Huger are not satisfied with the\r\ndomestic No.1, but also becoming the worldwide top-class company. It has been\r\ntaken comprehensively in the European market and enjoy a good name for its\r\nexcellent products and service. Based on the numerous distributors worldwide,\r\nwe can offer our products with considerate service after sales to most parts of\r\nthe world.\r\n</p>\r\n<p>\r\n	<br />\r\n</p>', 'images/page/2_1506050784319949.jpg', '', 'HUGER MEDICAI INSTRUMENT Co., Ltd. is proud to be the first manufacture of medical video endoscope in China. ', 'about.html');
 
 -- ----------------------------
 -- Table structure for dou_plugin
@@ -732,6 +808,7 @@ CREATE TABLE `dou_product` (
   `content` longtext NOT NULL,
   `price` decimal(10,2) unsigned NOT NULL DEFAULT '0.00',
   `defined` text NOT NULL,
+  `daos` text NOT NULL COMMENT '选定字段的 serialize 存值',
   `model` varchar(50) NOT NULL DEFAULT '' COMMENT '型号',
   `link` varchar(255) NOT NULL DEFAULT '' COMMENT '外链',
   `keywords` varchar(255) NOT NULL DEFAULT '',
@@ -739,48 +816,49 @@ CREATE TABLE `dou_product` (
   `add_time` int(10) unsigned NOT NULL DEFAULT '0',
   `sort` mediumint(8) unsigned NOT NULL DEFAULT '999',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=41 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=42 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of dou_product
 -- ----------------------------
-INSERT INTO `dou_product` VALUES ('1', '5', '1', '电子胃镜GVE-2100', 'images/product/1_1502178782495524.jpg', '<p>\r\n	内窥镜的插入管经特殊的分段硬化后，具有优异的插入性能。精湛的加工和装配工艺，使弯角手轮操作时非常的柔顺自如。可以迅速顺利地到达所需观察的部位并发现病灶。\r\n</p>\r\n<p>\r\n	44万像素sony CCD。\r\n</p>', '1.00', '尺寸：,电压：,频率：,功率：,大小：,重量：,模拟信号输出：,电子信号输出：,白平衡：,颜色调节：,饱和度调节：,测光测试：,血红蛋白增强：,结构增强：,边缘增强：,冻结：,回放：,电子放大：,增益：,画中画：,图像存储：,视频存储：,SD卡：,管理文件夹：,主灯：,灯泡平均寿命：,亮度调节：,备用灯：,备用灯平均寿命：,气泵压力：,压力档位：,方法：,视野角：,视向：,景深(mm)：,头端外径mm)：,头端放大图：,插入部外径(mm)：,钳道内径(mm)：,弯角：,工作长度：,总长度：', '', '', '', '', '1502178782', '999');
-INSERT INTO `dou_product` VALUES ('2', '5', '1', '电子胃镜GVE-2100 X系', 'images/product/2_1502178820309175.png', '电子胃镜GVE-2100 S系<br />', '1.00', '尺寸：,电压：,频率：,功率：,大小：,重量：,模拟信号输出：,电子信号输出：,白平衡：,颜色调节：,饱和度调节：,测光测试：,血红蛋白增强：,结构增强：,边缘增强：,冻结：,回放：,电子放大：,增益：,画中画：,图像存储：,视频存储：,SD卡：,管理文件夹：,主灯：,灯泡平均寿命：,亮度调节：,备用灯：,备用灯平均寿命：,气泵压力：,压力档位：,方法：,视野角：,视向：,景深(mm)：,头端外径mm)：,头端放大图：,插入部外径(mm)：,钳道内径(mm)：,弯角：,工作长度：,总长度：', '', '', '', '简单描述', '1502178820', '999');
-INSERT INTO `dou_product` VALUES ('3', '6', '1', '电子胃镜GVE-2600', 'images/product/3_1502178878119993.jpg', '<p>\r\n	电子胃镜GVE-2600\r\n</p>\r\n<p>\r\n	产品说明\r\n</p>', '0.00', '', '', '', '', '', '1502178878', '999');
-INSERT INTO `dou_product` VALUES ('8', '23', '2', 'Video Gastroscope GVE-2100/GVE-2100X/GVE-2100P', 'images/product/8_1505193468904222.png', '', '0.00', '尺寸：,电压：,频率：,功率：,大小：,重量：,模拟信号输出：,电子信号输出：,白平衡：,颜色调节：,饱和度调节：,测光测试：,血红蛋白增强：,结构增强：,边缘增强：,冻结：,回放：,电子放大：,增益：,画中画：,图像存储：,视频存储：,SD卡：,管理文件夹：,主灯：,灯泡平均寿命：,亮度调节：,备用灯：,备用灯平均寿命：,气泵压力：,压力档位：,方法：,视野角：,视向：,景深(mm)：,头端外径mm)：,头端放大图：,插入部外径(mm)：,钳道内径(mm)：,弯角：,工作长度：,总长度：', '', '', '', '', '1505193468', '999');
-INSERT INTO `dou_product` VALUES ('5', '23', '2', 'Video Colonoscope CVE-2100TM/LM/IM', 'images/product/5_1505193098785512.png', '', '0.00', '尺寸：,电压：,频率：,功率：,大小：,重量：,模拟信号输出：,电子信号输出：,白平衡：,颜色调节：,饱和度调节：,测光测试：,血红蛋白增强：,结构增强：,边缘增强：,冻结：,回放：,电子放大：,增益：,画中画：,图像存储：,视频存储：,SD卡：,管理文件夹：,主灯：,灯泡平均寿命：,亮度调节：,备用灯：,备用灯平均寿命：,气泵压力：,压力档位：,方法：,视野角：,视向：,景深(mm)：,头端外径mm)：,头端放大图：,插入部外径(mm)：,钳道内径(mm)：,弯角：,工作长度：,总长度：', '', '', '', '', '1505117544', '999');
-INSERT INTO `dou_product` VALUES ('6', '24', '2', 'Imaging Processor VEP-2100F', 'images/product/6_1505195122366765.png', '<p>\r\n	nnnnnnnnnnnnnnnnnnnnnnnnnn\r\n</p>', '0.00', 'ssssssssssssssssssssssssss', '', '', 'VEP-2100F', 'jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj', '1505117795', '999');
-INSERT INTO `dou_product` VALUES ('11', '38', '2', 'Video Center 2100 Series', 'images/product/11_1505195824162954.png', '', '0.00', '尺寸：,电压：,频率：,功率：,大小：,重量：,模拟信号输出：,电子信号输出：,白平衡：,颜色调节：,饱和度调节：,测光测试：,血红蛋白增强：,结构增强：,边缘增强：,冻结：,回放：,电子放大：,增益：,画中画：,图像存储：,视频存储：,SD卡：,管理文件夹：,主灯：,灯泡平均寿命：,亮度调节：,备用灯：,备用灯平均寿命：,气泵压力：,压力档位：,方法：,视野角：,视向：,景深(mm)：,头端外径mm)：,头端放大图：,插入部外径(mm)：,钳道内径(mm)：,弯角：,工作长度：,总长度：', '', '', '', '', '1505195825', '999');
-INSERT INTO `dou_product` VALUES ('10', '25', '2', 'Xenon Light Source SLS-2100P', 'images/product/10_1505195412671693.png', '', '0.00', '尺寸：,电压：,频率：,功率：,大小：,重量：,模拟信号输出：,电子信号输出：,白平衡：,颜色调节：,饱和度调节：,测光测试：,血红蛋白增强：,结构增强：,边缘增强：,冻结：,回放：,电子放大：,增益：,画中画：,图像存储：,视频存储：,SD卡：,管理文件夹：,主灯：,灯泡平均寿命：,亮度调节：,备用灯：,备用灯平均寿命：,气泵压力：,压力档位：,方法：,视野角：,视向：,景深(mm)：,头端外径mm)：,头端放大图：,插入部外径(mm)：,钳道内径(mm)：,弯角：,工作长度：,总长度：', '', '', '', '', '1505195413', '999');
-INSERT INTO `dou_product` VALUES ('7', '25', '2', 'Halogen Light Source HLS2100P', 'images/product/7_1505193743110956.png', '', '0.00', '尺寸：,电压：,频率：,功率：,大小：,重量：,模拟信号输出：,电子信号输出：,白平衡：,颜色调节：,饱和度调节：,测光测试：,血红蛋白增强：,结构增强：,边缘增强：,冻结：,回放：,电子放大：,增益：,画中画：,图像存储：,视频存储：,SD卡：,管理文件夹：,主灯：,灯泡平均寿命：,亮度调节：,备用灯：,备用灯平均寿命：,气泵压力：,压力档位：,方法：,视野角：,视向：,景深(mm)：,头端外径mm)：,头端放大图：,插入部外径(mm)：,钳道内径(mm)：,弯角：,工作长度：,总长度：', '', '', '', '', '1505117875', '999');
-INSERT INTO `dou_product` VALUES ('12', '39', '2', 'Video Endoscopy System 2100 Series ', 'images/product/12_1505195906408514.png', '', '0.00', '尺寸：,电压：,频率：,功率：,大小：,重量：,模拟信号输出：,电子信号输出：,白平衡：,颜色调节：,饱和度调节：,测光测试：,血红蛋白增强：,结构增强：,边缘增强：,冻结：,回放：,电子放大：,增益：,画中画：,图像存储：,视频存储：,SD卡：,管理文件夹：,主灯：,灯泡平均寿命：,亮度调节：,备用灯：,备用灯平均寿命：,气泵压力：,压力档位：,方法：,视野角：,视向：,景深(mm)：,头端外径mm)：,头端放大图：,插入部外径(mm)：,钳道内径(mm)：,弯角：,工作长度：,总长度：', '', '', '', '', '1505195906', '999');
-INSERT INTO `dou_product` VALUES ('15', '23', '2', 'Video Gastroscope GVE-2600/GVE2600X/GVE-2600P', 'images/product/15_1505196680110821.png', '', '0.00', '尺寸：,电压：,频率：,功率：,大小：,重量：,模拟信号输出：,电子信号输出：,白平衡：,颜色调节：,饱和度调节：,测光测试：,血红蛋白增强：,结构增强：,边缘增强：,冻结：,回放：,电子放大：,增益：,画中画：,图像存储：,视频存储：,SD卡：,管理文件夹：,主灯：,灯泡平均寿命：,亮度调节：,备用灯：,备用灯平均寿命：,气泵压力：,压力档位：,方法：,视野角：,视向：,景深(mm)：,头端外径mm)：,头端放大图：,插入部外径(mm)：,钳道内径(mm)：,弯角：,工作长度：,总长度：', '', '', '', '', '1505196680', '999');
-INSERT INTO `dou_product` VALUES ('14', '23', '2', 'Video Colonoscope CVE-2600TM/LM/IM/SM', 'images/product/14_1505196628524221.png', '', '0.00', '尺寸：,电压：,频率：,功率：,大小：,重量：,模拟信号输出：,电子信号输出：,白平衡：,颜色调节：,饱和度调节：,测光测试：,血红蛋白增强：,结构增强：,边缘增强：,冻结：,回放：,电子放大：,增益：,画中画：,图像存储：,视频存储：,SD卡：,管理文件夹：,主灯：,灯泡平均寿命：,亮度调节：,备用灯：,备用灯平均寿命：,气泵压力：,压力档位：,方法：,视野角：,视向：,景深(mm)：,头端外径mm)：,头端放大图：,插入部外径(mm)：,钳道内径(mm)：,弯角：,工作长度：,总长度：', '', '', '', '', '1505196628', '999');
-INSERT INTO `dou_product` VALUES ('16', '23', '2', 'Video Bronchoscope VB-2600', 'images/product/16_1505196804055360.png', '', '0.00', '尺寸：,电压：,频率：,功率：,大小：,重量：,模拟信号输出：,电子信号输出：,白平衡：,颜色调节：,饱和度调节：,测光测试：,血红蛋白增强：,结构增强：,边缘增强：,冻结：,回放：,电子放大：,增益：,画中画：,图像存储：,视频存储：,SD卡：,管理文件夹：,主灯：,灯泡平均寿命：,亮度调节：,备用灯：,备用灯平均寿命：,气泵压力：,压力档位：,方法：,视野角：,视向：,景深(mm)：,头端外径mm)：,头端放大图：,插入部外径(mm)：,钳道内径(mm)：,弯角：,工作长度：,总长度：', '', '', '', '', '1505196804', '999');
-INSERT INTO `dou_product` VALUES ('17', '23', '2', 'Video Rhinolaryngoscope VN-2600', 'images/product/17_1505197047153526.png', '', '0.00', '尺寸：,电压：,频率：,功率：,大小：,重量：,模拟信号输出：,电子信号输出：,白平衡：,颜色调节：,饱和度调节：,测光测试：,血红蛋白增强：,结构增强：,边缘增强：,冻结：,回放：,电子放大：,增益：,画中画：,图像存储：,视频存储：,SD卡：,管理文件夹：,主灯：,灯泡平均寿命：,亮度调节：,备用灯：,备用灯平均寿命：,气泵压力：,压力档位：,方法：,视野角：,视向：,景深(mm)：,头端外径mm)：,头端放大图：,插入部外径(mm)：,钳道内径(mm)：,弯角：,工作长度：,总长度：', '', '', '', '', '1505197047', '999');
-INSERT INTO `dou_product` VALUES ('18', '24', '2', 'Imaging Processor VEP-2800', 'images/product/18_1505197417947798.png', '', '0.00', '尺寸：,电压：,频率：,功率：,大小：,重量：,模拟信号输出：,电子信号输出：,白平衡：,颜色调节：,饱和度调节：,测光测试：,血红蛋白增强：,结构增强：,边缘增强：,冻结：,回放：,电子放大：,增益：,画中画：,图像存储：,视频存储：,SD卡：,管理文件夹：,主灯：,灯泡平均寿命：,亮度调节：,备用灯：,备用灯平均寿命：,气泵压力：,压力档位：,方法：,视野角：,视向：,景深(mm)：,头端外径mm)：,头端放大图：,插入部外径(mm)：,钳道内径(mm)：,弯角：,工作长度：,总长度：', '', '', '', '', '1505197417', '999');
-INSERT INTO `dou_product` VALUES ('19', '25', '2', 'Xenon Light Source SLS-2850', 'images/product/19_1505197657821479.png', '', '0.00', '尺寸：,电压：,频率：,功率：,大小：,重量：,模拟信号输出：,电子信号输出：,白平衡：,颜色调节：,饱和度调节：,测光测试：,血红蛋白增强：,结构增强：,边缘增强：,冻结：,回放：,电子放大：,增益：,画中画：,图像存储：,视频存储：,SD卡：,管理文件夹：,主灯：,灯泡平均寿命：,亮度调节：,备用灯：,备用灯平均寿命：,气泵压力：,压力档位：,方法：,视野角：,视向：,景深(mm)：,头端外径mm)：,头端放大图：,插入部外径(mm)：,钳道内径(mm)：,弯角：,工作长度：,总长度：', '', '', '', '', '1505197657', '999');
-INSERT INTO `dou_product` VALUES ('20', '25', '2', 'LED Light Source LLS-2810', '', '', '0.00', '尺寸：,电压：,频率：,功率：,大小：,重量：,模拟信号输出：,电子信号输出：,白平衡：,颜色调节：,饱和度调节：,测光测试：,血红蛋白增强：,结构增强：,边缘增强：,冻结：,回放：,电子放大：,增益：,画中画：,图像存储：,视频存储：,SD卡：,管理文件夹：,主灯：,灯泡平均寿命：,亮度调节：,备用灯：,备用灯平均寿命：,气泵压力：,压力档位：,方法：,视野角：,视向：,景深(mm)：,头端外径mm)：,头端放大图：,插入部外径(mm)：,钳道内径(mm)：,弯角：,工作长度：,总长度：', '', '', '', '', '1505197783', '999');
-INSERT INTO `dou_product` VALUES ('21', '38', '2', 'Video Center 2600 Series', 'images/product/21_1505197872474692.png', '', '0.00', '尺寸：,电压：,频率：,功率：,大小：,重量：,模拟信号输出：,电子信号输出：,白平衡：,颜色调节：,饱和度调节：,测光测试：,血红蛋白增强：,结构增强：,边缘增强：,冻结：,回放：,电子放大：,增益：,画中画：,图像存储：,视频存储：,SD卡：,管理文件夹：,主灯：,灯泡平均寿命：,亮度调节：,备用灯：,备用灯平均寿命：,气泵压力：,压力档位：,方法：,视野角：,视向：,景深(mm)：,头端外径mm)：,头端放大图：,插入部外径(mm)：,钳道内径(mm)：,弯角：,工作长度：,总长度：', '', '', '', '', '1505197872', '999');
-INSERT INTO `dou_product` VALUES ('22', '39', '2', 'Video Endoscopy System 2600 Series ', 'images/product/22_1505198063368015.png', '', '0.00', '尺寸：,电压：,频率：,功率：,大小：,重量：,模拟信号输出：,电子信号输出：,白平衡：,颜色调节：,饱和度调节：,测光测试：,血红蛋白增强：,结构增强：,边缘增强：,冻结：,回放：,电子放大：,增益：,画中画：,图像存储：,视频存储：,SD卡：,管理文件夹：,主灯：,灯泡平均寿命：,亮度调节：,备用灯：,备用灯平均寿命：,气泵压力：,压力档位：,方法：,视野角：,视向：,景深(mm)：,头端外径mm)：,头端放大图：,插入部外径(mm)：,钳道内径(mm)：,弯角：,工作长度：,总长度：', '', '', '', '', '1505198063', '999');
-INSERT INTO `dou_product` VALUES ('23', '23', '2', 'Fiber Bronchoscope FB-53A/FB60A', 'images/product/23_1505198750182495.png', '', '0.00', '尺寸：,电压：,频率：,功率：,大小：,重量：,模拟信号输出：,电子信号输出：,白平衡：,颜色调节：,饱和度调节：,测光测试：,血红蛋白增强：,结构增强：,边缘增强：,冻结：,回放：,电子放大：,增益：,画中画：,图像存储：,视频存储：,SD卡：,管理文件夹：,主灯：,灯泡平均寿命：,亮度调节：,备用灯：,备用灯平均寿命：,气泵压力：,压力档位：,方法：,视野角：,视向：,景深(mm)：,头端外径mm)：,头端放大图：,插入部外径(mm)：,钳道内径(mm)：,弯角：,工作长度：,总长度：', '', '', '', '', '1505198751', '999');
-INSERT INTO `dou_product` VALUES ('24', '23', '2', 'Fiber Nasopharyngoscope FN-50A', 'images/product/24_1505198868833672.png', '', '0.00', '尺寸：,电压：,频率：,功率：,大小：,重量：,模拟信号输出：,电子信号输出：,白平衡：,颜色调节：,饱和度调节：,测光测试：,血红蛋白增强：,结构增强：,边缘增强：,冻结：,回放：,电子放大：,增益：,画中画：,图像存储：,视频存储：,SD卡：,管理文件夹：,主灯：,灯泡平均寿命：,亮度调节：,备用灯：,备用灯平均寿命：,气泵压力：,压力档位：,方法：,视野角：,视向：,景深(mm)：,头端外径mm)：,头端放大图：,插入部外径(mm)：,钳道内径(mm)：,弯角：,工作长度：,总长度：', '', '', '', '', '1505198869', '999');
-INSERT INTO `dou_product` VALUES ('25', '23', '2', 'Portable Fiber Nasopharyngoscope FN-38A/FN-32A', 'images/product/25_1505199049124661.png', '', '0.00', '尺寸：,电压：,频率：,功率：,大小：,重量：,模拟信号输出：,电子信号输出：,白平衡：,颜色调节：,饱和度调节：,测光测试：,血红蛋白增强：,结构增强：,边缘增强：,冻结：,回放：,电子放大：,增益：,画中画：,图像存储：,视频存储：,SD卡：,管理文件夹：,主灯：,灯泡平均寿命：,亮度调节：,备用灯：,备用灯平均寿命：,气泵压力：,压力档位：,方法：,视野角：,视向：,景深(mm)：,头端外径mm)：,头端放大图：,插入部外径(mm)：,钳道内径(mm)：,弯角：,工作长度：,总长度：', '', '', '', '', '1505199050', '999');
-INSERT INTO `dou_product` VALUES ('26', '23', '2', 'Portable Fiber Laryngoscope FL-39A', 'images/product/26_1505199109232807.png', '', '0.00', '尺寸：,电压：,频率：,功率：,大小：,重量：,模拟信号输出：,电子信号输出：,白平衡：,颜色调节：,饱和度调节：,测光测试：,血红蛋白增强：,结构增强：,边缘增强：,冻结：,回放：,电子放大：,增益：,画中画：,图像存储：,视频存储：,SD卡：,管理文件夹：,主灯：,灯泡平均寿命：,亮度调节：,备用灯：,备用灯平均寿命：,气泵压力：,压力档位：,方法：,视野角：,视向：,景深(mm)：,头端外径mm)：,头端放大图：,插入部外径(mm)：,钳道内径(mm)：,弯角：,工作长度：,总长度：', '', '', '', '', '1505199109', '999');
-INSERT INTO `dou_product` VALUES ('27', '30', '2', 'Video Gastroscope  AGVE-2100B/AGVE-2100P/AGVE-2100S/AGVE-2100P', 'images/product/27_1505200523847955.png', '', '0.00', '尺寸：,电压：,频率：,功率：,大小：,重量：,模拟信号输出：,电子信号输出：,白平衡：,颜色调节：,饱和度调节：,测光测试：,血红蛋白增强：,结构增强：,边缘增强：,冻结：,回放：,电子放大：,增益：,画中画：,图像存储：,视频存储：,SD卡：,管理文件夹：,主灯：,灯泡平均寿命：,亮度调节：,备用灯：,备用灯平均寿命：,气泵压力：,压力档位：,方法：,视野角：,视向：,景深(mm)：,头端外径mm)：,头端放大图：,插入部外径(mm)：,钳道内径(mm)：,弯角：,工作长度：,总长度：', '', '', '', '', '1505200523', '999');
-INSERT INTO `dou_product` VALUES ('28', '30', '2', 'Digital Bronchoscope UCB-66A/UCB-66L', 'images/product/28_1505200765107383.JPG', '', '0.00', '尺寸：,电压：,频率：,功率：,大小：,重量：,模拟信号输出：,电子信号输出：,白平衡：,颜色调节：,饱和度调节：,测光测试：,血红蛋白增强：,结构增强：,边缘增强：,冻结：,回放：,电子放大：,增益：,画中画：,图像存储：,视频存储：,SD卡：,管理文件夹：,主灯：,灯泡平均寿命：,亮度调节：,备用灯：,备用灯平均寿命：,气泵压力：,压力档位：,方法：,视野角：,视向：,景深(mm)：,头端外径mm)：,头端放大图：,插入部外径(mm)：,钳道内径(mm)：,弯角：,工作长度：,总长度：', '', '', '', '', '1505200765', '999');
-INSERT INTO `dou_product` VALUES ('29', '30', '2', 'Digital Nasopharyngoscope UCN-66A', 'images/product/29_1505200893606362.jpg', '', '0.00', '尺寸：,电压：,频率：,功率：,大小：,重量：,模拟信号输出：,电子信号输出：,白平衡：,颜色调节：,饱和度调节：,测光测试：,血红蛋白增强：,结构增强：,边缘增强：,冻结：,回放：,电子放大：,增益：,画中画：,图像存储：,视频存储：,SD卡：,管理文件夹：,主灯：,灯泡平均寿命：,亮度调节：,备用灯：,备用灯平均寿命：,气泵压力：,压力档位：,方法：,视野角：,视向：,景深(mm)：,头端外径mm)：,头端放大图：,插入部外径(mm)：,钳道内径(mm)：,弯角：,工作长度：,总长度：', '', '', '', '', '1505200893', '999');
-INSERT INTO `dou_product` VALUES ('30', '30', '2', 'HD Video GI Endoscope AGVE-68HQ/AGVE-68HS/AGVE-68HB', 'images/product/30_1505201183417687.JPG', '', '0.00', '尺寸：,电压：,频率：,功率：,大小：,重量：,模拟信号输出：,电子信号输出：,白平衡：,颜色调节：,饱和度调节：,测光测试：,血红蛋白增强：,结构增强：,边缘增强：,冻结：,回放：,电子放大：,增益：,画中画：,图像存储：,视频存储：,SD卡：,管理文件夹：,主灯：,灯泡平均寿命：,亮度调节：,备用灯：,备用灯平均寿命：,气泵压力：,压力档位：,方法：,视野角：,视向：,景深(mm)：,头端外径mm)：,头端放大图：,插入部外径(mm)：,钳道内径(mm)：,弯角：,工作长度：,总长度：', '', '', '', '', '1505201183', '999');
-INSERT INTO `dou_product` VALUES ('31', '31', '2', 'Imaging Center VIS-2100S', 'images/product/31_1505201767529638.png', '', '0.00', '尺寸：,电压：,频率：,功率：,大小：,重量：,模拟信号输出：,电子信号输出：,白平衡：,颜色调节：,饱和度调节：,测光测试：,血红蛋白增强：,结构增强：,边缘增强：,冻结：,回放：,电子放大：,增益：,画中画：,图像存储：,视频存储：,SD卡：,管理文件夹：,主灯：,灯泡平均寿命：,亮度调节：,备用灯：,备用灯平均寿命：,气泵压力：,压力档位：,方法：,视野角：,视向：,景深(mm)：,头端外径mm)：,头端放大图：,插入部外径(mm)：,钳道内径(mm)：,弯角：,工作长度：,总长度：', '', '', '', '', '1505201767', '999');
-INSERT INTO `dou_product` VALUES ('32', '31', '2', 'Imaging Center USB Series', 'images/product/32_1505202044503781.png', '', '0.00', '尺寸：,电压：,频率：,功率：,大小：,重量：,模拟信号输出：,电子信号输出：,白平衡：,颜色调节：,饱和度调节：,测光测试：,血红蛋白增强：,结构增强：,边缘增强：,冻结：,回放：,电子放大：,增益：,画中画：,图像存储：,视频存储：,SD卡：,管理文件夹：,主灯：,灯泡平均寿命：,亮度调节：,备用灯：,备用灯平均寿命：,气泵压力：,压力档位：,方法：,视野角：,视向：,景深(mm)：,头端外径mm)：,头端放大图：,插入部外径(mm)：,钳道内径(mm)：,弯角：,工作长度：,总长度：', '', '', '', '', '1505202044', '999');
-INSERT INTO `dou_product` VALUES ('33', '31', '2', 'HD Imaging Center VIS-68', 'images/product/33_1505202794774057.PNG', '', '0.00', '尺寸：,电压：,频率：,功率：,大小：,重量：,模拟信号输出：,电子信号输出：,白平衡：,颜色调节：,饱和度调节：,测光测试：,血红蛋白增强：,结构增强：,边缘增强：,冻结：,回放：,电子放大：,增益：,画中画：,图像存储：,视频存储：,SD卡：,管理文件夹：,主灯：,灯泡平均寿命：,亮度调节：,备用灯：,备用灯平均寿命：,气泵压力：,压力档位：,方法：,视野角：,视向：,景深(mm)：,头端外径mm)：,头端放大图：,插入部外径(mm)：,钳道内径(mm)：,弯角：,工作长度：,总长度：', '', '', '', '', '1505202794', '999');
-INSERT INTO `dou_product` VALUES ('34', '23', '2', 'Video Colonoscope CVE-2600TP/LP/IP/SP', 'images/product/34_1505207234272714.png', '', '0.00', '尺寸：,电压：,频率：,功率：,大小：,重量：,模拟信号输出：,电子信号输出：,白平衡：,颜色调节：,饱和度调节：,测光测试：,血红蛋白增强：,结构增强：,边缘增强：,冻结：,回放：,电子放大：,增益：,画中画：,图像存储：,视频存储：,SD卡：,管理文件夹：,主灯：,灯泡平均寿命：,亮度调节：,备用灯：,备用灯平均寿命：,气泵压力：,压力档位：,方法：,视野角：,视向：,景深(mm)：,头端外径mm)：,头端放大图：,插入部外径(mm)：,钳道内径(mm)：,弯角：,工作长度：,总长度：', '', '', '', '', '1505207234', '999');
-INSERT INTO `dou_product` VALUES ('35', '23', '2', 'Video Colonoscope CVE-2100TP/LP/IP', 'images/product/35_1505207732648191.png', '', '0.00', '尺寸：,电压：,频率：,功率：,大小：,重量：,模拟信号输出：,电子信号输出：,白平衡：,颜色调节：,饱和度调节：,测光测试：,血红蛋白增强：,结构增强：,边缘增强：,冻结：,回放：,电子放大：,增益：,画中画：,图像存储：,视频存储：,SD卡：,管理文件夹：,主灯：,灯泡平均寿命：,亮度调节：,备用灯：,备用灯平均寿命：,气泵压力：,压力档位：,方法：,视野角：,视向：,景深(mm)：,头端外径mm)：,头端放大图：,插入部外径(mm)：,钳道内径(mm)：,弯角：,工作长度：,总长度：', '', '', '', '', '1505207656', '999');
-INSERT INTO `dou_product` VALUES ('36', '30', '2', 'Video Gastroscope AGVE-2100AL', 'images/product/36_1505208235731911.png', '', '0.00', '尺寸：,电压：,频率：,功率：,大小：,重量：,模拟信号输出：,电子信号输出：,白平衡：,颜色调节：,饱和度调节：,测光测试：,血红蛋白增强：,结构增强：,边缘增强：,冻结：,回放：,电子放大：,增益：,画中画：,图像存储：,视频存储：,SD卡：,管理文件夹：,主灯：,灯泡平均寿命：,亮度调节：,备用灯：,备用灯平均寿命：,气泵压力：,压力档位：,方法：,视野角：,视向：,景深(mm)：,头端外径mm)：,头端放大图：,插入部外径(mm)：,钳道内径(mm)：,弯角：,工作长度：,总长度：', '', '', '', '', '1505208235', '999');
-INSERT INTO `dou_product` VALUES ('37', '31', '2', 'Imaging Processing Software', 'images/product/37_1505208618716404.png', '', '0.00', '尺寸：,电压：,频率：,功率：,大小：,重量：,模拟信号输出：,电子信号输出：,白平衡：,颜色调节：,饱和度调节：,测光测试：,血红蛋白增强：,结构增强：,边缘增强：,冻结：,回放：,电子放大：,增益：,画中画：,图像存储：,视频存储：,SD卡：,管理文件夹：,主灯：,灯泡平均寿命：,亮度调节：,备用灯：,备用灯平均寿命：,气泵压力：,压力档位：,方法：,视野角：,视向：,景深(mm)：,头端外径mm)：,头端放大图：,插入部外径(mm)：,钳道内径(mm)：,弯角：,工作长度：,总长度：', '', '', '', '', '1505208618', '999');
-INSERT INTO `dou_product` VALUES ('38', '24', '2', 'HD Imaging Processor VEP-6100H', 'images/product/38_1505209018087079.png', '', '0.00', '尺寸：,电压：,频率：,功率：,大小：,重量：,模拟信号输出：,电子信号输出：,白平衡：,颜色调节：,饱和度调节：,测光测试：,血红蛋白增强：,结构增强：,边缘增强：,冻结：,回放：,电子放大：,增益：,画中画：,图像存储：,视频存储：,SD卡：,管理文件夹：,主灯：,灯泡平均寿命：,亮度调节：,备用灯：,备用灯平均寿命：,气泵压力：,压力档位：,方法：,视野角：,视向：,景深(mm)：,头端外径mm)：,头端放大图：,插入部外径(mm)：,钳道内径(mm)：,弯角：,工作长度：,总长度：', '', '', '', '', '1505209018', '999');
-INSERT INTO `dou_product` VALUES ('39', '38', '2', 'Video Center VEP-6100H Series', 'images/product/39_1505209101632725.png', '', '0.00', '尺寸：,电压：,频率：,功率：,大小：,重量：,模拟信号输出：,电子信号输出：,白平衡：,颜色调节：,饱和度调节：,测光测试：,血红蛋白增强：,结构增强：,边缘增强：,冻结：,回放：,电子放大：,增益：,画中画：,图像存储：,视频存储：,SD卡：,管理文件夹：,主灯：,灯泡平均寿命：,亮度调节：,备用灯：,备用灯平均寿命：,气泵压力：,压力档位：,方法：,视野角：,视向：,景深(mm)：,头端外径mm)：,头端放大图：,插入部外径(mm)：,钳道内径(mm)：,弯角：,工作长度：,总长度：', '', '', '', '', '1505209101', '2');
-INSERT INTO `dou_product` VALUES ('40', '39', '2', 'HD Video Endoscopy System 6100H Series ', 'images/product/40_1505209652045063.PNG', '<p>\r\n	<span style=\"color:#E53333;font-size:14px;\"><strong>Enhanced Visualization</strong></span> \r\n</p>\r\n<p>\r\n	By adopting the cutting-edge 1280*720p CMOS\r\nsensor, the digital high-resolution endoscopes realize enhanced and more clear\r\nobservation. With the progressive scanning method, exceptionally high\r\ndefinition still endoscopic images of clear\r\nclarity in every detail are produced. Used in combination with 26inch IPS\r\ndisplay monitor of 60FPS capacity, smooth and clear dynamic is presented as\r\nwell.\r\n</p>\r\n<p class=\"MsoNormal\">\r\n	<span><br />\r\n</span> \r\n</p>\r\n<p class=\"MsoNormal\">\r\n	<span><br />\r\n</span> \r\n</p>\r\n<span style=\"font-size:14px;color:#E53333;\"><strong>Enhanced Maneuverability</strong></span> \r\n<p class=\"MsoNormal\">\r\n	<span>The new generation endoscope control\r\nsection is of small size, lighter weight and equipped with remote control button and advanced ergonomics which\r\nallows the medical staff to conduct optimal insertion and sophisticated procedures\r\nwith ease and enables enhanced user-friendly operation experiences.</span> \r\n</p>\r\nGVE-6100HP of 8.0mm slim insertion tube<b> </b>presents\r\noptimized insertion performance, decreases physicians’ fatigue, patients’ suffering and increases their tolerances.\r\n<p>\r\n	<br />\r\n</p>\r\n<p>\r\n	<br />\r\n</p>\r\n<p>\r\n	<span style=\"font-size:14px;color:#E53333;\"><strong>Enhanced Reprocessing </strong></span> \r\n</p>\r\n<p>\r\n	Cleanliness and safety focused on full\r\ndefense against disinfection.\r\n</p>\r\n<p class=\"MsoNormal\">\r\n	<span>Easily soiled Air/Water valve, suction\r\nvalve and instrument portal valve are removeable which facilitates the cleaning and\r\ndisinfection not only of themselves but also of the inner channels. A smoother,\r\nflatter and waterproof endoscope body assures all areas receive optimal contact\r\nwith cleaning and high-performance disinfecting solutions which enhances the\r\nefficiency and effectiveness of CDS procedures.</span> \r\n</p>\r\n<br />\r\n<p>\r\n	<br />\r\n</p>\r\n<p>\r\n	<br />\r\n</p>', '0.00', '尺寸：,电压：,频率：,功率：,大小：,重量：,模拟信号输出：,电子信号输出：,白平衡：,颜色调节：,饱和度调节：,测光测试：,血红蛋白增强：,结构增强：,边缘增强：,冻结：,回放：,电子放大：,增益：,画中画：,图像存储：,视频存储：,SD卡：,管理文件夹：,主灯：,灯泡平均寿命：,亮度调节：,备用灯：,备用灯平均寿命：,气泵压力：,压力档位：,方法：,视野角：,视向：,景深(mm)：,头端外径mm)：,头端放大图：,插入部外径(mm)：,钳道内径(mm)：,弯角：,工作长度：,总长度：', '', '', '', 'Enhanced Visualization\r\nEnhanced Maneuverability\r\nEnhanced Reprocessing\r\n', '1505209652', '1');
+INSERT INTO `dou_product` VALUES ('1', '5', '1', '电子胃镜GVE-2100', 'images/product/1_1502178782495524.jpg', '<p>\r\n	内窥镜的插入管经特殊的分段硬化后，具有优异的插入性能。精湛的加工和装配工艺，使弯角手轮操作时非常的柔顺自如。可以迅速顺利地到达所需观察的部位并发现病灶。\r\n</p>\r\n<p>\r\n	44万像素sony CCD。\r\n</p>', '1.00', '', '', '', '', '', '', '1502178782', '1');
+INSERT INTO `dou_product` VALUES ('2', '5', '1', '电子胃镜GVE-2100 X系', 'images/product/2_1502178820309175.png', '电子胃镜GVE-2100 S系<br />', '1.00', '', '', '', '', '', '简单描述', '1502178820', '999');
+INSERT INTO `dou_product` VALUES ('3', '6', '1', '电子胃镜GVE-2600', 'images/product/3_1502178878119993.jpg', '<p>\r\n	电子胃镜GVE-2600\r\n</p>\r\n<p>\r\n	产品说明\r\n</p>', '0.00', '', '', '', '', '', '', '1502178878', '999');
+INSERT INTO `dou_product` VALUES ('8', '23', '2', 'Video Gastroscope GVE-2100/GVE-2100X/GVE-2100P', 'images/product/8_1505193468904222.png', '', '0.00', '', '', '', '', '', '', '1505193468', '999');
+INSERT INTO `dou_product` VALUES ('5', '23', '2', 'Video Colonoscope CVE-2100TM/LM/IM', 'images/product/5_1505193098785512.png', '', '0.00', '', '', '', '', '', '', '1505117544', '999');
+INSERT INTO `dou_product` VALUES ('6', '24', '2', 'Imaging Processor VEP-2100F', 'images/product/6_1505195122366765.png', '<p>\r\n	nnnnnnnnnnnnnnnnnnnnnnnnnn\r\n</p>', '0.00', '', '', '', '', 'VEP-2100F', 'jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj', '1505117795', '999');
+INSERT INTO `dou_product` VALUES ('11', '38', '2', 'Video Center 2100 Series', 'images/product/11_1505195824162954.png', '', '0.00', '', '', '', '', '', '', '1505195825', '999');
+INSERT INTO `dou_product` VALUES ('10', '25', '2', 'Xenon Light Source SLS-2100P', 'images/product/10_1505195412671693.png', '', '0.00', '', '', '', '', '', '', '1505195413', '999');
+INSERT INTO `dou_product` VALUES ('7', '25', '2', 'Halogen Light Source HLS2100P', 'images/product/7_1505193743110956.png', '', '0.00', '', '', '', '', '', '', '1505117875', '999');
+INSERT INTO `dou_product` VALUES ('12', '39', '2', 'Video Endoscopy System 2100 Series ', 'images/product/12_1505195906408514.png', '', '0.00', '', '', '', '', '', '', '1505195906', '999');
+INSERT INTO `dou_product` VALUES ('15', '23', '2', 'Video Gastroscope GVE-2600/GVE2600X/GVE-2600P', 'images/product/15_1505196680110821.png', '', '0.00', '', '', '', '', '', '', '1505196680', '999');
+INSERT INTO `dou_product` VALUES ('14', '23', '2', 'Video Colonoscope CVE-2600TM/LM/IM/SM', 'images/product/14_1505196628524221.png', '', '0.00', '', '', '', '', '', '', '1505196628', '999');
+INSERT INTO `dou_product` VALUES ('16', '23', '2', 'Video Bronchoscope VB-2600', 'images/product/16_1505196804055360.png', '', '0.00', '', '', '', '', '', '', '1505196804', '999');
+INSERT INTO `dou_product` VALUES ('17', '23', '2', 'Video Rhinolaryngoscope VN-2600', 'images/product/17_1505197047153526.png', '', '0.00', '', '', '', '', '', '', '1505197047', '999');
+INSERT INTO `dou_product` VALUES ('18', '24', '2', 'Imaging Processor VEP-2800', 'images/product/18_1505197417947798.png', '', '0.00', '', '', '', '', '', '', '1505197417', '999');
+INSERT INTO `dou_product` VALUES ('19', '25', '2', 'Xenon Light Source SLS-2850', 'images/product/19_1505197657821479.png', '', '0.00', '', '', '', '', '', '', '1505197657', '999');
+INSERT INTO `dou_product` VALUES ('20', '25', '2', 'LED Light Source LLS-2810', '', '', '0.00', '', '', '', '', '', '', '1505197783', '999');
+INSERT INTO `dou_product` VALUES ('21', '38', '2', 'Video Center 2600 Series', 'images/product/21_1505197872474692.png', '', '0.00', '', '', '', '', '', '', '1505197872', '999');
+INSERT INTO `dou_product` VALUES ('22', '39', '2', 'Video Endoscopy System 2600 Series ', 'images/product/22_1505198063368015.png', '', '0.00', '', '', '', '', '', '', '1505198063', '999');
+INSERT INTO `dou_product` VALUES ('23', '23', '2', 'Fiber Bronchoscope FB-53A/FB60A', 'images/product/23_1505198750182495.png', '', '0.00', '', '', '', '', '', '', '1505198751', '999');
+INSERT INTO `dou_product` VALUES ('24', '23', '2', 'Fiber Nasopharyngoscope FN-50A', 'images/product/24_1505198868833672.png', '', '0.00', '', '', '', '', '', '', '1505198869', '999');
+INSERT INTO `dou_product` VALUES ('25', '23', '2', 'Portable Fiber Nasopharyngoscope FN-38A/FN-32A', 'images/product/25_1505199049124661.png', '', '0.00', '', '', '', '', '', '', '1505199050', '999');
+INSERT INTO `dou_product` VALUES ('26', '23', '2', 'Portable Fiber Laryngoscope FL-39A', 'images/product/26_1505199109232807.png', '', '0.00', '', '', '', '', '', '', '1505199109', '999');
+INSERT INTO `dou_product` VALUES ('27', '30', '2', 'Video Gastroscope  AGVE-2100B/AGVE-2100P/AGVE-2100S/AGVE-2100P', 'images/product/27_1505200523847955.png', '', '0.00', '', '', '', '', '', '', '1505200523', '999');
+INSERT INTO `dou_product` VALUES ('28', '30', '2', 'Digital Bronchoscope UCB-66A/UCB-66L', 'images/product/28_1505200765107383.JPG', '', '0.00', '', '', '', '', '', '', '1505200765', '999');
+INSERT INTO `dou_product` VALUES ('29', '30', '2', 'Digital Nasopharyngoscope UCN-66A', 'images/product/29_1505200893606362.jpg', '', '0.00', '', '', '', '', '', '', '1505200893', '999');
+INSERT INTO `dou_product` VALUES ('30', '30', '2', 'HD Video GI Endoscope AGVE-68HQ/AGVE-68HS/AGVE-68HB', 'images/product/30_1505201183417687.JPG', '', '0.00', '', '', '', '', '', '', '1505201183', '999');
+INSERT INTO `dou_product` VALUES ('31', '31', '2', 'Imaging Center VIS-2100S', 'images/product/31_1505201767529638.png', '', '0.00', '', '', '', '', '', '', '1505201767', '999');
+INSERT INTO `dou_product` VALUES ('32', '31', '2', 'Imaging Center USB Series', 'images/product/32_1505202044503781.png', '', '0.00', '', '', '', '', '', '', '1505202044', '999');
+INSERT INTO `dou_product` VALUES ('33', '31', '2', 'HD Imaging Center VIS-68', 'images/product/33_1505202794774057.PNG', '', '0.00', '', '', '', '', '', '', '1505202794', '999');
+INSERT INTO `dou_product` VALUES ('34', '23', '2', 'Video Colonoscope CVE-2600TP/LP/IP/SP', 'images/product/34_1505207234272714.png', '', '0.00', '', '', '', '', '', '', '1505207234', '999');
+INSERT INTO `dou_product` VALUES ('35', '23', '2', 'Video Colonoscope CVE-2100TP/LP/IP', 'images/product/35_1505207732648191.png', '', '0.00', '', '', '', '', '', '', '1505207656', '999');
+INSERT INTO `dou_product` VALUES ('36', '30', '2', 'Video Gastroscope AGVE-2100AL', 'images/product/36_1505208235731911.png', '', '0.00', '', '', '', '', '', '', '1505208235', '999');
+INSERT INTO `dou_product` VALUES ('37', '31', '2', 'Imaging Processing Software', 'images/product/37_1505208618716404.png', '', '0.00', '', '', '', '', '', '', '1505208618', '999');
+INSERT INTO `dou_product` VALUES ('38', '24', '2', 'HD Imaging Processor VEP-6100H', 'images/product/38_1505209018087079.png', '', '0.00', '', '', '', '', '', '', '1505209018', '999');
+INSERT INTO `dou_product` VALUES ('39', '38', '2', 'Video Center VEP-6100H Series', 'images/product/39_1505209101632725.png', '', '0.00', '', '', '', '', '', '', '1505209101', '2');
+INSERT INTO `dou_product` VALUES ('40', '39', '2', 'HD Video Endoscopy System 6100H Series ', 'images/product/40_1505209652045063.PNG', '<p>\r\n	<span style=\"color:#E53333;font-size:14px;\"><strong>Enhanced Visualization</strong></span> \r\n</p>\r\n<p>\r\n	By adopting the cutting-edge 1280*720p CMOS\r\nsensor, the digital high-resolution endoscopes realize enhanced and more clear\r\nobservation. With the progressive scanning method, exceptionally high\r\ndefinition still endoscopic images of clear\r\nclarity in every detail are produced. Used in combination with 26inch IPS\r\ndisplay monitor of 60FPS capacity, smooth and clear dynamic is presented as\r\nwell.\r\n</p>\r\n<p class=\"MsoNormal\">\r\n	<span><br />\r\n</span> \r\n</p>\r\n<p class=\"MsoNormal\">\r\n	<span><br />\r\n</span> \r\n</p>\r\n<span style=\"font-size:14px;color:#E53333;\"><strong>Enhanced Maneuverability</strong></span> \r\n<p class=\"MsoNormal\">\r\n	<span>The new generation endoscope control\r\nsection is of small size, lighter weight and equipped with remote control button and advanced ergonomics which\r\nallows the medical staff to conduct optimal insertion and sophisticated procedures\r\nwith ease and enables enhanced user-friendly operation experiences.</span> \r\n</p>\r\nGVE-6100HP of 8.0mm slim insertion tube<b> </b>presents\r\noptimized insertion performance, decreases physicians’ fatigue, patients’ suffering and increases their tolerances.\r\n<p>\r\n	<br />\r\n</p>\r\n<p>\r\n	<br />\r\n</p>\r\n<p>\r\n	<span style=\"font-size:14px;color:#E53333;\"><strong>Enhanced Reprocessing </strong></span> \r\n</p>\r\n<p>\r\n	Cleanliness and safety focused on full\r\ndefense against disinfection.\r\n</p>\r\n<p class=\"MsoNormal\">\r\n	<span>Easily soiled Air/Water valve, suction\r\nvalve and instrument portal valve are removeable which facilitates the cleaning and\r\ndisinfection not only of themselves but also of the inner channels. A smoother,\r\nflatter and waterproof endoscope body assures all areas receive optimal contact\r\nwith cleaning and high-performance disinfecting solutions which enhances the\r\nefficiency and effectiveness of CDS procedures.</span> \r\n</p>\r\n<br />\r\n<p>\r\n	<br />\r\n</p>\r\n<p>\r\n	<br />\r\n</p>', '0.00', '', '', '', '', '', 'Enhanced Visualization\r\nEnhanced Maneuverability\r\nEnhanced Reprocessing\r\n', '1505209652', '1');
+INSERT INTO `dou_product` VALUES ('41', '19', '2', 'test', 'images/product/41_1505893307656934.jpg', '', '0.00', '', 'a:2:{s:7:\"measure\";s:2:\"25\";s:7:\"voltage\";s:4:\"480v\";}', '', '', '', '红圈是啥？\r\n换行不？', '1505813288', '1');
 
 -- ----------------------------
 -- Table structure for dou_product_category
@@ -797,43 +875,44 @@ CREATE TABLE `dou_product_category` (
   `description` varchar(255) NOT NULL DEFAULT '',
   `template` varchar(70) NOT NULL COMMENT '指定模板',
   `sort` tinyint(1) unsigned NOT NULL DEFAULT '50',
+  `fields` text COMMENT '选定字段',
   PRIMARY KEY (`cat_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=40 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of dou_product_category
 -- ----------------------------
-INSERT INTO `dou_product_category` VALUES ('1', 'es1', '0', '1', '医用内窥镜', 'images/product_category/1_1502175094072188.jpg', '成套设备', '医用内窥镜说明：', '', '10');
-INSERT INTO `dou_product_category` VALUES ('2', 'es2', '0', '1', '工业内窥镜', 'images/product_category/2_1502175182746534.jpg', '成套设备', '工业内窥镜说明。', '', '20');
-INSERT INTO `dou_product_category` VALUES ('3', 'es3', '0', '1', '动物内窥镜', 'images/product_category/3_1502175205258521.jpg', '成套设备', '动物内窥镜说明。', '', '15');
-INSERT INTO `dou_product_category` VALUES ('4', 'es4', '0', '1', '内窥镜配件', 'images/product_category/4_1502175234078799.png', '成套设备', '内窥镜配件说明简介。', '', '40');
-INSERT INTO `dou_product_category` VALUES ('5', 'es1-1', '1', '1', '2100系列', '', '成套设备', '2100系列说明:', '', '1');
-INSERT INTO `dou_product_category` VALUES ('6', 'es1-2', '1', '1', '2600系列', '', '成套设备', '2600系列说明', '', '2');
-INSERT INTO `dou_product_category` VALUES ('7', 'es1-3', '1', '1', '纤维内窥镜系列', '', '成套设备', '纤维内窥镜系列说明', '', '3');
-INSERT INTO `dou_product_category` VALUES ('8', 'es1-4', '1', '1', '图像处理器系列', '', '成套设备', '图像处理器系列说明', '', '4');
-INSERT INTO `dou_product_category` VALUES ('9', 'es1-5', '1', '1', '冷光源系列', '', '成套设备', '冷光源系列说明', '', '5');
-INSERT INTO `dou_product_category` VALUES ('10', 'es2-1', '2', '1', '软性内窥镜系列', '', '成套设备', '软性内窥镜系列说明', '', '1');
-INSERT INTO `dou_product_category` VALUES ('11', 'es2-2', '2', '1', '硬管镜系列', '', '成套设备', '硬管镜系列说明', '', '2');
-INSERT INTO `dou_product_category` VALUES ('12', 'es3-1', '3', '1', 'AGVE 系列', '', '成套设备', 'AGVE 系列说明', '', '1');
-INSERT INTO `dou_product_category` VALUES ('13', 'es3-2', '3', '1', 'DGV 系列', '', '成套设备', 'DGV 系列说明', '', '2');
-INSERT INTO `dou_product_category` VALUES ('14', 'es3-3', '3', '1', '兽用硬管系列', '', '成套设备', '兽用硬管系列说明', '', '3');
-INSERT INTO `dou_product_category` VALUES ('15', 'es3-4', '3', '1', '图像处理器系列', '', '成套设备', '图像处理器系列说明', '', '4');
-INSERT INTO `dou_product_category` VALUES ('16', 'es3-5', '3', '1', '冷光源系列', '', '成套设备', '冷光源系列说明', '', '5');
-INSERT INTO `dou_product_category` VALUES ('17', 'es4-1', '4', '1', '角度钢丝', '', '成套设备', '角度钢丝说明', '', '1');
-INSERT INTO `dou_product_category` VALUES ('18', 'es4-2', '4', '1', '弯曲橡皮', '', '成套设备', '弯曲橡皮说明', '', '2');
-INSERT INTO `dou_product_category` VALUES ('19', 'es-en1', '0', '2', 'Medical Endoscopy', '', 'Complete Equipment', 'Dynamic: Shanghai chengyun medical equipment co., LTD. Is a sino-german technical cooperation enterpriseDynamic: Shanghai chengyun medical equipment co., LTD. Is a sino-german technical cooperation enterpriseDynamic: Shanghai chengyun medical equipment co', '', '10');
-INSERT INTO `dou_product_category` VALUES ('20', 'es-en2', '0', '2', 'Industrial Endoscopy', '', '', '', '', '20');
-INSERT INTO `dou_product_category` VALUES ('21', 'es-en3', '0', '2', 'Veterinary Endoscopy', '', '', '', '', '15');
-INSERT INTO `dou_product_category` VALUES ('22', 'es-en4', '0', '2', 'Endoscopic Accessories', '', '', '', '', '40');
-INSERT INTO `dou_product_category` VALUES ('23', 'es-en1-1', '19', '2', 'Endoscope', '', '', '', '', '1');
-INSERT INTO `dou_product_category` VALUES ('24', 'es-en1-2', '19', '2', 'Imaging Processor', '', '', '', '', '2');
-INSERT INTO `dou_product_category` VALUES ('25', 'es-en1-3', '19', '2', 'Light Source', '', '', '', '', '3');
-INSERT INTO `dou_product_category` VALUES ('28', 'es-en2-1', '20', '2', 'Flexible Endoscopes', '', '', '', '', '1');
-INSERT INTO `dou_product_category` VALUES ('29', 'es-en2-2', '20', '2', 'Rigid Endosocopes', '', '', '', '', '2');
-INSERT INTO `dou_product_category` VALUES ('30', 'es-en3-1', '21', '2', 'Endoscope', '', '', '', '', '1');
-INSERT INTO `dou_product_category` VALUES ('31', 'es-en3-2', '21', '2', 'Imaging Center', '', '', '', '', '2');
-INSERT INTO `dou_product_category` VALUES ('38', 'videocenter', '19', '2', 'Video Center', '', '', '', '', '50');
-INSERT INTO `dou_product_category` VALUES ('39', 'videoendoscopysystem', '19', '2', 'Endoscopy System', '', '', '', '', '50');
+INSERT INTO `dou_product_category` VALUES ('1', 'es1', '0', '1', '医用内窥镜', 'images/product_category/1_1502175094072188.jpg', '成套设备', '医用内窥镜说明：', '', '10', null);
+INSERT INTO `dou_product_category` VALUES ('2', 'es2', '0', '1', '工业内窥镜', 'images/product_category/2_1502175182746534.jpg', '成套设备', '工业内窥镜说明。', '', '20', null);
+INSERT INTO `dou_product_category` VALUES ('3', 'es3', '0', '1', '动物内窥镜', 'images/product_category/3_1502175205258521.jpg', '成套设备', '动物内窥镜说明。', '', '15', null);
+INSERT INTO `dou_product_category` VALUES ('4', 'es4', '0', '1', '内窥镜配件', 'images/product_category/4_1502175234078799.png', '成套设备', '内窥镜配件说明简介。', '', '40', null);
+INSERT INTO `dou_product_category` VALUES ('5', 'es1-1', '1', '1', '2100系列', '', '成套设备', '2100系列说明:', '', '1', null);
+INSERT INTO `dou_product_category` VALUES ('6', 'es1-2', '1', '1', '2600系列', '', '成套设备', '2600系列说明', '', '2', null);
+INSERT INTO `dou_product_category` VALUES ('7', 'es1-3', '1', '1', '纤维内窥镜系列', '', '成套设备', '纤维内窥镜系列说明', '', '3', null);
+INSERT INTO `dou_product_category` VALUES ('8', 'es1-4', '1', '1', '图像处理器系列', '', '成套设备', '图像处理器系列说明', '', '4', null);
+INSERT INTO `dou_product_category` VALUES ('9', 'es1-5', '1', '1', '冷光源系列', '', '成套设备', '冷光源系列说明', '', '5', null);
+INSERT INTO `dou_product_category` VALUES ('10', 'es2-1', '2', '1', '软性内窥镜系列', '', '成套设备', '软性内窥镜系列说明', '', '1', null);
+INSERT INTO `dou_product_category` VALUES ('11', 'es2-2', '2', '1', '硬管镜系列', '', '成套设备', '硬管镜系列说明', '', '2', null);
+INSERT INTO `dou_product_category` VALUES ('12', 'es3-1', '3', '1', 'AGVE 系列', '', '成套设备', 'AGVE 系列说明', '', '1', null);
+INSERT INTO `dou_product_category` VALUES ('13', 'es3-2', '3', '1', 'DGV 系列', '', '成套设备', 'DGV 系列说明', '', '2', null);
+INSERT INTO `dou_product_category` VALUES ('14', 'es3-3', '3', '1', '兽用硬管系列', '', '成套设备', '兽用硬管系列说明', '', '3', null);
+INSERT INTO `dou_product_category` VALUES ('15', 'es3-4', '3', '1', '图像处理器系列', '', '成套设备', '图像处理器系列说明', '', '4', null);
+INSERT INTO `dou_product_category` VALUES ('16', 'es3-5', '3', '1', '冷光源系列', '', '成套设备', '冷光源系列说明', '', '5', null);
+INSERT INTO `dou_product_category` VALUES ('17', 'es4-1', '4', '1', '角度钢丝', '', '成套设备', '角度钢丝说明', '', '1', null);
+INSERT INTO `dou_product_category` VALUES ('18', 'es4-2', '4', '1', '弯曲橡皮', '', '成套设备', '弯曲橡皮说明', '', '2', null);
+INSERT INTO `dou_product_category` VALUES ('19', 'es-en1', '0', '2', 'Medical Endoscopy', 'images/product_category/19_1505813421073220.jpg', 'Complete Equipment', 'Dynamic: Shanghai chengyun medical equipment co., LTD. Is a sino-german technical cooperation enterpriseDynamic: Shanghai chengyun medical equipment co., LTD. Is a sino-german technical cooperation enterpriseDynamic: Shanghai chengyun medical equipment co', '', '10', 'measure,voltage');
+INSERT INTO `dou_product_category` VALUES ('20', 'es-en2', '0', '2', 'Industrial Endoscopy', '', '', '', '', '20', null);
+INSERT INTO `dou_product_category` VALUES ('21', 'es-en3', '0', '2', 'Veterinary Endoscopy', '', '', '', '', '15', 'voltage,frequency,power,size');
+INSERT INTO `dou_product_category` VALUES ('22', 'es-en4', '0', '2', 'Endoscopic Accessories', '', '', '', '', '40', null);
+INSERT INTO `dou_product_category` VALUES ('23', 'es-en1-1', '19', '2', 'Endoscope', '', '', '', '', '1', null);
+INSERT INTO `dou_product_category` VALUES ('24', 'es-en1-2', '19', '2', 'Imaging Processor', '', '', '', '', '2', null);
+INSERT INTO `dou_product_category` VALUES ('25', 'es-en1-3', '19', '2', 'Light Source', '', '', '', '', '3', null);
+INSERT INTO `dou_product_category` VALUES ('28', 'es-en2-1', '20', '2', 'Flexible Endoscopes', '', '', '', '', '1', null);
+INSERT INTO `dou_product_category` VALUES ('29', 'es-en2-2', '20', '2', 'Rigid Endosocopes', '', '', '', '', '2', null);
+INSERT INTO `dou_product_category` VALUES ('30', 'es-en3-1', '21', '2', 'Endoscope', '', '', '', '', '1', null);
+INSERT INTO `dou_product_category` VALUES ('31', 'es-en3-2', '21', '2', 'Imaging Center', '', '', '', '', '2', null);
+INSERT INTO `dou_product_category` VALUES ('38', 'videocenter', '19', '2', 'Video Center', '', '', '', '', '50', null);
+INSERT INTO `dou_product_category` VALUES ('39', 'videoendoscopysystem', '19', '2', 'Endoscopy System', '', '', '', '', '50', null);
 
 -- ----------------------------
 -- Table structure for dou_rbac_awr
@@ -1035,16 +1114,17 @@ CREATE TABLE `dou_user` (
   `last_ip` varchar(40) NOT NULL DEFAULT '',
   PRIMARY KEY (`user_id`),
   KEY `email` (`email`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of dou_user
 -- ----------------------------
-INSERT INTO `dou_user` VALUES ('1', '', 'e10adc3949ba59abbe56e057f20f883e', 'keven518@163.com', '15555423186', '', '', '1', '', '李小宇', 'adhflksfksdfsdf', '1', '', '230601', '', '', '', '', '', '1478745265', '1', '1478745265', '127.0.0.1');
-INSERT INTO `dou_user` VALUES ('2', '瓦大大', '96e79218965eb72c92a549dd5a330112', '915273691@qq.com', '18715511536', '4324423', '', '1', '黄生', '收货人', '收货地址自定义', '1', '1', '', '', '1', '为单位范围', '1', '4', '1502344574', '34', '1503648059,1504236267', '180.175.92.37,36.57.151.111');
+INSERT INTO `dou_user` VALUES ('1', '', 'e10adc3949ba59abbe56e057f20f883e', 'keven518@163.com', '15555423186', '', '', '1', '', '李小宇', 'adhflksfksdfsdf', '1', '', '230601', '', '', '', '', '', '1478745265', '2', '1478745265,1505961253', '127.0.0.1,127.0.0.1');
+INSERT INTO `dou_user` VALUES ('2', '瓦大大', '96e79218965eb72c92a549dd5a330112', '915273691@qq.com', '18715511536', '4324423', '', '1', '黄生', '收货人', '收货地址自定义', '1', '1', '', '', '1', '为单位范围', '1', '4', '1502344574', '42', '1505961438,1505974858', '127.0.0.1,127.0.0.1');
 INSERT INTO `dou_user` VALUES ('3', '冷锋', '96e79218965eb72c92a549dd5a330112', 'wangyun@sina.com', '18788841247', '', '', '0', '汪云', '他爸爸', '黄埔', '1', '', '', '', '', '旗舰', '1', '5', '1502690299', '3', '1502690431,1502692807', '127.0.0.1,127.0.0.1');
 INSERT INTO `dou_user` VALUES ('4', '', '902c8fc62c86cae67fb43abcb1362e72', 'ida.hu@huger.cn', '15902197941', '', '', '0', 'HuIda', '', '', '1', '', '', '', '', 'HUGER MEDICAL', '1', '4', '1505263631', '4', '1505264012,1505264796', '180.175.92.37,180.175.92.37');
 INSERT INTO `dou_user` VALUES ('5', '', 'c5fde9de2d29789a81d1bc0f16292048', 'zhengwei9109@126.com', '18823280930', '', '', '0', 'ZhengWei', '', '', '1', '', '', '', '', 'Huger', '1', '1', '1505267459', '1', '1505267459', '180.175.92.37');
+INSERT INTO `dou_user` VALUES ('6', '', 'e10adc3949ba59abbe56e057f20f883e', '645643646@qq.com', '15555423186', '', '', '0', 'reergfdyytiuyfafdafa', '', '', '1', '', '', '', '', 'cuorpy', '1', '1', '1505721599', '2', '1505721599,1505721631', '127.0.0.1,127.0.0.1');
 
 -- ----------------------------
 -- Table structure for dou_video

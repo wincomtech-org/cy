@@ -17,7 +17,7 @@ $smarty->assign('nav_product',$nav_product);
 
 // 用户信息 $_USER 只有 user_id 和 user_name 信息
 if ($_SESSION[DOU_ID]) {
-    $gUid = $_SESSION[DOU_ID]['user_id'];
+    $gUid = intval($_SESSION[DOU_ID]['user_id']);
     if ($gUid) {
         $gUinfos = $dou->fetchRow(sprintf('SELECT * from %s where user_id=%d',$dou->table('user'),$gUid));
     }

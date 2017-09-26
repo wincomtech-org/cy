@@ -103,6 +103,8 @@ elseif ($rec == 'insert') {
         }
         $fields = substr($fields,0,strlen($fields)-1);
         $data['fields'] = $fields;
+    } else {
+        $data['fields'] = '';
     }
     $dou->insert('product_category',$data);
 
@@ -177,6 +179,8 @@ elseif ($rec == 'update') {
         }
         $fields = substr($fields,0,strlen($fields)-1);
         $data['fields'] = $fields;
+    } else {
+        $data['fields'] = '';
     }
     $dou->update('product_category',$data,'cat_id='.$_POST['cat_id']);
 
