@@ -109,9 +109,11 @@
 .rowlist-cont>span:nth-of-type(2n+2){
 	width:21%;
 	margin-right: 2%;
+
+	font-size:13px;
 }
 .columnlist-cont{
-	margin:95px 0 60px;
+	margin:40px 0 60px;
 }
 .columnlist-cont li{
 	border-top:2px solid #e8e7e4;
