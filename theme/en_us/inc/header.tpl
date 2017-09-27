@@ -69,7 +69,7 @@
                                             </div>
                                             <ul class="hasContent_three_content" style="display:none">
                                                 <!--{foreach $v.child $t}-->
-                                                <li data-proid="{$v.cat_id}"><a {if $t.cur}class="active"{/if} href="{$t.url}">{$t.cat_name}</a></li>
+                                                <li data-proid="{$t.cat_id}"><a {if $t.cur}class="active"{/if} href="{$t.url}">{$t.cat_name}</a></li>
                                                 <!--{/foreach}-->
                                             </ul>
                                         </li>
