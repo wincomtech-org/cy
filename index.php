@@ -44,8 +44,8 @@ $smarty->assign('show_list2', $dou->get_show_list('center'));
 // $smarty->assign('link', $dou->get_link_list());
 $smarty->assign('index', $index);
 // $smarty->assign('recommend_product', $dou->get_list('product', 'ALL', $_DISPLAY['home_product'], 'sort DESC'));
-$smarty->assign('ra_cat_name',$dou->get_one("SELECT cat_name from ".$dou->table('article_category')." where cat_id=".$recommend_article_ID));
 $smarty->assign('recommend_article', $dou->get_list('article', $recommend_article_ID, $_DISPLAY['home_article'], 'sort,add_time desc'));
+$smarty->assign('ra_cat_name1',$dou->get_one("SELECT cat_name from ".$dou->table('article_category')." where cat_id=".$article_activity_ID));
 $smarty->assign('article_activity', $dou->get_list('article', $article_activity_ID, $_DISPLAY['home_article'], 'sort,add_time desc'));
 
 // $dou->debug($index[image]);
