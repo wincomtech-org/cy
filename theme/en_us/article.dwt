@@ -15,7 +15,6 @@
                 </div>
                 <div class="aboutCon_content_img mg-t-30">
                     <img style="width:auto;" src="{$article.image}" alt="">
-                    
                 </div>
             </div>
         </div>

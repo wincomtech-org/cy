@@ -23,7 +23,7 @@ $smarty->assign('cur', CMOD);
 
 if (in_array($rec,array('default','add','edit'))) {
     // 允许指定模板
-    $allow_tpl_name = array('默认','新闻','服务中心');
+    $allow_tpl_name = array('默认','风格1','风格2');
     $allow_tpl_tpl = array('article.dwt','news_info.html','article.dwt');
     foreach ($allow_tpl_name as $key => $value) {
         $allow_tpl[$key]['name'] = $allow_tpl_name[$key];

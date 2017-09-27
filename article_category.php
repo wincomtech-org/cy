@@ -15,12 +15,12 @@ if ($cat_id == -1) {
         $where = ' WHERE cat_id='.$cat_ids;
     }
 }
-    
+
 // 获取分页信息
 $page = $check->is_number($_REQUEST['page']) ? trim($_REQUEST['page']) : 1;
 $limit = $dou->pager('article', ($_DISPLAY['article'] ? $_DISPLAY['article'] : 10), $page, $dou->rewrite_url('article_category', $cat_id), $where);
 /* 获取文章列表 */
-$sql = "SELECT id,title,content,image,cat_id,add_time,click,description FROM " . $dou->table('article') . $where . " ORDER BY sort,id DESC" . $limit;
+$sql = "SELECT id,title,content,image,cat_id,add_time,click,description FROM " . $dou->table('article') . $where . " ORDER BY sort,add_time desc" . $limit;
 $query = $dou->query($sql);
 while ($row = $dou->fetch_array($query)) {
     $row['url'] = $dou->rewrite_url('article', $row['id']);
@@ -41,7 +41,7 @@ $cate_info = $dou->fetchRow($sql);
 switch ($cate_info['template']) {
     case 'news.html':
         // 最新动态
-        $sql = sprintf('SELECT id,image,add_time,title from %s %s order by add_time desc limit 3',$dou->table('article'),$where);
+        $sql = sprintf('SELECT id,image,add_time,title from %s %s order by sort,add_time desc limit 3',$dou->table('article'),$where);
         $fresh_news_c = $dou->fetchAll($sql);
         foreach ((array)$fresh_news_c as $v) {
             $v['title'] = $dou->dou_substr($v['title'],50);
