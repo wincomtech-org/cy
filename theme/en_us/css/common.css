@@ -72,7 +72,7 @@ transition: width 400ms ease;padding-left: 0;padding-right: 0;overflow-x: hidden
 
 .home_serach .close{display:block;width:60px;height:50px;background:url(../img/icon.png) no-repeat transparent 2px -361px;float:right;}
 
-.Search-input {border: 0;border-bottom: solid 1px #e8e7e4;font-family: AkzidenzGroteskStd;font-weight: 300;font-size: 30px;margin-bottom: 28px;outline: 0;width: 100%;color: #404040;text-align:center;}
+.Search-input {border: 0;border-bottom: solid 1px #e8e7e4;font-family: Calibri Light,AkzidenzGroteskStd,sans-serif;font-weight: 300;font-size: 30px;margin-bottom: 28px;outline: 0;width: 100%;color: #404040;text-align:center;}
 
 .home_serach_con{padding:90px 20px;}
 
