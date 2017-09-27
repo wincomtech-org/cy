@@ -53,7 +53,7 @@
 							<!--{if $product.model}--><tr><td>Model</td><td>{$product.model}</td></tr><!--{/if}-->
 							<!--{if $fieldsarr && $daos}-->
 							<!--{foreach $daos as $k=>$d}-->
-							<!--{if in_array($k,$fieldsarr)}-->
+							<!--{if $d && in_array($k,$fieldsarr)}-->
 							<tr>
 								<td>{$designate[$k]}</td>
 								<td colspan="2">{$d}</td>
