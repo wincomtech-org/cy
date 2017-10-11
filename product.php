@@ -36,7 +36,6 @@ foreach (explode(',', $product['defined']) as $row) {
 }
 // 当前导航标志
 $product['cur'] = true;
-
 // 处理选定字段值
 $dou->get_dao_fields();
 if ($product['daos']) {

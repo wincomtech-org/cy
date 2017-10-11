@@ -34,7 +34,7 @@
 							<h3><span>规格</span></h3>
 						</div>
 					</div>
-					<!--{if $daos || $product.model}-->
+					<!--{if ($fieldsarr && $daos) || $product.model}-->
 					<table style="table-layout:fixed;">
 						<thead>
 							<tr>
@@ -44,12 +44,16 @@
 						</thead>
 						<tbody>
 							<!--{if $product.model}--><tr><td>型号</td><td>{$product.model}</td></tr><!--{/if}-->
+							<!--{if $fieldsarr && $daos}-->
 							<!--{foreach $daos as $k=>$d}-->
+							<!--{if $d && in_array($k,$fieldsarr)}-->
 							<tr>
 								<td>{$designate[$k]}</td>
 								<td colspan="2">{$d}</td>
 							</tr>
+							<!--{/if}-->
 							<!--{/foreach}-->
+							<!--{/if}-->
 						</tbody>
 					</table>
 					<!--{else}-->
