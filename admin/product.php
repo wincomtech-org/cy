@@ -139,7 +139,7 @@ elseif ($rec == 'add') {
 elseif ($rec == 'insert') {
     // 数据验证
     if (empty($_POST['name'])) $dou->dou_msg($_LANG['name'] . $_LANG['is_empty']);
-    if (!$check->is_price($_POST['price'] = trim($_POST['price']))) $dou->dou_msg($_LANG['price_wrong']);
+    if (!$check->is_price(trim($_POST['price']))) $dou->dou_msg($_LANG['price_wrong']);
 
     // 图片上传
     if ($_FILES['image']['name'] != '') {
@@ -231,7 +231,7 @@ elseif ($rec == 'edit') {
 elseif ($rec == 'update') {
     // 数据验证
     if (empty($_POST['name'])) $dou->dou_msg($_LANG['name'] . $_LANG['is_empty']);
-    if (!$check->is_price($_POST['price'] = trim($_POST['price']))) $dou->dou_msg($_LANG['price_wrong']);
+    if (!$check->is_price(trim($_POST['price']))) $dou->dou_msg($_LANG['price_wrong']);
 
     // 图片上传
     if ($_FILES['image']['name'] != '') {
@@ -263,11 +263,11 @@ elseif ($rec == 'update') {
             'description'  => $_POST['description'],
             'sort'  => $_POST['sort'],
         );
-    if ($image)
-        $data['image'] = $image;
+    if (!empty($image)) $data['image'] = $image;
+
     // 获取选定字段
     // $dou->debug($daos,1);
-    if ($_POST['daos']) {
+    if (!empty($_POST['daos'])) {
         $data['daos'] = serialize($_POST['daos']);
     }
     $dou->update('product',$data,'id='.$_POST['id']);

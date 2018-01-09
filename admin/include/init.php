@@ -1,7 +1,7 @@
 <?php
 if (!defined('IN_LOTHAR')) die('Hacking attempt');
 // 显示除了E_NOTICE(提示)和E_WARNING(警告)外的所有错误
-error_reporting(E_ALL ^ E_NOTICE);
+error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
 // 调整时区
 if (PHP_VERSION >= '5.1') date_default_timezone_set('PRC');
 // 开启SESSION

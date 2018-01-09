@@ -81,7 +81,7 @@ function get_cfg_list($tab = 'main',$allow=array('ALL')) {
             $box = explode(",", $row['box']);
 
         if ($row['name'] == 'site_logo')
-            $row[$GLOBALS['syskey']] = $row[$GLOBALS['syskey']] ? "theme/" . $GLOBALS['_CFG']['site_theme'] . "/images/" . $row[$GLOBALS['syskey']] : '';
+            $row[$GLOBALS['syskey']] = $row[$GLOBALS['syskey']] ? "theme/" . $GLOBALS['_CFG']['site_theme'] . "/sys/" . $row[$GLOBALS['syskey']] : '';
 
         if ($row['name'] == 'language')
             $box = $GLOBALS['dou']->get_subdirs(ROOT_PATH . 'languages');
