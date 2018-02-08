@@ -27,28 +27,27 @@ if (strpos($referer,'?')) {
 }
 
 /*语言包统一配置*/
-// $lang_mark = array(1=>'zh_cn',2=>'en_us');
-$lang_mark = array(2=>'zh_cn',1=>'en_us');
+$lang_mark = array(1=>'zh_cn',2=>'en_us');
 // $lang_mark = get_subdirs(ROOT_PATH .'languages');
 // var_dump(session_id());
 // 中英文切换 取反
 if (isset($_GET['lchange'])) {
     echo $_GET['lchange'];
-    if ($_GET['lchange']==1) {
-        $_SESSION['lang_identifier'] = $lang_mark[2];
-    } else {
+    if ($_GET['lchange']==2) {
         $_SESSION['lang_identifier'] = $lang_mark[1];
+    } else {
+        $_SESSION['lang_identifier'] = $lang_mark[2];
     }
     $dou->dou_header($referer);
 }
 
 // 统一
-if ($_SESSION['lang_identifier']==$lang_mark[2]) {
-    $lang_type = 2;
-    $syskey = 'value2';
-} else {
+if ($_SESSION['lang_identifier']==$lang_mark[1]) {
     $lang_type = 1;
     $syskey = 'value';
+} else {
+    $lang_type = 2;
+    $syskey = 'value2';
 }
 // echo $lang_type;die;
 
