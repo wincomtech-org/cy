@@ -27,7 +27,8 @@ if (strpos($referer,'?')) {
 }
 
 /*语言包统一配置*/
-$lang_mark = array(1=>'zh_cn',2=>'en_us');
+// $lang_mark = array(1=>'zh_cn',2=>'en_us');
+$lang_mark = array(2=>'zh_cn',1=>'en_us');
 // $lang_mark = get_subdirs(ROOT_PATH .'languages');
 // var_dump(session_id());
 // 中英文切换 取反
