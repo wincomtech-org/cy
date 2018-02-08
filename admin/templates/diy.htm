@@ -41,20 +41,29 @@
                     <form name="action" method="post" action="diy.php?rec=action">
                         <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
                             <tr>
-                                <th width="22" align="center"><input name='chkall' type='checkbox' id='chkall' onclick='selectcheckbox(this.form)' value='check'></th>
-                                <th width="40" align="center">{$lang.record_id}</th>
-                                <th align="left">{$lang.diy_name}</th>
-                                <th align="left">英文名</th>
-                                <th align="center">{$lang.diy_category}</th>
-                                <th align="center">{$lang.handler}</th>
+                                <th width="40"><input name='chkall' type='checkbox' id='chkall' onclick='selectcheckbox(this.form)' value='check'></th>
+                                <th width="50">{$lang.record_id}</th>
+                                <th>{$lang.diy_name}</th>
+                                <th>英文名</th>
+                                <th width="130">{$lang.diy_category}</th>
+                                <th width="230">{$lang.handler}</th>
                             </tr>
                             <!--{foreach from=$diy_list item=diy}-->
                             <tr>
                                 <td align="center"><input type="checkbox" name="checkbox[]" value="{$diy.id}" /></td>
                                 <td align="center">{$diy.id}</td>
-                                <td><a href="diy.php?rec=edit&id={$diy.id}">{$diy.title}</a><!--{if $diy.image}--> <a href="../{$diy.image}" target="_blank"><img src="images/icon_picture.png" width="16" height="16" align="absMiddle"></a><!--{/if}--></td>
+                                <td align="center">
+                                    <a href="diy.php?rec=edit&id={$diy.id}">{$diy.title}</a>
+                                    <!--{if $diy.image}--> <a href="../{$diy.image}" target="_blank"><img src="images/icon_picture.png" width="16" height="16" align="absMiddle"></a><!--{/if}-->
+                                </td>
                                 <td align="center">{$diy.title2}</td>
-                                <td align="center"><!--{if $diy.cat_name}--><a href="diy.php?cat_id={$diy.cat_id}">{$diy.cat_name}</a><!--{else}-->{$lang.uncategorized}<!--{/if}--></td>
+                                <td align="center">
+                                    <!--{if $diy.cat_name}-->
+                                    <a href="diy.php?cat_id={$diy.cat_id}">{$diy.cat_name}</a>
+                                    <!--{else}-->
+                                    {$lang.uncategorized}
+                                    <!--{/if}-->
+                                </td>
                                 <td align="center">
                                     <a href="diy.php?rec=edit&id={$diy.id}">{$lang.edit}</a> | <a href="diy.php?rec=del&id={$diy.id}">{$lang.del}</a>
                                 </td>
@@ -88,10 +97,10 @@
                 <form action="diy.php?rec={$form_action}" method="post" enctype="multipart/form-data">
                     <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
                         <tr id="tr_unique_id">
-                            <td width="90" align="right">唯一字段</td>
+                            <td width="90" align="right">唯一字段）</td>
                             <td>
                                 <input {if $diy.unique_id}readonly{/if} type="text" name="unique_id" value="{$diy.unique_id}" size="80" class="inpMain" />
-                                <p style="color:#F00">不可二次修改</p>
+                                <p style="color:#F00">不可二次修改，例如：field、pro_color、pro_1 这三种形式（纯字母、带下划线、带数字）</p>
                             </td>
                         </tr>
                         <script type="text/javascript">
@@ -128,7 +137,7 @@
                                 <select name="cat_id" id="cat_id1">
                                     <option value="0">{$lang.uncategorized}</option>
                                     <!--{foreach from=$diy_category item=cate}-->
-                                    <option {if $cate.cat_id eq $diy.cat_id} selected="selected"{/if} value="{$cate.cat_id}">
+                                    <option {if $cat_id && $cate.cat_id eq $cat_id} selected="true" {/if} value="{$cate.cat_id}">
                                         {$cate.mark} {if $site.lang_type eq 2}{$cate.cat_name2}{else}{$cate.cat_name}{/if}
                                     </option>
                                     <!--{/foreach}-->
@@ -157,6 +166,12 @@
                             </td>
                         </tr>
                         <!--{/if}-->
+                        <tr>
+                            <td></td>
+                            <td>
+                                <big><b style="color:#F00">下面可以不用管</b></big>
+                            </td>
+                        </tr>
                         <tr>
                             <td align="right" valign="top">{$lang.diy_content}</td>
                             <td>

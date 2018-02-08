@@ -6,6 +6,11 @@
 <meta name="Copyright" content="Lothar Design." />
 <link href="templates/public.css" rel="stylesheet" type="text/css">
 {include file="javascript.htm"}
+<style type="text/css">
+  {literal}
+  list-table th,list-table td{text-align:center;}
+  {/literal}
+</style>
 </head>
 <body>
 <div id="dcWrap">
@@ -20,22 +25,25 @@
       <a {if $cur eq 'diy_category'} class="action_ls"{/if} href="diy_category.php">DIY分类</a>
       <a {if $cur eq 'diy'} class="action_ls"{/if} href="diy.php">DIY列表</a>
     </h3>
-    <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
+    <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic list-table">
      <tr>
-        <th width="120" align="left">{$lang.diy_category_name}</th>
-        <th align="left">英文名称</th>
-        <th width="60" align="center">{$lang.sort}</th>
-        <th width="180" align="center">{$lang.handler}</th>
+        <th width="210">{$lang.diy_category_name}</th>
+        <th width="260">英文名称</th>
+        <th width="90">{$lang.sort}</th>
+        <th width="180">{$lang.handler}</th>
+        <th></th>
       </tr>
       <!--{foreach from=$diy_category item=cate}-->
       <tr>
-        <td align="left">{$cate.mark} <a href="diy.php?cat_id={$cate.cat_id}">{$cate.cat_name}</a></td>
-        <td>{$cate.cat_name2}</td>
+        <td align="center">{$cate.mark} <a href="diy.php?cat_id={$cate.cat_id}">{$cate.cat_name}</a></td>
+        <td align="center">{$cate.cat_name2}</td>
         <td align="center">{$cate.sort}</td>
         <td align="center">
-        <a href="diy_category.php?rec=edit&cat_id={$cate.cat_id}">{$lang.edit}</a>
-         <!-- | <a href="diy_category.php?rec=del&cat_id={*$cate.cat_id*}">{*$lang.del*}</a> -->
+          <a href="diy.php?rec=add&cat_id={$cate.cat_id}">添加子集</a> &nbsp; | &nbsp;
+          <a href="diy_category.php?rec=edit&cat_id={$cate.cat_id}">{$lang.edit}</a>
+          <!-- | <a href="diy_category.php?rec=del&cat_id={*$cate.cat_id*}">{*$lang.del*}</a> -->
         </td>
+        <td></td>
       </tr>
       <!--{/foreach}-->
     </table>

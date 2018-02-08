@@ -26,15 +26,15 @@ $smarty->assign('cur', 'diy');
  * +----------------------------------------------------------
  */
 if ($rec == 'default') {
-    $smarty->assign('ur_here', $_LANG['diy']);
-    $smarty->assign('action_link', array(
-            'text' => $_LANG['diy_add'],
-            'href' => 'diy.php?rec=add' 
-    ));
-    
     // 获取参数
     $cat_id = $check->is_number($_REQUEST['cat_id']) ? $_REQUEST['cat_id'] : 0;
     $keyword = isset($_REQUEST['keyword']) ? trim($_REQUEST['keyword']) : '';
+
+    $smarty->assign('ur_here', $_LANG['diy']);
+    $smarty->assign('action_link', array(
+            'text' => $_LANG['diy_add'],
+            'href' => 'diy.php?rec=add&cat_id='.$cat_id
+    ));
 
     // 筛选条件
     $where = '';
@@ -84,11 +84,8 @@ if ($rec == 'default') {
  * +----------------------------------------------------------
  */
 elseif ($rec == 'add') {
-    $smarty->assign('ur_here', $_LANG['diy_add']);
-    $smarty->assign('action_link', array(
-            'text' => $_LANG['diy'],
-            'href' => 'diy.php' 
-    ));
+    // 分类ID
+    $cat_id = $check->is_number($_REQUEST['cat_id']) ? $_REQUEST['cat_id'] : '';
     
     // 格式化自定义参数，并存到数组$diy，DIY编辑页面中调用DIY详情也是用数组$diy，
     if ($_DEFINED['diy']) {
@@ -106,7 +103,14 @@ elseif ($rec == 'add') {
     // 赋值给模板
     $smarty->assign('form_action', 'insert');
     $smarty->assign('diy_category', $dou->get_category_nolevel('diy_category'));
+    $smarty->assign('cat_id', $cat_id);
     $smarty->assign('diy', $diy);
+
+    $smarty->assign('ur_here', $_LANG['diy_add']);
+    $smarty->assign('action_link', array(
+            'text' => $_LANG['diy'],
+            'href' => 'diy.php?cat_id='.$cat_id 
+    ));
 
     $smarty->display('diy.htm');
 } 
@@ -158,13 +162,7 @@ elseif ($rec == 'insert') {
  * DIY编辑
  * +----------------------------------------------------------
  */
-elseif ($rec == 'edit') {
-    $smarty->assign('ur_here', $_LANG['diy_edit']);
-    $smarty->assign('action_link', array(
-            'text' => $_LANG['diy'],
-            'href' => 'diy.php' 
-    ));
-    
+elseif ($rec == 'edit') {    
     // 验证并获取合法的ID
     $id = $check->is_number($_REQUEST['id']) ? $_REQUEST['id'] : '';
     
@@ -188,7 +186,14 @@ elseif ($rec == 'edit') {
     // 赋值给模板
     $smarty->assign('form_action', 'update');
     $smarty->assign('diy_category', $dou->get_category_nolevel('diy_category'));
+    $smarty->assign('cat_id', $diy['cat_id']);
     $smarty->assign('diy', $diy);
+
+    $smarty->assign('ur_here', $_LANG['diy_edit']);
+    $smarty->assign('action_link', array(
+            'text' => $_LANG['diy'],
+            'href' => 'diy.php?cat_id='.$diy['cat_id']
+    ));
     
     $smarty->display('diy.htm');
 } 

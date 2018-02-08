@@ -328,6 +328,8 @@ class Common extends DbMysql {
         return $link_list;
     }
 
+
+
     /**
      * +----------------------------------------------------------
      * 获取当前分类下有层级的子分类
@@ -347,6 +349,43 @@ class Common extends DbMysql {
             }
         }
         return $child_id;
+    }
+
+    /**
+     * +----------------------------------------------------------
+     * 获取有层次的栏目分类，有几层分类就创建几维数组
+     * +----------------------------------------------------------
+     * $table 数据表名
+     * $parent_id 默认获取一级导航
+     * $current_id 当前页面栏目ID
+     * +----------------------------------------------------------
+     */
+    function get_category($table, $parent_id=0, $current_id='', $field='*') {
+        $category = array();
+        $data = $this->fetch_array_all( $this->table($table), 'sort ASC,cat_id ASC', "lang_id='{$GLOBALS[lang_type]}'", $field );
+        foreach ((array) $data as $value) {
+            // $parent_id将在嵌套函数中随之变化
+            if ($value['parent_id'] == $parent_id) {
+                $value['url'] = $this->rewrite_url($table, $value['cat_id']);
+                $value['cur'] = $value['cat_id'] == $current_id ? true : false;
+                if ($value['image']) {
+                    $thumb = explode('.', $value['image']);
+                    $value['thumb'] = ROOT_URL . $thumb[0] . "_thumb." . $thumb[1];
+                } else {
+                    $value['thumb'] = ROOT_URL .'images/nopic_s_100x100.jpg';
+                }
+                foreach ($data as $child) {
+                    // 筛选下级导航
+                    if ($child['parent_id'] == $value['cat_id']) {
+                        // 嵌套函数获取子分类
+                        $value['child'] = $this->get_category($table, $value['cat_id'], $current_id, $field);
+                        break;
+                    }
+                }
+                $category[] = $value;
+            }
+        }
+        return $category;
     }
 
     /**
@@ -377,30 +416,6 @@ class Common extends DbMysql {
         }
 
         return $category_nolevel;
-    }
-
-    /**
-     * +----------------------------------------------------------
-     * 获取无层次单页面列表
-     * +----------------------------------------------------------
-     * $parent_id 调用该ID下的所有单页面，为空时则调用所有
-     * $level 无限极分类层次
-     * $current_id 当前页面栏目ID
-     * $mark 无限极分类标记
-     * +----------------------------------------------------------
-     */
-    function get_page_nolevel($parent_id = 0, $level = 0, $current_id = '', &$page_nolevel = array(), $mark = '-') {
-        $data = $this->fetch_array_all($this->table('page'),'',"lang_id='{$GLOBALS[lang_type]}'");
-        foreach ((array) $data as $value) {
-            if ($value['parent_id'] == $parent_id && $value['id'] != $current_id) {
-                $value['url'] = $this->rewrite_url('page', $value['id']);
-                $value['mark'] = str_repeat($mark, $level);
-                $value['level'] = $level;
-                $page_nolevel[] = $value;
-                $this->get_page_nolevel($value['id'], $level + 1, $current_id, $page_nolevel);
-            }
-        }
-        return $page_nolevel;
     }
 
     /**
@@ -515,43 +530,6 @@ class Common extends DbMysql {
 
     /**
      * +----------------------------------------------------------
-     * 获取有层次的栏目分类，有几层分类就创建几维数组
-     * +----------------------------------------------------------
-     * $table 数据表名
-     * $parent_id 默认获取一级导航
-     * $current_id 当前页面栏目ID
-     * +----------------------------------------------------------
-     */
-    function get_category($table, $parent_id=0, $current_id='') {
-        $category = array();
-        $data = $this->fetch_array_all($this->table($table), 'sort ASC,cat_id ASC', "lang_id='{$GLOBALS[lang_type]}'");
-        foreach ((array) $data as $value) {
-            // $parent_id将在嵌套函数中随之变化
-            if ($value['parent_id'] == $parent_id) {
-                $value['url'] = $this->rewrite_url($table, $value['cat_id']);
-                $value['cur'] = $value['cat_id'] == $current_id ? true : false;
-                if ($value['image']) {
-                    $thumb = explode('.', $value['image']);
-                    $value['thumb'] = ROOT_URL . $thumb[0] . "_thumb." . $thumb[1];
-                } else {
-                    $value['thumb'] = ROOT_URL .'images/nopic_s_100x100.jpg';
-                }
-                foreach ($data as $child) {
-                    // 筛选下级导航
-                    if ($child['parent_id'] == $value['cat_id']) {
-                        // 嵌套函数获取子分类
-                        $value['child'] = $this->get_category($table, $value['cat_id'], $current_id);
-                        break;
-                    }
-                }
-                $category[] = $value;
-            }
-        }
-        return $category;
-    }
-
-    /**
-     * +----------------------------------------------------------
      * 首页单独 article 栏目调用
      * 支持多个
      * +----------------------------------------------------------
@@ -597,6 +575,30 @@ class Common extends DbMysql {
             }
         }
         return $page_list;
+    }
+
+    /**
+     * +----------------------------------------------------------
+     * 获取无层次单页面列表
+     * +----------------------------------------------------------
+     * $parent_id 调用该ID下的所有单页面，为空时则调用所有
+     * $level 无限极分类层次
+     * $current_id 当前页面栏目ID
+     * $mark 无限极分类标记
+     * +----------------------------------------------------------
+     */
+    function get_page_nolevel($parent_id = 0, $level = 0, $current_id = '', &$page_nolevel = array(), $mark = '-') {
+        $data = $this->fetch_array_all($this->table('page'),'',"lang_id='{$GLOBALS[lang_type]}'");
+        foreach ((array) $data as $value) {
+            if ($value['parent_id'] == $parent_id && $value['id'] != $current_id) {
+                $value['url'] = $this->rewrite_url('page', $value['id']);
+                $value['mark'] = str_repeat($mark, $level);
+                $value['level'] = $level;
+                $page_nolevel[] = $value;
+                $this->get_page_nolevel($value['id'], $level + 1, $current_id, $page_nolevel);
+            }
+        }
+        return $page_nolevel;
     }
 
     /**

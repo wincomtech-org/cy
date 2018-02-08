@@ -128,9 +128,14 @@ elseif ($rec == 'add') {
     // CSRF防御令牌生成
     $smarty->assign('token', $firewall->get_token());
 
+    // 产品分类
+    $product_category = $dou->get_category('product_category',0,'','cat_id,parent_id,cat_name');
+    // print_r($product_category);
+    // $product_category = $dou->get_category_nolevel('product_category');
+
     // 赋值给模板
     $smarty->assign('form_action', 'insert');
-    $smarty->assign('product_category', $dou->get_category_nolevel('product_category'));
+    $smarty->assign('product_category', $product_category);
     $smarty->assign('product', $product);
 
     $smarty->display('product.htm');
@@ -148,10 +153,16 @@ elseif ($rec == 'insert') {
         $img->make_thumb($image_name, $_CFG['thumb_width'], $_CFG['thumb_height']);
         // 第二张缩略图
         $img->make_thumb($image_name, $thumb['w2'], $thumb['h2'], '90', '2');
+    } else {
+        $image = '';
     }
 
     // 数据格式化
-    $_POST['defined'] = str_replace("\r\n", ',', $_POST['defined']);
+    if (!empty($_POST['defined'])) {
+        $_POST['defined'] = str_replace("\r\n", ',', $_POST['defined']);
+    } else {
+        $_POST['defined'] = '';
+    }
 
     // CSRF防御令牌验证
     $firewall->check_token($_POST['token']);
@@ -173,7 +184,7 @@ elseif ($rec == 'insert') {
     );
     // 获取选定字段
     // $dou->debug($daos,1);
-    if ($_POST['daos']) {
+    if (!empty($_POST['daos'])) {
         $data['daos'] = serialize($_POST['daos']);
     }
     $dou->insert('product',$data);
@@ -220,9 +231,14 @@ elseif ($rec == 'edit') {
     // CSRF防御令牌生成
     $smarty->assign('token', $firewall->get_token());
 
+    // 产品分类
+    $product_category = $dou->get_category('product_category',0,'','cat_id,parent_id,cat_name');
+    // print_r($product_category);
+    // $product_category = $dou->get_category_nolevel('product_category');
+
     // 赋值给模板
     $smarty->assign('form_action', 'update');
-    $smarty->assign('product_category', $dou->get_category_nolevel('product_category'));
+    $smarty->assign('product_category', $product_category);
     $smarty->assign('product', $product);
 
     $smarty->display('product.htm');
@@ -246,7 +262,11 @@ elseif ($rec == 'update') {
     }
 
     // 格式化自定义参数
-    $_POST['defined'] = str_replace("\r\n", ',', $_POST['defined']);
+    if (!empty($_POST['defined'])) {
+        $_POST['defined'] = str_replace("\r\n", ',', $_POST['defined']);
+    } else {
+        $_POST['defined'] = '';
+    }
 
     // CSRF防御令牌验证
     $firewall->check_token($_POST['token']);
