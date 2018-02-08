@@ -256,7 +256,6 @@ var proHeight=proWidth;
 $('.prodcts_detail_tit .img').css('height',proHeight);
 
 if(screen.width > 767){
-
 	if(proHeight > proTxtHeight){
 		 var intercept=proHeight - proTxtHeight;
 		 $('.prodcts_detail_tit .txt').css('padding-top',intercept/2.5+"px")
@@ -264,7 +263,6 @@ if(screen.width > 767){
 		var intercept=proTxtHeight - proHeight;
 		 $('.prodcts_detail_tit .img').css('margin-top',intercept/2+"px")
 	}
-
 }
 
 

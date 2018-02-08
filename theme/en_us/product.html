@@ -34,6 +34,27 @@
 						</div>
 					<div class="clear"></div>
 				</div>
+				<script type="text/javascript">
+				{literal}
+					/**产品详情页的产品图高度 重写**/
+					var proWidth=$('.prodcts_detail_tit .img').width();
+					var proHeight=$('.prodcts_detail_tit .img').height();
+					var proTxtHeight=$('.prodcts_detail_tit .txt').height();
+
+					var proHeight=proWidth;
+					$('.prodcts_detail_tit .img').css('height',proHeight);
+
+					// if(screen.width > 767){
+					// 	if(proHeight > proTxtHeight){
+					// 		 var intercept=proHeight - proTxtHeight;
+					// 		 $('.prodcts_detail_tit .txt').css('padding-top',intercept/2.5+"px")
+					// 	}else{
+					// 		var intercept=proTxtHeight - proHeight;
+					// 		 $('.prodcts_detail_tit .img').css('margin-top',intercept/2+"px")
+					// 	}
+					// }
+				{/literal}
+				</script>
 
 				<div class="products_standard mg-t-30n pad-b-30 pad-t-30">
 					<div class="about_content_tit unline">
