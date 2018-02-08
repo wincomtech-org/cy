@@ -132,7 +132,7 @@
             <!--{foreach from=$product_category item=cate}-->
             <optgroup label="{$cate.cat_name}">
                 <!--{foreach from=$cate.child item=child}-->
-                <option {if $cat_id && $cate.cat_id eq $cat_id} selected="true"{/if} value="{$cate.cat_id}">{$child.cat_name}</option>
+                <option {if $cat_id && $child.cat_id eq $cat_id} selected="true"{/if} value="{$child.cat_id}">{$child.cat_name}</option>
                 <!--{/foreach}-->
             </optgroup>
             <!--{/foreach}-->
@@ -280,11 +280,11 @@
 
 <!--{if $rec eq 'add' || $rec eq 'edit'}-->
 <script type="text/javascript">
-    var frm = 'product.php?rec={$rec}';
-    {literal}
+  var frm = 'product.php?rec={$rec}';
+  {literal}
     function dgLink(o,id) {
       window.location=frm+'&cid='+o.value+'&id='+id;
-  }
+    }
   {/literal}
 </script>
 <!--{/if}-->
