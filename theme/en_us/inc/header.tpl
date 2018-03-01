@@ -38,6 +38,7 @@
                     </div>
                     <!--{/if}-->
                     <!-- <a href="{* $site.root_url *}?lchange={* $site.lang_type *}" class="header-toggle-button"><img src="img/guoqi.gif"></a> -->
+                    <a href="http://www.huger.cn/cn/" class="header-toggle-button"><img src="img/guoqi.gif"></a>
                 </div>
                 <!--菜单导航-->
                 <div class="header-menu" style="">
